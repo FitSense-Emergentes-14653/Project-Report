@@ -4,11 +4,11 @@
 **FitSense - Project Report**
 
 ## Authors  
-- Juan Jesús Calisaya Sánchez - u202121935  
-- Nadia Alessandra Lucas Coronel - u202120430  
-- Fiorella Jarama Peñaloza - u202120418  
-- Juan Alejandro Cuadros Rodríguez - u20221a359  
-- Adrian Rubio Calixto - u202017622  
+- Calisaya Sánchez, Juan Jesús - u202121935  
+- Cuadros Rodríguez, Juan Alejandro - u20221a359  
+- Jarama Peñaloza, Fiorella - u202120418   
+- Lucas Coronel, Nadia Alessandra - u202120430  
+- 
 
 ---
 
