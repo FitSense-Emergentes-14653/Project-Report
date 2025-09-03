@@ -260,3 +260,40 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
     </td>
   </tr>
 </table>
+
+## 1.2. Solution Profile
+
+### 1.2.1 Antecedentes y problemática
+
+- **What:**  
+  Muchas personas desean mejorar su condición física —bajar de peso, ganar músculo, prepararse para una meta personal—, pero enfrentan limitaciones como la falta de planes personalizados adecuados y seguimiento constante.
+
+- **Where:**  
+  Esta problemática es global, aunque su impacto se intensifica en zonas urbanas con alto consumo de apps de salud y fitness.
+
+- **When:**  
+  En los últimos años, especialmente desde 2020, el uso de aplicaciones móviles de fitness ha experimentado un crecimiento acelerado, intensificado por la pandemia y la conciencia creciente sobre la salud personal.
+
+- **Who:**  
+  Personas de todas las edades que buscan opciones accesibles y personalizadas de entrenamiento y nutrición sin depender de servicios costosos; típicamente usuarios de smartphones y, en muchos casos, wearables.
+
+- **Why:**  
+  - Contratar entrenadores personales o nutricionistas es costoso y poco accesible.  
+  - Los planes gratuitos disponibles en internet suelen ser genéricos y no consideran el contexto o circunstancias de cada usuario.  
+  - Sin seguimiento constante, la motivación disminuye rápidamente al no visualizar progreso de forma clara.
+
+- **How:**  
+  Al no existir herramientas asequibles, personalizadas e integrales (entrenamiento + nutrición + suplementación + metas concretas), los usuarios terminan usando múltiples apps desconectadas o abandonando sus objetivos.
+
+- **How much:**  
+  El mercado global de aplicaciones de fitness se encuentra en plena expansión. Por ejemplo, más del **74 % de ciudadanos estadounidenses** utiliza al menos una app de fitness, y el **60 % la ha sustituido por completo por membresías de gimnasio tradicionales**.
+
+    (Revisar [Anexo N°1: Estadística sobre uso de apps de fitness](https://www.grandviewresearch.com/industry-analysis/fitness-app-market))  
+
+    <p align="center">
+    <img src="./img/fitness-app-market.png" alt="Mercado de aplicaciones fitness" width="100%">
+    </p>
+
+### 1.2.2 Lean UX Process
+
+#### 1.2.2.1. Lean UX Problem Statements
