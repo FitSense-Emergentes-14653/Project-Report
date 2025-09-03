@@ -111,10 +111,6 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-### 1.2.2 Lean UX Process
-
-#### 1.2.2.1. Lean UX Problem Statements
-
 ***Problem Statement 1***  
 
 |Nuestro producto tiene como objetivo mejorar la condición física de las personas mediante un acompañamiento integral (ejercicio, nutrición y suplementos) basado en IA.|
