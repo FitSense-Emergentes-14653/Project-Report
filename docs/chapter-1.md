@@ -68,7 +68,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
     <td valign="top">
       <p><b>Rubio Calixto, Adrian</b></p>
       <p>
-        .
+        Mi nombre es Adrian Gustavo Rubio Calixto, soy estudiante de la carrera de ingeniería de software, con interés en la inteligencia artificial y la arquitectura de microprocesadores. En mi tiempo libre me gusta tocar la guitarra, leer y jugar videojuegos. Tengo conocimiento en los lenguajes C + +, Java, JavaScript, Python, Flutter, HTML5 y CSS. Tambien manejo habilidades blandas y el trabajo en equipo
       </p>
     </td>
   </tr>
