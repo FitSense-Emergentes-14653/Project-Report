@@ -19,18 +19,18 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
 <table>
   <tr>
     <th>
-      <img src="../img/perfil_juan_jesus.png" alt="Foto de perfil de Juan Jesus" width="800px">
+      <img src="../img/chapter-1/perfil_juan_jesus.png" alt="Foto de perfil de Juan Jesus" width="800px">
     </th>
     <td valign="top">
       <p><b>Calisaya Sánchez, Juan Jesús</b></p>
       <p>
-        ....
+        Soy estudiante de octavo ciclo de Ingeniería de Software en la UPC, con sólidos conocimientos en arquitecturas de software escalables y mantenibles, aplicando metodologías ágiles y buenas prácticas de desarrollo. Domino tecnologías como Java, Spring Boot, .NET, TypeScript, React, Angular y Docker, además de bases de datos SQL y NoSQL. Me considero una persona colaboradora y comunicativa, capaz de aportar tanto en el diseño técnico como en la coordinación del equipo para asegurar la calidad del proyecto.
       </p>
     </td>
   </tr>
   <tr>
     <th>
-      <img src="../img/perfil_juan.png" alt="Foto de perfil de Juan" width="700px">
+      <img src="../img/chapter-1/perfil_juan.png" alt="Foto de perfil de Juan" width="700px">
     </th>
     <td valign="top">
       <p><b>Cuadros Rodriguez, Juan Alejandro</b></p>
@@ -41,7 +41,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
   </tr>
   <tr>
     <th>
-      <img src="../img/perfil_fiorella.png" alt="Foto de perfil de Fiorella" width="800px">
+      <img src="../img/chapter-1/perfil_fiorella.png" alt="Foto de perfil de Fiorella" width="800px">
     </th>
     <td valign="top">
       <p><b>Jarama Peñaloza, Fiorella</b></p>
@@ -52,7 +52,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
   </tr>
   <tr>
     <th>
-      <img src="../img/perfil_nadia.png" alt="Foto de perfil de Nadia" width="800px">
+      <img src="../img/chapter-1/perfil_nadia.png" alt="Foto de perfil de Nadia" width="800px">
     </th>
     <td valign="top">
       <p><b>Lucas Coronel, Nadia Alessandra</b></p>
@@ -63,7 +63,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
   </tr>
   <tr>
     <th>
-      <img src="../img/perfil_adrian.png" alt="Foto de perfil de Adrian" width="800px">
+      <img src="../img/chapter-1/perfil_adrian.png" alt="Foto de perfil de Adrian" width="800px">
     </th>
     <td valign="top">
       <p><b>Rubio Calixto, Adrian</b></p>
