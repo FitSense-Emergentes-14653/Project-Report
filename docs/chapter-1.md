@@ -104,7 +104,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
     (Revisar [Anexo N°1: Estadística sobre uso de apps de fitness](https://www.grandviewresearch.com/industry-analysis/fitness-app-market))  
 
     <p align="center">
-    <img src="../img/fitness-app-market.png" alt="Mercado de aplicaciones fitness" width="100%">
+    <img src="../img/chapter-1/fitness-app-market.png" alt="Mercado de aplicaciones fitness" width="100%">
     </p>
 
 ### 1.2.2 Lean UX Process
