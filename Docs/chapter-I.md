@@ -173,7 +173,21 @@ Se realiza un análisis de las principales funciones detectadas en la problemát
     <td>Media</td>
   </tr>
   <tr>
-    <td>Visualizar métricas
+    <td>Visualizar métricas de progreso (peso, IMC, calorías)</td>
+    <td>A veces</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Recibir recordatorios o notificaciones</td>
+    <td>A veces</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Consultar recomendaciones de suplementos</td>
+    <td>Rara vez</td>
+    <td>Media</td>
+  </tr>
+</table>
 
 ### 2.3.3 Empathy mapping
 
