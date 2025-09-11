@@ -10,7 +10,7 @@
 
 | Empresa/App | MyFitnessPal | Nike Training Club | Fitbit | FitSense |
 |-------------|--------------|-----------------|--------|----------|
-| Logo | ![Logo MyFitnessPal](img/myfitnesspal.png) | ![Logo Nike Training Club](img/nike_training.png) | ![Logo Fitbit](img/fitbit.png) | ![Logo FitSense](img/fitsense.png) |
+| Logo | ![Logo MyFitnessPal](../img/my-fitness-app.jpg) | ![Logo Nike Training Club](../img/nike.png) | ![Logo Fitbit](../img/fitbit.png) | ![Logo FitSense](../img/fitsense.png) |
 
 **Perfil**
 
