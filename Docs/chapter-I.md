@@ -220,6 +220,41 @@ Se realiza un análisis de las principales funciones detectadas en la problemát
 
 ### 2.3.5 Ubiquitous Language
 
+<p align=justify>
+El lenguaje ubicuo es un conjunto de términos definidos que permiten al equipo de desarrollo y a los usuarios mantener una comunicación clara y sin ambigüedades. A continuación, se presentan los principales términos adoptados en el proyecto <b>FitSense</b>:
+</p>
+
+<table>
+  <tr>
+    <th>Término</th>
+    <th>Definición</th>
+  </tr>
+  <tr>
+    <td>Plan</td>
+    <td>Conjunto de rutinas de entrenamiento y pautas de alimentación personalizadas para el usuario.</td>
+  </tr>
+  <tr>
+    <td>Rutina</td>
+    <td>Serie de ejercicios programados para un día específico, adaptados al nivel y objetivos del usuario.</td>
+  </tr>
+  <tr>
+    <td>Dashboard</td>
+    <td>Vista central de la aplicación donde el usuario puede monitorear métricas de progreso (peso, IMC, calorías, etc.).</td>
+  </tr>
+  <tr>
+    <td>Recordatorio</td>
+    <td>Notificación inteligente enviada al usuario para mantener la motivación y la constancia en su plan.</td>
+  </tr>
+  <tr>
+    <td>Progreso</td>
+    <td>Evolución de las métricas del usuario (peso, IMC, calorías consumidas/quemadas) a lo largo del tiempo.</td>
+  </tr>
+  <tr>
+    <td>Suplemento</td>
+    <td>Producto recomendado que complementa la dieta del usuario para alcanzar sus metas de forma más eficiente.</td>
+  </tr>
+</table>
+
 
 ### 2.3.5 To-Be Scenario Mapping
 
