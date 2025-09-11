@@ -147,3 +147,42 @@ Estos gráfico muestra cómo el usuario interactúa con el sistema para monitore
 <img src="img/dmf_notification.png" alt="Domain Message Flow Notification" width="80%">
 
 
+#### **4.1.1.3 Bounded Context Canvases.**
+Los Bounded Context Canvases de FitSense permiten visualizar el propósito de cada contexto, sus interacciones con usuarios y sistemas externos, el lenguaje ubicuo que los define y las decisiones clave de negocio que los guían. Con ellos se asegura que cada módulo del sistema sea coherente, independiente y alineado con los objetivos de la aplicación.
+
+<img src="img/bcc_security.png" alt="Bounded Context Canvases Security" width="80%">
+
+<img src="img/bcc_monitoreo.png" alt="Bounded Context Canvases Monitoring" width="80%">
+
+<img src="img/bcc_plan.png" alt="Bounded Context Canvases Plan" width="80%">
+
+<img src="img/bcc_social.png" alt="Bounded Context Canvases Social" width="80%">
+
+<img src="img/bcc_notification.png" alt="Bounded Context Canvases Notification" width="80%">
+
+
+### **4.1.2. Context Mapping**
+Una vez definidos nuestros Bounded Contexts, realizamos el mapeo de sus relaciones para comprender cómo se comunican dentro del sistema de FitSense y asignar los patrones adecuados según su interacción.
+
+– Security provee autenticación y manejo de perfiles de usuario. Es utilizado por los demás contextos, pero no depende de ninguno. Esta relación fue clasificada como Shared Kernel, ya que su lógica y entidades clave (usuarios, credenciales, perfiles) deben ser consistentes y compartidas de forma controlada.
+
+– Plan genera y personaliza los planes de entrenamiento y alimentación. Consume datos básicos del perfil del usuario desde Security, por lo que su relación sigue el patrón Customer–Supplier.
+
+– Monitoring realiza el seguimiento de métricas, progreso y análisis de imágenes. Este contexto depende de los planes generados en el contexto Plan (para medir adherencia y progreso), por lo que su relación aplica como Conformist, ya que adopta el lenguaje de eventos de Plan.
+
+– Notification se encarga de la gestión de recordatorios y alertas (ej. entrenamiento pendiente, hidratación). Consume datos tanto de Monitoring (ej. detectar inactividad) como de Security (ej. configuración de usuario). Sus relaciones se clasifican como Customer–Supplier, ya que Notification depende de información expuesta por esos contextos.
+
+– Social facilita la publicación y el compartir logros del usuario. Su interacción con Security (para validar identidad del usuario) también sigue el patrón Customer–Supplier. Además, consume métricas de Monitoring para generar contenido atractivo (ej. logros de progreso), lo que refuerza un Conformist con respecto al lenguaje de progreso definido en Monitoring.
+
+– En algunos escenarios, la comunicación entre Plan y Monitoring también puede considerarse como Published Language, ya que ambos deben interpretar métricas y eventos de forma coherente (ej. cuando se regenera un plan porque el sistema detectó falta de adherencia).
+
+Este mapeo nos ayuda a establecer relaciones claras entre los contextos, identificar dependencias y definir una arquitectura que mantenga separadas las responsabilidades de cada módulo en FitSense.
+
+**Bounded Context All - Vista Completa**
+    <img src="img/es_allBoundedContext.png" alt="Bounded Contexts" width="800">
+
+### 4.1.3. Software Architecture
+#### 4.1.3.1. Software Architecture System Landscape Diagram
+#### 4.1.3.2. Software Architecture Context Level Diagrams
+#### 4.1.3.3. Software Architecture Container Level Diagrams
+#### 4.1.3.4. Software Architecture Deployment Diagrams 
