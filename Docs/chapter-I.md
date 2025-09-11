@@ -4,7 +4,93 @@
 
 ### 2.1.1 Análisis competitivo
 
+<table>
+    <tr>
+        <td colspan=6 align="center"><b>Competitive Analysis Landscape</b></td>
+    </tr>
+    <tr>
+        <td rowspan=2 colspan=2 align="justify"><b>¿Por qué llevar a cabo este análisis?</b></td>
+        <td colspan=4 align="justify">El objetivo principal del Competitive Analysis Landscape es identificar las características, fortalezas y debilidades de las aplicaciones de fitness más relevantes, en contraste con el valor diferencial que ofrecerá <b>FitSense</b>.</td>
+    </tr>
+    <tr>
+        <td colspan=4 align="justify">Este análisis permite definir cómo posicionar nuestra solución frente a competidores directos del mercado digital de fitness.</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td align="center">Nike Training Club <img src="../img/chapter-2/nike.png" height="60"></td>
+        <td align="center">MyFitnessPal <img src="../img/chapter-2/myfitnesspal.png" height="60"></td>
+        <td align="center">Freeletics <img src="../img/chapter-2/freeletics.png" height="60"></td>
+        <td align="center">FitSense (Propuesta)</td>
+    </tr>
+    <tr>
+        <td><b>Perfil</b></td>
+        <td><b>Overview</b></td>
+        <td align="justify">Aplicación enfocada en entrenamiento físico con rutinas guiadas por expertos y programas personalizados.</td>
+        <td align="justify">Plataforma centrada en nutrición, control de calorías y registro de comidas, con comunidad activa.</td>
+        <td align="justify">App de entrenamiento impulsada por IA que ofrece planes intensivos y motivación mediante retos.</td>
+        <td align="justify">Aplicación integral que combina entrenamiento, nutrición y suplementos, con planes personalizados mediante IA.</td>
+    </tr>
+    <tr>
+        <td><b>Perfil de Marketing</b></td>
+        <td><b>Mercado objetivo</b></td>
+        <td align="justify">Usuarios de 18 a 40 años que buscan rutinas guiadas y motivación.</td>
+        <td align="justify">Personas interesadas en controlar su dieta y mantener hábitos alimenticios saludables.</td>
+        <td align="justify">Usuarios que desean entrenamientos exigentes y gamificados.</td>
+        <td align="justify">Personas de 16 a 55 años que buscan un plan fitness accesible, integral y personalizado.</td>
+    </tr>
+    <tr>
+        <td><b>Perfil de Producto</b></td>
+        <td><b>Productos & Servicios</b></td>
+        <td align="justify">Rutinas de entrenamiento, programas guiados, seguimiento de progreso.</td>
+        <td align="justify">Contador de calorías, registro de comidas, recomendaciones nutricionales.</td>
+        <td align="justify">Planes de entrenamiento personalizados, retos, seguimiento de progreso.</td>
+        <td align="justify">Planes de entrenamiento + nutrición + suplementos, dashboard de métricas, recordatorios inteligentes.</td>
+    </tr>
+    <tr>
+        <td><b>Análisis SWOT</b></td>
+        <td><b>Fortalezas / Oportunidades / Debilidades / Amenazas</b></td>
+        <td align="justify">
+        ➱ Fortalezas: Marca reconocida, entrenamientos de calidad.  
+        ➱ Oportunidades: Integración con wearables.  
+        ➱ Debilidades: Enfoque limitado al ejercicio.  
+        ➱ Amenazas: Saturación del mercado fitness.  
+        </td>
+        <td align="justify">
+        ➱ Fortalezas: Base de usuarios grande, comunidad activa.  
+        ➱ Oportunidades: Expansión de planes premium.  
+        ➱ Debilidades: Foco en nutrición, poca integración con entrenamiento.  
+        ➱ Amenazas: Competidores con soluciones más completas.  
+        </td>
+        <td align="justify">
+        ➱ Fortalezas: Personalización con IA, gamificación.  
+        ➱ Oportunidades: Crecimiento del mercado digital fitness.  
+        ➱ Debilidades: Requiere alta disciplina, puede ser poco amigable para principiantes.  
+        ➱ Amenazas: Aplicaciones con enfoque integral más sencillo.  
+        </td>
+        <td align="justify">
+        ➱ Fortalezas: Solución integral (entrenamiento + nutrición + suplementos).  
+        ➱ Oportunidades: Demanda creciente de apps accesibles y personalizadas.  
+        ➱ Debilidades: Proyecto en etapa inicial, requiere validación.  
+        ➱ Amenazas: Competidores con mayor reconocimiento y recursos.  
+        </td>
+    </tr>
+</table>
+
+---
+
 ### 2.1.2 Solution Software Design
+
+<p align=justify>
+Luego de analizar a nuestros competidores, hemos identificado debilidades que aún no han sido resueltas. <b>FitSense</b> aprovechará estas oportunidades para diferenciarse en el mercado. Algunas de nuestras ventajas competitivas son:
+</p>
+
+- Integración de **entrenamiento + nutrición + suplementos** en un mismo espacio digital.  
+- **Planes personalizados con IA**, adaptados a las metas reales de cada usuario.  
+- **Dashboard visual e intuitivo** con métricas claras de progreso.  
+- **Recordatorios inteligentes** para mantener la constancia y motivación.  
+- Espacios de **feedback del usuario** para mejorar la aplicación en cada actualización.  
+
 
 ## 2.2. Entrevistas
 
