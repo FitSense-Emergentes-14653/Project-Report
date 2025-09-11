@@ -132,4 +132,18 @@
 <br>
 <br>
 
+#### **4.1.1.2 Domain Message Flows Modeling.** 
+
+Estos gráfico muestra cómo el usuario interactúa con el sistema para monitorear su progreso físico. A través de la aplicación móvil, se registran datos personales y métricas de salud, que son procesados por la inteligencia artificial de FitSense. Si se detecta una desviación en el plan o un valor fuera de los rangos esperados, el sistema activa una alerta y notifica al usuario en tiempo real.
+
+<img src="img/dmf_security.png" alt="Domain Message Flow Security" width="80%">
+
+<img src="img/dmf_monitoring.png" alt="Domain Message Flow Monitoring" width="80%">
+
+<img src="img/dmf_plan.png" alt="Domain Message Flow Plan" width="80%">
+
+<img src="img/dmf_social.png" alt="Domain Message Flow Social" width="80%">
+
+<img src="img/dmf_notification.png" alt="Domain Message Flow Notification" width="80%">
+
 
