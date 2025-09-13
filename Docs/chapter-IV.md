@@ -11,21 +11,21 @@
 
 <p>Iniciamos con una exploración libre del dominio, donde cada integrante propuso eventos clave desde su perspectiva. Esta etapa nos permitió intercambiar ideas, descubrir puntos relevantes y construir una comprensión compartida del proceso. Para seleccionar los eventos, consideramos criterios como relevancia, frecuencia y temporalidad.<p>
 
-<img src="img/es_unstructuredExploration.png" alt="Unstructured Exploration" width="80%">
+<img src="../img/chapter-4/es_unstructuredExploration.png" alt="Unstructured Exploration" width="80%">
 
 
 **Step 2: Timelines**
 <p>En esta fase organizamos los eventos del dominio de forma cronológica. Esto nos permitió visualizar el flujo completo del sistema, identificar el orden natural de los eventos y comprender mejor cómo interactúan los usuarios con FitSense en el proceso de registro, generación de planes, seguimiento y mejora física.</p>
 
-<img src="img/es_timelines1.png" alt="Timelines 1" width="80%">
+<img src="../img/chapter-4/es_timelines1.png" alt="Timelines 1" width="80%">
 
-<img src="img/es_timelines2.png" alt="Timelines 2" width="80%">
+<img src="../img/chapter-4/es_timelines2.png" alt="Timelines 2" width="80%">
 
 **Step 3: Pain Points**
 <p>Detectamos los puntos críticos o problemáticos que enfrentan tanto los usuarios como el sistema actual. Estos incluían desde notificaciones poco visibles que podrían ser ignoradas, hasta la dificultad de generar planes realistas cuando los datos ingresados son incompletos o inconsistentes.</p>
 
-<img src="img/es_painPoints1.png" alt="Pain Points 1" width="80%">
-<img src="img/es_painPoints2.png" alt="Pain Points 2" width="80%">
+<img src="../img/chapter-4/es_painPoints1.png" alt="Pain Points 1" width="80%">
+<img src="../img/chapter-4/es_painPoints2.png" alt="Pain Points 2" width="80%">
 <br>
 <br>
 <br>
@@ -33,8 +33,7 @@
 **Step 4: Pivotal Points**
 <p>Identificamos los momentos clave que marcan cambios importantes dentro del proceso, como cuando se genera un nuevo plan personalizado, cuando el usuario recibe una alerta de inactividad o cuando se detecta una mejora en las métricas físicas mediante IA. Estos puntos nos ayudaron a definir posibles mejoras de alto impacto en la experiencia de uso.</p>
 
-<img src="img/es_pivotalPoints1.png" alt="Pivotal Points 1" width="80%">
-<img src="img/es_pivotalPoints2.png" alt="Pivotal Points 2" width="80%">
+<img src="../img/chapter-4/es_pivotalPoints1.png" alt="Pivotal Points 1" width="80%">
 <br>
 <br>
 <br>
@@ -42,8 +41,8 @@
 **Step 5: Commands**
 <p>Aquí definimos las acciones que los usuarios o el sistema pueden ejecutar, como "Registrar Usuario", "Generar Plan de Entrenamiento", "Enviar Notificación de Hidratación" o "Subir Foto de Progreso". Cada comando representa una intención concreta que da lugar a eventos dentro de FitSense.</p>
 
-<img src="img/es_commands.png" alt="Commands 1" width="80%">
-<img src="img/es_commands2.png" alt="Commands 2" width="80%">
+<img src="../img/chapter-4/es_commands.png" alt="Commands 1" width="80%">
+<img src="../img/chapter-4/es_commands2.png" alt="Commands 2" width="80%">
 <br>
 <br>
 <br>
@@ -51,8 +50,8 @@
 **Step 6: Policies**
 <p>Establecimos las reglas de negocio que deben ejecutarse de forma automática ante ciertos eventos. Por ejemplo, si el sistema detecta inactividad por más de tres días, se activa una política que genera y envía una notificación push al usuario. O si se sube una foto de progreso, se activa una política de privacidad y de procesamiento de la imagen con IA.</p>
 
-<img src="img/es_policies1.png" alt="Policies 1" width="80%">
-<img src="img/es_policies2.png" alt="Policies 1" width="80%">
+<img src="../img/chapter-4/es_policies1.png" alt="Policies 1" width="80%">
+<img src="../img/chapter-4/es_policies2.png" alt="Policies 2" width="80%">
 <br>
 <br>
 <br>
@@ -60,7 +59,7 @@
 **Step 7: Read Models**
 <p>Diseñamos los modelos de lectura que permitirán consultar el estado del usuario, como el dashboard con métricas de IMC, calorías recomendadas, gráficos de progreso semanal, historial de planes y logros sociales. Estos modelos están optimizados para ofrecer al usuario información clara, motivadora y accesible.</p>
 
-<img src="img/es_readModels.png" alt="Read Models" width="80%">
+<img src="../img/chapter-4/es_readModels.png" alt="Read Models" width="80%">
 <br>
 <br>
 <br>
@@ -68,7 +67,7 @@
 **Step 8: External Systems**
 <p>Identificamos los sistemas externos que interactúan con FitSense, como servicios de autenticación (Firebase Auth), APIs de notificaciones push, motores de IA de recomendación, librerías de visualización de gráficos y APIs de visión por computadora para el análisis de imágenes. También se contemplaron integraciones con redes sociales para compartir logros.</p>
 
-<img src="img/es_externalSystems.png" alt="External Systems" width="80%">
+<img src="../img/chapter-4/es_externalSystems.png" alt="External Systems" width="80%">
 <br>
 <br>
 <br>
@@ -76,7 +75,7 @@
 **Step 9: Aggregates**
 <p>Por último, definimos los aggregates, que representan los límites consistentes del dominio. Un ejemplo claro fue el aggregate de <b>Plan Personalizado</b>, que encapsula la lógica de generación y adaptación de planes de entrenamiento y alimentación. Otro aggregate clave fue <b>Monitoring</b>, que centraliza el seguimiento de métricas y la detección de mejoras físicas. Estos aggregates permiten mantener la coherencia del dominio y garantizar que cada área funcional de FitSense evolucione de manera independiente pero alineada.</p>
 
-<img src="img/es_aggregates.png" alt="Aggregates" width="80%">
+<img src="../img/chapter-4/es_aggregates.png" alt="Aggregates" width="80%">
 
 #### 4.1.1.1 Candidate Context Discovery. 
 
@@ -108,26 +107,26 @@
 
 **Bounded Context Security**
 
-<img src="img/es_boundedContext1.png" alt="Bounded Context" width="80%">
+<img src="../img/chapter-4/es_boundedContext1.png" alt="Bounded Context" width="80%">
 
 **Bounded Context Plan**
 
-<img src="img/es_boundedContext4.png" alt="Bounded Context" width="80%">
+<img src="../img/chapter-4/es_boundedContext5.png" alt="Bounded Context" width="80%">
 
 
 **Bounded Context Monitoring**
 
-<img src="img/es_boundedContext3.png" alt="Bounded Context" width="80%">
+<img src="../img/chapter-4/es_boundedContext4.png" alt="Bounded Context" width="80%">
 
 
 **Bounded Context Notification**
 
-<img src="img/es_boundedContext2.png" alt="Bounded Context" width="80%">
+<img src="../img/chapter-4/es_boundedContext3.png" alt="Bounded Context" width="80%">
 
 
 **Bounded Context Social**
 
-<img src="img/es_boundedContext1.png" alt="Bounded Context" width="80%">
+<img src="../img/chapter-4/es_boundedContext2.png" alt="Bounded Context" width="80%">
 <br>
 <br>
 <br>
@@ -136,29 +135,29 @@
 
 Estos gráfico muestra cómo el usuario interactúa con el sistema para monitorear su progreso físico. A través de la aplicación móvil, se registran datos personales y métricas de salud, que son procesados por la inteligencia artificial de FitSense. Si se detecta una desviación en el plan o un valor fuera de los rangos esperados, el sistema activa una alerta y notifica al usuario en tiempo real.
 
-<img src="img/dmf_security.png" alt="Domain Message Flow Security" width="80%">
+<img src="../img/chapter-4/dmf_security.png" alt="Domain Message Flow Security" width="80%">
 
-<img src="img/dmf_monitoring.png" alt="Domain Message Flow Monitoring" width="80%">
+<img src="../img/chapter-4//dmf_monitoring.png" alt="Domain Message Flow Monitoring" width="80%">
 
-<img src="img/dmf_plan.png" alt="Domain Message Flow Plan" width="80%">
+<img src="../img/chapter-4/dmf_plan.png" alt="Domain Message Flow Plan" width="80%">
 
-<img src="img/dmf_social.png" alt="Domain Message Flow Social" width="80%">
+<img src="../img/chapter-4/dmf_social.png" alt="Domain Message Flow Social" width="80%">
 
-<img src="img/dmf_notification.png" alt="Domain Message Flow Notification" width="80%">
+<img src="../img/chapter-4/dmf_notification.png" alt="Domain Message Flow Notification" width="80%">
 
 
 #### **4.1.1.3 Bounded Context Canvases.**
 Los Bounded Context Canvases de FitSense permiten visualizar el propósito de cada contexto, sus interacciones con usuarios y sistemas externos, el lenguaje ubicuo que los define y las decisiones clave de negocio que los guían. Con ellos se asegura que cada módulo del sistema sea coherente, independiente y alineado con los objetivos de la aplicación.
 
-<img src="img/bcc_security.png" alt="Bounded Context Canvases Security" width="80%">
+<img src="../img/chapter-4/bcc_security.png" alt="Bounded Context Canvases Security" width="80%">
 
-<img src="img/bcc_monitoreo.png" alt="Bounded Context Canvases Monitoring" width="80%">
+<img src="../img/chapter-4/bcc_monitoreo.png" alt="Bounded Context Canvases Monitoring" width="80%">
 
-<img src="img/bcc_plan.png" alt="Bounded Context Canvases Plan" width="80%">
+<img src="../img/chapter-4/bcc_plan.png" alt="Bounded Context Canvases Plan" width="80%">
 
-<img src="img/bcc_social.png" alt="Bounded Context Canvases Social" width="80%">
+<img src="../img/chapter-4/bcc_social.png" alt="Bounded Context Canvases Social" width="80%">
 
-<img src="img/bcc_notification.png" alt="Bounded Context Canvases Notification" width="80%">
+<img src="../img/chapter-4/bcc_notification.png" alt="Bounded Context Canvases Notification" width="80%">
 
 
 ### **4.1.2. Context Mapping**
