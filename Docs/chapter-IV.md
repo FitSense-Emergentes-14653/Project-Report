@@ -178,7 +178,7 @@ Una vez definidos nuestros Bounded Contexts, realizamos el mapeo de sus relacion
 Este mapeo nos ayuda a establecer relaciones claras entre los contextos, identificar dependencias y definir una arquitectura que mantenga separadas las responsabilidades de cada módulo en FitSense.
 
 **Bounded Context All - Vista Completa**
-    <img src="img/es_allBoundedContext.png" alt="Bounded Contexts" width="800">
+    <img src="../img/chapter-4/es_allBoundedContext.png" alt="Bounded Contexts" width="800">
 
 ### 4.1.3. Software Architecture
 #### 4.1.3.1. Software Architecture System Landscape Diagram
