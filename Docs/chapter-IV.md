@@ -200,3 +200,7 @@ El Diagrama de Contenedores detalla la arquitectura interna del sistema FitSense
 <img src="../img/chapter-4/c4_containersDiagram.jpg" alt="C4 Containers Diagram" width="800">
 
 #### 4.1.3.4. Software Architecture Deployment Diagrams 
+
+El Diagrama de Despliegue muestra cómo la arquitectura del sistema FitSense se ejecuta en el entorno de producción. Este diagrama detalla la infraestructura física y lógica, incluyendo la plataforma de contenedores Railway que aloja la aplicación monolítica y las bases de datos, así como los servicios de terceros como Firebase y GPT-4o mini. Su propósito es visualizar las dependencias de red y los entornos de ejecución para entender cómo los componentes de software se distribuyen y se comunican entre sí.
+
+<img src="../img/chapter-4/c4_deploymentDiagram.png" alt="C4 Deployment Diagram" width="800">
