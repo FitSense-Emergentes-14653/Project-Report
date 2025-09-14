@@ -183,7 +183,9 @@ Este mapeo nos ayuda a establecer relaciones claras entre los contextos, identif
 ### 4.1.3. Software Architecture
 #### 4.1.3.1. Software Architecture System Landscape Diagram
 
+El Diagrama de Paisaje del Sistema ofrece una visión panorámica de la cartera de software de la organización. Para el proyecto FitSense, este diagrama ubica nuestra plataforma en relación con los sistemas externos esenciales para su operación, como los servicios de inteligencia artificial y las APIs de redes sociales, definiendo el contexto más amplio en el que operará nuestro software.
 
+<img src="../img/chapter-4/c4_landscapeDiagram.jpg" alt="C4 Landscape Diagram" width="800">
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams 
 
@@ -195,6 +197,6 @@ El Diagrama de Contexto proporciona una vista de alto nivel del sistema FitSense
 
 El Diagrama de Contenedores detalla la arquitectura interna del sistema FitSense. Representa las principales aplicaciones, servicios, bases de datos y sistemas externos que trabajan juntos para operar la plataforma. Este diagrama muestra las conexiones y el flujo de información entre cada uno de los componentes, ilustrando cómo se implementan decisiones arquitectónicas clave, como el uso de un API Gateway y la integración de la arquitectura RAG para la generación de planes de entrenamiento.
 
-<img src="../img/chapter-4/c4_containersDiagram.jpg" alt="C4 Container Diagram" width="800">
+<img src="../img/chapter-4/c4_containersDiagram.jpg" alt="C4 Containers Diagram" width="800">
 
 #### 4.1.3.4. Software Architecture Deployment Diagrams 
