@@ -204,50 +204,6 @@ Se realiza un análisis de las principales funciones detectadas en la problemát
 
 
 ### 2.3.4 As-is scenario mapping
-#### 2.3.4.1 cliente
-
-<p align=justify>
-El siguiente mapa representa el escenario actual del usuario objetivo, mostrando las fases, pensamientos, acciones y emociones que atraviesa cuando intenta mejorar su condición física con ayuda de aplicaciones de fitness existentes.
-</p>
-
-<table>
-  <tr>
-    <th>Phases</th>
-    <th>Doing</th>
-    <th>Thinking</th>
-    <th>Feeling</th>
-  </tr>
-  <tr>
-    <td><b>Búsqueda de soluciones</b></td>
-    <td>Descarga varias aplicaciones de fitness y busca rutinas en internet.</td>
-    <td>“Será difícil encontrar una app que realmente se adapte a mí.”</td>
-    <td>Frustración y dudas por la gran cantidad de apps poco claras.</td>
-  </tr>
-  <tr>
-    <td><b>Primeros intentos</b></td>
-    <td>Prueba planes gratuitos de apps o rutinas en YouTube.</td>
-    <td>“Ojalá esta rutina me ayude a lograr mis objetivos.”</td>
-    <td>Esperanza inicial, pero también incertidumbre por falta de personalización.</td>
-  </tr>
-  <tr>
-    <td><b>Uso constante</b></td>
-    <td>Registra entrenamientos y comidas durante algunas semanas.</td>
-    <td>“¿Realmente estoy progresando o perdiendo el tiempo?”</td>
-    <td>Ansiedad por no ver resultados claros y dificultad en mantener la motivación.</td>
-  </tr>
-  <tr>
-    <td><b>Desmotivación</b></td>
-    <td>Deja de registrar datos o abandona la aplicación.</td>
-    <td>“Tal vez necesito un entrenador personal, estas apps no me ayudan lo suficiente.”</td>
-    <td>Desánimo y sensación de fracaso por no alcanzar metas.</td>
-  </tr>
-  <tr>
-    <td><b>Reinicio del ciclo</b></td>
-    <td>Descarga otra app o vuelve a buscar nuevas rutinas en internet.</td>
-    <td>“Debe haber una app que realmente funcione para mí.”</td>
-    <td>Mezcla de esperanza y escepticismo.</td>
-  </tr>
-</table>
 
 #### 2.3.4.1 cliente
 
@@ -258,7 +214,7 @@ El siguiente mapa representa el escenario actual del usuario objetivo, mostrando
 >
 
 
-### 2.3.5 Ubiquitous Language
+### 2.4 Ubiquitous Language
 
 <p align=justify>
 El lenguaje ubicuo es un conjunto de términos definidos que permiten al equipo de desarrollo y a los usuarios mantener una comunicación clara y sin ambigüedades. A continuación, se presentan los principales términos adoptados en el proyecto <b>FitSense</b>:
@@ -295,7 +251,12 @@ El lenguaje ubicuo es un conjunto de términos definidos que permiten al equipo 
   </tr>
 </table>
 
+# Capítulo III Requirements Specification
 
-### 2.3.5 To-Be Scenario Mapping
+### 3.1 To-Be Scenario Mapping
 
-#### 2.3.5.1 cliente
+#### 3.1.1 cliente
+
+<image
+  src="../images/as-is-scenario-mapping-cliente.png"
+  alt="As-is scenario mapping cliente">
