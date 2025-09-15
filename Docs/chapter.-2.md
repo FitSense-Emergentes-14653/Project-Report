@@ -206,7 +206,7 @@ Se realiza un análisis de las principales funciones detectadas en la problemát
 ### 2.3.4 As-is scenario mapping
 
 #### 2.3.4.1 cliente
-
+  
 <image
   src="../img/as-is-scenario-mapping-cliente.png"
   alt="As-is scenario mapping cliente">
@@ -258,5 +258,5 @@ El lenguaje ubicuo es un conjunto de términos definidos que permiten al equipo 
 #### 3.1.1 cliente
 
 <image
-  src="../images/as-is-scenario-mapping-cliente.png"
-  alt="As-is scenario mapping cliente">
+  src="../img/to-be-scenario-mapping-cliente.png"
+  alt="To-be scenario mapping cliente">
