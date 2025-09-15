@@ -132,8 +132,118 @@
 
 ### 2.2.2 Registro de entrevistas
 
-**Usuario cliente**
+**Usuario Cliente**
 
+####  **Entrevista N.º 1**
+
+- **Entrevistador:** -- 
+- **Entrevistado:** --  
+- **Duración:** [00:00:00 – 00:05:41] (**5 minutos 41 segundos**) 
+
+- **Datos demográficos:**
+  - Nombre: ..
+  - Edad: ..
+  - Ubicación: ..
+  - Ocupación: ..
+  - Nivel de actividad física: ..
+  - Dispositivos tecnológicos utilizados: ..
+
+![Entrevista a -](img/../img/chapter-2/interview1.png)  
+*Entrevista a -*
+
+**Resumen:**  
+...
+
+---
+
+####  **Entrevista N.º 2**
+
+- **Entrevistador:** -- 
+- **Entrevistado:** --  
+- **Duración:** [00:00:00 – 00:05:41] (**5 minutos 41 segundos**)
+
+- **Datos demográficos:**
+  - Nombre: ..
+  - Edad: ..
+  - Ubicación: ..
+  - Ocupación: ..
+  - Nivel de actividad física: ..
+  - Dispositivos tecnológicos utilizados: ..
+
+![Entrevista a -](img/../img/chapter-2/interview2.png)  
+*Entrevista a -*
+
+**Resumen:**  
+...
+
+---
+
+####  **Entrevista N.º 3**
+
+- **Entrevistador:** -- 
+- **Entrevistado:** --  
+- **Duración:** [00:00:00 – 00:05:41] (**5 minutos 41 segundos**) 
+
+- **Datos demográficos:**
+  - Nombre: ..
+  - Edad: ..
+  - Ubicación: ..
+  - Ocupación: ..
+  - Nivel de actividad física: ..
+  - Dispositivos tecnológicos utilizados: ..
+
+![Entrevista a -](../img/chapter-2/interview3.png)  
+*Entrevista a -*
+
+**Resumen:**  
+...
+
+---
+
+####  **Entrevista N.º 4**
+
+- **Entrevistador:** -- 
+- **Entrevistado:** --  
+- **Duración:** [00:00:00 – 00:05:41] (**5 minutos 41 segundos**) 
+
+- **Datos demográficos:**
+  - Nombre: ..
+  - Edad: ..
+  - Ubicación: ..
+  - Ocupación: ..
+  - Nivel de actividad física: ..
+  - Dispositivos tecnológicos utilizados: ..
+
+![Entrevista a -](../img/chapter-2/interview4.png)  
+*Entrevista a -*
+
+**Resumen:**  
+...
+
+---
+
+####  **Entrevista N.º 5**
+
+- **Entrevistador:** Nadia Lucas 
+- **Entrevistado:** Nayeli Chavez  
+- **Duración:** [00:00:00 – 00:05:41] (**5 minutos 41 segundos**)  
+
+- **Datos demográficos:**
+  - Nombre: Nayeli
+  - Edad: 23 años
+  - Ubicación: Lima, Perú
+  - Ocupación: Estudiante de Psicología (últimos ciclos)
+  - Nivel educativo: Universitario en curso
+  - Nivel de actividad física: Principiante – entrena 1 vez por semana, quiere mejorar constancia
+  - Dispositivos tecnológicos utilizados: Smartphone Android, smartwatch económico, apps básicas como YouTube y Google Fit
+
+![Entrevista a Nayeli Chavez](../img/chapter-2/interview5.png)  
+*Entrevista a Nayeli Chavez*
+
+**Resumen:**  
+Nayeli es una usuaria de 23 años con nivel principiante de actividad física, que actualmente se apoya en YouTube, Instagram y Google Fit para entrenar, además de un smartwatch básico. Ha probado aplicaciones como Nike Training Club, pero las abandonó por falta de personalización y seguimiento. Considera indispensable que un plan se adapte a sus características, que la aplicación muestre calorías ideales y métricas claras (IMC, peso, calorías) en dashboards visuales, y que incluya recordatorios inteligentes para mejorar su constancia. Además, valora la posibilidad de compartir logros con su comunidad como factor motivacional. Señala que suele dejar de usar apps cuando son complejas, poco motivadoras o le piden pagos demasiado pronto.
+
+---
 
 
 ### 2.2.3. Análisis de entrevistas
