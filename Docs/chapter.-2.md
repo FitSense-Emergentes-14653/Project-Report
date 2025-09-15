@@ -237,7 +237,7 @@
   - Nivel de actividad física: Principiante – entrena 1 vez por semana, quiere mejorar constancia
   - Dispositivos tecnológicos utilizados: Smartphone Android, smartwatch económico, apps básicas como YouTube y Google Fit
 
-![Entrevista a Nayeli Chavez](../img/chapter-2/interview5.png)  
+![Entrevista a Nayeli Chavez](../img/chapter-2/interview5.PNG)  
 *Entrevista a Nayeli Chavez*
 
 **Resumen:**  
