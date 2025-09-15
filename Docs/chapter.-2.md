@@ -199,7 +199,7 @@ Se realiza un análisis de las principales funciones detectadas en la problemát
 #### 2.3.3.1 cliente
 
 <image
-  src="../images/empathy-mapping-cliente.png"
+  src="../img/empathy-mapping-cliente.png"
   alt="Emapthy mapping de cliente">
 
 
