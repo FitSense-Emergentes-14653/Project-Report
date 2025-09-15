@@ -208,7 +208,7 @@ Se realiza un análisis de las principales funciones detectadas en la problemát
 #### 2.3.4.1 cliente
 
 <image
-  src="../images/as-is-scenario-mapping-cliente.png"
+  src="../img/as-is-scenario-mapping-cliente.png"
   alt="As-is scenario mapping cliente">
 
 >
