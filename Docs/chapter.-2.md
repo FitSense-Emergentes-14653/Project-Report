@@ -10,7 +10,7 @@
 
 | Empresa/App | Freeletics | Fitbod | Nike Training Club | FitSense |
 |-------------|------------|--------|-------------------|----------|
-| Logo | <img src="../img/chapter-2/freeletics.png" height="100px" width="150px"/> | <img src="../img/chapter-2/fitbod.png" height="100px" width="150px"/> | <img src="../img/chapter-2/nike.png" height="100px" width="150px"/> | <img src="../img/chapter-2/fitsense.png" height="100px" width="150px"/> |
+| Logo | <img src="../img/chapter-2/freeletics.png" height="100px" width="120px"/> | <img src="../img/chapter-2/fitbod.png" height="100px" width="120px"/> | <img src="../img/chapter-2/nike.png" height="100px" width="120px"/> | <img src="../img/chapter-2/fitsense.png" height="100px" width="120px"/> |
 
 **Perfil**
 
