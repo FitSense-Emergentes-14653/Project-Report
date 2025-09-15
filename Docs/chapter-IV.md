@@ -1,6 +1,6 @@
 ## Capítulo IV: Solution Software Design
-## 4.1. Strategic-Level Domain-Driven Design. 
-### 4.1.1. EventStorming. 
+## 4.2. Strategic-Level Domain-Driven Design. 
+### 4.2.1. EventStorming. 
 
 <p>Realizamos nuestro proceso de event storming a través de la herramienta Figma, donde trazamos todo el recorrido del sistema. Iniciamos con la fase inicial de Unstructured Exploration, en la cual discutimos y contrastamos nuestras ideas respecto a los eventos clave del dominio, guiándonos por las sugerencias recomendadas y centrandonos en el objetivo numero uno de nuestro proyecto. Asimismo, tomamos en cuenta diversos aspectos al elegir los eventos, tales como su importancia, recurrencia y momento de ocurrencia.<p>
 
@@ -77,7 +77,7 @@
 
 <img src="../img/chapter-4/es_aggregates.png" alt="Aggregates" width="80%">
 
-#### 4.1.1.1 Candidate Context Discovery. 
+### 4.2.2 Candidate Context Discovery. 
 
 **Identificación de Valores del Negocio:**  
 <p>Analizamos los aspectos fundamentales del negocio: la personalización de planes de ejercicio y alimentación mediante IA, el seguimiento del progreso físico con métricas de salud, la entrega de notificaciones y recordatorios oportunos, la generación de reportes y visualizaciones motivadoras, y la interacción social para compartir logros. Estos valores permiten a los usuarios entrenar de forma más eficiente, segura y personalizada, fomentando hábitos saludables y una experiencia accesible sin necesidad de un entrenador presencial.</p>
@@ -131,7 +131,7 @@
 <br>
 <br>
 
-#### **4.1.1.2 Domain Message Flows Modeling.** 
+### **4.2.3. Domain Message Flows Modeling.** 
 
 Estos gráfico muestra cómo el usuario interactúa con el sistema para monitorear su progreso físico. A través de la aplicación móvil, se registran datos personales y métricas de salud, que son procesados por la inteligencia artificial de FitSense. Si se detecta una desviación en el plan o un valor fuera de los rangos esperados, el sistema activa una alerta y notifica al usuario en tiempo real.
 
@@ -146,7 +146,7 @@ Estos gráfico muestra cómo el usuario interactúa con el sistema para monitore
 <img src="../img/chapter-4/dmf_notification.png" alt="Domain Message Flow Notification" width="80%">
 
 
-#### **4.1.1.3 Bounded Context Canvases.**
+### **4.2.4. Bounded Context Canvases.**
 Los Bounded Context Canvases de FitSense permiten visualizar el propósito de cada contexto, sus interacciones con usuarios y sistemas externos, el lenguaje ubicuo que los define y las decisiones clave de negocio que los guían. Con ellos se asegura que cada módulo del sistema sea coherente, independiente y alineado con los objetivos de la aplicación.
 
 <img src="../img/chapter-4/bcc_security.png" alt="Bounded Context Canvases Security" width="80%">
@@ -160,7 +160,7 @@ Los Bounded Context Canvases de FitSense permiten visualizar el propósito de ca
 <img src="../img/chapter-4/bcc_notification.png" alt="Bounded Context Canvases Notification" width="80%">
 
 
-### **4.1.2. Context Mapping**
+### **4.2.5. Context Mapping**
 Una vez definidos nuestros Bounded Contexts, realizamos el mapeo de sus relaciones para comprender cómo se comunican dentro del sistema de FitSense y asignar los patrones adecuados según su interacción.
 
 – Security provee autenticación y manejo de perfiles de usuario. Es utilizado por los demás contextos, pero no depende de ninguno. Esta relación fue clasificada como Shared Kernel, ya que su lógica y entidades clave (usuarios, credenciales, perfiles) deben ser consistentes y compartidas de forma controlada.
@@ -180,26 +180,26 @@ Este mapeo nos ayuda a establecer relaciones claras entre los contextos, identif
 **Bounded Context All - Vista Completa**
     <img src="../img/chapter-4/es_allBoundedContext.png" alt="Bounded Contexts" width="800">
 
-### 4.1.3. Software Architecture
-#### 4.1.3.1. Software Architecture System Landscape Diagram
+## 4.3. Software Architecture
+### 4.3.1. Software Architecture System Landscape Diagram
 
 El Diagrama de Paisaje del Sistema ofrece una visión panorámica de la cartera de software de la organización. Para el proyecto FitSense, este diagrama ubica nuestra plataforma en relación con los sistemas externos esenciales para su operación, como los servicios de inteligencia artificial y las APIs de redes sociales, definiendo el contexto más amplio en el que operará nuestro software.
 
 <img src="../img/chapter-4/c4_landscapeDiagram.jpg" alt="C4 Landscape Diagram" width="800">
 
-#### 4.1.3.2. Software Architecture Context Level Diagrams 
+### 4.3.2. Software Architecture Context Level Diagrams 
 
 El Diagrama de Contexto proporciona una vista de alto nivel del sistema FitSense. El propósito es mostrar cómo la plataforma interactúa con los usuarios y con los principales sistemas externos de los que depende, como los servicios de IA de Gpt 4o mini, las APIs de redes sociales, y los sistemas de autenticación y notificaciones.
 
 <img src="../img/chapter-4/c4_contextDiagram.jpg" alt="C4 Context Diagram" width="800">
 
-#### 4.1.3.3. Software Architecture Container Level Diagrams
+### 4.3.3. Software Architecture Container Level Diagrams
 
 El Diagrama de Contenedores detalla la arquitectura interna del sistema FitSense. Representa las principales aplicaciones, servicios, bases de datos y sistemas externos que trabajan juntos para operar la plataforma. Este diagrama muestra las conexiones y el flujo de información entre cada uno de los componentes, ilustrando cómo se implementan decisiones arquitectónicas clave, como el uso de un API Gateway y la integración de la arquitectura RAG para la generación de planes de entrenamiento.
 
 <img src="../img/chapter-4/c4_containersDiagram.jpg" alt="C4 Containers Diagram" width="800">
 
-#### 4.1.3.4. Software Architecture Deployment Diagrams 
+### 4.3.4. Software Architecture Deployment Diagrams 
 
 El Diagrama de Despliegue muestra cómo la arquitectura del sistema FitSense se ejecuta en el entorno de producción. Este diagrama detalla la infraestructura física y lógica, incluyendo la plataforma de contenedores Railway que aloja la aplicación monolítica y las bases de datos, así como los servicios de terceros como Firebase y GPT-4o mini. Su propósito es visualizar las dependencias de red y los entornos de ejecución para entender cómo los componentes de software se distribuyen y se comunican entre sí.
 
