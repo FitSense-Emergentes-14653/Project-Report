@@ -146,71 +146,11 @@ A continuación, se mostrará los artefactos realizados de acuerdo a la retroali
 
 ### 2.3.1 User personas
 
-### Usuario objetivo: Carla Méndez
+#### 2.3.1.1 Cliente
 
-**Quote**  
-*"Quiero mejorar mi salud y condición física, pero necesito una aplicación que me guíe paso a paso, con planes realistas y que me mantenga motivada en el tiempo."*
-
----
-
-**Demographic**  
-- Edad: 28 años  
-- Ubicación: Lima, Perú  
-- Estado civil: Soltera  
-- Ocupación: Analista de marketing  
-- Sexo: Femenino  
-
----
-
-**Background**  
-Carla trabaja en una empresa de publicidad y pasa gran parte del día frente a la computadora. Ha intentado inscribirse en el gimnasio, pero lo abandona por falta de tiempo y motivación. Ha usado aplicaciones de fitness, pero las considera poco personalizadas y confusas. Quiere una app que la ayude a bajar de peso y mantenerse saludable, sin necesidad de contratar un entrenador personal costoso.  
-
----
-
-**Goals**  
-- Bajar de peso de forma progresiva y saludable.  
-- Encontrar rutinas de ejercicio que se adapten a su horario.  
-- Seguir planes de alimentación sencillos y realistas.  
-- Visualizar su progreso semanal en gráficos motivadores.  
-- Mantener constancia con recordatorios y notificaciones.  
-
----
-
-**Needs**  
-- Planes de entrenamiento y nutrición **personalizados**.  
-- Información clara y simple sobre ejercicios y comidas.  
-- Seguimiento de métricas de progreso (peso, calorías, IMC).  
-- Motivación constante mediante recordatorios inteligentes.  
-
----
-
-**Frustrations**  
-- Rutinas genéricas que no se adaptan a su nivel.  
-- Falta de tiempo para ir al gimnasio.  
-- Poca constancia al no ver resultados rápidos.  
-- Uso de múltiples apps desconectadas.  
-
----
-
-**Motivations**  
-- Mejorar su salud y bienestar.  
-- Ahorro de tiempo y dinero frente a entrenadores presenciales.  
-- Ver resultados claros y medibles en poco tiempo.  
-- Lograr un estilo de vida saludable sin complicaciones.  
-
----
-
-**Channels**  
-- Redes sociales: Instagram, TikTok, YouTube.  
-- Aplicaciones móviles de fitness.  
-- Recomendaciones de amigos.  
-
----
-
-**Technology**  
-- Smartphone (Android/iOS).  
-- Smartwatch básico (opcional).  
-- Navegadores: Chrome, Safari.  
+<image
+  src="../img/user-persona-cliente.png"
+  alt="User persona cliente">
 
 ### 2.3.2 User Task Matrix
 
