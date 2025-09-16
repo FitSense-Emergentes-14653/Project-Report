@@ -249,6 +249,20 @@ Nayeli es una usuaria de 23 años con nivel principiante de actividad física, q
 
 ### 2.2.3. Análisis de entrevistas
 
+Luego de realizar las entrevistas diseñadas para el usuario objetivo, se obtuvo información valiosa que permite identificar las principales necesidades y expectativas en torno al uso de aplicaciones de fitness y salud.
+
+**Usuario objetivo**  
+
+**Análisis objetivo:**  
+Se evidencia la necesidad de una solución digital integral que apoye tanto a usuarios principiantes como avanzados en su proceso de mejora física. Los participantes resaltaron la importancia de que la aplicación brinde **planes personalizados** de acuerdo con las características individuales (nivel de actividad, objetivos, tiempo disponible), ya que las rutinas genéricas suelen generar desmotivación y abandono.  
+
+Asimismo, se identificó que existe una fuerte demanda por **métricas claras y confiables** (IMC, peso, calorías) presentadas en dashboards visuales e intuitivos. Esta funcionalidad no solo permite a los usuarios monitorear su progreso, sino también generar confianza y motivación al ver resultados tangibles.  
+
+Otro aspecto relevante es la necesidad de **recordatorios inteligentes**, que ayuden a mantener la constancia y disciplina, especialmente en aquellos usuarios que suelen abandonar tras algunas semanas de uso. Además, la posibilidad de **compartir logros con la comunidad** se destacó como un factor motivacional clave, que refuerza el compromiso y permite generar apoyo entre pares.  
+
+Entre las principales frustraciones encontradas se hallan la **complejidad de las aplicaciones actuales**, la falta de motivación por ausencia de acompañamiento, los **cobros prematuros** que limitan el acceso a funcionalidades, y en el caso de los usuarios avanzados, la **inexactitud de la información nutricional**, que debería adaptarse mejor al contexto local.  
+
+En general, los hallazgos confirman la necesidad de desarrollar una plataforma como **FitSense**, que combine en un solo espacio entrenamiento, nutrición y suplementos, con personalización basada en inteligencia artificial, dashboards visuales, recordatorios inteligentes y un componente comunitario que incremente la adherencia y motivación de los usuarios.
 
 
 
