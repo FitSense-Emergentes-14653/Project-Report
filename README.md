@@ -250,7 +250,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
         aa<br>
-        <strong>Ramirez Mendez, Sebastián André</strong><br>
+        <strong>Rubio Calixto, Adrian Gustavo</strong><br>
         <em>TB1</em><br>
         aa<br>
     </td>
