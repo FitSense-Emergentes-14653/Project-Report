@@ -332,9 +332,11 @@ Se realiza un análisis de las principales funciones detectadas en la problemát
 
 ### 2.3.4 As-is scenario mapping
 
-Esta sección describe la experiencia actual de los usuarios al intentar mejorar su condición física utilizando aplicaciones de fitness disponibles en el mercado. A diferencia del escenario ideal, este mapa refleja las dificultades y frustraciones que enfrentan en cada etapa de su recorrido. El proceso suele comenzar con la búsqueda de múltiples aplicaciones y rutinas en línea, seguido por intentos iniciales de uso que carecen de personalización y acompañamiento.  
+Esta sección presenta la experiencia actual que los usuarios viven al intentar mejorar su condición física mediante aplicaciones y recursos digitales disponibles en el mercado. Visualiza sus frustraciones y obstáculos, mostrando cómo, a pesar de sus esfuerzos iniciales, terminan enfrentándose a barreras que dificultan la constancia y el logro de resultados.  
 
-Con el tiempo, la falta de métricas claras, la complejidad de las interfaces y la ausencia de recordatorios motivacionales generan desmotivación y abandono. Finalmente, los usuarios reinician el ciclo probando nuevas aplicaciones o recursos, con una mezcla de esperanza y escepticismo. Este escenario muestra la naturaleza fragmentada y poco satisfactoria de la experiencia actual, justificando la necesidad de una solución integral como FitSense.
+A diferencia del mapa "To-Be", este escenario refleja una realidad fragmentada: los usuarios prueban múltiples aplicaciones o rutinas en línea, pero encuentran planes poco personalizados, interfaces complejas y falta de acompañamiento. Esto provoca desmotivación, abandono y la necesidad de reiniciar el ciclo constantemente, evidenciando la oportunidad de crear una solución integral como FitSense.  
+
+<p align="center"><em>Escenario actual de usuarios de aplicaciones de fitness</em></p>
   
 <image
   src="../img/chapter-2/as-is-scenario-mapping-cliente.png"
