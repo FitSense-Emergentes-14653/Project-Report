@@ -283,7 +283,7 @@ A continuación, se mostrará los artefactos realizados de acuerdo a la retroali
 
 Se realiza un análisis de las principales funciones detectadas en la problemática. Esto se elaboró a partir de los comentarios obtenidos en las entrevistas realizadas al único segmento de usuario definido: personas que buscan crear su propio plan fitness.
 
-| Task Matrix                                  | Usuario (Frecuencia) | Usuario (Importancia) |
+| Task Matrix                                  | Frecuencia percibida por el usuario  | Importancia para el usuario |
 |----------------------------------------------|-----------------------|------------------------|
 | Planificar entrenamientos semanales          | Siempre              | Alta                   |
 | Registrar comidas                            | Frecuente            | Media                  |
