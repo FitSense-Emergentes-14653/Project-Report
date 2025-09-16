@@ -136,24 +136,25 @@
 
 ####  **Entrevista N.º 1**
 
-- **Entrevistador:** -- 
-- **Entrevistado:** --  
-- **Duración:** [00:00:00 – 00:05:41] (**5 minutos 41 segundos**) 
+- **Entrevistador:** Adrian Gustavo Rubio Calixto
+- **Entrevistado:** Jesus Pedro Casana Espinoza
+- **Duración:** [00:00:00 – 00:06:58] (**6 minutos 58 segundos**) 
 
 - **Datos demográficos:**
-  - Nombre: ..
-  - Edad: ..
-  - Ubicación: ..
-  - Ocupación: ..
-  - Nivel de actividad física: ..
-  - Dispositivos tecnológicos utilizados: ..
+  - Nombre: Jesus Pedro Casana Espinoza
+  - Edad: 22
+  - Ubicación: Callao, Peru
+  - Ocupación: Estudiante
+  - Nivel de actividad física: Avanzado - Entrena todos los dias menos los fin de semana
+  - Dispositivos tecnológicos utilizados: Smartphone y Smartwatch 
 
 ![Entrevista a -](img/../img/chapter-2/interview1.png)  
-*Entrevista a -*
+*Entrevista a Jesus Casana*
 
 **Resumen:**  
-...
+Jesús, de 22 años, es un usuario con nivel avanzado en actividad física. Actualmente utiliza un smartwatch para monitorear sus pasos y entrenamientos, además de recurrir a YouTube para seguir rutinas y ejercicios. También emplea la aplicación MyFitnessPal para el control de comidas y el cálculo de calorías. Sin embargo, dejó de usarla debido a la inexactitud de la información nutricional de los productos que consume, señalando que debería estar mejor adaptada a la oferta local de alimentos en Perú.
 
+Para él es fundamental que un plan de entrenamiento se personalice según sus características individuales y que la aplicación ofrezca métricas claras como IMC, peso y calorías en tableros visuales e intuitivos. Además, valora la presencia de recordatorios inteligentes que le ayuden a mantener la constancia. La posibilidad de compartir logros con la comunidad también representa un importante factor motivacional. Reconoce que tiende a abandonar aplicaciones cuando resultan demasiado complejas, poco atractivas o si tiene poco enganche ya que se vuelve algo agoviante mantener el control de comidas y rutinas.
 ---
 
 ####  **Entrevista N.º 2**
