@@ -148,7 +148,7 @@
   - Nivel de actividad física: Avanzado - Entrena todos los dias menos los fin de semana
   - Dispositivos tecnológicos utilizados: Smartphone y Smartwatch 
 
-![Entrevista a -](img/chapter-2/interview1.png)  
+![Entrevista a Jesus Casana](../img/chapter-2/interview1.png)  
 *Entrevista a Jesus Casana*
 
 **Resumen:**  
