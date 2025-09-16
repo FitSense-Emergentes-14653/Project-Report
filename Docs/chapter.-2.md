@@ -332,12 +332,13 @@ Se realiza un análisis de las principales funciones detectadas en la problemát
 
 ### 2.3.4 As-is scenario mapping
 
-#### 2.3.4.1 cliente
+Esta sección describe la experiencia actual de los usuarios al intentar mejorar su condición física utilizando aplicaciones de fitness disponibles en el mercado. A diferencia del escenario ideal, este mapa refleja las dificultades y frustraciones que enfrentan en cada etapa de su recorrido. El proceso suele comenzar con la búsqueda de múltiples aplicaciones y rutinas en línea, seguido por intentos iniciales de uso que carecen de personalización y acompañamiento.  
+
+Con el tiempo, la falta de métricas claras, la complejidad de las interfaces y la ausencia de recordatorios motivacionales generan desmotivación y abandono. Finalmente, los usuarios reinician el ciclo probando nuevas aplicaciones o recursos, con una mezcla de esperanza y escepticismo. Este escenario muestra la naturaleza fragmentada y poco satisfactoria de la experiencia actual, justificando la necesidad de una solución integral como FitSense.
   
 <image
   src="../img/chapter-2/as-is-scenario-mapping-cliente.png"
   alt="As-is scenario mapping cliente">
-
 >
 
 
@@ -378,12 +379,4 @@ El lenguaje ubicuo es un conjunto de términos definidos que permiten al equipo 
   </tr>
 </table>
 
-# Capítulo III Requirements Specification
 
-### 3.1 To-Be Scenario Mapping
-
-#### 3.1.1 cliente
-
-<image
-  src="../img/chapter-2/to-be-scenario-mapping-cliente.png"
-  alt="To-be scenario mapping cliente">
