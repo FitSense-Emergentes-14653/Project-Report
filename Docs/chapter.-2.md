@@ -281,45 +281,18 @@ A continuación, se mostrará los artefactos realizados de acuerdo a la retroali
 
 ### 2.3.2 User Task Matrix
 
-<p align=justify>
 Se realiza un análisis de las principales funciones detectadas en la problemática. Esto se elaboró a partir de los comentarios obtenidos en las entrevistas realizadas al único segmento de usuario definido: personas que buscan crear su propio plan fitness.
-</p>
 
-<table>
-  <tr>
-    <th rowspan="2">Task Matrix</th>
-    <th colspan="2">Usuario</th>
-  </tr>
-  <tr>
-    <td>Frecuencia</td>
-    <td>Importancia</td>
-  </tr>
-  <tr>
-    <td>Planificar entrenamientos semanales</td>
-    <td>Siempre</td>
-    <td>Alta</td>
-  </tr>
-  <tr>
-    <td>Registrar comidas</td>
-    <td>Frecuente</td>
-    <td>Media</td>
-  </tr>
-  <tr>
-    <td>Visualizar métricas de progreso (peso, IMC, calorías)</td>
-    <td>A veces</td>
-    <td>Alta</td>
-  </tr>
-  <tr>
-    <td>Recibir recordatorios o notificaciones</td>
-    <td>A veces</td>
-    <td>Alta</td>
-  </tr>
-  <tr>
-    <td>Consultar recomendaciones de suplementos</td>
-    <td>Rara vez</td>
-    <td>Media</td>
-  </tr>
-</table>
+| Task Matrix                                  | Usuario (Frecuencia) | Usuario (Importancia) |
+|----------------------------------------------|-----------------------|------------------------|
+| Planificar entrenamientos semanales          | Siempre              | Alta                   |
+| Registrar comidas                            | Frecuente            | Media                  |
+| Visualizar métricas de progreso (peso, IMC, calorías) | A veces              | Alta                   |
+| Recibir recordatorios o notificaciones       | A veces              | Alta                   |
+| Consultar recomendaciones de suplementos     | Rara vez             | Media                  |
+| Compartir logros con la comunidad            | A veces              | Media / Alta           |
+| Recibir planes personalizados adaptados      | Siempre              | Alta                   |
+| Usar la app de manera simple y motivadora    | Siempre              | Alta                   |
 
 ### 2.3.3 Empathy mapping
 
