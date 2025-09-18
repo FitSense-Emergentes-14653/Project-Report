@@ -11,7 +11,7 @@ El propósito del proceso de diseño arquitectónico para FitSense es crear una 
 ### 4.1.2. Attribute-Driven Design Inputs
 #### 4.1.2.1. Primary Functionality (Primary User Stories)
 
-Las siguientes historias de usuario y épicas representan las funcionalidades **más críticas de FitSense**, seleccionadas por su **alto impacto en la estructura, desempeño, seguridad y escalabilidad** del sistema.
+Las siguientes épicas y user stories fueron priorizadas por su alto impacto en la arquitectura del sistema. Se centran en los componentes críticos: adquisición de usuarios, personalización con IA, seguimiento diario, dashboard de métricas, notificaciones inteligentes y backend API.
 
 <table>
 <thead>
@@ -19,93 +19,171 @@ Las siguientes historias de usuario y épicas representan las funcionalidades **
 <th>Epic / User Story ID</th>
 <th>Título</th>
 <th>Descripción</th>
-<th>Criterios de Aceptación</th>
+<th>Criterios de Aceptación (resumen)</th>
 <th>Relacionado con (Epic ID)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>EP01</td>
-<td>Gestión de Usuarios</td>
-<td>Permite el registro, login, autenticación segura y administración del perfil de cada usuario.</td>
-<td>Usuarios pueden registrarse, iniciar sesión y actualizar sus datos personales con seguridad.</td>
+<td>Presencia Digital y Adquisición de Usuarios</td>
+<td>Landing page y marketing para captar y convertir visitantes en usuarios activos.</td>
+<td>Debe tener secciones de hero, beneficios, planes y CTA de registro funcional.</td>
 <td>—</td>
 </tr>
 <tr>
-<td>US01</td>
-<td>Registro y Login</td>
-<td>Como usuario, quiero registrarme y acceder de forma segura para usar FitSense.</td>
-<td>El sistema valida correos únicos, permite login social (Google/Apple), y almacena contraseñas cifradas.</td>
-<td>EP01</td>
-</tr>
-<tr>
-<td>US02</td>
-<td>Gestión de Perfil</td>
-<td>Como usuario, quiero editar mis datos personales, metas y objetivos de salud.</td>
-<td>El perfil almacena edad, peso, altura, género y objetivos, y se actualiza correctamente.</td>
+<td>US-04</td>
+<td>Registro desde landing page</td>
+<td>Permitir que los visitantes se registren desde la landing.</td>
+<td>Redirige a la app móvil, crea cuenta y comienza onboarding.</td>
 <td>EP01</td>
 </tr>
 <tr>
 <td>EP02</td>
-<td>Seguimiento de Actividad y Salud</td>
-<td>Permite registrar métricas físicas y de salud de manera diaria y visualizarlas en el tiempo.</td>
-<td>Los datos de actividad, sueño y nutrición se registran, almacenan y visualizan correctamente.</td>
+<td>Onboarding y Configuración del Perfil Inicial</td>
+<td>Registro y configuración rápida del perfil para crear un plan personalizado.</td>
+<td>Captura edad, peso, altura, objetivos, nivel y equipamiento de forma segura.</td>
 <td>—</td>
 </tr>
 <tr>
-<td>US03</td>
-<td>Registro de Actividad Diaria</td>
-<td>Como usuario, quiero registrar mis pasos, calorías quemadas y horas de sueño.</td>
-<td>Los datos se guardan localmente y se sincronizan con el backend cuando hay conexión.</td>
+<td>US-05</td>
+<td>Registro rápido en app</td>
+<td>Registro con email, Google o Apple.</td>
+<td>Crear cuenta en 201 y redirigir a onboarding.</td>
 <td>EP02</td>
 </tr>
 <tr>
-<td>US04</td>
-<td>Sincronización con dispositivos externos</td>
-<td>Como usuario, quiero vincular mi smartwatch o app de fitness externa (Apple Health, Google Fit) para importar mis métricas automáticamente.</td>
-<td>El sistema permite conectar, importar y actualizar datos de forma segura y periódica.</td>
+<td>US-08</td>
+<td>Configuración del perfil personal</td>
+<td>Ingreso de datos físicos y validación.</td>
+<td>Guarda y valida la información de forma segura.</td>
+<td>EP02</td>
+</tr>
+<tr>
+<td>US-09</td>
+<td>Definición de objetivos fitness</td>
+<td>Establecer metas iniciales (perder peso, ganar músculo, etc.)</td>
+<td>Prioriza planes según objetivos elegidos.</td>
 <td>EP02</td>
 </tr>
 <tr>
 <td>EP03</td>
-<td>Generación de Planes Personalizados</td>
-<td>Permite crear rutinas y planes de alimentación personalizados según objetivos y progreso del usuario.</td>
-<td>Los planes son generados por un módulo de IA basado en el perfil, progreso e historial de actividad.</td>
+<td>Generación y Adaptación de Planes con IA</td>
+<td>Creación y ajuste dinámico de planes de entrenamiento y nutrición.</td>
+<td>Genera rutinas personalizadas y las adapta al progreso.</td>
 <td>—</td>
 </tr>
 <tr>
-<td>US05</td>
-<td>Rutinas Personalizadas de Entrenamiento</td>
-<td>Como usuario, quiero recibir rutinas adaptadas a mi nivel y progreso.</td>
-<td>La IA genera planes semanales con ejercicios detallados, series, repeticiones y descansos.</td>
+<td>US-12</td>
+<td>Generación inicial de plan personalizado</td>
+<td>Generar plan completo en menos de 3 segundos.</td>
+<td>Incluye ejercicios semanales y nutrición básica.</td>
 <td>EP03</td>
 </tr>
 <tr>
-<td>US06</td>
-<td>Planes Personalizados de Nutrición</td>
-<td>Como usuario, quiero recibir sugerencias de alimentación basadas en mis hábitos y metas de salud.</td>
-<td>El sistema genera menús semanales considerando calorías, macronutrientes y restricciones alimenticias.</td>
+<td>US-13</td>
+<td>Adaptación dinámica basada en progreso</td>
+<td>Ajustar automáticamente según desempeño y feedback.</td>
+<td>Incrementa dificultad o recalibra al instante.</td>
 <td>EP03</td>
 </tr>
 <tr>
 <td>EP04</td>
-<td>Recomendaciones Inteligentes con IA</td>
-<td>Ofrece recomendaciones dinámicas de hábitos saludables, rutinas y ajustes de objetivos en base al progreso continuo del usuario.</td>
-<td>El sistema evalúa progreso y hábitos automáticamente y sugiere mejoras semanales.</td>
+<td>Seguimiento y Registro Diario de Actividades</td>
+<td>Registro ágil de entrenos, comidas e hidratación.</td>
+<td>Captura datos diarios para retroalimentar a la IA.</td>
 <td>—</td>
 </tr>
 <tr>
-<td>US07</td>
-<td>Recomendaciones de IA</td>
-<td>Como usuario, quiero recibir sugerencias semanales para mejorar mis hábitos de entrenamiento y nutrición.</td>
-<td>La IA analiza tendencias semanales y propone ajustes personalizados con justificación.</td>
+<td>US-15</td>
+<td>Registro rápido de entrenamientos</td>
+<td>Marcar ejercicios completados en un tap.</td>
+<td>Guarda fecha, hora, duración y notas.</td>
 <td>EP04</td>
+</tr>
+<tr>
+<td>US-16</td>
+<td>Registro de comidas</td>
+<td>Registro manual o escaneo de código de barras.</td>
+<td>Registra calorías y nutrientes.</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>EP05</td>
+<td>Dashboard de Progreso y Métricas Visuales</td>
+<td>Visualizar evolución y progreso del usuario.</td>
+<td>Mostrar peso, IMC, calorías y logros en dashboard.</td>
+<td>—</td>
+</tr>
+<tr>
+<td>US-19</td>
+<td>Dashboard principal de progreso</td>
+<td>Vista central de progreso.</td>
+<td>Resumen semanal de métricas y logros.</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>US-22</td>
+<td>Balance calórico visual</td>
+<td>Mostrar calorías ingeridas vs quemadas.</td>
+<td>Vista diaria y semanal con tendencias.</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>EP08</td>
+<td>Notificaciones y Recordatorios Inteligentes</td>
+<td>Recordatorios personalizados para mantener constancia.</td>
+<td>Recordatorios de entrenamientos, hidratación y logros.</td>
+<td>—</td>
+</tr>
+<tr>
+<td>US-28</td>
+<td>Recordatorios inteligentes de entrenamientos</td>
+<td>Alertas adaptativas según hábitos del usuario.</td>
+<td>Ajusta horarios automáticamente y respeta “no molestar”.</td>
+<td>EP08</td>
+</tr>
+<tr>
+<td>US-31</td>
+<td>Personalización de notificaciones</td>
+<td>Control de qué y cuándo notificar.</td>
+<td>Configuración granular por tipo y horario.</td>
+<td>EP08</td>
+</tr>
+<tr>
+<td>EP09</td>
+<td>Backend y API RESTful para FitSense</td>
+<td>Soporte técnico para toda la lógica de negocio y datos.</td>
+<td>Servicios seguros, escalables y con alta disponibilidad.</td>
+<td>—</td>
+</tr>
+<tr>
+<td>US-33</td>
+<td>Crear Usuario (API)</td>
+<td>Endpoint POST para registrar usuario.</td>
+<td>201 con userId y token, 400 si email en uso.</td>
+<td>EP09</td>
+</tr>
+<tr>
+<td>US-37</td>
+<td>Generar Plan de Entrenamiento con IA (API)</td>
+<td>Generar plan según perfil.</td>
+<td>201 con plan semanal, 400 si perfil incompleto.</td>
+<td>EP09</td>
+</tr>
+<tr>
+<td>US-39</td>
+<td>Obtener Datos para el Dashboard</td>
+<td>Endpoint para métricas históricas.</td>
+<td>Devuelve peso, IMC y calorías últimos 30 días.</td>
+<td>EP09</td>
 </tr>
 </tbody>
 </table>
 
+---
+
 #### 4.1.2.2. Quality Attribute Scenarios
-Los siguientes escenarios representan los **atributos de calidad críticos para FitSense** que impactan directamente en las decisiones de diseño de la arquitectura.
 
 <table>
 <thead>
@@ -123,50 +201,52 @@ Los siguientes escenarios representan los **atributos de calidad críticos para 
 <tr>
 <td>Escalabilidad</td>
 <td>Usuario concurrente</td>
-<td>Se conectan 10 000 usuarios nuevos en un solo día</td>
-<td>API Gateway y Servicios Backend</td>
-<td>Backend en entorno cloud con autoescalado habilitado</td>
-<td>El sistema provisiona nuevas instancias automáticamente y mantiene tiempos de respuesta aceptables.</td>
-<td>Soporta >10 000 usuarios nuevos/día con &lt;2s de latencia</td>
-</tr>
-<tr>
-<td>Disponibilidad</td>
-<td>Usuario</td>
-<td>Intento de acceso durante mantenimiento planificado</td>
-<td>Aplicación Móvil</td>
-<td>Sistema en modo mantenimiento con microservicios replicados</td>
-<td>Se notifica al usuario y se enruta a instancias saludables</td>
-<td>99.9% de disponibilidad mensual</td>
-</tr>
-<tr>
-<td>Seguridad</td>
-<td>Atacante externo</td>
-<td>Intento de acceso con credenciales incorrectas 10 veces en 1 minuto</td>
-<td>Servicio de Autenticación</td>
-<td>Sistema en producción</td>
-<td>El sistema bloquea el intento y activa MFA obligatoria</td>
-<td>Bloqueo tras 5 intentos fallidos</td>
+<td>Se conectan 10 000 usuarios nuevos en 24h</td>
+<td>API Gateway + Microservicios Backend</td>
+<td>Cloud Kubernetes con autoescalado</td>
+<td>Se crean nuevas réplicas automáticamente.</td>
+<td>Mantener latencia &lt; 2s con 10k usuarios</td>
 </tr>
 <tr>
 <td>Rendimiento</td>
 <td>Usuario</td>
-<td>Solicitud de plan personalizado con alta carga concurrente</td>
-<td>Servicio de IA Personalización</td>
-<td>API bajo alta concurrencia</td>
-<td>Genera plan y responde en menos de 3 segundos</td>
-<td>Tiempo de respuesta &lt; 3 segundos</td>
+<td>Solicitud de generación de plan IA con alta concurrencia</td>
+<td>Servicio de IA</td>
+<td>Backend bajo carga alta</td>
+<td>Genera el plan en menos de 3 segundos.</td>
+<td>Tiempo de respuesta &lt; 3s</td>
+</tr>
+<tr>
+<td>Disponibilidad</td>
+<td>Usuario</td>
+<td>Acceso durante mantenimiento planificado</td>
+<td>Aplicación Móvil</td>
+<td>Microservicios replicados</td>
+<td>Usuario redirigido a instancias saludables.</td>
+<td>99.9% de uptime mensual</td>
+</tr>
+<tr>
+<td>Seguridad</td>
+<td>Atacante externo</td>
+<td>10 intentos de login fallidos en 1 minuto</td>
+<td>Servicio de Autenticación</td>
+<td>Producción</td>
+<td>Bloquea cuenta y activa MFA obligatoria.</td>
+<td>Bloqueo tras 5 intentos fallidos</td>
 </tr>
 <tr>
 <td>Privacidad</td>
 <td>Usuario</td>
 <td>Solicitud de eliminación de cuenta y datos personales</td>
-<td>Servicio de Gestión de Perfiles</td>
+<td>Servicio de Perfiles</td>
 <td>Producción</td>
-<td>El sistema elimina toda la información personal y confirma al usuario</td>
-<td>100% de los datos eliminados en &lt;48h</td>
+<td>Elimina toda la información personal y confirma la acción.</td>
+<td>100% de datos eliminados en &lt; 48h</td>
 </tr>
 </tbody>
 </table>
+
+---
 
 #### 4.1.2.3. Constraints
 
@@ -184,33 +264,35 @@ Los siguientes escenarios representan los **atributos de calidad críticos para 
 <tr>
 <td>CT01</td>
 <td>Cumplimiento con GDPR</td>
-<td>Los datos de usuarios europeos deben almacenarse y procesarse cumpliendo el GDPR</td>
-<td>El sistema anonimiza datos personales y permite la eliminación total bajo solicitud del usuario.</td>
-<td>EP01</td>
+<td>Los datos deben almacenarse y procesarse cumpliendo el GDPR.</td>
+<td>Anonimiza datos personales y permite eliminación total bajo solicitud del usuario.</td>
+<td>EP09</td>
 </tr>
 <tr>
 <td>CT02</td>
-<td>Integración con Apple Health y Google Fit</td>
-<td>FitSense debe integrarse con plataformas de terceros de fitness</td>
-<td>Los datos se sincronizan bidireccionalmente cumpliendo políticas de cada proveedor</td>
-<td>EP02</td>
+<td>Integración con plataformas de fitness externas</td>
+<td>Integración con Apple Health y Google Fit.</td>
+<td>Los datos se sincronizan bidireccionalmente cumpliendo sus políticas.</td>
+<td>EP04</td>
 </tr>
 <tr>
 <td>CT03</td>
-<td>Tecnologías aprobadas por el cliente</td>
-<td>Solo se puede usar stack Java Spring Boot + React + PostgreSQL</td>
-<td>Toda la arquitectura debe implementarse con las tecnologías aprobadas</td>
-<td>EP00</td>
+<td>Tecnologías aprobadas</td>
+<td>Solo se puede usar Spring Boot, React y PostgreSQL.</td>
+<td>Toda la arquitectura se implementa con estas tecnologías.</td>
+<td>EP09</td>
 </tr>
 <tr>
 <td>CT04</td>
 <td>Despliegue en nube pública</td>
-<td>El sistema debe desplegarse exclusivamente en servicios cloud compatibles con Kubernetes</td>
-<td>Todos los servicios deben ser contenerizados y orquestados en Kubernetes</td>
-<td>EP00</td>
+<td>Debe usarse infraestructura cloud escalable con Kubernetes.</td>
+<td>Todos los servicios deben ser contenerizados y orquestados.</td>
+<td>EP09</td>
 </tr>
 </tbody>
 </table>
+
+---
 
 ### 4.1.3. Architectural Drivers Backlog
 
@@ -227,62 +309,71 @@ Los siguientes escenarios representan los **atributos de calidad críticos para 
 <tbody>
 <tr>
 <td>FD01</td>
-<td>Registro y Autenticación Escalable</td>
-<td>Módulo central para permitir ingreso seguro de usuarios masivos</td>
-<td>High</td>
-<td>High</td>
+<td>Registro y autenticación de usuarios</td>
+<td>Base para adquirir y activar usuarios.</td>
+<td>Alta</td>
+<td>Alta</td>
 </tr>
 <tr>
 <td>FD02</td>
-<td>Generación de Planes Personalizados</td>
-<td>Núcleo de valor: rutinas y dietas basadas en IA</td>
-<td>High</td>
-<td>High</td>
+<td>Generación de planes personalizados</td>
+<td>Núcleo de valor: rutinas y dietas basadas en IA.</td>
+<td>Alta</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>FD03</td>
+<td>Registro y seguimiento de actividades</td>
+<td>Permite capturar datos de progreso para la IA.</td>
+<td>Alta</td>
+<td>Alta</td>
 </tr>
 <tr>
 <td>QD01</td>
-<td>Alta Disponibilidad</td>
-<td>Garantizar acceso continuo sin interrupciones</td>
-<td>High</td>
-<td>High</td>
+<td>Alta disponibilidad</td>
+<td>Garantizar acceso continuo sin interrupciones.</td>
+<td>Alta</td>
+<td>Alta</td>
 </tr>
 <tr>
 <td>QD02</td>
-<td>Protección de Datos Personales</td>
-<td>Manejo seguro y confidencial de datos sensibles</td>
-<td>High</td>
-<td>Medium</td>
+<td>Alto rendimiento</td>
+<td>Responde rápido incluso con alta concurrencia.</td>
+<td>Alta</td>
+<td>Alta</td>
 </tr>
 <tr>
 <td>QD03</td>
-<td>Alto Rendimiento</td>
-<td>Respuesta rápida incluso con alta concurrencia</td>
-<td>High</td>
-<td>High</td>
+<td>Escalabilidad horizontal</td>
+<td>Escalar automáticamente con demanda variable.</td>
+<td>Alta</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>QD04</td>
+<td>Protección de datos personales</td>
+<td>Manejo seguro y confidencial de datos sensibles.</td>
+<td>Alta</td>
+<td>Media</td>
 </tr>
 <tr>
 <td>CT01</td>
 <td>Cumplimiento con GDPR</td>
-<td>Restricción legal obligatoria</td>
-<td>High</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>CT02</td>
-<td>Integración con Apple Health y Google Fit</td>
-<td>Requiere manejar múltiples APIs externas</td>
-<td>Medium</td>
-<td>High</td>
+<td>Restricción legal obligatoria.</td>
+<td>Alta</td>
+<td>Media</td>
 </tr>
 <tr>
 <td>CT03</td>
 <td>Uso de tecnologías aprobadas</td>
-<td>Limita la elección del stack tecnológico</td>
-<td>Medium</td>
-<td>Medium</td>
+<td>Limita el stack tecnológico.</td>
+<td>Media</td>
+<td>Media</td>
 </tr>
 </tbody>
 </table>
+
+---
 
 ### 4.1.4. Architectural Design Decisions
 
@@ -303,31 +394,33 @@ Los siguientes escenarios representan los **atributos de calidad críticos para 
 <td></td>
 <td><b>Pro:</b> Escalabilidad, despliegue independiente</td>
 <td><b>Con:</b> Mayor complejidad operativa</td>
-<td><b>Pro:</b> Simplicidad inicial, menos sobrecarga</td>
+<td><b>Pro:</b> Simplicidad inicial</td>
 <td><b>Con:</b> Escalabilidad limitada</td>
 </tr>
 <tr>
 <td>FD01</td>
-<td>Registro y Autenticación Escalable</td>
-<td>Alta escalabilidad y tolerancia a fallos</td>
-<td>Complejidad en la orquestación</td>
-<td>Implementación más rápida</td>
+<td>Registro y autenticación</td>
+<td>Escalabilidad horizontal</td>
+<td>Más complejidad DevOps</td>
+<td>✔Rápido de implementar</td>
 <td>Riesgo de cuellos de botella</td>
 </tr>
 <tr>
 <td>FD02</td>
-<td>Generación de Planes Personalizados</td>
-<td>Escalabilidad horizontal</td>
-<td>Configuración compleja de servicios IA</td>
-<td>Sencillo para prototipo</td>
-<td>Dificultad para aislar cargas</td>
+<td>Generación de planes IA</td>
+<td>Aislamiento de cargas IA</td>
+<td>Orquestación compleja</td>
+<td>Simple para prototipo</td>
+<td>Mala separación de responsabilidades</td>
 </tr>
 </tbody>
 </table>
 
+---
+
 ### 4.1.5. Quality Attribute Scenario Refinements
 
-#### Scenario Refinement for Scenario #1
+### Scenario Refinement #1
 - **Scenario(s):** Escalabilidad bajo carga extrema  
 - **Business Goals:** Soportar el crecimiento rápido de usuarios  
 - **Relevant Quality Attributes:** Escalabilidad, Disponibilidad  
@@ -335,25 +428,25 @@ Los siguientes escenarios representan los **atributos de calidad críticos para 
 - **Scenario Components**  
   - **Stimulus Source:** Nuevos usuarios  
   - **Environment:** Producción  
-  - **Artifact (if Known):** API Gateway, Microservicios Backend  
-  - **Response:** Autoescalado de servicios y balanceo de carga automático  
-  - **Response Measure:** Mantener &lt;2s de latencia promedio  
-- **Questions:** ¿Cómo se manejarán las migraciones de base de datos en tiempo real?  
-- **Issues:** Posible sobrecarga de costos en la nube
+  - **Artifact:** API Gateway, microservicios backend  
+  - **Response:** Autoescalado de pods y balanceo de carga automático  
+  - **Response Measure:** Mantener latencia &lt;2s  
+- **Questions:** ¿Cómo se gestionarán las migraciones de BD con tráfico en vivo?  
+- **Issues:** Costos elevados de infraestructura
 
-#### Scenario Refinement for Scenario #2
+### Scenario Refinement #2
 - **Scenario(s):** Protección de datos sensibles  
-- **Business Goals:** Proteger la privacidad de los usuarios  
+- **Business Goals:** Cumplir normativa y generar confianza  
 - **Relevant Quality Attributes:** Seguridad, Privacidad  
 - **Stimulus:** Usuario solicita la eliminación completa de su cuenta  
 - **Scenario Components**  
   - **Stimulus Source:** Usuario  
   - **Environment:** Producción  
-  - **Artifact (if Known):** Servicio de Gestión de Perfiles  
-  - **Response:** El sistema elimina todos los datos personales asociados y confirma la acción  
-  - **Response Measure:** 100% de los datos eliminados en &lt;48h  
-- **Questions:** ¿Cómo se garantiza que no queden copias en backups?  
-- **Issues:** Riesgo de datos residuales en cachés o logs
+  - **Artifact:** Servicio de Perfiles  
+  - **Response:** Elimina datos personales de BD y caché, y confirma por correo  
+  - **Response Measure:** 100% de datos eliminados en &lt;48h  
+- **Questions:** ¿Cómo asegurar que backups no retengan datos personales?  
+- **Issues:** Riesgo de datos residuales en logs o backups antiguos
 
 ## Capítulo IV: Solution Software Design
 ## 4.2. Strategic-Level Domain-Driven Design. 
