@@ -1,8 +1,12 @@
 ## Capítulo IV: Strategic-Level Software Design
 
+Este capítulo documenta las decisiones estratégicas del diseño de software para FitSense. Aplicamos Attribute-Driven Design (ADD) bajo un enfoque Domain-Driven Design (DDD) para garantizar que la arquitectura soporte los objetivos de negocio (p. ej. Goal 4: 4.5 estrellas). Presentamos: propósito del diseño, entradas, drivers arquitectónicos, decisiones de diseño clave, escenarios de calidad (Quality Attribute Scenarios), identificación de bounded contexts y su mapeo, y las vistas arquitectónicas iniciales usando C4 Model (nivel Context y Container).
+
 ## 4.1. Strategic-Level Attribute-Driven Design
 
 ### 4.1.1. Design Purpose
+
+El propósito del proceso de diseño arquitectónico para FitSense es crear una solución de software robusta, escalable y centrada en el usuario que aborde directamente las problemáticas identificadas en el mercado de aplicaciones de fitness.
 
 ### 4.1.2. Attribute-Driven Design Inputs
 #### 4.1.2.1. Primary Functionality (Primary User Stories)
