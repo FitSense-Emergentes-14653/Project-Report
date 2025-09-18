@@ -219,10 +219,10 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         aa<br>
         <strong>Calisaya Sánchez, Juan Jesús</strong><br>
         <em>TB1</em><br>
-        aa<br>
+        Durante el proyecto FitSense, presenté los resultados del Impact Mapping, User Stories y requisitos del sistema a diferentes audiencias del proyecto. Comuniqué de forma clara cómo las épicas y features se conectan con los objetivos de negocio, adaptando la explicación para que tanto stakeholders como el equipo técnico entendieran la priorización y el valor de cada funcionalidad. <br>
         <strong>Jarama Peñaloza, Fiorella</strong><br>
         <em>TB1</em><br>
-        Durante el proyecto FitSense, presenté los resultados del Impact Mapping, User Stories y requisitos del sistema a diferentes audiencias del proyecto. Comuniqué de forma clara cómo las épicas y features se conectan con los objetivos de negocio, adaptando la explicación para que tanto stakeholders como el equipo técnico entendieran la priorización y el valor de cada funcionalidad.<br>
+        Realicé el EventStorming para mapear eventos, comandos, políticas, puntos de dolor y momentos clave; identifiqué bounded contexts (Plan, Monitoring, Notification, Security y Social) y modelé sus interacciones mediante context mapping. También generé los artefactos de arquitectura: System Landscape, Context, Container y Deployment Diagrams siguiendo el enfoque C4.<br>
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
         Durante el avance de este TB1 pude identificar la falta de soluciones integrales y accesibles en el ámbito del fitness digital y plantear a FitSense como respuesta innovadora, basada en IA, métricas personalizadas y motivación social. A través del análisis competitivo y el Lean UX Canvas, se definieron estrategias, hipótesis y un MVP que facilitarán validar la propuesta. En conjunto, se comunica de forma objetiva un proyecto de ingeniería con impacto positivo en la salud y la constancia de los usuarios.<br>
