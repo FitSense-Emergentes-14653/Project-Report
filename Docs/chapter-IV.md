@@ -404,7 +404,7 @@ Las siguientes épicas y user stories fueron priorizadas por su alto impacto en 
 <td>Registro y autenticación</td>
 <td>Escalabilidad horizontal</td>
 <td>Más complejidad DevOps</td>
-<td>✔Rápido de implementar</td>
+<td>Rápido de implementar</td>
 <td>Riesgo de cuellos de botella</td>
 </tr>
 <tr>
