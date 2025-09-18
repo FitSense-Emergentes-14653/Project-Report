@@ -159,23 +159,23 @@ Para él es fundamental que un plan de entrenamiento se personalice según sus c
 
 ####  **Entrevista N.º 2**
 
-- **Entrevistador:** -- 
-- **Entrevistado:** --  
-- **Duración:** [00:00:00 – 00:05:41] (**5 minutos 41 segundos**)
+- **Entrevistador:** Juan Cuadros 
+- **Entrevistado:** Diego Bazan
+- **Duración:** [00:00:00 – 00:07:39] (**7 minutos 39 segundos**)
 
 - **Datos demográficos:**
-  - Nombre: ..
-  - Edad: ..
-  - Ubicación: ..
-  - Ocupación: ..
-  - Nivel de actividad física: ..
-  - Dispositivos tecnológicos utilizados: ..
+  - Nombre: Diego Alonso Bazan Flores
+  - Edad: 22
+  - Ubicación: Lince
+  - Ocupación: Bachiller de Administracion y Negocios Internacionales
+  - Nivel de actividad física: Avanzado - Entrena Todos los dias
+  - Dispositivos tecnológicos utilizados: Fitia
 
-![Entrevista a -](img/../img/chapter-2/interview2.png)  
-*Entrevista a -*
+![Entrevista a -](../img/chapter-2/interview2.png)  
+*Entrevista a Diego Bazan*
 
 **Resumen:**  
-...
+Diego es un joven de 22 años con un nivel avanzado de actividad física que actualmente sigue un plan de alimentación a través de la aplicación Fitia. Considera que el ejercicio es una práctica indispensable para todas las personas y, al conocer la propuesta de FitSense, manifestó gran interés por sus funcionalidades, especialmente aquellas relacionadas con métricas como el índice de masa corporal (IMC), peso y calorías. Según su perspectiva, disponer de estas métricas podría resultar muy motivador para que los usuarios mantengan la constancia en sus entrenamientos. Además, considera que la incorporación de recordatorios es un elemento clave, ya que contribuiría a que los usuarios no abandonen sus rutinas y logren consolidar hábitos saludables a largo plazo.
 
 ---
 
