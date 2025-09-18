@@ -203,24 +203,42 @@ Nayeli es una usuaria de 23 años con nivel principiante de actividad física, q
 ---
 
 
-### 2.2.3. Análisis de entrevistas
+## Análisis de entrevistas
 
-Luego de realizar las entrevistas diseñadas para el usuario objetivo, se obtuvo información valiosa que permite identificar las principales necesidades y expectativas en torno al uso de aplicaciones de fitness y salud.
+Tras la realización de las entrevistas con usuarios representativos del segmento objetivo, se obtuvo información valiosa que permitió identificar necesidades, expectativas y frustraciones en torno al uso de aplicaciones de fitness y salud.  
 
-**Usuario objetivo**  
+### Principales hallazgos
 
-**Análisis objetivo:**  
-Se evidencia la necesidad de una solución digital integral que apoye tanto a usuarios principiantes como avanzados en su proceso de mejora física. Los participantes resaltaron la importancia de que la aplicación brinde **planes personalizados** de acuerdo con las características individuales (nivel de actividad, objetivos, tiempo disponible), ya que las rutinas genéricas suelen generar desmotivación y abandono.  
+1. **Personalización de planes**  
+   Los participantes coincidieron en que los planes de entrenamiento deben adaptarse a las características individuales del usuario (nivel de actividad, objetivos específicos, tiempo disponible). Las rutinas genéricas suelen resultar poco motivadoras y propician el abandono.  
 
-Asimismo, se identificó que existe una fuerte demanda por **métricas claras y confiables** (IMC, peso, calorías) presentadas en dashboards visuales e intuitivos. Esta funcionalidad no solo permite a los usuarios monitorear su progreso, sino también generar confianza y motivación al ver resultados tangibles.  
+2. **Métricas claras y confiables**  
+   Existe una fuerte demanda por indicadores de progreso como IMC, peso y calorías, presentados en dashboards visuales e intuitivos. Estas métricas generan motivación al permitir visualizar resultados tangibles y ofrecen mayor confianza en la aplicación.  
 
-Otro aspecto relevante es la necesidad de **recordatorios inteligentes**, que ayuden a mantener la constancia y disciplina, especialmente en aquellos usuarios que suelen abandonar tras algunas semanas de uso. Además, la posibilidad de **compartir logros con la comunidad** se destacó como un factor motivacional clave, que refuerza el compromiso y permite generar apoyo entre pares.  
+3. **Recordatorios inteligentes**  
+   Los entrevistados señalaron la importancia de contar con notificaciones personalizadas que los ayuden a mantener la constancia y la disciplina, especialmente en las primeras semanas, donde el riesgo de abandono es mayor.  
 
-Entre las principales frustraciones encontradas se hallan la **complejidad de las aplicaciones actuales**, la falta de motivación por ausencia de acompañamiento, los **cobros prematuros** que limitan el acceso a funcionalidades, y en el caso de los usuarios avanzados, la **inexactitud de la información nutricional**, que debería adaptarse mejor al contexto local.  
+4. **Comunidad y motivación social**  
+   La posibilidad de compartir logros con otros usuarios se percibe como un factor motivacional clave. Este componente social fortalece el compromiso y fomenta un sentido de acompañamiento.  
 
-En general, los hallazgos confirman la necesidad de desarrollar una plataforma como **FitSense**, que combine en un solo espacio entrenamiento, nutrición y suplementos, con personalización basada en inteligencia artificial, dashboards visuales, recordatorios inteligentes y un componente comunitario que incremente la adherencia y motivación de los usuarios.
+5. **Frustraciones y barreras**  
+   - Aplicaciones demasiado complejas o con interfaces poco amigables.  
+   - Falta de motivación por ausencia de seguimiento o acompañamiento.  
+   - Cobros prematuros que limitan el acceso a funcionalidades esenciales.  
+   - Para usuarios avanzados, la inexactitud de las bases de datos nutricionales, que deberían estar mejor adaptadas al contexto local (ejemplo: productos disponibles en Perú).  
 
+### Conclusión
 
+Los hallazgos evidencian la necesidad de una solución digital integral como **FitSense**, que combine en una sola plataforma:  
+- **Planes personalizados** ajustados a las necesidades del usuario.  
+- **Dashboards visuales** con métricas confiables y fáciles de interpretar.  
+- **Recordatorios inteligentes** para reforzar la constancia.  
+- **Comunidad activa** que impulse la motivación social.  
+- **Contenido adaptado al contexto local** en cuanto a nutrición y suplementos.  
+
+De esta manera, se incrementa la adherencia de los usuarios y se potencia su motivación para alcanzar objetivos de salud y bienestar.  
+
+---
 
 ## 2.3 Needfinding
 
