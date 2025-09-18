@@ -212,7 +212,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
     <th>Conclusiones TB1</th>
   </tr>
   <tr>
-    <td>Trabaja en equipo para proporcionar liderazgo en forma conjunta</td>
+    <td>Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería. </td>
     <td>
         <strong>Cuadros Rodriguez, Juan Alejandro</strong><br>
         <em>TB1</em><br>
@@ -222,7 +222,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         aa<br>
         <strong>Jarama Peñaloza, Fiorella</strong><br>
         <em>TB1</em><br>
-        aa<br>
+        Durante el proyecto FitSense, presenté los resultados del Impact Mapping, User Stories y requisitos del sistema a diferentes audiencias del proyecto. Comuniqué de forma clara cómo las épicas y features se conectan con los objetivos de negocio, adaptando la explicación para que tanto stakeholders como el equipo técnico entendieran la priorización y el valor de cada funcionalidad.<br>
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
         aa<br>
@@ -236,14 +236,14 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
     </td>
   </tr>
   <tr>
-    <td>Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.</td>
+    <td>Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería.</td>
     <td>
         <strong>Cuadros Rodriguez, Juan Alejandro</strong><br>
         <em>TB1</em><br>
         aa<br>
         <strong>Calisaya Sánchez, Juan Jesús</strong><br>
         <em>TB1</em><br>
-        aa<br>
+        Elaboré la documentación de requisitos de FitSense (Capítulos III y IV) creando User Stories, Impact Mapping y Product Backlog que comunican las necesidades del usuario y objetivos de negocio. La documentación incluye desde épicas comprensibles para product owners hasta especificaciones técnicas detalladas, permitiendo que diferentes niveles del equipo entiendan los requisitos y su priorización.<br>
         <strong>Jarama Peñaloza, Fiorella</strong><br>
         <em>TB1</em><br>
         aa<br>
