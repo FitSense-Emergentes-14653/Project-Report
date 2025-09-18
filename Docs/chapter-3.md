@@ -92,3 +92,45 @@ Segmento 1: Clientes:
 
 ### 3.4. Product Backlog
 
+| **Orden** | **User Story Id** | **Título** | **Descripción** | **Story Points (1/2/3/5/8)** |
+|---------------------|------------|-----------------|----------------------------|-------------------------------|
+| **1** | **US-33** | Crear Usuario (Sign-Up) a través de API | Como desarrollador, quiero registrar un nuevo usuario en la base de datos a través de la API para permitir la creación de cuentas. | **5** |
+| **2** | **US-34** | Autenticar Usuario (Sign-In) a través de API | Como desarrollador, quiero autenticar a un usuario a través de la API para que pueda acceder a su perfil y funcionalidades. | **3** |
+| **3** | **US-35** | Crear o Actualizar Perfil de Usuario | Como desarrollador, quiero un endpoint para que el usuario guarde sus datos de perfil (edad, peso, altura, objetivos) después del registro. | **5** |
+| **4** | **US-36** | Obtener Perfil de Usuario | Como desarrollador, quiero obtener la información completa de un perfil de usuario para mostrarla en la aplicación. | **2** |
+| **5** | **US-05** | Registro rápido en aplicación móvil | Como nuevo usuario, quiero registrarme en la aplicación de forma rápida y sencilla para comenzar mi experiencia fitness. | **3** |
+| **6** | **US-06** | Inicio de sesión en aplicación móvil | Como usuario registrado, quiero iniciar sesión con mi cuenta para acceder a mis planes personalizados. | **2** |
+| **7** | **US-08** | Configuración del perfil personal | Como nuevo usuario, quiero ingresar mis datos personales básicos (edad, peso, altura, género) para que la app pueda crear planes personalizados. | **3** |
+| **8** | **US-09** | Definición de objetivos fitness | Como usuario, quiero establecer mis objetivos principales (perder peso, ganar músculo, mantenimiento) para recibir un plan acorde a mis metas. | **2** |
+| **9** | **US-10** | Evaluación del nivel de experiencia | Como usuario, quiero indicar mi nivel de experiencia en fitness para recibir rutinas apropiadas a mi capacidad. | **2** |
+| **10** | **US-11** | Configuración de equipamiento disponible | Como usuario, quiero especificar qué equipamiento tengo disponible para que mis rutinas sean realizables en mi entorno. | **3** |
+| **11** | **US-37** | Generar Plan de Entrenamiento con IA | Como desarrollador, quiero un endpoint que, a partir del perfil de un usuario, genere su primer plan de entrenamiento personalizado. | **8** |
+| **12** | **US-12** | Generación inicial de plan personalizado | Como usuario que completó su perfil, quiero recibir mi primer plan de entrenamiento personalizado generado por IA en menos de 3 segundos. | **5** |
+| **13** | **US-38** | Registrar Actividad (Entrenamiento, Comida) | Como desarrollador, quiero endpoints para que los usuarios registren sus actividades diarias y se pueda hacer seguimiento de su progreso. | **5** |
+| **14** | **US-15** | Registro rápido de entrenamientos | Como usuario activo, quiero registrar mis entrenamientos completados de forma rápida para mantener mi seguimiento actualizado. | **3** |
+| **15** | **US-16** | Registro de comidas y seguimiento calórico | Como usuario, quiero registrar mis comidas de forma simple para llevar control de mi consumo calórico diario. | **5** |
+| **16** | **US-39** | Obtener Datos para el Dashboard | Como desarrollador, quiero un endpoint que devuelva los datos de progreso de un usuario (historial de peso, IMC, calorías) para visualizarlos en el dashboard. | **3** |
+| **17** | **US-19** | Dashboard principal de progreso | Como usuario, quiero ver un dashboard central que muestre mi progreso general de forma clara y motivadora. | **5** |
+| **18** | **US-20** | Gráficos de evolución de peso | Como usuario, quiero ver gráficos de mi evolución de peso a lo largo del tiempo para monitorear mi progreso visualmente. | **3** |
+| **19** | **US-21** | Seguimiento visual de IMC | Como usuario, quiero monitorear mi Índice de Masa Corporal de forma visual para entender mi condición de salud. | **3** |
+| **20** | **US-22** | Balance calórico visual | Como usuario, quiero ver mi balance entre calorías consumidas y quemadas para entender mi déficit o superávit energético. | **3** |
+| **21** | **US-13** | Adaptación dinámica basada en progreso | Como usuario activo, quiero que mis rutinas se adapten automáticamente basándose en mi progreso para mantener el desafío apropiado. | **8** |
+| **22** | **US-14** | Recomendaciones nutricionales inteligentes | Como usuario, quiero recibir sugerencias nutricionales personalizadas que se ajusten a mis objetivos y preferencias. | **5** |
+| **23** | **US-40** | Registrar Token para Notificaciones Push | Como desarrollador, quiero un endpoint para registrar el token del dispositivo de un usuario y así poder enviarle notificaciones push. | **3** |
+| **24** | **US-28** | Recordatorios inteligentes de entrenamientos | Como usuario, quiero recibir notificaciones personalizadas que me recuerden mis entrenamientos para mantener constancia. | **5** |
+| **25** | **US-18** | Seguimiento de hidratación diaria | Como usuario, quiero registrar mi consumo de agua para mantener una hidratación adecuada según mis objetivos. | **2** |
+| **26** | **US-29** | Alertas de hidratación inteligentes | Como usuario, quiero recibir recordatorios para mantener hidratación adecuada a lo largo del día. | **3** |
+| **27** | **US-23** | Sistema de logros e insignias | Como usuario, quiero ganar insignias y logros por completar entrenamientos y alcanzar metas para mantenerme motivado. | **5** |
+| **28** | **US-30** | Notificaciones de progreso y celebración | Como usuario, quiero recibir alertas sobre mis logros alcanzados para mantenerme motivado. | **3** |
+| **29** | **US-07** | Recuperación de contraseña | Como usuario que olvidó su contraseña, quiero poder restablecerla fácilmente para recuperar el acceso a mi cuenta. | **3** |
+| **30** | **US-17** | Editar un registro de comida | Como usuario, quiero poder editar o eliminar una comida que registré por error para mantener la precisión de mi conteo de calorías. | **2** |
+| **31** | **US-25** | Acceso gratuito a funciones básicas | Como usuario no premium, quiero acceder a las funciones esenciales de forma gratuita para evaluar la utilidad de FitSense. | **5** |
+| **32** | **US-26** | Gestión de perfil y configuraciones | Como usuario, quiero editar mi perfil y configuraciones para mantener mi información actualizada. | **3** |
+| **33** | **US-27** | Suscripción a plan premium | Como usuario interesado, quiero suscribirme a un plan premium asequible para acceder a funciones avanzadas. | **5** |
+| **34** | **US-31** | Personalización de notificaciones | Como usuario, quiero controlar qué notificaciones recibo y cuándo para evitar interrupciones no deseadas. | **3** |
+| **35** | **US-24** | Desafíos y competencias | Como usuario, quiero participar en desafíos grupales para hacer el fitness más divertido y competitivo. | **8** |
+| **36** | **US-01** | Sección hero de landing page | Como visitante, quiero visualizar información introductoria de la aplicación para comprender los servicios ofrecidos. | **3** |
+| **37** | **US-02** | Barra de navegación en landing page | Como visitante quiero una barra de navegación de landing page para tener accesos directos a la información de la aplicación | **2** |
+| **38** | **US-03** | Sección de planes en landing page | Como visitante, quiero visualizar los planes que ofrece la aplicación para considerar adquirir una membresía premium. | **2** |
+| **39** | **US-04** | Registro desde landing page | Como visitante interesado, quiero poder acceder a la aplicación directamente desde la landing page para empezar a usar FitSense. | **3** |
+| **40** | **US-32** | Recordatorios inteligentes de entrenamientos | Como usuario, quiero recibir notificaciones personalizadas que me recuerden mis entrenamientos para mantener constancia. | **5** |
