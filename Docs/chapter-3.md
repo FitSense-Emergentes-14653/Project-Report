@@ -83,6 +83,11 @@ Esta sección presenta la experiencia ideal que el usuario tendrá con FitSense.
 
 ### 3.3. Impact Mapping
 
+En esta sección, se plantearon metas de negocio utilizando los criterios SMART para elaborar el Impact Mapping en base a nuestras User Personas y User Stories.
+
+Segmento 1: Clientes:
+
+![Impact Mapping](../img/chapter-3/PROJECT_FitSense-IMPACT-MAP.png)
 
 
 ### 3.4. Product Backlog
