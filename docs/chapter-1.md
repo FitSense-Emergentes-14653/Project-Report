@@ -88,7 +88,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
   En los últimos años, especialmente desde 2020, el uso de aplicaciones móviles de fitness ha experimentado un crecimiento acelerado, intensificado por la pandemia y la conciencia creciente sobre la salud personal.
 
 - **Who:**  
-  Personas de todas las edades que buscan opciones accesibles y personalizadas de entrenamiento y nutrición sin depender de servicios costosos; típicamente usuarios de smartphones y, en muchos casos, wearables.
+  Personas que buscan mejorar su condición física y tener planes de entrenamiento personalizados con métricas claras (IMC, calorías ideales, evolución física) sin depender de entrenadores costosos.
 
 - **Why:**  
   - Contratar entrenadores personales o nutricionistas es costoso y poco accesible.  
@@ -96,7 +96,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
   - Sin seguimiento constante, la motivación disminuye rápidamente al no visualizar progreso de forma clara.
 
 - **How:**  
-  Al no existir herramientas asequibles, personalizadas e integrales (entrenamiento + nutrición + suplementación + metas concretas), los usuarios terminan usando múltiples apps desconectadas o abandonando sus objetivos.
+  Los usuarios, al no encontrar una herramienta integral y asequible, terminan combinando varias aplicaciones desconectadas (una para entrenar, otra para contar calorías, otra para medir progreso). Este proceso fragmentado genera frustración, falta de constancia y, en muchos casos, abandono de sus objetivos.
 
 - **How much:**  
   El mercado global de aplicaciones de fitness se encuentra en plena expansión. Por ejemplo, más del **74 % de ciudadanos estadounidenses** utiliza al menos una app de fitness, y el **60 % la ha sustituido por completo por membresías de gimnasio tradicionales**.
@@ -113,10 +113,10 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
 
 ***Problem Statement 1***  
 
-|Nuestro producto tiene como objetivo mejorar la condición física de las personas mediante un acompañamiento integral (ejercicio, nutrición y suplementos) basado en IA.|
+|Nuestro producto tiene como objetivo mejorar la condición física de las personas mediante un acompañamiento integral basado en IA (ejercicio + calorías ideales).|
 | - |
 |Hemos observado que muchas personas que desean bajar de peso, ganar músculo o cumplir metas personales se enfrentan a planes genéricos, costosos o poco accesibles. Esto impacta negativamente en su motivación y resultados.|
-|¿Podría FitSense, a través de planes personalizados con IA, que integren entrenamiento, nutrición y suplementos, ayudar a los usuarios a lograr sus metas físicas de manera más accesible y sostenible?|
+|¿Podría FitSense, a través de planes de entrenamiento personalizados con IA y métricas de calorías ideales, ayudar a los usuarios a lograr sus metas físicas de manera más accesible y sostenible?|
 
 ---
 
@@ -131,10 +131,10 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
 
 ***Problem Statement 3***  
 
-|Nuestro producto tiene como objetivo hacer accesible el acompañamiento fitness sin necesidad de pagar entrenadores o nutricionistas costosos.|
+|Nuestro producto tiene como objetivo hacer accesible el acompañamiento fitness sin necesidad de pagar entrenadores costosos.|
 | - |
-|Hemos observado que los servicios profesionales de entrenamiento y nutricionistas son caros y poco accesibles para la mayoría de personas.|
-|¿Podría FitSense, mediante un entrenador integral impulsado por IA, ofrecer una alternativa más asequible y práctica que democratice el acceso al bienestar físico?|
+|Hemos observado que los servicios profesionales de entrenamiento son caros y poco accesibles para la mayoría de personas.|
+|¿Podría FitSense, mediante un entrenador digital impulsado por IA, ofrecer una alternativa más asequible y práctica que democratice el acceso al bienestar físico?|
 
 ---
 
@@ -149,17 +149,17 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
 3. **¿Qué problemas resuelve nuestro producto?**  
    - Planes genéricos que no consideran edad, peso o contexto.  
    - Falta de motivación por ausencia de métricas visibles.  
-   - Costos elevados de entrenadores/nutricionistas.  
-   - Dificultad para unificar en un solo lugar ejercicio + dieta + suplementos.  
+   - Costos elevados de entrenadores personales.  
+   - Dificultad para unificar en un solo lugar ejercicio + calorías ideales + métricas de progreso.  
 
 4. **¿Cuándo y cómo es usado el producto?**  
    A diario, a través del smartphone. Los usuarios consultan FitSense antes de entrenar, al registrar comidas, o al evaluar sus progresos en gráficos. Además, reciben notificaciones motivacionales y recordatorios personalizados.  
 
 5. **¿Qué características son importantes?**  
-   - **Planes personalizados con IA**: rutinas y dietas adaptadas a metas reales.  
-   - **Dashboard de progreso**: métricas visuales de IMC, calorías, peso y comparativas.  
-   - **Recordatorios inteligentes**: notificaciones para mantener la motivación.  
-   - **Integración integral**: ejercicio + nutrición + suplementos en una sola app.  
+   - **Planes personalizados con IA**: rutinas adaptadas a metas reales.  
+   - **Dashboard de progreso**: métricas visuales de IMC, calorías ideales, peso y comparativas. 
+   - **Recordatorios inteligentes**: notificaciones para mantener la motivación.
+   - **Funcionalidad social**: compartir logros y resultados.
    - **Accesibilidad**: interfaz simple, amigable y multilenguaje.  
 
 6. **¿Cómo debe verse y comportarse el producto?**  
@@ -172,7 +172,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
 #### 1.2.2.3. Lean UX Hypothesis Statements  
 
 **Hypothesis Statement 1**  
-|Creemos que al ofrecer planes personalizados que integren ejercicio, nutrición y suplementos en FitSense, los usuarios obtendrán mejores resultados físicos de manera más eficiente y accesible.|
+|Creemos que al ofrecer planes personalizados que integren ejercicio y cálculo de calorías ideales en FitSense, los usuarios obtendrán mejores resultados físicos de manera más eficiente y accesible.|
 | - |
 |Sabremos que esto es cierto…|
 |Cuando al menos el 70% de los usuarios reporten mejoras en sus métricas (peso, IMC, resistencia) durante los primeros 3 meses de uso de la app.|
@@ -188,10 +188,10 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
 ---
 
 **Hypothesis Statement 3**  
-|Creemos que al posicionar FitSense como un “entrenador integral accesible” impulsado por IA, se logrará democratizar el acceso al bienestar físico frente a servicios tradicionales caros.|
+|Creemos que al posicionar FitSense como un “entrenador digital accesible” impulsado por IA, se logrará democratizar el acceso al bienestar físico frente a servicios tradicionales caros.|
 | - |
 |Sabremos que esto es cierto…|
-|Cuando los usuarios destaquen en encuestas de satisfacción que FitSense reemplaza en al menos un 50% la necesidad de pagar entrenadores o nutricionistas externos.|
+|Cuando los usuarios destaquen en encuestas de satisfacción que FitSense reemplaza en al menos un 50% la necesidad de pagar entrenadores externos.|
 
 ---
 
@@ -203,19 +203,23 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
 
 #### 1.2.2.4. Lean UX Canvas
 
+El Lean UX Canvas de FitSense nos permitió alinear los problemas de negocio, las necesidades de los usuarios y las soluciones propuestas en un marco visual simple y colaborativo. Gracias a este ejercicio identificamos los beneficios clave para los usuarios, formulamos hipótesis verificables y definimos los experimentos mínimos necesarios para validar el producto. De esta forma, el canvas se convierte en una guía estratégica que conecta los objetivos de negocio con la experiencia real de los usuarios.
+
+![Lean Ux Canvas](../img/chapter-1/Lean%20UX%20Canvas%20-%20FitSense.PNG)
+
 ## 1.3. Segmentos objetivo
 
-Nuestro público objetivo son las personas interesadas en **mejorar su condición física** (bajar de peso, ganar masa muscular, prepararse para una meta específica como una maratón, o simplemente mantener un estilo de vida saludable), que buscan una alternativa **más accesible y personalizada** que contratar entrenadores o nutricionistas.  
+Nuestro público objetivo son las personas interesadas en **mejorar su condición física** (bajar de peso, ganar masa muscular, prepararse para una meta específica como una maratón, o simplemente mantener un estilo de vida saludable), que buscan una alternativa **más accesible y personalizada** que contratar entrenadores.  
 
 De acuerdo con el informe **Global Fitness App Market Size, Share & Trends Report 2023–2030 (Grand View Research, 2023)**, el uso de aplicaciones móviles de fitness ha crecido exponencialmente, alcanzando a millones de usuarios a nivel mundial, especialmente en el rango de **18 a 45 años**, quienes representan la mayoría de consumidores digitales en este sector.  
 
-Estos usuarios valoran soluciones que combinen en un solo lugar **entrenamiento, nutrición y seguimiento visual de progreso**, evitando tener que utilizar múltiples aplicaciones o servicios separados. **FitSense** cubre precisamente esta necesidad al integrar un **coach integral basado en IA**.  
+Estos usuarios valoran soluciones que combinen en un solo lugar **entrenamiento, cálculo de calorías ideales y seguimiento visual de progreso**, evitando tener que utilizar múltiples aplicaciones o servicios separados. **FitSense** cubre precisamente esta necesidad al integrar un **coach digital basado en IA para entrenamiento y seguimiento físico**.  
 
 | **Segmento objetivo** | Personas que buscan crear su propio plan fitness |
 | :- | :- |
-| **Edad** | 16-55 años |
+| **Edad** | 16-45 años |
 | **Ubicación** | Principalmente áreas urbanas con alto uso de smartphones e internet |
 | **Sexo** | Masculino y Femenino |
 | **Formación educativa** | Secundaria completa a universitaria, con uso básico de tecnología |
-| **Poder adquisitivo** | Medio (usuarios que buscan alternativas más económicas a entrenadores o nutricionistas) |
+| **Poder adquisitivo** | Medio, usuarios que buscan alternativas accesibles a entrenadores personales |
 | **Tecnología utilizada** | Smartphones con acceso a internet, aplicaciones móviles de fitness, dispositivos portátiles (wearables) para seguimiento de actividad física (opcional) |
