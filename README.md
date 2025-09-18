@@ -1,5 +1,5 @@
 ﻿<p align="center">
-  <img src="img/upc.png" alt="Logo de UPC" width="100%">
+  <img src="img/chapter-1/upc.png" alt="Logo de UPC" width="100%">
 </p>
 
 <div align="center">
@@ -59,7 +59,7 @@ Setiembre 2025
             <li>Cuadros RodriguVz, Juan Alejandro</li>
             <li>Jarama Peñaloza, Fiorella</li>
             <li>Lucas Coronel, Nadia Alessandra</li>
-            <li>Rubio Calixto, Adrian</li>
+            <li>Rubio Calixto, Adrian Gustavo</li>
         </ul>
       </td>
       <td>
@@ -226,9 +226,9 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
         Durante el avance de este TB1 pude identificar la falta de soluciones integrales y accesibles en el ámbito del fitness digital y plantear a FitSense como respuesta innovadora, basada en IA, métricas personalizadas y motivación social. A través del análisis competitivo y el Lean UX Canvas, se definieron estrategias, hipótesis y un MVP que facilitarán validar la propuesta. En conjunto, se comunica de forma objetiva un proyecto de ingeniería con impacto positivo en la salud y la constancia de los usuarios.<br>
-        <strong>Ramirez Mendez, Sebastián André</strong><br>
+        <strong>Rubio Calixto, Adrian Gustavo</strong><br>
         <em>TB1</em><br>
-        aa<br>
+        Durante el desarrollo de FitSense, diseñé, registré y analicé entrevistas para identificar necesidades clave de los usuarios. Posteriormente, elaboré el proceso de Needfinding mediante User Personas, User Task Matrix, Empathy Mapping y As-is Scenario Mapping, lo que permitió comprender a fondo su contexto. Además, definí el Ubiquitous Language para unificar la comunicación entre el equipo y realicé el To-Be Scenario Mapping en el Capítulo III, proyectando escenarios futuros alineados con los objetivos del proyecto.<br>
     </td>
     <td>
         <em>TB1</em><br>
@@ -250,9 +250,9 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
         El desarrollo de FitSense me permitió analizar de manera objetiva la problemática del mercado fitness digital y proponer una solución innovadora que combina personalización mediante IA, seguimiento de métricas y motivación social. Los resultados obtenidos, plasmados en el Lean UX Canvas y el análisis competitivo, fueron presentados de forma clara y estructurada para que puedan ser comprendidos por públicos de distintas especialidades y niveles jerárquicos, garantizando así una comunicación efectiva en el marco de un proyecto de ingeniería orientado a la mejora del bienestar de los usuarios.<br>
-        <strong>Ramirez Mendez, Sebastián André</strong><br>
+        <strong>Rubio Calixto, Adrian Gustavo</strong><br>
         <em>TB1</em><br>
-        aa<br>
+        Desarrollé el diseño, registro y análisis de entrevistas para recopilar información relevante sobre las necesidades de los usuarios. A partir de ello, elaboré el proceso de Needfinding, creando User Personas, User Task Matrix, Empathy Mapping y As-is Scenario Mapping, lo que permitió identificar puntos críticos de la experiencia. Además, definí el Ubiquitous Language para unificar la comunicación entre el equipo y los interesados. Finalmente, realicé el To-Be Scenario Mapping en el Capítulo III, proyectando escenarios futuros que orientan el diseño de la solución y alinean los objetivos del proyecto con las expectativas de los usuarios.<br>
     </td>
     <td>
        <em>TB1</em><br>
