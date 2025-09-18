@@ -270,27 +270,6 @@ Las siguientes épicas y user stories fueron priorizadas por su alto impacto en 
 <td>Anonimiza datos personales y permite eliminación total bajo solicitud del usuario.</td>
 <td>EP09</td>
 </tr>
-<tr>
-<td>CT02</td>
-<td>Integración con plataformas de fitness externas</td>
-<td>Integración con Apple Health y Google Fit.</td>
-<td>Los datos se sincronizan bidireccionalmente cumpliendo sus políticas.</td>
-<td>EP04</td>
-</tr>
-<tr>
-<td>CT03</td>
-<td>Tecnologías aprobadas</td>
-<td>Solo se puede usar Spring Boot, React y PostgreSQL.</td>
-<td>Toda la arquitectura se implementa con estas tecnologías.</td>
-<td>EP09</td>
-</tr>
-<tr>
-<td>CT04</td>
-<td>Despliegue en nube pública</td>
-<td>Debe usarse infraestructura cloud escalable con Kubernetes.</td>
-<td>Todos los servicios deben ser contenerizados y orquestados.</td>
-<td>EP09</td>
-</tr>
 </tbody>
 </table>
 
