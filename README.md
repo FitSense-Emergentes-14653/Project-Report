@@ -225,7 +225,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         Durante el proyecto FitSense, presenté los resultados del Impact Mapping, User Stories y requisitos del sistema a diferentes audiencias del proyecto. Comuniqué de forma clara cómo las épicas y features se conectan con los objetivos de negocio, adaptando la explicación para que tanto stakeholders como el equipo técnico entendieran la priorización y el valor de cada funcionalidad.<br>
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
-        aa<br>
+        Durante el avance de este TB1 pude identificar la falta de soluciones integrales y accesibles en el ámbito del fitness digital y plantear a FitSense como respuesta innovadora, basada en IA, métricas personalizadas y motivación social. A través del análisis competitivo y el Lean UX Canvas, se definieron estrategias, hipótesis y un MVP que facilitarán validar la propuesta. En conjunto, se comunica de forma objetiva un proyecto de ingeniería con impacto positivo en la salud y la constancia de los usuarios.<br>
         <strong>Ramirez Mendez, Sebastián André</strong><br>
         <em>TB1</em><br>
         aa<br>
@@ -249,7 +249,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         aa<br>
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
-        aa<br>
+        El desarrollo de FitSense me permitió analizar de manera objetiva la problemática del mercado fitness digital y proponer una solución innovadora que combina personalización mediante IA, seguimiento de métricas y motivación social. Los resultados obtenidos, plasmados en el Lean UX Canvas y el análisis competitivo, fueron presentados de forma clara y estructurada para que puedan ser comprendidos por públicos de distintas especialidades y niveles jerárquicos, garantizando así una comunicación efectiva en el marco de un proyecto de ingeniería orientado a la mejora del bienestar de los usuarios.<br>
         <strong>Ramirez Mendez, Sebastián André</strong><br>
         <em>TB1</em><br>
         aa<br>
