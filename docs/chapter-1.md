@@ -96,7 +96,7 @@ Ser reconocidos como una startup líder en el desarrollo de aplicaciones y plata
   - Sin seguimiento constante, la motivación disminuye rápidamente al no visualizar progreso de forma clara.
 
 - **How:**  
-  Al no existir herramientas asequibles, personalizadas e integrales (“ejercicio + cálculo de calorías ideales + metas concretas), los usuarios terminan usando múltiples apps desconectadas o abandonando sus objetivos.
+  Los usuarios, al no encontrar una herramienta integral y asequible, terminan combinando varias aplicaciones desconectadas (una para entrenar, otra para contar calorías, otra para medir progreso). Este proceso fragmentado genera frustración, falta de constancia y, en muchos casos, abandono de sus objetivos.
 
 - **How much:**  
   El mercado global de aplicaciones de fitness se encuentra en plena expansión. Por ejemplo, más del **74 % de ciudadanos estadounidenses** utiliza al menos una app de fitness, y el **60 % la ha sustituido por completo por membresías de gimnasio tradicionales**.
