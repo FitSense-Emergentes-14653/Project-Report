@@ -29,7 +29,7 @@ Grupo: 2
 |   Cuadros Rodríguez, Juan Alejandro  |    u20221a359    |
 |   Jarama Peñaloza, Fiorella    |   u202120418  |
 |  Lucas Coronel, Nadia Alessandra   |    U202120430    |
-|  Rubio Calixto, Adrian    |    u202017622    |
+|  Rubio Calixto, Adrian Gustavo   |    u202017622    |
 
 
 Setiembre 2025 
