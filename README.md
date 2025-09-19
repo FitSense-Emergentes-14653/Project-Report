@@ -80,6 +80,15 @@ Setiembre 2025
 
 URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Project-Report
 
+![Insight](img/chapter-4/tb1-contribuidores.PNG)
+
+![Insight](img/chapter-4/tb1-insight-2.PNG)
+
+![Insight](img/chapter-4/tb1-insight-3.PNG)
+
+![Insight](img/chapter-4/tb1-insight-4.PNG)
+
+.
 ------
 
 # Contenido
