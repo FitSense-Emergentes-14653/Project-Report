@@ -1,8 +1,8 @@
 # Anexos  
 
-**Anexo 1. Entrevistas realizadas**  
-Registro en video de las entrevistas aplicadas a los usuarios, en las cuales se identificaron necesidades, frustraciones y expectativas en el uso de aplicaciones de fitness.  
-Disponible en: [Exposiciones – Validation Interviews, Arquitecturas de Software Emergentes](https://upcedupe-my.sharepoint.com/personal/u202017622_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu202017622%5Fupc%5Fedu%5Fpe%2FDocuments%2FValidation%20Interviews%20%2D%20Arquitecuras%20de%20Software%20Emergentes%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0=&ga=1)  
+**Anexo N°1: Estadística sobre uso de apps de fitness**
+
+https://www.grandviewresearch.com/industry-analysis/fitness-app-market
 
 **Anexo 2. User Persona – René Espinoza**  
 Ficha descriptiva del cliente ideal de FitSense, incluyendo datos demográficos, objetivos, necesidades, frustraciones y motivaciones.  
@@ -19,9 +19,23 @@ Mapa del escenario ideal que muestra cómo la aplicación FitSense transformará
 **Anexo 6. User Task Matrix**  
 Matriz de tareas elaborada a partir de los comentarios de los usuarios entrevistados, identificando frecuencia e importancia de las principales acciones.  
 
+**Anexo 7. Event Storming**
+
+https://www.figma.com/design/d79XNdidl0cHYUaA9o8zsj/Figma---Emergentes?t=GWl8L6Gfl27XnxeW-1
+
+**Anexo 8. Entrevistas realizadas TB1**  
+Registro en video de las entrevistas aplicadas a los usuarios, en las cuales se identificaron necesidades, frustraciones y expectativas en el uso de aplicaciones de fitness.  
+Disponible en: [Exposiciones – Validation Interviews, Arquitecturas de Software Emergentes](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a359_upc_edu_pe/EfyO18SJkA5GpMCI1trHijUB-Mq3DxEzZBBHFZUiBMFx6g?e=mnexXe&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)  
+
+**Anexo 9. Video de Exposición TB1**
+
+https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a359_upc_edu_pe/EWXIg6RX7VtEisGAk76mtMUBLw4EU63SbTFcSO8cAPSP7w?e=P3ePpD&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
 ---
 
 # Bibliografía  
+
+Fitness App Market Size & Share. Industry Report, 2030. (s.f.). Recuperado de https://www.grandviewresearch.com/industry-analysis/fitness-app-market
 
 Grand View Research. (2023). *Global Fitness App Market Size, Share & Trends Report 2023–2030*. Recuperado de [https://www.grandviewresearch.com/industry-analysis/fitness-app-market](https://www.grandviewresearch.com/industry-analysis/fitness-app-market)  
 
