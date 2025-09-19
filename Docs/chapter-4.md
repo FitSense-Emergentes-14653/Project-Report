@@ -9,6 +9,9 @@ Este capítulo documenta las decisiones estratégicas del diseño de software pa
 El propósito del proceso de diseño arquitectónico para FitSense es crear una solución de software robusta, escalable y centrada en el usuario que aborde directamente las problemáticas identificadas en el mercado de aplicaciones de fitness.
 
 ### 4.1.2. Attribute-Driven Design Inputs
+
+Esta sección documenta los insumos que guiarán el diseño arquitectónico de FitSense utilizando el enfoque Attribute-Driven Design (ADD). Incluye las funcionalidades clave (Primary User Stories), los escenarios de atributos de calidad que condicionan decisiones de diseño, y las restricciones impuestas por el negocio o el entorno tecnológico.
+
 #### 4.1.2.1. Primary Functionality (Primary User Stories)
 
 Las siguientes historias de usuario y épicas representan las funcionalidades **más críticas de FitSense**, seleccionadas por su **alto impacto en la estructura, desempeño, seguridad y escalabilidad** del sistema.
