@@ -232,7 +232,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
     </td>
     <td>
         <em>TB1</em><br>
-        AAAAAA<br>
+        En conclusión, el desarrollo de FitSense permitió comunicar con objetividad y claridad los resultados obtenidos, abarcando desde el análisis de necesidades y la definición de requisitos hasta el diseño de la arquitectura emergente. De esta manera, logramos transmitir a públicos diversos técnicos y no técnicos, el valor, la viabilidad y el impacto positivo de la propuesta en el ámbito del fitness digital.<br>
     </td>
   </tr>
   <tr>
@@ -256,7 +256,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
     </td>
     <td>
        <em>TB1</em><br>
-        AAAAAA<br>
+        En conjunto, el desarrollo de FitSense permitió al equipo plasmar de manera escrita y objetiva los avances del proyecto, desde el análisis de necesidades de los usuarios y la definición de requisitos, hasta el diseño de la arquitectura emergente y la propuesta de solución innovadora. A través de técnicas como entrevistas, Needfinding, Impact Mapping, EventStorming, Lean UX Canvas y el enfoque C4, se generó documentación clara, estructurada y comprensible tanto para públicos técnicos como no técnicos. De esta forma, se aseguró una comunicación efectiva que integra la visión de negocio, la perspectiva del usuario y la solidez técnica en el marco de un proyecto de ingeniería orientado a la salud y el bienestar.<br>
     </td>
   </tr>
 </table>
