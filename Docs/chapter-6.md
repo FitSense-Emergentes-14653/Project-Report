@@ -154,3 +154,15 @@ Se incluye la descripción de Tech Solutions, una imagen de la universidad y ret
 <p align="center">
   <img src="../img/chapter-6/landing-mockup.jpg" alt="Landing Mockup" width="600">
 </p>
+
+## 6.4. Applications UX/UI Design
+
+### 6.4.1. Applications Wireframes
+
+### 6.4.2. Applications Wireflow Diagrams
+
+### 6.4.2. Applications Mock-ups
+
+### 6.4.3. Applications User Flow Diagrams
+
+### 6.5. Applications Prototyping
