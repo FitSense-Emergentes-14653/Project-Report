@@ -158,11 +158,62 @@ Se incluye la descripción de Tech Solutions, una imagen de la universidad y ret
 ## 6.2. Information Architecture.
 La arquitectura de información desempeña un papel fundamental en la organización y estructuración del contenido para garantizar su accesibilidad y comprensión por parte de los usuarios. En este apartado, se detallarán los sistemas de organización, etiquetado, etiquetas SEO y metaetiquetas, sistema de búsqueda y sistemas de navegación que componen la arquitectura de la información de nuestro producto.
 
-### 6.2.2. Labeling Systems. 
+### 6.2.1. Organization Systems. 
 En TechSolutions, aplicamos un sistema de jerarquía visual para resaltar la información esencial y relevante, garantizando que los usuarios encuentren fácilmente lo que necesitan. Utilizamos una organización secuencial para guiar intuitivamente a los usuarios a través del proceso de generacion de plan y búsqueda de logros o workouts. En lo que respecta a la categorización de contenido, está organizado según la importancia que tiene bajo los parametros mas comunes encontrados en nuestros usuarios.
 
-### 6.2.3. Searching Systems. 
+### 6.2.2. Labeling Systems. 
+En el proyecto FitSense se eligió implementar un sistema de etiquetado breve y fácil de comprender para los usuarios. Las etiquetas que se utilizarán son las siguientes:
 
+
+<table>
+  <tbody>
+  <tr>
+      <th>Home</th>
+      <td>Se implementará un botón que permitirá a los usuarios observar su dashboard, metricas, su progreso y otros elementos relacionados.</td>
+  </tr>
+  <tr>
+      <th>Plan - Mis planes</th>
+      <td>Se implementará un botón que permitirá a los usuarios observar sus chats con la IA.</td>
+  </tr>
+  <tr>
+      <th>Notifications - Notificaciones</th>
+      <td>Se implementará un botón que permitirá visualizar notificaciones respecto a la hidratación y a los logros semanales.</td>
+  </tr>
+  <tr>
+      <th>Logout</th>
+      <td>Se implementará un botón que permitirá al usuario desvincularse de su cuenta.</td>
+  </tr>
+  </tbody>
+</table>
+
+
+### 6.2.3. Searching Systems. 
+La aplicación FitSense desarrollará un sistema de búsqueda intuitivo, diseñado para que los usuarios encuentren rápidamente la información que necesitan. Este sistema se basará en filtros inteligentes que simplificarán la búsqueda de asesores, evitando así que los usuarios se vean abrumados por la cantidad de información disponible. Con esta mejora, nuestra aplicación garantizará una experiencia de usuario más fluida y satisfactoria al buscar información relevante.
+
+<table>
+  <tbody>
+  <tr>
+      <th>Tipo de Asesoría de la IA</th>
+      <td>Permite al usuario buscar según el tipo de asesoría ofrecida.</td>
+  </tr>
+  <tr>
+      <th>Presupuesto</th>
+      <td>Permite al usuario generar un plan que se ajusten a su presupuesto/equipamiento.</td>
+  </tr>
+  <tr>
+      <th>Experiencia</th>
+      <td>Permite al usuario buscar mas ejercicios con un nivel de experiencia específico.</td>
+  </tr>
+  <tr>
+      <th>Idioma</th>
+      <td>Permite al usuario buscar según el idioma.</td>
+  </tr>
+  <tr>
+      <th>Palabras Clave</th>
+      <td>Proporciona un cuadro de búsqueda donde los usuarios pueden ingresar palabras clave específicas relacionadas con el tipo de plan que necesitan.</td>
+  </tr>
+  </tbody>
+</table>
 
 ### 6.2.4. SEO Tags and Meta Tags. 
 
@@ -199,7 +250,11 @@ Las Search Engine Optimization (Etiquetas SEO) y las Meta Tags (Meta Etiquetas) 
 ````
 
 ### 6.2.5. Navigation Systems. 
+La página de inicio de FitSense ha sido diseñada para una experiencia fácil y completa, ofreciendo las siguientes características:
 
+ - ***Menús de Navegación:*** Los menús de navegación son una estructura estándar que se utiliza para organizar y presentar las diversas secciones y páginas de un producto. Estos menús pueden adoptar diferentes formas, como menús desplegables, ubicados en la parte superior o lateral de una página, e incluso enlaces de navegación en el pie de página.
+
+ - ***Navegación por Pestañas:*** Es un sistema que emplea pestañas para organizar el contenido en secciones o categorías. Esto permite a los usuarios cambiar entre las distintas secciones de contenido simplemente haciendo clic en las pestañas correspondientes, sin necesidad de cargar nuevas páginas.
 
 ## 6.4. Applications UX/UI Design 
 
