@@ -109,3 +109,48 @@ El sistema de entrada es un elemento clave en la experiencia del usuario de FitS
 <p align="center">
   <img src="../img/chapter-6/input-system (1).png" alt="Input Sys FitSense" width="600">
 </p>
+
+## 6.3. Landing Page UI Design
+
+En este apartado se detalla el diseño de la interfaz de usuario (UI) de la Landing Page de FitSense, cuyo objetivo principal es captar la atención de los visitantes, comunicar la propuesta de valor de manera inmediata y guiar a los usuarios hacia la acción de registro o suscripción.
+
+### 6.3.1. Landing Page Wireframe
+
+El wireframe representa la estructura base de la página, mostrando la jerarquía y disposición de los elementos principales sin aplicar aún los estilos finales.
+Este boceto permite validar la navegación, la secuencia de información y la ubicación estratégica de los llamados a la acción (CTAs).
+
+- Wireframe - Inicio:
+Incluye el encabezado con el logo, barra de navegación (Inicio, Beneficios, Planes, Sobre Nosotros) y un hero con el mensaje principal “Transforma tus datos en resultados reales”, junto con un botón de acción “Comenzar ahora gratis”.
+
+- Wireframe - Beneficios:
+Presenta una cuadrícula con íconos y textos breves que resumen los beneficios principales del producto: Entrenamiento Personalizado, Tecnología Inteligente, Progreso en Tiempo Real y Motivación Constante.
+
+- Wireframe - Planes:
+Muestra dos tarjetas comparativas para los planes Freemium y Premium, destacando diferencias en funcionalidades y precios, con botones de acción para cada uno.
+
+- Wireframe - Sobre Nosotros:
+Incluye una breve descripción institucional de Tech Solutions, una imagen ilustrativa y una sección final con los integrantes del equipo, sus roles y redes sociales.
+
+<p align="center">
+  <img src="../img/chapter-6/landing-wireframe.jpg" alt="Landing Wireframe" width="600">
+</p>
+
+### 6.3.2. Landing Page Mock-up
+
+El mock-up representa la versión visual final del diseño, aplicando colores, tipografía y estilo de la marca FitSense. Este diseño mantiene un enfoque moderno, minimalista y dinámico, con alto contraste para resaltar los elementos clave y una navegación clara e intuitiva.
+
+- Mock-up - Inicio:
+El hero presenta una imagen realista relacionada con el fitness, reforzada por el título principal y un CTA en color verde-lima que invita a la acción.
+
+- Mock-up - Beneficios:
+Los íconos e ilustraciones siguen el estilo lineal y minimalista, utilizando el color secundario para destacar. El fondo oscuro resalta el texto y mejora la legibilidad.
+
+- Mock-up - Planes:
+Las tarjetas mantienen consistencia visual con bordes redondeados, tipografía moderna y botones contrastantes que refuerzan el llamado a la acción.
+
+- Mock-up - Sobre Nosotros:
+Se incluye la descripción de Tech Solutions, una imagen de la universidad y retratos del equipo, creando una conexión humana con los usuarios y reforzando la credibilidad del proyecto.
+
+<p align="center">
+  <img src="../img/chapter-6/landing-mockup.jpg" alt="Landing Mockup" width="600">
+</p>
