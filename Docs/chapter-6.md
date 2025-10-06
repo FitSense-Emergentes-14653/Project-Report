@@ -155,7 +155,53 @@ Se incluye la descripción de Tech Solutions, una imagen de la universidad y ret
   <img src="../img/chapter-6/landing-mockup.jpg" alt="Landing Mockup" width="600">
 </p>
 
-## 6.4. Applications UX/UI Design
+## 6.2. Information Architecture.
+La arquitectura de información desempeña un papel fundamental en la organización y estructuración del contenido para garantizar su accesibilidad y comprensión por parte de los usuarios. En este apartado, se detallarán los sistemas de organización, etiquetado, etiquetas SEO y metaetiquetas, sistema de búsqueda y sistemas de navegación que componen la arquitectura de la información de nuestro producto.
+
+### 6.2.2. Labeling Systems. 
+En TechSolutions, aplicamos un sistema de jerarquía visual para resaltar la información esencial y relevante, garantizando que los usuarios encuentren fácilmente lo que necesitan. Utilizamos una organización secuencial para guiar intuitivamente a los usuarios a través del proceso de generacion de plan y búsqueda de logros o workouts. En lo que respecta a la categorización de contenido, está organizado según la importancia que tiene bajo los parametros mas comunes encontrados en nuestros usuarios.
+
+### 6.2.3. Searching Systems. 
+
+
+### 6.2.4. SEO Tags and Meta Tags. 
+
+Las Search Engine Optimization (Etiquetas SEO) y las Meta Tags (Meta Etiquetas) juegan un papel vital en la visibilidad y el posicionamiento del contenido en los motores de búsqueda. Existen varios tipos de etiquetas SEO y metaetiquetas, y a continuación se destacan algunas de las más relevantes para la empresa:
+
+- **Metaetiqueta de Descripción (Meta Description Tag):** Esta etiqueta ofrece una breve   descripción del contenido de la página. Aunque no influye directamente en el ranking de búsqueda, una meta descripción bien redactada puede aumentar la tasa de clics (CTR) al proporcionar a los usuarios una visión clara del contenido de la página.
+
+````
+<meta name="description" content="TechSolutions ofrece soluciones tecnológicas innovadoras para mejorar tu entremamiento desde casa. Nuestra misión es empoderar a los usuarios comunes con herramientas inteligentes y eficientes.">
+````
+
+**Metaetiqueta de Autor (Meta Autor Tag):** Esta etiqueta especifica el autor del contenido de la página. Esto puede ser útil para atribuir la propiedad intelectual o identificar la fuente del contenido.
+
+````
+<meta name="author" content="TechSolutions">
+````
+
+**Etiqueta de Título (Title Tag):** Esta etiqueta es esencial para el SEO, ya que define el título de una página web y aparece como el título principal en los resultados de búsqueda. 
+
+````
+<title>TechSolutions</title>
+````
+
+**Etiqueta de Idioma (Language Tag):** Esta etiqueta especifica el idioma principal del contenido de la página. Es útil para la clasificación en búsquedas locales y ayuda a los motores de búsqueda a comprender el idioma del contenido.
+
+````
+<html lang="en">
+````
+
+**Metaetiqueta de Robots (Meta Robots Tag):** Esta etiqueta indica a los motores de búsqueda cómo indexar y rastrear la página. Puede especificar si la página debe ser indexada, si deben seguirse los enlaces o si se deben seguir ciertas instrucciones específicas.
+
+````
+<meta name="robots" content="index, follow"> 
+````
+
+### 6.2.5. Navigation Systems. 
+
+
+## 6.4. Applications UX/UI Design 
 
 ### 6.4.1. Applications Wireframes
 
@@ -165,4 +211,4 @@ Se incluye la descripción de Tech Solutions, una imagen de la universidad y ret
 
 ### 6.4.3. Applications User Flow Diagrams
 
-### 6.5. Applications Prototyping
+## 6.5. Applications Prototyping
