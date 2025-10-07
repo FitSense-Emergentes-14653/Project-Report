@@ -1141,6 +1141,16 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 ### 5.4.6. Bounded Context Software Architecture Component Level Diagrams
 
 ```mermaid
+C4Component
+title FitSense - Monitoring Context (Component)
+
+Person(user, "Usuario", "Registra y consulta su progreso.")
+Container(spa, "Web Dashboard", "React/Next.js", "UI de progreso y reportes.")
+ContainerDb(dbSql, "Monitoring DB", "PostgreSQL", "Workouts y progreso semanal.")
+ContainerDb(dbTs, "Metrics TS DB", "Timescale", "Series de métricas.")
+Container(blob, "Blob Storage", "Firebase/S3", "Fotos de progreso.")
+Container(ml, "AI Image Analyzer", "TensorFlow", "Analiza fotos de progreso.")
+Container(queue, "Message Broker", "Kafka/RabbitMQ", "Eventos de dominio.")
 Container_Boundary(api, "Monitoring API (NestJS / REST)") {
   
   Container_Boundary(ctrls, "Controllers") {
