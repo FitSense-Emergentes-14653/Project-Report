@@ -820,105 +820,22 @@ La capa de infraestructura implementa las interfaces de repositorios y adaptador
 
 ### 5.5.6. Bounded Context Software Architecture Component Level Diagrams
 ```mermaid
-graph LR
-  %% === Interface / Presentation ===
-  subgraph "Security API - Interface Layer"
-    AUTHC["AuthController"]
-    MFAC["MfaController"]
-    ROLEC["RoleController"]
-    OAUTC["OAuthCallbackController"]
-  end
+C4Container
+title FitSense - Security Context - C4
 
-  %% === Application Layer ===
-  subgraph "Application Layer - CQRS and Events"
-    REGH["RegisterUserCommandHandler"]
-    LOGH["AuthenticateUserCommandHandler"]
-    RFH["RefreshTokenCommandHandler"]
-    CPH["ChangePasswordCommandHandler"]
-    ARH["AssignRoleCommandHandler"]
+Person(user, "Usuario", "Se autentica en FitSense.")
+Container(spa, "Web/Mobile Client", "React / Flutter", "Pantallas de login/registro.")
+Container(authApi, "Auth API", "NestJS / REST API", "Login, refresh, roles/permisos.")
+ContainerDb(authDb, "Auth DB", "PostgreSQL", "Cuentas, roles, permisos, auditoría.")
+Container(cache, "Token Cache", "Redis", "Tokens activos / refresh.")
+Container(email, "Email Service", "External", "Verificación y recuperación.")
 
-    OACH["OnAccountCreatedHandler"]
-    OUAH["OnUserAuthenticatedHandler"]
-    ORAH["OnRoleAssignedHandler"]
-  end
-
-  %% === Domain Layer ===
-  subgraph "Domain Layer"
-    ACC["Account (Aggregate Root)"]
-    ROL["Role"]
-    PERM["Permission"]
-    TOK["Token"]
-    AUD["AuditLog"]
-
-    ASVC["AuthService (DomainService)"]
-    POL["AuthPolicy (Strategy)"]
-    PWH["PasswordHasher (DomainService)"]
-
-    ACCREP["AccountRepository (Interface)"]
-    ROLREP["RoleRepository (Interface)"]
-    TOKREP["TokenRepository (Interface)"]
-    AUDREP["AuditLogRepository (Interface)"]
-  end
-
-  %% === Infrastructure Layer ===
-  subgraph "Infrastructure Layer"
-    ACCSQL["AccountRepositorySql"]
-    ROLSQL["RoleRepositorySql"]
-    TOKREDIS["TokenRepositoryRedis"]
-    AUDSQL["AuditLogRepositorySql"]
-
-    PWHAD["PasswordHasherAdapter"]
-    TOKPROV["TokenProvider (JWT)"]
-    OAUTHAD["OAuthProviderAdapter"]
-    EMAILAD["EmailNotificationAdapter"]
-
-    SQL["Relational DB (PostgreSQL)"]
-    REDIS["In-Memory Store (Redis)"]
-  end
-
-  %% Flujos Interface -> App
-  AUTHC --> REGH
-  AUTHC --> LOGH
-  AUTHC --> RFH
-  AUTHC --> CPH
-  ROLEC --> ARH
-  OAUTC --> REGH
-
-  %% App -> Domain
-  REGH --> ACC
-  LOGH --> ASVC
-  RFH --> ASVC
-  CPH --> ACC
-  ARH --> ROL
-
-  %% Domain -> Repos (Interfaces)
-  ASVC --> TOKREP
-  ASVC --> PWH
-  ACC --> ACCREP
-  ROL --> ROLREP
-
-  %% Repos -> Infra Implementations
-  ACCREP --> ACCSQL
-  ROLREP --> ROLSQL
-  TOKREP --> TOKREDIS
-  AUDREP --> AUDSQL
-
-  %% Infra -> Data Stores
-  ACCSQL --> SQL
-  ROLSQL --> SQL
-  AUDSQL --> SQL
-  TOKREDIS --> REDIS
-
-  %% Adaptadores
-  PWH --> PWHAD
-  ASVC --> TOKPROV
-  REGH --> OAUTHAD
-  OUAH --> EMAILAD
-
-  %% Eventos de aplicación
-  REGH --> OACH
-  LOGH --> OUAH
-  ARH --> ORAH
+%% Relaciones (direccionales)
+Rel_R(user, spa, "Usa", "HTTPS/JSON")
+Rel_R(spa, authApi, "Autentica", "HTTPS/JSON")
+Rel_R(authApi, authDb, "Persistencia", "SQL")
+Rel_D(authApi, cache, "Sesiones", "Redis")
+Rel_D(spa, email, "OTP/links", "SMTP/API")
 ```
 
 ### 5.5.7. Bounded Context Software Architecture Code Level Diagrams
