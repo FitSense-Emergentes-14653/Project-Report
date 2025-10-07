@@ -261,9 +261,15 @@ En este apartado, se muestran todos los wireframes necesarios para cumplir las f
 
 ### 6.4.1. Applications Wireframes
 
-  - WEB MOCKUPS: 
+  - WEB WIREFRAMES: 
+    <p align="center">
+      <img src="../img/chapter-6/web_wireframes.png" alt="Web Wireframes" width="80%">
+    </p>
 
-  - MOBILE MOCKUPS:
+  - MOBILE WIREFRAMES:
+    <p align="center">
+      <img src="../img/chapter-6/mobile_wireframes.png" alt="Mobile Wireframes" width="80%">
+    </p>
 
 
 ### 6.4.2. Applications Wireflow Diagrams
@@ -349,6 +355,20 @@ En este apartado, se muestran todos los wireframes necesarios para cumplir las f
 
 ### 6.4.3. Applications User Flow Diagrams
 
+  Web Userflow:
+  <p align="center">
+      <img src="../img/chapter-6/web_userflow.png" alt="Web Userflow" width="50%">
+  </p>
+  <br> 
+  <br> 
+
+  Mobile Userflow
+  <p align="center">
+      <img src="../img/chapter-6/mobile_userflow.png.png" alt="Mobile Userflow" width="50%">
+  </p>
+  <br> 
+  <br> 
+
 ## 6.5. Applications Prototyping
   - Web Prototype & Mobile Prototype:: 
         
@@ -359,5 +379,5 @@ En este apartado, se muestran todos los wireframes necesarios para cumplir las f
     </p>
 
     <p align="center">
-      <img src="../img/chapter-6/prototype_mobile.png" alt="Prototype Web"" width="50%">
+      <img src="../img/chapter-6/prototype_mobile.png" alt="Prototype Web" width="50%">
     </p>
