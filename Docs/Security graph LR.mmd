@@ -1,0 +1,99 @@
+graph LR
+  %% === Interface / Presentation ===
+  subgraph "Security API - Interface Layer"
+    AUTHC["AuthController"]
+    MFAC["MfaController"]
+    ROLEC["RoleController"]
+    OAUTC["OAuthCallbackController"]
+  end
+
+  %% === Application Layer ===
+  subgraph "Application Layer - CQRS and Events"
+    REGH["RegisterUserCommandHandler"]
+    LOGH["AuthenticateUserCommandHandler"]
+    RFH["RefreshTokenCommandHandler"]
+    CPH["ChangePasswordCommandHandler"]
+    ARH["AssignRoleCommandHandler"]
+
+    OACH["OnAccountCreatedHandler"]
+    OUAH["OnUserAuthenticatedHandler"]
+    ORAH["OnRoleAssignedHandler"]
+  end
+
+  %% === Domain Layer ===
+  subgraph "Domain Layer"
+    ACC["Account (Aggregate Root)"]
+    ROL["Role"]
+    PERM["Permission"]
+    TOK["Token"]
+    AUD["AuditLog"]
+
+    ASVC["AuthService (DomainService)"]
+    POL["AuthPolicy (Strategy)"]
+    PWH["PasswordHasher (DomainService)"]
+
+    ACCREP["AccountRepository (Interface)"]
+    ROLREP["RoleRepository (Interface)"]
+    TOKREP["TokenRepository (Interface)"]
+    AUDREP["AuditLogRepository (Interface)"]
+  end
+
+  %% === Infrastructure Layer ===
+  subgraph "Infrastructure Layer"
+    ACCSQL["AccountRepositorySql"]
+    ROLSQL["RoleRepositorySql"]
+    TOKREDIS["TokenRepositoryRedis"]
+    AUDSQL["AuditLogRepositorySql"]
+
+    PWHAD["PasswordHasherAdapter"]
+    TOKPROV["TokenProvider (JWT)"]
+    OAUTHAD["OAuthProviderAdapter"]
+    EMAILAD["EmailNotificationAdapter"]
+
+    SQL["Relational DB (PostgreSQL)"]
+    REDIS["In-Memory Store (Redis)"]
+  end
+
+  %% Flujos Interface -> App
+  AUTHC --> REGH
+  AUTHC --> LOGH
+  AUTHC --> RFH
+  AUTHC --> CPH
+  ROLEC --> ARH
+  OAUTC --> REGH
+
+  %% App -> Domain
+  REGH --> ACC
+  LOGH --> ASVC
+  RFH --> ASVC
+  CPH --> ACC
+  ARH --> ROL
+
+  %% Domain -> Repos (Interfaces)
+  ASVC --> TOKREP
+  ASVC --> PWH
+  ACC --> ACCREP
+  ROL --> ROLREP
+
+  %% Repos -> Infra Implementations
+  ACCREP --> ACCSQL
+  ROLREP --> ROLSQL
+  TOKREP --> TOKREDIS
+  AUDREP --> AUDSQL
+
+  %% Infra -> Data Stores
+  ACCSQL --> SQL
+  ROLSQL --> SQL
+  AUDSQL --> SQL
+  TOKREDIS --> REDIS
+
+  %% Adaptadores
+  PWH --> PWHAD
+  ASVC --> TOKPROV
+  REGH --> OAUTHAD
+  OUAH --> EMAILAD
+
+  %% Eventos de aplicación
+  REGH --> OACH
+  LOGH --> OUAH
+  ARH --> ORAH

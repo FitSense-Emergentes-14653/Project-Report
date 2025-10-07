@@ -1,0 +1,56 @@
+erDiagram
+  ACCOUNTS ||--o{ ACCOUNT_ROLES : has
+  ROLES ||--o{ ACCOUNT_ROLES : has
+  ROLES ||--o{ ROLE_PERMISSIONS : grants
+  PERMISSIONS ||--o{ ROLE_PERMISSIONS : maps
+  ACCOUNTS ||--o{ TOKENS : issues
+  ACCOUNTS ||--o{ AUDIT_LOGS : generates
+
+  ACCOUNTS {
+    uuid id PK
+    text email
+    text password_hash
+    boolean mfa_enabled
+    text status
+    timestamp created_at
+    timestamp updated_at
+  }
+
+  ROLES {
+    uuid id PK
+    text name
+  }
+
+  PERMISSIONS {
+    uuid id PK
+    text code
+    text scope
+  }
+
+  ACCOUNT_ROLES {
+    uuid account_id FK
+    uuid role_id FK
+  }
+
+  ROLE_PERMISSIONS {
+    uuid role_id FK
+    uuid permission_id FK
+  }
+
+  TOKENS {
+    uuid id PK
+    uuid account_id FK
+    text type
+    text value_hash
+    timestamp expires_at
+    boolean revoked
+  }
+
+  AUDIT_LOGS {
+    uuid id PK
+    uuid account_id FK
+    text action
+    text details
+    text ip
+    timestamp occurred_at
+  }

@@ -588,19 +588,489 @@ erDiagram
 
 ### 5.5.1. Domain Layer
 
+<p align="justify">
+El Domain Layer del contexto de <b>Seguridad</b> define las clases que representan las reglas de negocio relacionadas con la autenticación, autorización y gestión de roles de los usuarios dentro del sistema FitSense. Este dominio garantiza el control de acceso, la integridad de las credenciales y la trazabilidad de acciones mediante auditorías.
+</p>
+
+<p><b>Entidades de dominio</b></p>
+
+<li>
+    <b>Account:</b> Representa una cuenta de usuario. Contiene credenciales, estado de verificación y configuración de autenticación multifactor (MFA).
+</li>
+
+<li>
+    <b>Role:</b> Define un rol dentro del sistema (por ejemplo, “User”, “Coach”, “Admin”) y sus permisos asociados.
+</li>
+
+<li>
+    <b>Permission:</b> Representa una acción o recurso al cual puede acceder un rol (por ejemplo, <i>metrics:read</i> o <i>progress:write</i>).
+</li>
+
+<li>
+    <b>Token:</b> Representa los tokens emitidos durante el proceso de autenticación (access y refresh tokens).
+</li>
+
+<li>
+    <b>AuditLog:</b> Entidad encargada de registrar los eventos de seguridad relevantes como inicio de sesión, cambio de contraseña o asignación de roles.
+</li> <br>
+
+<p><b>Objetos de valor (Value Objects)</b></p>
+
+<li>
+    <b>AccountId:</b> Identificador único de una cuenta de usuario.
+</li>
+
+<li>
+    <b>RoleName:</b> Valor inmutable que representa el nombre de un rol.
+</li>
+
+<li>
+    <b>TokenType:</b> Define el tipo de token (ACCESS o REFRESH).
+</li>
+
+<li>
+    <b>HashedPassword:</b> Valor protegido que representa la contraseña encriptada del usuario.
+</li> <br>
+
+<p><b>Agregados</b></p>
+
+<li>
+    <b>Authenticator:</b> Agregado raíz responsable de verificar credenciales, emitir tokens y gestionar la validez de las sesiones.
+</li>
+
+<li>
+    <b>Authorizer:</b> Valida que un usuario tenga los permisos necesarios para acceder a un recurso, según su rol y estado.
+</li> <br>
+
+<p><b>Servicios de dominio</b></p>
+
+<li>
+    <b>AuthService:</b> Encargado de emitir y validar tokens JWT. Implementa las políticas de expiración y rotación definidas en <i>AuthPolicy</i>.
+</li>
+
+<li>
+    <b>PasswordHasher:</b> Servicio responsable del cifrado y verificación de contraseñas usando algoritmos seguros (bcrypt o Argon2).
+</li>
+
+<li>
+    <b>AuditService:</b> Encargado de registrar acciones críticas de seguridad (inicio de sesión, cambio de roles, fallos de autenticación).
+</li>
+
+<li>
+    <b>AuthPolicy:</b> Define la configuración de tiempo de vida (TTL), reglas de rotación y alcance de los tokens.
+</li> <br>
+
+<p><b>Repositorios</b></p>
+
+<li>
+    <b>AccountRepository:</b> Gestiona la persistencia de las cuentas de usuario.
+</li>
+
+<li>
+    <b>RoleRepository:</b> Administra la persistencia y consulta de roles y permisos.
+</li>
+
+<li>
+    <b>TokenRepository:</b> Maneja los tokens activos y sus estados (revocado, expirado, vigente).
+</li>
+
+<li>
+    <b>AuditLogRepository:</b> Persiste los registros de auditoría.
+</li> <br>
+
+---
+
 ### 5.5.2. Interface Layer
+
+<p align="justify">
+En esta capa se definen los puntos de entrada al contexto IAM. Los controladores manejan las solicitudes REST relacionadas con autenticación, registro y administración de roles. También se incluyen consumidores de eventos externos y callbacks de OAuth.
+</p>
+
+<li>
+    <b>AuthController:</b> Administra las rutas de autenticación de usuarios:
+    <ul>
+        <li><i>POST /auth/register</i>: registro de nueva cuenta.</li>
+        <li><i>POST /auth/login</i>: inicio de sesión con credenciales.</li>
+        <li><i>POST /auth/refresh</i>: renovación del token de acceso.</li>
+        <li><i>POST /auth/logout</i>: cierre de sesión y revocación de tokens.</li>
+    </ul>
+</li>
+
+<li>
+    <b>MfaController:</b> Gestiona la activación y verificación de autenticación multifactor.
+</li>
+
+<li>
+    <b>RoleController:</b> Controla las operaciones CRUD de roles y asignaciones de permisos.
+</li>
+
+<li>
+    <b>OAuthCallbackController:</b> Recibe las respuestas de los proveedores externos (Google, Apple, Facebook) y crea cuentas federadas.
+</li>
+
+---
 
 ### 5.5.3. Application Layer
 
+<p align="justify">
+El <b>Application Layer</b> orquesta los flujos de autenticación y autorización, manejando comandos y eventos que coordinan las operaciones entre las capas de dominio e infraestructura. Implementa los patrones <i>CQRS</i> y <i>Event-Driven</i> para separar responsabilidades y garantizar trazabilidad.
+</p>
+
+<p><b>Command Handlers:</b></p>
+
+<li>
+    <b>RegisterUserCommandHandler:</b> Procesa la creación de una nueva cuenta, encripta la contraseña y emite <i>AccountCreated</i>.
+</li>
+
+<li>
+    <b>AuthenticateUserCommandHandler:</b> Valida credenciales, genera tokens y emite <i>UserAuthenticated</i>.
+</li>
+
+<li>
+    <b>RefreshTokenCommandHandler:</b> Valida un token de refresco y emite nuevos tokens según la política.
+</li>
+
+<li>
+    <b>ChangePasswordCommandHandler:</b> Actualiza la contraseña del usuario tras verificar las credenciales.
+</li>
+
+<li>
+    <b>AssignRoleCommandHandler:</b> Asocia roles a una cuenta y emite <i>RoleAssigned</i>.
+</li> <br>
+
+<p><b>Event Handlers:</b></p>
+
+<li>
+    <b>OnAccountCreatedHandler:</b> Registra la creación de cuentas en <i>AuditLog</i>.
+</li>
+
+<li>
+    <b>OnUserAuthenticatedHandler:</b> Emite eventos de sesión iniciada y registra auditoría.
+</li>
+
+<li>
+    <b>OnRoleAssignedHandler:</b> Actualiza permisos y genera logs de seguridad.
+</li> <br>
+
+---
+
 ### 5.5.4. Infrastructure Layer
 
+<p align="justify">
+La capa de infraestructura implementa las interfaces de repositorios y adaptadores que permiten la comunicación con bases de datos, servicios externos de identidad y notificaciones de seguridad.
+</p>
+
+<p><b>Bases de datos:</b></p>
+
+<li>
+    <b>PostgreSQL:</b> Base de datos relacional para almacenar cuentas, roles, permisos y logs de auditoría.
+</li>
+
+<li>
+    <b>Redis:</b> Almacenamiento temporal para tokens de acceso (blacklist y TTL).
+</li> <br>
+
+<p><b>Implementaciones de repositorios:</b></p>
+
+<li>
+    <b>AccountRepositorySql:</b> Implementa la persistencia de cuentas en PostgreSQL.
+</li>
+
+<li>
+    <b>RoleRepositorySql:</b> Gestiona roles y permisos con relaciones N:M.
+</li>
+
+<li>
+    <b>TokenRepositoryRedis:</b> Controla tokens activos en memoria (Redis).
+</li>
+
+<li>
+    <b>AuditLogRepositorySql:</b> Guarda los eventos de auditoría en tabla append-only.
+</li> <br>
+
+<p><b>Adaptadores y servicios externos:</b></p>
+
+<li>
+    <b>PasswordHasherAdapter:</b> Implementación de <i>PasswordHasher</i> usando bcrypt o Argon2.
+</li>
+
+<li>
+    <b>TokenProvider:</b> Generación y validación de JWTs (firma HMAC o RSA).
+</li>
+
+<li>
+    <b>OAuthProviderAdapter:</b> Integración con Google o Apple mediante OAuth 2.0.
+</li>
+
+<li>
+    <b>EmailNotificationAdapter:</b> Envía correos de recuperación de contraseña y alertas de inicio de sesión.
+</li>
+
 ### 5.5.6. Bounded Context Software Architecture Component Level Diagrams
+```mermaid
+graph LR
+  %% === Interface / Presentation ===
+  subgraph "Security API - Interface Layer"
+    AUTHC["AuthController"]
+    MFAC["MfaController"]
+    ROLEC["RoleController"]
+    OAUTC["OAuthCallbackController"]
+  end
+
+  %% === Application Layer ===
+  subgraph "Application Layer - CQRS and Events"
+    REGH["RegisterUserCommandHandler"]
+    LOGH["AuthenticateUserCommandHandler"]
+    RFH["RefreshTokenCommandHandler"]
+    CPH["ChangePasswordCommandHandler"]
+    ARH["AssignRoleCommandHandler"]
+
+    OACH["OnAccountCreatedHandler"]
+    OUAH["OnUserAuthenticatedHandler"]
+    ORAH["OnRoleAssignedHandler"]
+  end
+
+  %% === Domain Layer ===
+  subgraph "Domain Layer"
+    ACC["Account (Aggregate Root)"]
+    ROL["Role"]
+    PERM["Permission"]
+    TOK["Token"]
+    AUD["AuditLog"]
+
+    ASVC["AuthService (DomainService)"]
+    POL["AuthPolicy (Strategy)"]
+    PWH["PasswordHasher (DomainService)"]
+
+    ACCREP["AccountRepository (Interface)"]
+    ROLREP["RoleRepository (Interface)"]
+    TOKREP["TokenRepository (Interface)"]
+    AUDREP["AuditLogRepository (Interface)"]
+  end
+
+  %% === Infrastructure Layer ===
+  subgraph "Infrastructure Layer"
+    ACCSQL["AccountRepositorySql"]
+    ROLSQL["RoleRepositorySql"]
+    TOKREDIS["TokenRepositoryRedis"]
+    AUDSQL["AuditLogRepositorySql"]
+
+    PWHAD["PasswordHasherAdapter"]
+    TOKPROV["TokenProvider (JWT)"]
+    OAUTHAD["OAuthProviderAdapter"]
+    EMAILAD["EmailNotificationAdapter"]
+
+    SQL["Relational DB (PostgreSQL)"]
+    REDIS["In-Memory Store (Redis)"]
+  end
+
+  %% Flujos Interface -> App
+  AUTHC --> REGH
+  AUTHC --> LOGH
+  AUTHC --> RFH
+  AUTHC --> CPH
+  ROLEC --> ARH
+  OAUTC --> REGH
+
+  %% App -> Domain
+  REGH --> ACC
+  LOGH --> ASVC
+  RFH --> ASVC
+  CPH --> ACC
+  ARH --> ROL
+
+  %% Domain -> Repos (Interfaces)
+  ASVC --> TOKREP
+  ASVC --> PWH
+  ACC --> ACCREP
+  ROL --> ROLREP
+
+  %% Repos -> Infra Implementations
+  ACCREP --> ACCSQL
+  ROLREP --> ROLSQL
+  TOKREP --> TOKREDIS
+  AUDREP --> AUDSQL
+
+  %% Infra -> Data Stores
+  ACCSQL --> SQL
+  ROLSQL --> SQL
+  AUDSQL --> SQL
+  TOKREDIS --> REDIS
+
+  %% Adaptadores
+  PWH --> PWHAD
+  ASVC --> TOKPROV
+  REGH --> OAUTHAD
+  OUAH --> EMAILAD
+
+  %% Eventos de aplicación
+  REGH --> OACH
+  LOGH --> OUAH
+  ARH --> ORAH
+```
 
 ### 5.5.7. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.5.7.1. Bounded Context Domain Layer Class Diagrams
 
+```mermaid
+classDiagram
+  direction LR
+
+  %% ==== Value Objects ====
+  class AccountId { +value: UUID }
+  class RoleName { +value: string }
+  class TokenType { +value: enum /* ACCESS|REFRESH */ }
+  class HashedPassword { +value: string }
+
+  %% ==== Entities / Aggregates ====
+  class Account {
+    +id: AccountId
+    +email: string
+    +password: HashedPassword
+    +mfaEnabled: bool
+    +status: string
+    +enableMFA()
+    +disableMFA()
+    +changePassword(newHash: HashedPassword)
+    +details: string
+  }
+
+  class Role {
+    +id: UUID
+    +name: RoleName
+  }
+
+  class Permission {
+    +id: UUID
+    +code: string
+    +scope: string
+  }
+
+  class Token {
+    +id: UUID
+    +accountId: AccountId
+    +type: TokenType
+    +valueHash: string
+    +expiresAt: Date
+    +revoked: bool
+  }
+
+  class AuditLog {
+    +id: UUID
+    +accountId: AccountId
+    +action: string
+    +details: label
+    +ip: string
+    +occurredAt: Date
+  }
+
+  %% ==== Domain Services / Strategy ====
+  class AuthPolicy <<Strategy>> {
+    +accessTtl(): number
+    +refreshTtl(): number
+    +shouldRotate(now: Date, lastUsed: Date): bool
+  }
+
+  class AuthService <<DomainService>> {
+    +issueTokens(account: Account): Token[*]
+    +validateCredentials(email: string, password: string): Account
+    +refreshTokens(refreshToken: string): Token[*]
+  }
+
+  class PasswordHasher <<DomainService>> {
+    +hash(plain: string): HashedPassword
+    +verify(plain: string, hashed: HashedPassword): bool
+  }
+
+  %% ==== Repositories (Ports) ====
+  class AccountRepository <<Interface>> {
+    +findByEmail(email: string): Account
+    +save(account: Account): void
+  }
+
+  class RoleRepository <<Interface>> {
+    +findRolesByAccount(id: AccountId): Role[*]
+    +assignRole(accountId: AccountId, roleId: UUID): void
+  }
+
+  class TokenRepository <<Interface>> {
+    +store(token: Token): void
+    +revoke(tokenId: UUID): void
+    +findValidRefresh(accountId: AccountId): Token
+  }
+
+  class AuditLogRepository <<Interface>> {
+    +append(entry: AuditLog): void
+  }
+
+  %% ==== Associations ====
+  Account "1" --> "0..*" Role : has
+  Role "1" --> "0..*" Permission : grants
+  AuthService ..> AccountRepository : uses
+  AuthService ..> RoleRepository : uses
+  AuthService ..> TokenRepository : uses
+  AuthService ..> PasswordHasher : uses
+  AccountRepository <.. Account
+```
+
 #### 5.5.7.2. Bounded Context Database Design Diagram
 
+```mermaid
+erDiagram
+  ACCOUNTS ||--o{ ACCOUNT_ROLES : has
+  ROLES ||--o{ ACCOUNT_ROLES : has
+  ROLES ||--o{ ROLE_PERMISSIONS : grants
+  PERMISSIONS ||--o{ ROLE_PERMISSIONS : maps
+  ACCOUNTS ||--o{ TOKENS : issues
+  ACCOUNTS ||--o{ AUDIT_LOGS : generates
 
+  ACCOUNTS {
+    uuid id PK
+    text email
+    text password_hash
+    boolean mfa_enabled
+    text status
+    timestamp created_at
+    timestamp updated_at
+  }
 
+  ROLES {
+    uuid id PK
+    text name
+  }
+
+  PERMISSIONS {
+    uuid id PK
+    text code
+    text scope
+  }
+
+  ACCOUNT_ROLES {
+    uuid account_id FK
+    uuid role_id FK
+  }
+
+  ROLE_PERMISSIONS {
+    uuid role_id FK
+    uuid permission_id FK
+  }
+
+  TOKENS {
+    uuid id PK
+    uuid account_id FK
+    text type
+    text value_hash
+    timestamp expires_at
+    boolean revoked
+  }
+
+  AUDIT_LOGS {
+    uuid id PK
+    uuid account_id FK
+    text action
+    text details
+    text ip
+    timestamp occurred_at
+  }
+```
