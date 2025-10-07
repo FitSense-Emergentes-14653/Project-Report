@@ -309,59 +309,56 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 ### 5.4.6. Bounded Context Software Architecture Component Level Diagrams
 
 ```mermaid
-flowchart LR
+graph LR
   %% === Interface / Presentation ===
-  subgraph API[Monitoring API (Interface Layer)]
-    MCtrl[MetricsController]
-    WCtrl[WorkoutsController]
-    PCtrl[ProgressController]
-    RCtrl[ReportsController]
-    Webhook[ProviderWebhookController]
+  subgraph API["Monitoring API - Interface Layer"]
+    MCtrl["MetricsController"]
+    WCtrl["WorkoutsController"]
+    PCtrl["ProgressController"]
+    RCtrl["ReportsController"]
+    Webhook["ProviderWebhookController"]
   end
 
   %% === Application Layer ===
-  subgraph APP[Application Layer (CQRS + Events)]
-    RWH[RecordWorkoutCommandHandler]
-    IMH[IngestMetricCommandHandler]
-    SPPH[SubmitProgressPhotoCommandHandler]
-    APH[AnalyzePhotoCommandHandler]
-    CWH[ComputeWeeklyProgressCommandHandler]
-    EWRH[ExportWeeklyReportCommandHandler]
-
-    OMRP[OnMetricRecordedProjector]
-    OWRP[OnWorkoutRecordedProjector]
-    OIAD[OnImageAnalyzedDetector]
-    OACU[OnAdherenceCalculatedUpdater]
+  subgraph APP["Application Layer (CQRS + Events)"]
+    RWH["RecordWorkoutCommandHandler"]
+    IMH["IngestMetricCommandHandler"]
+    SPPH["SubmitProgressPhotoCommandHandler"]
+    APH["AnalyzePhotoCommandHandler"]
+    CWH["ComputeWeeklyProgressCommandHandler"]
+    EWRH["ExportWeeklyReportCommandHandler"]
+    OMRP["OnMetricRecordedProjector"]
+    OWRP["OnWorkoutRecordedProjector"]
+    OIAD["OnImageAnalyzedDetector"]
+    OACU["OnAdherenceCalculatedUpdater"]
   end
 
   %% === Domain Layer ===
-  subgraph DOMAIN[Domain Layer]
-    WP[WeeklyProgress (Aggregate Root)]
-    MS[MonitoringService <<DomainService>>]
-    IDS[ImprovementDetectionService <<DomainService>>]
-    RF[ReportFactory <<Factory>>]
-
-    MR[MetricsRepository <<Interface>>]
-    WR[WorkoutsRepository <<Interface>>]
-    WPR[WeeklyProgressRepository <<Interface>>]
-    PPR[PhotoProgressRepository <<Interface>>]
-    IA[ImageAnalyzer <<Port>>]
+  subgraph DOMAIN["Domain Layer"]
+    WP["WeeklyProgress (Aggregate Root)"]
+    MS["MonitoringService <<DomainService>>"]
+    IDS["ImprovementDetectionService <<DomainService>>"]
+    RF["ReportFactory <<Factory>>"]
+    MR["MetricsRepository <<Interface>>"]
+    WR["WorkoutsRepository <<Interface>>"]
+    WPR["WeeklyProgressRepository <<Interface>>"]
+    PPR["PhotoProgressRepository <<Interface>>"]
+    IA["ImageAnalyzer <<Port>>"]
   end
 
   %% === Infrastructure Layer ===
-  subgraph INFRA[Infrastructure Layer]
-    MRSQL[MetricsRepositorySql]
-    WRSQL[WorkoutsRepositorySql]
-    WPRSQL[WeeklyProgressRepositorySql]
-    PPRSQL[PhotoProgressRepositorySql]
-
-    TS[(Time-Series DB<br/>Timescale/Influx)]
-    SQL[(Relational DB<br/>PostgreSQL)]
-    BLOB[(Blob Storage<br/>Firebase/S3)]
-    MB[(Message Broker<br/>Kafka/RabbitMQ)]
-    TF[ImageAnalyzerTensorFlow]
-    SCH[(Scheduler)]
-    NOTI[(Notification Adapter)]
+  subgraph INFRA["Infrastructure Layer"]
+    MRSQL["MetricsRepositorySql"]
+    WRSQL["WorkoutsRepositorySql"]
+    WPRSQL["WeeklyProgressRepositorySql"]
+    PPRSQL["PhotoProgressRepositorySql"]
+    TS["Time-Series DB"]
+    SQL["Relational DB"]
+    BLOB["Blob Storage"]
+    MB["Message Broker"]
+    TF["ImageAnalyzerTensorFlow"]
+    SCH["Scheduler"]
+    NOTI["Notification Adapter"]
   end
 
   %% Flujos Interface -> App
@@ -400,155 +397,129 @@ flowchart LR
   RWH --> MB
   APH --> MB
   CWH --> MB
-
   MB --> OMRP
   MB --> OWRP
   MB --> OIAD
   MB --> OACU
-
   SCH --> CWH
   MB --> NOTI
+```
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.4.7.1. Bounded Context Domain Layer Class Diagrams
 
-#### 5.1.6.1. Bounded Context Domain Layer Class Diagram (UML)
-
 ```mermaid
 classDiagram
-  direction LR
+direction LR
 
-  %% ==== Value Objects ====
-  class UserId { +value: UUID }
-  class MetricName { +value: enum }
-  class MetricUnit { +value: enum }
-  class TimeWindow { +from: Date +to: Date +contains(d:Date) bool }
-  class Week { +year: int +week: int }
-  class AdherenceScore { +value: float <<0..1>> }
-  class CalorieBalance { +in: number +out: number +balance(): number }
-  class PrivacyConsent { +granted: bool +grantedAt: Date +scope: enum[] }
-  class DataRetentionPolicy { +ttlDays: int +minPrecision: float }
-  class ImageRef { +storageId: string +mime: string }
+%% ==== Value Objects ====
+class UserId {
+  +value: UUID
+}
+class MetricName {
+  +value: enum
+}
+class MetricUnit {
+  +value: enum
+}
+class TimeWindow {
+  +from: Date
+  +to: Date
+  +contains(d: Date): bool
+}
+class Week {
+  +year: int
+  +week: int
+}
+class AdherenceScore {
+  +value: float
+}
+class CalorieBalance {
+  +in: number
+  +out: number
+  +balance(): number
+}
+class PrivacyConsent {
+  +granted: bool
+  +grantedAt: Date
+  +scope: enum[]
+}
+class DataRetentionPolicy {
+  +ttlDays: int
+  +minPrecision: float
+}
+class ImageRef {
+  +storageId: string
+  +mime: string
+}
 
-  %% ==== Entities / Aggregates ====
-  class MetricSnapshot {
-    +id: UUID
-    +userId: UserId
-    +name: MetricName
-    +unit: MetricUnit
-    +value: number
-    +capturedAt: Date
-  }
+%% ==== Entities / Aggregates ====
+class MetricSnapshot {
+  +id: UUID
+  +userId: UserId
+  +name: MetricName
+  +unit: MetricUnit
+  +value: number
+  +capturedAt: Date
+}
 
-  class WorkoutSummary {
-    +id: UUID
-    +userId: UserId
-    +type: string
-    +startAt: Date
-    +endAt: Date
-    +caloriesOut: number
-    +avgHr: number
-  }
+class WorkoutSummary {
+  +id: UUID
+  +userId: UserId
+  +type: string
+  +startAt: Date
+  +endAt: Date
+  +caloriesOut: number
+  +avgHr: number
+}
 
-  class PhotoProgress {
-    +id: UUID
-    +userId: UserId
-    +image: ImageRef
-    +takenAt: Date
-    +consent: PrivacyConsent
-    +canAnalyze(): bool
-  }
+class PhotoProgress {
+  +id: UUID
+  +userId: UserId
+  +image: ImageRef
+  +takenAt: Date
+  +consent: PrivacyConsent
+  +canAnalyze(): bool
+}
 
-  class ImprovementFinding {
-    +id: UUID
-    +userId: UserId
-    +week: Week
-    +kind: enum
-    +delta: number
-    +confidence: float
-  }
+class ImprovementFinding {
+  +id: UUID
+  +userId: UserId
+  +week: Week
+  +kind: enum
+  +delta: number
+  +confidence: float
+}
 
-  class WeeklyProgress {
-    +id: UUID
-    +userId: UserId
-    +week: Week
-    +bmiAvg: number
-    +weightDelta: number
-    +calorieBalance: CalorieBalance
-    +adherence: AdherenceScore
-    +improvements: ImprovementFinding[*]
-    +addMetric(ms: MetricSnapshot)
-    +applyWorkout(ws: WorkoutSummary)
-    +registerImprovement(f: ImprovementFinding)
-    +computeKpis()
-  }
+class WeeklyProgress {
+  +id: UUID
+  +userId: UserId
+  +week: Week
+  +bmiAvg: number
+  +weightDelta: number
+  +calorieBalance: CalorieBalance
+  +adherence: AdherenceScore
+  +improvements: ImprovementFinding[*]
+  +addMetric(ms: MetricSnapshot)
+  +applyWorkout(ws: WorkoutSummary)
+  +registerImprovement(f: ImprovementFinding)
+  +computeKpis()
+}
 
-  %% ==== Domain Services & Factory ====
-  class MonitoringService <<DomainService>> {
-    +weeklyCalories(userId: UserId, tw: TimeWindow): number
-    +adherence(userId: UserId, tw: TimeWindow): float
-  }
-
-  class ImprovementDetectionService <<DomainService>> {
-    +detect(userId: UserId, week: Week): ImprovementFinding[*]
-  }
-
-  class ReportFactory <<Factory>> {
-    +createReport(progress: WeeklyProgress): ProgressReport
-  }
-
-  %% ==== Repositories (Ports) ====
-  class MetricsRepository <<Interface>> {
-    +save(snapshot: MetricSnapshot)
-    +findSeries(userId: UserId, name: MetricName, tw: TimeWindow): MetricSnapshot[*]
-  }
-
-  class WorkoutsRepository <<Interface>> {
-    +save(summary: WorkoutSummary)
-    +findByRange(userId: UserId, tw: TimeWindow): WorkoutSummary[*]
-  }
-
-  class WeeklyProgressRepository <<Interface>> {
-    +get(userId: UserId, week: Week): WeeklyProgress
-    +save(progress: WeeklyProgress)
-  }
-
-  class PhotoProgressRepository <<Interface>> {
-    +save(photo: PhotoProgress)
-    +findByWeek(userId: UserId, week: Week): PhotoProgress[*]
-  }
-
-  class ImageAnalyzer <<Interface>> {
-    +analyze(img: ImageRef): AnalysisResult
-  }
-
-  %% ==== Associations ====
-  MetricSnapshot --> UserId
-  MetricSnapshot --> MetricName
-  MetricSnapshot --> MetricUnit
-
-  WorkoutSummary --> UserId
-  PhotoProgress --> UserId
-  PhotoProgress --> ImageRef
-  PhotoProgress --> PrivacyConsent
-
-  WeeklyProgress --> Week
-  WeeklyProgress --> CalorieBalance
-  WeeklyProgress --> AdherenceScore
-  WeeklyProgress --> "0..*" ImprovementFinding
-
-  MonitoringService ..> MetricsRepository : uses
-  MonitoringService ..> WorkoutsRepository : uses
-  ImprovementDetectionService ..> ImageAnalyzer : uses
-  ReportFactory ..> WeeklyProgress : builds
-
+WeeklyProgress --> "0..*" ImprovementFinding
+WeeklyProgress --> CalorieBalance
+WeeklyProgress --> AdherenceScore
+WeeklyProgress --> Week
+PhotoProgress --> ImageRef
+PhotoProgress --> PrivacyConsent
+MetricSnapshot --> MetricName
+MetricSnapshot --> MetricUnit
 ```
 
 #### 5.4.7.2. Bounded Context Database Design Diagram
 
 ```mermaid
-
 erDiagram
   USERS ||--o{ WORKOUTS : has
   USERS ||--o{ METRIC_SNAPSHOTS : has
