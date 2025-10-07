@@ -1142,96 +1142,82 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 
 ```mermaid
 C4Component
-title FitSense - Monitoring Context (Component Diagram)
+title FitSense - Monitoring Context (Component)
 
 Person(user, "Usuario", "Registra y consulta su progreso.")
 Container(spa, "Web Dashboard", "React/Next.js", "UI de progreso y reportes.")
-Container(ml, "AI Image Analyzer", "TensorFlow", "Analiza fotos de progreso.")
 ContainerDb(dbSql, "Monitoring DB", "PostgreSQL", "Workouts y progreso semanal.")
-ContainerDb(dbTs, "Metrics TS DB", "Timescale/Influx", "Series de métricas.")
+ContainerDb(dbTs, "Metrics TS DB", "Timescale", "Series de métricas.")
 Container(blob, "Blob Storage", "Firebase/S3", "Fotos de progreso.")
+Container(ml, "AI Image Analyzer", "TensorFlow", "Analiza fotos de progreso.")
 Container(queue, "Message Broker", "Kafka/RabbitMQ", "Eventos de dominio.")
 
-%% ====== API Boundary ======
-Container_Boundary(api, "Monitoring API (NestJS/REST)") {
+Container_Boundary(api, "Monitoring API (NestJS / REST)") {
+  Component(MetricsController, "MetricsController", "Controller", "Consultas de series/KPIs")
+  Component(WorkoutsController, "WorkoutsController", "Controller", "Registro de entrenos")
+  Component(ProgressController, "ProgressController", "Controller", "Fotos y progreso semanal")
+  Component(ReportsController, "ReportsController", "Controller", "Exportar reportes")
+  Component(ProviderWebhookController, "ProviderWebhookController", "Controller", "Webhook wearables")
 
-  Component(metricsCtrl, "MetricsController", "Controller",
-            "Consultas de series y KPIs.")
-  Component(workoutsCtrl, "WorkoutsController", "Controller",
-            "Registro/consulta de entrenos.")
-  Component(progressCtrl, "ProgressController", "Controller",
-            "Subir foto, progreso semanal.")
-  Component(reportsCtrl, "ReportsController", "Controller",
-            "Exportar PDF/Excel.")
-  Component(webhookCtrl, "ProviderWebhookController", "Controller",
-            "Webhook wearables.")
+  Component(RecordWorkoutHandler, "RecordWorkoutHandler", "Command Handler", "")
+  Component(IngestMetricHandler, "IngestMetricHandler", "Command Handler", "")
+  Component(SubmitPhotoHandler, "SubmitPhotoHandler", "Command Handler", "")
+  Component(AnalyzePhotoHandler, "AnalyzePhotoHandler", "Command Handler", "")
+  Component(ComputeWeeklyHandler, "ComputeWeeklyHandler", "Command Handler", "")
+  Component(ExportReportHandler, "ExportReportHandler", "Command Handler", "")
 
-  Component(cmdRecordWorkout, "RecordWorkoutHandler", "Command Handler", "")
-  Component(cmdIngestMetric, "IngestMetricHandler", "Command Handler", "")
-  Component(cmdSubmitPhoto, "SubmitPhotoHandler", "Command Handler", "")
-  Component(cmdAnalyzePhoto, "AnalyzePhotoHandler", "Command Handler", "")
-  Component(cmdComputeWeek, "ComputeWeeklyHandler", "Command Handler", "")
-  Component(cmdExportReport, "ExportReportHandler", "Command Handler", "")
+  Component(OnMetricRecorded, "OnMetricRecorded", "Event Handler", "Proyección dashboard")
+  Component(OnWorkoutRecorded, "OnWorkoutRecorded", "Event Handler", "Proyección dashboard")
+  Component(OnImageAnalyzed, "OnImageAnalyzed", "Event Handler", "Detecta mejoras")
+  Component(OnAdherenceCalculated, "OnAdherenceCalculated", "Event Handler", "Actualiza adherencia")
 
-  Component(evMetricProj, "OnMetricRecorded", "Event Handler", "Proyección dashboard.")
-  Component(evWorkoutProj, "OnWorkoutRecorded", "Event Handler", "Proyección dashboard.")
-  Component(evImgDetected, "OnImageAnalyzed", "Event Handler", "Detecta mejoras.")
-  Component(evAdhUpdate, "OnAdherenceCalculated", "Event Handler", "Actualiza adherencia.")
+  Component(ProgressService, "ProgressComputationService", "Domain Service", "IMC, calorías, adherencia")
+  Component(ImprovementService, "ImprovementDetectionService", "Domain Service", "Reglas/IA")
+  Component(ReportFactory, "ReportFactory", "Factory", "Construye reportes")
+  Component(ImageAnalyzerPort, "ImageAnalyzer", "Port", "Análisis de imagen")
 
-  Component(progressSvc, "ProgressComputationService", "Domain Service",
-            "IMC, balance, adherencia.")
-  Component(improveSvc, "ImprovementDetectionService", "Domain Service",
-            "Detecta mejoras (reglas/IA).")
-  Component(reportFactory, "ReportFactory", "Factory",
-            "Construye reportes (DTO).")
-  ComponentPort(imgAnalyzer, "ImageAnalyzer", "Port", "Análisis de imagen.")
-
-  Component(metricsRepo, "MetricsRepository", "Repository Port", "")
-  Component(workoutsRepo, "WorkoutsRepository", "Repository Port", "")
-  Component(weeklyRepo, "WeeklyProgressRepository", "Repository Port", "")
-  Component(photoRepo, "PhotoProgressRepository", "Repository Port", "")
+  Component(MetricsRepository, "MetricsRepository", "Repository Port", "")
+  Component(WorkoutsRepository, "WorkoutsRepository", "Repository Port", "")
+  Component(WeeklyRepository, "WeeklyProgressRepository", "Repository Port", "")
+  Component(PhotoRepository, "PhotoProgressRepository", "Repository Port", "")
 }
 
-%% ====== Relaciones externas ======
 Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, metricsCtrl, "Consume", "HTTPS/JSON")
-Rel_R(spa, workoutsCtrl, "Consume", "HTTPS/JSON")
-Rel_R(spa, progressCtrl, "Consume", "HTTPS/JSON")
-Rel_R(spa, reportsCtrl, "Consume", "HTTPS/JSON")
-Rel_R(webhookCtrl, cmdIngestMetric, "Dispara", "Webhook")
+Rel_R(spa, MetricsController, "Consume", "HTTPS/JSON")
+Rel_R(spa, WorkoutsController, "Consume", "HTTPS/JSON")
+Rel_R(spa, ProgressController, "Consume", "HTTPS/JSON")
+Rel_R(spa, ReportsController, "Consume", "HTTPS/JSON")
 
-%% ====== Flujos principales ======
-Rel_R(metricsCtrl, cmdIngestMetric, "", "")
-Rel_R(workoutsCtrl, cmdRecordWorkout, "", "")
-Rel_R(progressCtrl, cmdSubmitPhoto, "", "")
-Rel_R(progressCtrl, cmdAnalyzePhoto, "", "")
-Rel_R(reportsCtrl, cmdExportReport, "", "")
-Rel_R(cmdComputeWeek, progressSvc, "", "")
-Rel_R(evImgDetected, improveSvc, "", "")
+Rel_R(MetricsController, IngestMetricHandler, "", "")
+Rel_R(WorkoutsController, RecordWorkoutHandler, "", "")
+Rel_R(ProgressController, SubmitPhotoHandler, "", "")
+Rel_R(ProgressController, AnalyzePhotoHandler, "", "")
+Rel_R(ReportsController, ExportReportHandler, "", "")
+Rel_R(ComputeWeeklyHandler, ProgressService, "", "")
 
-Rel_R(cmdIngestMetric, metricsRepo, "", "")
-Rel_R(cmdRecordWorkout, workoutsRepo, "", "")
-Rel_R(cmdSubmitPhoto, photoRepo, "", "")
-Rel_R(cmdAnalyzePhoto, imgAnalyzer, "", "")
-Rel_R(cmdComputeWeek, weeklyRepo, "", "")
-Rel_R(cmdExportReport, reportFactory, "", "")
+Rel_R(IngestMetricHandler, MetricsRepository, "", "")
+Rel_R(RecordWorkoutHandler, WorkoutsRepository, "", "")
+Rel_R(SubmitPhotoHandler, PhotoRepository, "", "")
+Rel_R(AnalyzePhotoHandler, ImageAnalyzerPort, "", "")
+Rel_R(ComputeWeeklyHandler, WeeklyRepository, "", "")
+Rel_R(ExportReportHandler, ReportFactory, "", "")
 
-Rel_R(metricsRepo, dbTs, "Lee/Escribe", "SQL")
-Rel_R(workoutsRepo, dbSql, "Lee/Escribe", "SQL")
-Rel_R(weeklyRepo, dbSql, "Lee/Escribe", "SQL")
-Rel_R(photoRepo, dbSql, "Lee/Escribe", "SQL")
-Rel_R(imgAnalyzer, ml, "Analiza", "gRPC/REST")
-Rel_R(photoRepo, blob, "Referencia", "URL/ID")
+Rel_R(MetricsRepository, dbTs, "Lee/Escribe", "SQL")
+Rel_R(WorkoutsRepository, dbSql, "Lee/Escribe", "SQL")
+Rel_R(WeeklyRepository, dbSql, "Lee/Escribe", "SQL")
+Rel_R(PhotoRepository, dbSql, "Lee/Escribe", "SQL")
+Rel_R(PhotoRepository, blob, "Referencia", "URL/ID")
+Rel_R(ImageAnalyzerPort, ml, "Analiza", "gRPC/REST")
 
-Rel_R(cmdIngestMetric, queue, "Publica eventos", "")
-Rel_R(cmdRecordWorkout, queue, "Publica eventos", "")
-Rel_R(cmdAnalyzePhoto, queue, "Publica eventos", "")
-Rel_R(progressSvc, queue, "Publica progreso", "")
+Rel_R(IngestMetricHandler, queue, "Publica", "")
+Rel_R(RecordWorkoutHandler, queue, "Publica", "")
+Rel_R(AnalyzePhotoHandler, queue, "Publica", "")
+Rel_R(ProgressService, queue, "Publica", "")
 
-Rel_R(queue, evMetricProj, "Entrega", "")
-Rel_R(queue, evWorkoutProj, "Entrega", "")
-Rel_R(queue, evImgDetected, "Entrega", "")
-Rel_R(queue, evAdhUpdate, "Entrega", "")
+Rel_R(queue, OnMetricRecorded, "Entrega", "")
+Rel_R(queue, OnWorkoutRecorded, "Entrega", "")
+Rel_R(queue, OnImageAnalyzed, "Entrega", "")
+Rel_R(queue, OnAdherenceCalculated, "Entrega", "")
 ```
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
