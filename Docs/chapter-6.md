@@ -257,13 +257,34 @@ Se incluye la descripción de Tech Solutions, una imagen de la universidad y ret
 </p>
 
 ## 6.4. Applications UX/UI Design 
+En este apartado, se muestran todos los wireframes necesarios para cumplir las funcionalidades indicadas en las User Stories con sus escenarios relacionados con el Web Application.
 
 ### 6.4.1. Applications Wireframes
+
+  - WEB MOCKUPS: 
+
+  - MOBILE MOCKUPS:
+
 
 ### 6.4.2. Applications Wireflow Diagrams
 
 ### 6.4.2. Applications Mock-ups
 
+  - WEB MOCKUPS: 
+
+  - MOBILE MOCKUPS:
+
 ### 6.4.3. Applications User Flow Diagrams
 
 ## 6.5. Applications Prototyping
+  - Web Prototype & Mobile Prototype:: 
+        
+        https://www.figma.com/proto/d79XNdidl0cHYUaA9o8zsj/Figma---Emergentes?node-id=2120-3530&p=f&t=DK7wdLOUd0HM4xZP-1&scaling=min-zoom&content-scaling=fixed&page-id=2095%3A2783&starting-point-node-id=2120%3A3530&show-proto-sidebar=1 
+
+    <p align="center">
+      <img src="../img/chapter-6/prototype_web.png" alt="Prototype Web" width="50%">
+    </p>
+
+    <p align="center">
+      <img src="../img/chapter-6/prototype_mobile.png" alt="Prototype Web"" width="50%">
+    </p>
