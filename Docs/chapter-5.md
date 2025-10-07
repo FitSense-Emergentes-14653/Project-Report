@@ -401,18 +401,26 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 
 ```mermaid
 C4Container
-title FitSense - Monitoring Context
+title FitSense - Monitoring Context (layout limpio)
 
-Person(user, "Usuario", "Persona que usa FitSense para registrar su progreso físico.")
-Container(api, "Monitoring API", "NestJS / REST API", "Expone endpoints para métricas, rutinas y progreso semanal.")
-ContainerDb(db, "Monitoring DB", "PostgreSQL + Timescale", "Almacena métricas, entrenamientos y progreso semanal.")
-Container(ml, "AI Image Analyzer", "TensorFlow Service", "Detecta mejoras físicas en imágenes de progreso.")
-Container(spa, "Web Dashboard", "React / Next.js", "Visualiza progreso, IMC, calorías y reportes.")
+Person(user, "Usuario", "Registra y consulta su progreso.")
+Container(spa, "Web Dashboard", "React / Next.js", "UI de progreso y reportes.")
+Container(api, "Monitoring API", "NestJS / REST API", "Endpoints de métricas, rutinas y progreso.")
+ContainerDb(db, "Monitoring DB", "PostgreSQL + Timescale", "Métricas, entrenamientos y progreso semanal.")
+Container(ml, "AI Image Analyzer", "TensorFlow Service", "Análisis de fotos de progreso.")
 
-Rel(user, spa, "Consulta y registra progreso", "HTTPS/JSON")
-Rel(spa, api, "Consume API REST", "HTTPS/JSON")
-Rel(api, db, "Lee y escribe métricas", "SQL")
-Rel(api, ml, "Envía imágenes para análisis", "gRPC / REST")
+%% --- Layout sugerido (posiciones relativas)
+Lay_R(user, spa)     %% spa a la derecha de user
+Lay_R(spa, api)      %% api a la derecha de spa
+Lay_R(api, db)       %% db a la derecha de api
+Lay_D(spa, ml)       %% ml debajo del dashboard
+
+%% --- Relaciones con direcciones para evitar cruces
+Rel_R(user, spa, "Usa", "HTTPS/JSON")
+Rel_R(spa, api, "Consume", "HTTPS/JSON")
+Rel_R(api, db, "Lee/Escribe", "SQL")
+Rel_D(spa, ml, "Envía imagen", "HTTPS")
+Rel_R(api, ml, "Solicita análisis", "gRPC/REST")
 ```
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
