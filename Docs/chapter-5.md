@@ -1624,86 +1624,75 @@ La capa de infraestructura implementa las interfaces de repositorios y adaptador
 ### 5.5.6. Bounded Context Software Architecture Component Level Diagrams
 ```mermaid
 C4Component
-title FitSense - Security Context (IAM) - Component Diagram
+title FitSense - Security Context (IAM) - Component
 
 Person(user, "Usuario", "Se autentica en FitSense.")
 Container(spa, "Web/Mobile Client", "React/Flutter", "Pantallas de login/registro.")
-ContainerDb(authDb, "Auth DB", "PostgreSQL", "Cuentas, roles, auditoría.")
+ContainerDb(authDb, "Auth DB", "PostgreSQL", "Cuentas, roles, permisos, auditoría.")
 Container(cache, "Token Cache", "Redis", "Tokens activos / refresh.")
 Container(email, "Email Service", "External", "Verificación y recuperación.")
 
-%% ====== Auth API Boundary ======
-Container_Boundary(authApi, "Auth API (NestJS/REST)") {
+Container_Boundary(authApi, "Auth API (NestJS / REST)") {
+  Component(AuthController, "AuthController", "Controller", "Login, refresh, logout, register")
+  Component(MfaController, "MfaController", "Controller", "Activar/verificar MFA")
+  Component(RoleController, "RoleController", "Controller", "CRUD roles/permisos")
+  Component(OAuthCallbackController, "OAuthCallbackController", "Controller", "Login federado")
 
-  Component(authCtrl, "AuthController", "Controller",
-            "Login, refresh, logout, register.")
-  Component(mfaCtrl, "MfaController", "Controller",
-            "Activar/verificar MFA.")
-  Component(roleCtrl, "RoleController", "Controller",
-            "CRUD roles/permisos.")
-  Component(oauthCtrl, "OAuthCallbackController", "Controller",
-            "Login federado.")
+  Component(RegisterUserHandler, "RegisterUserHandler", "Command Handler", "")
+  Component(AuthenticateUserHandler, "AuthenticateUserHandler", "Command Handler", "")
+  Component(RefreshTokenHandler, "RefreshTokenHandler", "Command Handler", "")
+  Component(ChangePasswordHandler, "ChangePasswordHandler", "Command Handler", "")
+  Component(AssignRoleHandler, "AssignRoleHandler", "Command Handler", "")
 
-  Component(cmdRegister, "RegisterUserHandler", "Command Handler", "")
-  Component(cmdLogin, "AuthenticateUserHandler", "Command Handler", "")
-  Component(cmdRefresh, "RefreshTokenHandler", "Command Handler", "")
-  Component(cmdChangePwd, "ChangePasswordHandler", "Command Handler", "")
-  Component(cmdAssignRole, "AssignRoleHandler", "Command Handler", "")
+  Component(OnAccountCreated, "OnAccountCreated", "Event Handler", "")
+  Component(OnUserAuthenticated, "OnUserAuthenticated", "Event Handler", "")
+  Component(OnRoleAssigned, "OnRoleAssigned", "Event Handler", "")
 
-  Component(evAccountCreated, "OnAccountCreated", "Event Handler", "")
-  Component(evUserAuth, "OnUserAuthenticated", "Event Handler", "")
-  Component(evRoleAssigned, "OnRoleAssigned", "Event Handler", "")
+  Component(AuthService, "AuthService", "Domain Service", "Emite/valida tokens y sesiones")
+  Component(AuthPolicy, "AuthPolicy", "Strategy", "Expiración y rotación")
+  Component(PasswordHasher, "PasswordHasher", "Domain Service", "Hash/verify (bcrypt/Argon2)")
 
-  Component(authSvc, "AuthService", "Domain Service",
-            "Emite/valida tokens y sesiones.")
-  Component(policy, "AuthPolicy", "Strategy",
-            "Expiración y rotación de tokens.")
-  Component(hasher, "PasswordHasher", "Domain Service",
-            "Hash/verificación (bcrypt/Argon2).")
+  Component(AccountRepository, "AccountRepository", "Repository Port", "")
+  Component(RoleRepository, "RoleRepository", "Repository Port", "")
+  Component(TokenRepository, "TokenRepository", "Repository Port", "")
+  Component(AuditLogRepository, "AuditLogRepository", "Repository Port", "")
 
-  Component(accRepo, "AccountRepository", "Repository Port", "")
-  Component(roleRepo, "RoleRepository", "Repository Port", "")
-  Component(tokenRepo, "TokenRepository", "Repository Port", "")
-  Component(auditRepo, "AuditLogRepository", "Repository Port", "")
-
-  Component(jwtProv, "TokenProvider(JWT)", "Adapter", "Firmado/verificación.")
-  Component(oauthProv, "OAuthProvider", "Adapter", "Google/Apple.")
-  Component(emailAdapter, "EmailAdapter", "Adapter", "SMTP/API externa.")
-  Component(tokenCache, "TokenCacheAdapter", "Adapter", "Redis.")
+  Component(JWTProvider, "TokenProvider (JWT)", "Adapter", "Firmado/verificación")
+  Component(OAuthProvider, "OAuthProvider", "Adapter", "Google/Apple")
+  Component(EmailAdapter, "EmailAdapter", "Adapter", "SMTP/API externa")
+  Component(TokenCacheAdapter, "TokenCacheAdapter", "Adapter", "Redis")
 }
 
-%% ====== Relaciones externas ======
 Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, authCtrl, "Autentica", "HTTPS/JSON")
-Rel_R(spa, oauthCtrl, "OAuth", "HTTPS/JSON")
+Rel_R(spa, AuthController, "Autentica", "HTTPS/JSON")
+Rel_R(spa, OAuthCallbackController, "OAuth", "HTTPS/JSON")
 
-Rel_R(accRepo, authDb, "Lee/Escribe", "SQL")
-Rel_R(roleRepo, authDb, "Lee/Escribe", "SQL")
-Rel_R(auditRepo, authDb, "Append", "SQL")
-Rel_R(tokenCache, cache, "Guarda/Borra", "Redis")
-Rel_R(emailAdapter, email, "Envía", "SMTP/API")
+Rel_R(AccountRepository, authDb, "Lee/Escribe", "SQL")
+Rel_R(RoleRepository, authDb, "Lee/Escribe", "SQL")
+Rel_R(AuditLogRepository, authDb, "Append", "SQL")
+Rel_R(TokenCacheAdapter, cache, "Guarda/Borra", "Redis")
+Rel_R(EmailAdapter, email, "Envía", "SMTP/API")
 
-%% ====== Flujos internos ======
-Rel_R(authCtrl, cmdLogin, "", "")
-Rel_R(authCtrl, cmdRefresh, "", "")
-Rel_R(authCtrl, cmdChangePwd, "", "")
-Rel_R(authCtrl, cmdRegister, "", "")
-Rel_R(roleCtrl, cmdAssignRole, "", "")
-Rel_R(oauthCtrl, cmdLogin, "Callback", "")
+Rel_R(AuthController, AuthenticateUserHandler, "", "")
+Rel_R(AuthController, RefreshTokenHandler, "", "")
+Rel_R(AuthController, ChangePasswordHandler, "", "")
+Rel_R(AuthController, RegisterUserHandler, "", "")
+Rel_R(RoleController, AssignRoleHandler, "", "")
+Rel_R(OAuthCallbackController, AuthenticateUserHandler, "Callback", "")
 
-Rel_R(cmdLogin, authSvc, "", "")
-Rel_R(cmdRefresh, authSvc, "", "")
-Rel_R(cmdChangePwd, hasher, "", "")
-Rel_R(cmdRegister, hasher, "", "")
+Rel_R(AuthenticateUserHandler, AuthService, "", "")
+Rel_R(RefreshTokenHandler, AuthService, "", "")
+Rel_R(ChangePasswordHandler, PasswordHasher, "", "")
+Rel_R(RegisterUserHandler, PasswordHasher, "", "")
 
-Rel_R(authSvc, jwtProv, "Firmar/validar", "")
-Rel_R(authSvc, tokenRepo, "Persistir tokens", "")
-Rel_R(authSvc, accRepo, "Buscar cuenta", "")
-Rel_R(cmdAssignRole, roleRepo, "Asignar", "")
-Rel_R(evAccountCreated, auditRepo, "Registrar", "")
-Rel_R(evUserAuth, auditRepo, "Registrar", "")
-Rel_R(evRoleAssigned, auditRepo, "Registrar", "")
-Rel_R(authSvc, tokenCache, "Gestionar sesión", "")
+Rel_R(AuthService, JWTProvider, "Firmar/validar", "")
+Rel_R(AuthService, TokenRepository, "Persistir tokens", "")
+Rel_R(AuthService, AccountRepository, "Buscar cuenta", "")
+Rel_R(AssignRoleHandler, RoleRepository, "Asignar", "")
+Rel_R(OnAccountCreated, AuditLogRepository, "Registrar", "")
+Rel_R(OnUserAuthenticated, AuditLogRepository, "Registrar", "")
+Rel_R(OnRoleAssigned, AuditLogRepository, "Registrar", "")
+Rel_R(AuthService, TokenCacheAdapter, "Gestionar sesión", "")
 ```
 
 ### 5.5.7. Bounded Context Software Architecture Code Level Diagrams
