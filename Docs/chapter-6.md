@@ -368,16 +368,9 @@ En este apartado, se muestran todos los wireframes necesarios para cumplir las f
 
 ### 6.4.3. Applications User Flow Diagrams
 
-  Web Userflow:
+  Userflow:
   <p align="center">
-      <img src="../img/chapter-6/web_userflow.png" alt="Web Userflow" width="50%">
-  </p>
-  <br> 
-  <br> 
-
-  Mobile Userflow
-  <p align="center">
-      <img src="../img/chapter-6/mobile_userflow.png.png" alt="Mobile Userflow" width="50%">
+      <img src="../img/chapter-6/userflow.png" alt="Web Userflow" width="80%">
   </p>
   <br> 
   <br> 
