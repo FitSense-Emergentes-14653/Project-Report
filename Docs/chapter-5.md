@@ -113,28 +113,804 @@ El modelo de datos refleja la estructura de las entidades y sus relaciones media
 
 ### 5.2.1. Domain Layer
 
+<p align="justify">
+El Domain Layer del contexto de <b>Social</b> representa el núcleo de las funcionalidades sociales y de gamificación de FitSense. Su objetivo es modelar las entidades, objetos de valor, agregados y servicios que permiten a los usuarios compartir logros, participar en desafíos, generar reportes de progreso y mantener una comunidad motivadora, cumpliendo con las políticas de privacidad y visibilidad definidas por el sistema.
+</p>
+
+---
+
+**Agregados**
+
+<table>
+<thead>
+<tr>
+<th>Entidad</th>
+<th>Atributos Clave</th>
+<th>Value Objects Asociados</th>
+<th>Métodos / Reglas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SocialProfile</td>
+<td>userId, achievements, posts, followersCount, followingCount, totalReactionsReceived</td>
+<td>UserId, Achievement, Post</td>
+<td>
+earnAchievement()<br>
+createPost()<br>
+exportProgressReport()<br>
+incrementFollowers()<br>
+calculateEngagementScore()<br>
+validatePostContent()
+</td>
+</tr>
+<tr>
+<td>Challenge</td>
+<td>challengeId, name, description, type, goal, startDate, endDate, participants, status</td>
+<td>ChallengeId, ChallengeGoal, ChallengeType, Participant</td>
+<td>
+addParticipant()<br>
+updateProgress()<br>
+getLeaderboard()<br>
+complete()<br>
+validateDateRange()<br>
+checkEligibility()
+</td>
+</tr>
+<tr>
+<td>Post</td>
+<td>postId, userId, content, metrics, imageUrl, visibility, createdAt, reactions</td>
+<td>PostId, PostContent, ProgressMetrics, Visibility, Reaction</td>
+<td>
+addReaction()<br>
+updateVisibility()<br>
+canBeEditedBy()<br>
+validateContent()<br>
+isPublic()
+</td>
+</tr>
+<tr>
+<td>Achievement</td>
+<td>achievementId, userId, type, title, description, earnedDate, iconUrl, isShared</td>
+<td>AchievementId, AchievementType</td>
+<td>
+share()<br>
+getShareableContent()<br>
+canBeShared()<br>
+validateUnlockConditions()
+</td>
+</tr>
+</tbody>
+</table>
+
+**Value Objects**
+
+<table>
+<thead>
+<tr><th>VO</th><th>Atributos</th><th>Descripción</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>PostContent</td>
+<td>text, hashtags</td>
+<td>Contenido de una publicación con validación de longitud (máx. 500 caracteres) y hashtags válidos.</td>
+</tr>
+<tr>
+<td>ProgressMetrics</td>
+<td>currentWeight, bmi, caloriesBurned, workoutsCompleted</td>
+<td>Métricas de progreso que se incluyen en publicaciones y reportes.</td>
+</tr>
+<tr>
+<td>ShareContent</td>
+<td>title, description, imageUrl, deepLink</td>
+<td>Contenido formateado para compartir en redes sociales externas.</td>
+</tr>
+<tr>
+<td>ChallengeGoal</td>
+<td>targetType, targetValue, unit</td>
+<td>Define el objetivo cuantificable de un desafío (ej: 50 km corridos, 1000 calorías quemadas).</td>
+</tr>
+<tr>
+<td>Participant</td>
+<td>userId, joinedAt, currentProgress</td>
+<td>Representa la participación de un usuario en un desafío específico.</td>
+</tr>
+<tr>
+<td>Reaction</td>
+<td>userId, type, createdAt</td>
+<td>Reacción a una publicación (like, celebrate, inspire).</td>
+</tr>
+<tr>
+<td>Visibility</td>
+<td>level (PUBLIC, FRIENDS, PRIVATE)</td>
+<td>Controla quién puede ver una publicación.</td>
+</tr>
+<tr>
+<td>Leaderboard</td>
+<td>rankings, updatedAt</td>
+<td>Tabla de posiciones ordenada para un desafío específico.</td>
+</tr>
+<tr>
+<td>ReportFormat</td>
+<td>type (PDF, EXCEL)</td>
+<td>Formato de exportación de reportes de progreso.</td>
+</tr>
+</tbody>
+</table>
+
+**Domain Services**
+
+<table>
+<thead>
+<tr><th>Servicio</th><th>Métodos</th><th>Responsabilidad</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>AchievementEvaluationService</td>
+<td>evaluateAchievements(), checkMilestone(), detectNewAchievements()</td>
+<td>Evalúa el progreso del usuario y determina si ha desbloqueado nuevos logros basándose en reglas de negocio complejas (ej: primera semana completada, 10 entrenamientos, meta de peso alcanzada).</td>
+</tr>
+<tr>
+<td>ChallengeManagementService</td>
+<td>createChallenge(), calculateLeaderboard(), updateParticipantProgress(), completeChallenge()</td>
+<td>Orquesta la creación y gestión de desafíos grupales, calcula rankings y administra el ciclo de vida de las competencias.</td>
+</tr>
+<tr>
+<td>SocialSharingService</td>
+<td>shareToFacebook(), shareToInstagram(), shareToTwitter(), generateShareableContent()</td>
+<td>Coordina el proceso de compartir contenido en plataformas externas, generando contenido optimizado para cada red social.</td>
+</tr>
+<tr>
+<td>ReportGenerationService</td>
+<td>generatePdfReport(), generateExcelReport(), compileReportData()</td>
+<td>Genera reportes de progreso en diferentes formatos consolidando datos de métricas, entrenamientos y logros.</td>
+</tr>
+</tbody>
+</table>
+
+**Repositories**
+
+<table>
+<thead>
+<tr><th>Repositorio</th><th>Métodos</th><th>Entidad</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>SocialProfileRepository</td>
+<td>findByUserId(), save(), update(), incrementFollowersCount()</td>
+<td>SocialProfile</td>
+</tr>
+<tr>
+<td>PostRepository</td>
+<td>findById(), findByUserId(), findPublicPosts(), save(), delete(), updateReactions()</td>
+<td>Post</td>
+</tr>
+<tr>
+<td>AchievementRepository</td>
+<td>findByUserId(), findByType(), save(), markAsShared()</td>
+<td>Achievement</td>
+</tr>
+<tr>
+<td>ChallengeRepository</td>
+<td>findById(), findActiveChallenges(), findByParticipant(), save(), updateParticipants()</td>
+<td>Challenge</td>
+</tr>
+</tbody>
+</table>
+
+---
+
 ### 5.2.2. Interface Layer
+
+En esta capa se definen los puntos de entrada del contexto Social. Los **Controllers** permiten que los usuarios interactúen con las funcionalidades sociales a través de APIs REST.
+
+**Controladores**
+
+<table>
+<thead>
+<tr><th>SocialController</th><th>AchievementController</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ createPost(postDto): ResponseEntity<br>
++ getPosts(userId, pagination): List&lt;PostDto&gt;<br>
++ updatePost(postId, postDto): PostDto<br>
++ deletePost(postId): ResponseEntity<br>
++ addReaction(postId, reactionDto): ResponseEntity<br>
++ getSocialProfile(userId): SocialProfileDto
+</td>
+<td>
++ getAchievements(userId): List&lt;AchievementDto&gt;<br>
++ shareAchievement(achievementId, platforms): ResponseEntity<br>
++ getPendingAchievements(userId): List&lt;AchievementProgressDto&gt;<br>
++ getAchievementDetails(achievementId): AchievementDto
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr><th>ChallengeController</th><th>ReportController</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ getActiveChallenges(): List&lt;ChallengeDto&gt;<br>
++ joinChallenge(challengeId, userId): ResponseEntity<br>
++ getLeaderboard(challengeId): LeaderboardDto<br>
++ createCustomChallenge(challengeDto): ResponseEntity<br>
++ updateProgress(challengeId, progressDto): ResponseEntity
+</td>
+<td>
++ exportProgressReport(userId, format, dateRange): ResponseEntity<br>
++ shareReport(userId, reportId, platforms): ResponseEntity<br>
++ getReportHistory(userId): List&lt;ReportDto&gt;
+</td>
+</tr>
+</tbody>
+</table>
+
+**Descripción de la capa**
+
+**Responsabilidad:**  
+La Interface Layer traduce las peticiones HTTP del usuario en comandos o consultas internas, garantizando una comunicación desacoplada entre el cliente y la lógica de negocio. Todos los controladores exponen endpoints REST documentados en OpenAPI (Swagger) para facilitar su integración.
+
+**Integraciones:**
+- Se conecta con la Application Layer mediante Command Handlers y Event Handlers.
+- Se comunica con APIs externas de redes sociales (Facebook, Instagram, Twitter).
+- Recibe notificaciones internas de otros bounded contexts mediante eventos del dominio.
+- Devuelve respuestas estructuradas en formato JSON.
+
+---
 
 ### 5.2.3. Application Layer
 
+En esta sección, se presenta la Capa de Aplicación (Application Layer) del Social Context de FitSense. Esta capa actúa como intermediaria entre la lógica de dominio y la infraestructura, orquestando operaciones como creación de publicaciones, compartir logros, gestión de desafíos y generación de reportes. Se definen Command Handlers y Event Handlers que coordinan los servicios relevantes para ejecutar acciones sociales y de gamificación.
+
+**Command Handlers**
+
+<table>
+<thead>
+<tr>
+<th>CreatePostCommandHandler</th>
+<th>ShareAchievementCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ socialProfileRepository: SocialProfileRepository<br>
++ postRepository: PostRepository<br>
++ handle(CreatePostCommand command): <i>Post</i>
+</td>
+<td>
++ achievementRepository: AchievementRepository<br>
++ socialSharingService: SocialSharingService<br>
++ handle(ShareAchievementCommand command): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>JoinChallengeCommandHandler</th>
+<th>ExportProgressReportCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ challengeRepository: ChallengeRepository<br>
++ challengeManagementService: ChallengeManagementService<br>
++ handle(JoinChallengeCommand command): <i>void</i>
+</td>
+<td>
++ reportGenerationService: ReportGenerationService<br>
++ socialProfileRepository: SocialProfileRepository<br>
++ handle(ExportReportCommand command): <i>Report</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>UpdatePostCommandHandler</th>
+<th>AddReactionCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ postRepository: PostRepository<br>
++ handle(UpdatePostCommand command): <i>Post</i>
+</td>
+<td>
++ postRepository: PostRepository<br>
++ handle(AddReactionCommand command): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+**Event Handlers**
+
+<table>
+<thead>
+<tr>
+<th>OnProgressMilestoneReachedEventHandler</th>
+<th>OnWorkoutCompletedEventHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ achievementEvaluationService: AchievementEvaluationService<br>
++ achievementRepository: AchievementRepository<br>
++ handle(ProgressMilestoneReachedEvent event): <i>void</i>
+</td>
+<td>
++ challengeManagementService: ChallengeManagementService<br>
++ challengeRepository: ChallengeRepository<br>
++ handle(WorkoutCompletedEvent event): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>OnWeeklyProgressComputedEventHandler</th>
+<th>PostCreatedEventHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ socialProfileRepository: SocialProfileRepository<br>
++ handle(WeeklyProgressComputedEvent event): <i>void</i>
+</td>
+<td>
++ notificationService: NotificationService<br>
++ handle(PostCreatedEvent event): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>AchievementEarnedEventHandler</th>
+<th>ChallengeCompletedEventHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ socialProfileRepository: SocialProfileRepository<br>
++ handle(AchievementEarnedEvent event): <i>void</i>
+</td>
+<td>
++ challengeRepository: ChallengeRepository<br>
++ notificationService: NotificationService<br>
++ handle(ChallengeCompletedEvent event): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+---
+
 ### 5.2.4. Infrastructure Layer
 
-### 5.2.6. Bounded Context Software Architecture Component Level Diagrams
+En esta sección se presenta la Capa de Infraestructura (Infrastructure Layer) dentro del Social Context de FitSense. Esta capa proporciona los componentes técnicos y de soporte que permiten la interacción con la base de datos, servicios de almacenamiento de archivos, APIs de redes sociales y generadores de reportes.
 
-### 5.2.7. Bounded Context Software Architecture Code Level Diagrams
+Su función principal es implementar los contratos definidos en el dominio y garantizar la persistencia de los datos relacionados con perfiles sociales, publicaciones, logros, desafíos y reportes. Además, esta capa maneja la comunicación con servicios externos como Facebook, Instagram, Twitter y generadores de documentos PDF/Excel.
 
-#### 5.2.7.1. Bounded Context Domain Layer Class Diagrams
+**Repositorios**
 
-#### 5.2.7.2. Bounded Context Database Design Diagram
+<table>
+<thead>
+<tr>
+<th>SocialProfileRepository</th>
+<th>PostRepository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ findByUserId(userId: UUID): <i>SocialProfile</i><br>
++ save(profile: SocialProfile): void<br>
++ update(profile: SocialProfile): void<br>
++ incrementFollowersCount(userId: UUID): void
+</td>
+<td>
++ findById(postId: UUID): <i>Post</i><br>
++ findByUserId(userId: UUID, pagination: Pagination): List&lt;Post&gt;<br>
++ findPublicPosts(pagination: Pagination): List&lt;Post&gt;<br>
++ save(post: Post): void<br>
++ delete(postId: UUID): void<br>
++ updateReactions(postId: UUID, reactions: List&lt;Reaction&gt;): void
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>AchievementRepository</th>
+<th>ChallengeRepository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ findByUserId(userId: UUID): List&lt;Achievement&gt;<br>
++ findByType(type: AchievementType): List&lt;Achievement&gt;<br>
++ save(achievement: Achievement): void<br>
++ markAsShared(achievementId: UUID): void
+</td>
+<td>
++ findById(challengeId: UUID): <i>Challenge</i><br>
++ findActiveChallenges(): List&lt;Challenge&gt;<br>
++ findByParticipant(userId: UUID): List&lt;Challenge&gt;<br>
++ save(challenge: Challenge): void<br>
++ updateParticipants(challengeId: UUID, participants: List&lt;Participant&gt;): void
+</td>
+</tr>
+</tbody>
+</table>
+
+**Componentes de soporte**
+
+**SocialMediaIntegrationService**  
+Servicio responsable de la integración con APIs de redes sociales (Facebook, Instagram, Twitter). Maneja la autenticación OAuth, formato de contenido y envío de publicaciones.
+
+**ReportGenerationService**  
+Genera reportes de progreso en formatos PDF y Excel utilizando librerías como PDFKit o ExcelJS. Consolida datos de métricas, entrenamientos y logros.
+
+**FileStorageService**  
+Gestiona el almacenamiento temporal de archivos generados (reportes, imágenes de posts) en servicios cloud como Firebase Storage.
+
+**DTO Mappers / Converters**  
+Transforman las entidades del dominio a DTOs usados en la capa de aplicación e interfaz, asegurando un transporte de datos limpio y desacoplado.
+
+**EventPublisher**  
+Implementa el patrón Observer para publicar eventos de dominio (PostCreated, AchievementEarned) que pueden ser consumidos por otros bounded contexts dentro del monolito.
+
+**Integraciones tecnológicas**
+
+- **Base de datos:** PostgreSQL / MySQL
+- **Framework ORM:** Spring Data JPA / Prisma / TypeORM
+- **APIs de Redes Sociales:** Facebook Graph API, Instagram Graph API, Twitter API v2
+- **Generación de Reportes:** PDFKit, ExcelJS, Apache POI
+- **Almacenamiento de archivos:** Firebase Storage
+- **Event Bus interno:** Spring Events / Domain Events Pattern
+- **Formato de datos:** JSON para intercambio de información
+
+---
+
+### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Social Context Software Architecture Component Level Diagram](../img/chapter-5/SocialContextSoftwareArchitectureComponentLevelDiagram.png)
+
+---
+
+### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+#### 5.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+En esta sección se presenta el diagrama de clases del dominio para el Social Context de FitSense. El modelo refleja la estructura de agregados, entidades y objetos de valor y sus relaciones (cardinalidades) usadas por la lógica de negocio para gestionar perfiles sociales, publicaciones, logros, desafíos y reportes. Este diseño asegura consistencia dentro de los agregados y trazabilidad de las interacciones sociales.
+
+![Social Context Domain Layer Class Diagram](../img/chapter-5/SocialContextDomainLayerClassDiagram.png)
+
+#### 5.2.6.2. Bounded Context Database Design Diagram
+
+En esta sección se presenta el diseño de base de datos correspondiente al Social Context de FitSense. El modelo de datos refleja la estructura de las entidades y sus relaciones mediante claves primarias y foráneas, garantizando la integridad referencial entre los perfiles sociales, publicaciones, logros, desafíos y participantes.
+
+![Social Context Database Design Diagram](../img/chapter-5/SocialContextDatabaseDesignDiagram.png)
+
+---
 
 ## 5.3. Bounded Context: Notification Context
 
 ### 5.3.1. Domain Layer
 
+<p align="justify">
+El Domain Layer del contexto de <b>Notificaciones</b> representa el núcleo de la gestión de recordatorios, alertas y comunicaciones proactivas de FitSense. Su objetivo es modelar las entidades, objetos de valor, agregados y servicios que permiten enviar notificaciones personalizadas, inteligentes y respetuosas del tiempo del usuario, cumpliendo con las políticas de "No molestar" y preferencias individuales definidas por el sistema.
+</p>
+
+---
+
+**Agregados**
+
+<table>
+<thead>
+<tr>
+<th>Entidad</th>
+<th>Atributos Clave</th>
+<th>Value Objects Asociados</th>
+<th>Métodos / Reglas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NotificationPreferences</td>
+<td>userId, schedules, deviceTokens, globalDoNotDisturb, enabledTypes</td>
+<td>UserId, NotificationSchedule, DeviceToken, TimeRange, NotificationType</td>
+<td>
+addSchedule()<br>
+updateSchedule()<br>
+registerDevice()<br>
+setGlobalDoNotDisturb()<br>
+enableNotificationType()<br>
+disableNotificationType()<br>
+isTypeEnabled()<br>
+isInDoNotDisturbPeriod()
+</td>
+</tr>
+<tr>
+<td>NotificationSchedule</td>
+<td>scheduleId, userId, type, recurrence, preferredTime, isActive, doNotDisturbPeriods</td>
+<td>ScheduleId, NotificationType, Recurrence, TimeOfDay, TimeRange</td>
+<td>
+activate()<br>
+deactivate()<br>
+updatePreferredTime()<br>
+addDoNotDisturbPeriod()<br>
+shouldSendAt()<br>
+calculateNextSendTime()<br>
+validateRecurrence()
+</td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>notificationId, userId, type, title, message, payload, scheduledAt, sentAt, deliveredAt, readAt, status</td>
+<td>NotificationId, NotificationType, NotificationPayload, NotificationStatus</td>
+<td>
+markAsSent()<br>
+markAsDelivered()<br>
+markAsRead()<br>
+markAsFailed()<br>
+canBeSent()<br>
+isExpired()<br>
+retry()
+</td>
+</tr>
+<tr>
+<td>DeviceToken</td>
+<td>tokenId, userId, token, platform, registeredAt, lastUsedAt, isActive</td>
+<td>TokenId, Platform</td>
+<td>
+updateLastUsed()<br>
+deactivate()<br>
+isValid()<br>
+needsRefresh()
+</td>
+</tr>
+</tbody>
+</table>
+
+**Value Objects**
+
+<table>
+<thead>
+<tr><th>VO</th><th>Atributos</th><th>Descripción</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Recurrence</td>
+<td>frequency, daysOfWeek, customInterval</td>
+<td>Define la frecuencia de envío (ONCE, DAILY, WEEKLY, CUSTOM) y parámetros específicos.</td>
+</tr>
+<tr>
+<td>TimeOfDay</td>
+<td>hour, minute</td>
+<td>Representa un momento específico del día (formato 24h) con validación de rangos.</td>
+</tr>
+<tr>
+<td>TimeRange</td>
+<td>startTime, endTime</td>
+<td>Define un período de tiempo (ej: horario de "No molestar" de 22:00 a 07:00).</td>
+</tr>
+<tr>
+<td>NotificationPayload</td>
+<td>data, deepLink, actionButtons</td>
+<td>Contenido adicional de la notificación (datos, enlaces profundos, botones de acción).</td>
+</tr>
+<tr>
+<td>NotificationType</td>
+<td>type (WORKOUT_REMINDER, HYDRATION, ACHIEVEMENT, INACTIVITY, MILESTONE)</td>
+<td>Categoriza el tipo de notificación para control granular de preferencias.</td>
+</tr>
+<tr>
+<td>NotificationStatus</td>
+<td>status (SCHEDULED, SENT, DELIVERED, READ, FAILED)</td>
+<td>Estado del ciclo de vida de una notificación.</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>type (IOS, ANDROID)</td>
+<td>Plataforma del dispositivo para notificaciones push específicas.</td>
+</tr>
+<tr>
+<td>UsagePattern</td>
+<td>mostActiveHours, avgResponseTime, preferredDays</td>
+<td>Patrón de uso del usuario para optimización adaptativa de horarios.</td>
+</tr>
+</tbody>
+</table>
+
+**Domain Services**
+
+<table>
+<thead>
+<tr><th>Servicio</th><th>Métodos</th><th>Responsabilidad</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>NotificationSchedulingService</td>
+<td>calculateNextSendTime(), shouldSendNotification(), getActiveSchedulesForTime()</td>
+<td>Determina cuándo enviar notificaciones según las preferencias del usuario, horarios "No molestar" y recurrencias configuradas.</td>
+</tr>
+<tr>
+<td>AdaptiveNotificationService</td>
+<td>analyzeUsagePatterns(), suggestOptimalTimes(), adaptScheduleBasedOnEngagement()</td>
+<td>Analiza patrones de uso del usuario y ajusta horarios de notificaciones para maximizar engagement y minimizar molestias.</td>
+</tr>
+<tr>
+<td>NotificationContentService</td>
+<td>generateMotivationalMessage(), personalizeContent(), createDeepLink()</td>
+<td>Genera contenido personalizado y motivacional para notificaciones basado en el contexto y progreso del usuario.</td>
+</tr>
+<tr>
+<td>PushNotificationService</td>
+<td>sendToDevice(), sendToMultipleDevices(), validateToken()</td>
+<td>Abstracción del servicio de envío de notificaciones push (implementado en Infrastructure Layer).</td>
+</tr>
+</tbody>
+</table>
+
+**Repositories**
+
+<table>
+<thead>
+<tr><th>Repositorio</th><th>Métodos</th><th>Entidad</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>NotificationPreferencesRepository</td>
+<td>findByUserId(), save(), update(), findSchedulesByType()</td>
+<td>NotificationPreferences</td>
+</tr>
+<tr>
+<td>NotificationRepository</td>
+<td>findById(), findByUserId(), findScheduledForTimeRange(), save(), update(), bulkUpdate()</td>
+<td>Notification</td>
+</tr>
+<tr>
+<td>DeviceTokenRepository</td>
+<td>findByUserId(), findByToken(), save(), deactivateOldTokens()</td>
+<td>DeviceToken</td>
+</tr>
+<tr>
+<td>UsagePatternRepository</td>
+<td>findByUserId(), save(), update(), computePatterns()</td>
+<td>UsagePattern</td>
+</tr>
+</tbody>
+</table>
+
+---
+
 ### 5.3.2. Interface Layer
+
+En esta capa se definen los puntos de entrada del contexto de Notificaciones. Los **Controllers** permiten que los usuarios gestionen sus preferencias y consulten notificaciones.
+
+**Controladores**
+
+<table>
+<thead>
+<tr><th>NotificationController</th><th>NotificationPreferencesController</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ getNotifications(userId, pagination): List&lt;NotificationDto&gt;<br>
++ markAsRead(notificationId): ResponseEntity<br>
++ getUnreadCount(userId): CountDto<br>
++ deleteNotification(notificationId): ResponseEntity
+</td>
+<td>
++ getPreferences(userId): NotificationPreferencesDto<br>
++ updatePreferences(userId, preferencesDto): ResponseEntity<br>
++ addSchedule(userId, scheduleDto): ResponseEntity<br>
++ updateSchedule(userId, scheduleId, scheduleDto): ResponseEntity<br>
++ deleteSchedule(userId, scheduleId): ResponseEntity<br>
++ setDoNotDisturb(userId, dndDto): ResponseEntity
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr><th>DeviceTokenController</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ registerToken(tokenDto): ResponseEntity<br>
++ unregisterToken(token): ResponseEntity<br>
++ getDevices(userId): List&lt;DeviceDto&gt;<br>
++ refreshToken(oldToken, newToken): ResponseEntity
+</td>
+</tr>
+</tbody>
+</table>
+
+**Descripción de la capa**
+
+**Responsabilidad:**  
+La Interface Layer traduce las peticiones HTTP del usuario en comandos o consultas internas para gestión de notificaciones y preferencias. También recibe eventos internos de otros bounded contexts que desencadenan notificaciones automáticas.
+
+**Integraciones:**
+- Se conecta con la Application Layer mediante Command Handlers y Event Handlers.
+- Recibe eventos de dominio de otros bounded contexts (Plan, Monitoring, Social, Security).
+- Expone APIs REST documentadas en OpenAPI (Swagger).
+- Devuelve respuestas estructuradas en formato JSON.
+
+---
 
 ### 5.3.3. Application Layer
 
+En esta sección, se presenta la Capa de Aplicación (Application Layer) del Notification Context de FitSense. Esta capa actúa como intermediaria entre la lógica de dominio y la infraestructura, orquestando operaciones como envío de notificaciones, programación de recordatorios, gestión de preferencias y análisis adaptativo. Se definen Command Handlers, Event Handlers y Scheduled Jobs que coordinan los servicios relevantes.
+
+**Command Handlers**
+
+<table>
+<thead>
+<tr>
+<th>SendNotificationCommandHandler</th>
+<th>ScheduleNotificationCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ notificationRepository: NotificationRepository<br>
++ preferencesRepository: NotificationPreferencesRepository<br>
++ pushService: PushNotificationService<br>
++ handle(SendNotificationCommand command): <i>void</i>
+</td>
+<td>
++ notificationRepository: NotificationRepository<br>
++ schedulingService: NotificationSchedulingService<br>
++ handle(ScheduleNotificationCommand command): <i>Notification</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>UpdateNotificationPreferencesCommandHandler</th>
+<th>RegisterDeviceTokenCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ preferencesRepository: NotificationPreferencesRepository<br
 ### 5.3.4. Infrastructure Layer
 
 ### 5.3.6. Bounded Context Software Architecture Component Level Diagrams
