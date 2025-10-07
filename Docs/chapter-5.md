@@ -1141,83 +1141,48 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 ### 5.4.6. Bounded Context Software Architecture Component Level Diagrams
 
 ```mermaid
-C4Component
-title FitSense - Monitoring Context (Component)
-
-Person(user, "Usuario", "Registra y consulta su progreso.")
-Container(spa, "Web Dashboard", "React/Next.js", "UI de progreso y reportes.")
-ContainerDb(dbSql, "Monitoring DB", "PostgreSQL", "Workouts y progreso semanal.")
-ContainerDb(dbTs, "Metrics TS DB", "Timescale", "Series de métricas.")
-Container(blob, "Blob Storage", "Firebase/S3", "Fotos de progreso.")
-Container(ml, "AI Image Analyzer", "TensorFlow", "Analiza fotos de progreso.")
-Container(queue, "Message Broker", "Kafka/RabbitMQ", "Eventos de dominio.")
-
 Container_Boundary(api, "Monitoring API (NestJS / REST)") {
-  Component(MetricsController, "MetricsController", "Controller", "Consultas de series/KPIs")
-  Component(WorkoutsController, "WorkoutsController", "Controller", "Registro de entrenos")
-  Component(ProgressController, "ProgressController", "Controller", "Fotos y progreso semanal")
-  Component(ReportsController, "ReportsController", "Controller", "Exportar reportes")
-  Component(ProviderWebhookController, "ProviderWebhookController", "Controller", "Webhook wearables")
+  
+  Container_Boundary(ctrls, "Controllers") {
+    Component(MetricsController, "MetricsController", "Controller", "")
+    Component(WorkoutsController, "WorkoutsController", "Controller", "")
+    Component(ProgressController, "ProgressController", "Controller", "")
+    Component(ReportsController, "ReportsController", "Controller", "")
+  }
 
-  Component(RecordWorkoutHandler, "RecordWorkoutHandler", "Command Handler", "")
-  Component(IngestMetricHandler, "IngestMetricHandler", "Command Handler", "")
-  Component(SubmitPhotoHandler, "SubmitPhotoHandler", "Command Handler", "")
-  Component(AnalyzePhotoHandler, "AnalyzePhotoHandler", "Command Handler", "")
-  Component(ComputeWeeklyHandler, "ComputeWeeklyHandler", "Command Handler", "")
-  Component(ExportReportHandler, "ExportReportHandler", "Command Handler", "")
+  Container_Boundary(handlers, "Handlers") {
+    Component(RecordWorkoutHandler, "RecordWorkoutHandler", "Command Handler", "")
+    Component(IngestMetricHandler, "IngestMetricHandler", "Command Handler", "")
+    Component(ComputeWeeklyHandler, "ComputeWeeklyHandler", "Command Handler", "")
+    Component(ExportReportHandler, "ExportReportHandler", "Command Handler", "")
+  }
 
-  Component(OnMetricRecorded, "OnMetricRecorded", "Event Handler", "Proyección dashboard")
-  Component(OnWorkoutRecorded, "OnWorkoutRecorded", "Event Handler", "Proyección dashboard")
-  Component(OnImageAnalyzed, "OnImageAnalyzed", "Event Handler", "Detecta mejoras")
-  Component(OnAdherenceCalculated, "OnAdherenceCalculated", "Event Handler", "Actualiza adherencia")
+  Container_Boundary(services, "Domain Services & Factory") {
+    Component(ProgressService, "ProgressComputationService", "Domain Service", "")
+    Component(ImprovementService, "ImprovementDetectionService", "Domain Service", "")
+    Component(ReportFactory, "ReportFactory", "Factory", "")
+  }
 
-  Component(ProgressService, "ProgressComputationService", "Domain Service", "IMC, calorías, adherencia")
-  Component(ImprovementService, "ImprovementDetectionService", "Domain Service", "Reglas/IA")
-  Component(ReportFactory, "ReportFactory", "Factory", "Construye reportes")
-  Component(ImageAnalyzerPort, "ImageAnalyzer", "Port", "Análisis de imagen")
-
-  Component(MetricsRepository, "MetricsRepository", "Repository Port", "")
-  Component(WorkoutsRepository, "WorkoutsRepository", "Repository Port", "")
-  Component(WeeklyRepository, "WeeklyProgressRepository", "Repository Port", "")
-  Component(PhotoRepository, "PhotoProgressRepository", "Repository Port", "")
+  Container_Boundary(repos, "Repositories (Ports)") {
+    Component(MetricsRepository, "MetricsRepository", "Repository Port", "")
+    Component(WorkoutsRepository, "WorkoutsRepository", "Repository Port", "")
+    Component(WeeklyRepository, "WeeklyProgressRepository", "Repository Port", "")
+  }
 }
 
-Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, MetricsController, "Consume", "HTTPS/JSON")
-Rel_R(spa, WorkoutsController, "Consume", "HTTPS/JSON")
-Rel_R(spa, ProgressController, "Consume", "HTTPS/JSON")
-Rel_R(spa, ReportsController, "Consume", "HTTPS/JSON")
-
-Rel_R(MetricsController, IngestMetricHandler, "", "")
-Rel_R(WorkoutsController, RecordWorkoutHandler, "", "")
-Rel_R(ProgressController, SubmitPhotoHandler, "", "")
-Rel_R(ProgressController, AnalyzePhotoHandler, "", "")
-Rel_R(ReportsController, ExportReportHandler, "", "")
-Rel_R(ComputeWeeklyHandler, ProgressService, "", "")
-
-Rel_R(IngestMetricHandler, MetricsRepository, "", "")
-Rel_R(RecordWorkoutHandler, WorkoutsRepository, "", "")
-Rel_R(SubmitPhotoHandler, PhotoRepository, "", "")
-Rel_R(AnalyzePhotoHandler, ImageAnalyzerPort, "", "")
-Rel_R(ComputeWeeklyHandler, WeeklyRepository, "", "")
-Rel_R(ExportReportHandler, ReportFactory, "", "")
-
-Rel_R(MetricsRepository, dbTs, "Lee/Escribe", "SQL")
-Rel_R(WorkoutsRepository, dbSql, "Lee/Escribe", "SQL")
-Rel_R(WeeklyRepository, dbSql, "Lee/Escribe", "SQL")
-Rel_R(PhotoRepository, dbSql, "Lee/Escribe", "SQL")
-Rel_R(PhotoRepository, blob, "Referencia", "URL/ID")
-Rel_R(ImageAnalyzerPort, ml, "Analiza", "gRPC/REST")
-
-Rel_R(IngestMetricHandler, queue, "Publica", "")
-Rel_R(RecordWorkoutHandler, queue, "Publica", "")
-Rel_R(AnalyzePhotoHandler, queue, "Publica", "")
-Rel_R(ProgressService, queue, "Publica", "")
-
-Rel_R(queue, OnMetricRecorded, "Entrega", "")
-Rel_R(queue, OnWorkoutRecorded, "Entrega", "")
-Rel_R(queue, OnImageAnalyzed, "Entrega", "")
-Rel_R(queue, OnAdherenceCalculated, "Entrega", "")
+Rel_R(user, spa, "Usa", "HTTPS")
+Rel_R(spa, ctrls, "Consume", "HTTPS/JSON")
+Rel_R(ctrls, handlers, "Invoca comandos", "")
+Rel_R(handlers, services, "Orquesta lógica de negocio", "")
+Rel_R(services, repos, "Persiste datos", "")
+Rel_R(repos, dbSql, "Lee/Escribe", "SQL")
+Rel_R(services, ml, "Analiza imágenes", "gRPC/REST")
+Rel_R(handlers, queue, "Publica eventos", "")
+vRel_D(handlers, queue, "Publica eventos", "")
+Rel_D(repos, dbSql, "Persistencia", "SQL")
+Rel_D(repos, dbTs, "Métricas", "SQL")
+Rel_R(services, ml, "Analiza", "gRPC")
+Rel_R(photoRepo, blob, "Guarda fotos", "")
 ```
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
