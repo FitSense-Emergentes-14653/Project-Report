@@ -876,41 +876,6 @@ En esta sección, se presenta la Capa de Aplicación (Application Layer) del Not
 
 **Command Handlers**
 
-<table>
-<thead>
-<tr>
-<th>SendNotificationCommandHandler</th>
-<th>ScheduleNotificationCommandHandler</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-+ notificationRepository: NotificationRepository<br>
-+ preferencesRepository: NotificationPreferencesRepository<br>
-+ pushService: PushNotificationService<br>
-+ handle(SendNotificationCommand command): <i>void</i>
-</td>
-<td>
-+ notificationRepository: NotificationRepository<br>
-+ schedulingService: NotificationSchedulingService<br>
-+ handle(ScheduleNotificationCommand command): <i>Notification</i>
-</td>
-</tr>
-</tbody>
-</table>
-
-<table>
-<thead>
-<tr>
-<th>UpdateNotificationPreferencesCommandHandler</th>
-<th>RegisterDeviceTokenCommandHandler</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-+ preferencesRepository: NotificationPreferencesRepository<br
 ### 5.3.4. Infrastructure Layer
 
 ### 5.3.6. Bounded Context Software Architecture Component Level Diagrams
