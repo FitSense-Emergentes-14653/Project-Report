@@ -401,21 +401,15 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 
 ```mermaid
 C4Container
-title FitSense - Monitoring Context (layout limpio)
+title FitSense - Monitoring Context (C4)
 
 Person(user, "Usuario", "Registra y consulta su progreso.")
 Container(spa, "Web Dashboard", "React / Next.js", "UI de progreso y reportes.")
-Container(api, "Monitoring API", "NestJS / REST API", "Endpoints de métricas, rutinas y progreso.")
-ContainerDb(db, "Monitoring DB", "PostgreSQL + Timescale", "Métricas, entrenamientos y progreso semanal.")
+Container(api, "Monitoring API", "NestJS / REST API", "Métricas, rutinas, progreso semanal.")
+ContainerDb(db, "Monitoring DB", "PostgreSQL + Timescale", "Métricas, entrenos y progreso.")
 Container(ml, "AI Image Analyzer", "TensorFlow Service", "Análisis de fotos de progreso.")
 
-%% --- Layout sugerido (posiciones relativas)
-Lay_R(user, spa)     %% spa a la derecha de user
-Lay_R(spa, api)      %% api a la derecha de spa
-Lay_R(api, db)       %% db a la derecha de api
-Lay_D(spa, ml)       %% ml debajo del dashboard
-
-%% --- Relaciones con direcciones para evitar cruces
+%% Relaciones (direccionales para evitar cruces)
 Rel_R(user, spa, "Usa", "HTTPS/JSON")
 Rel_R(spa, api, "Consume", "HTTPS/JSON")
 Rel_R(api, db, "Lee/Escribe", "SQL")
