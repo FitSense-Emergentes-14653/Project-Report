@@ -271,8 +271,81 @@ En este apartado, se muestran todos los wireframes necesarios para cumplir las f
 ### 6.4.2. Applications Mock-ups
 
   - WEB MOCKUPS: 
+    <p align="center">
+      <img src="../img/chapter-6/web_1.png" alt="Prototype Web" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/web_2.png" alt="Prototype Web" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/web_3.png" alt="Prototype Web" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/web_4.png" alt="Prototype Web" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/web_5.png" alt="Prototype Web" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/web_6.png" alt="Prototype Web" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/web_7.png" alt="Prototype Web" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/web_8.png" alt="Prototype Web" width="50%">
+    </p>
+    <br>
+    
 
   - MOBILE MOCKUPS:
+    <p align="center">
+      <img src="../img/chapter-6/mobile_1.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_2.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_3.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_4.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_5.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_6.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_7.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_8.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_9.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
+    <p align="center">
+      <img src="../img/chapter-6/mobile_10.png" alt="Prototype Mobile" width="50%">
+    </p>
+    <br>
 
 ### 6.4.3. Applications User Flow Diagrams
 
