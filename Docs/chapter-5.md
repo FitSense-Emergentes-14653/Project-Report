@@ -918,18 +918,10 @@ classDiagram
 direction LR
 
 %% ===== Value Objects =====
-class AccountId { 
-  +value: UUID 
-}
-class RoleName { 
-  +value: string 
-}
-class TokenType { 
-  +value: string 
-}
-class HashedPassword { 
-  +value: string 
-}
+class AccountId { +value: UUID }
+class RoleName { +value: string }
+class TokenType { +value: string }
+class HashedPassword { +value: string }
 
 %% ===== Entities / Aggregates =====
 class Account {
@@ -1012,15 +1004,21 @@ class AuditLogRepository {
 }
 
 %% ===== Associations =====
-Account "1" --> "0..*" Role : has
-Role "1" --> "0..*" Permission : grants
-AuthService ..> AccountRepository : uses
-AuthService ..> RoleRepository : uses
-AuthService ..> TokenRepository : uses
-AuthService ..> PasswordHasher : uses
+Account --> Role
+Role --> Permission
+
+Token --> AccountId
+AuditLog --> AccountId
+Account --> AccountId
+Account --> HashedPassword
+
+AuthService ..> AccountRepository
+AuthService ..> RoleRepository
+AuthService ..> TokenRepository
+AuthService ..> PasswordHasher
 AccountRepository <.. Account
-
-
+Role *-- RoleName
+Token *-- TokenType
 ```
 
 #### 5.5.7.2. Bounded Context Database Design Diagram
