@@ -1141,21 +1141,97 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 ### 5.4.6. Bounded Context Software Architecture Component Level Diagrams
 
 ```mermaid
-C4Container
-title FitSense - Monitoring Context (C4)
+C4Component
+title FitSense - Monitoring Context (Component Diagram)
 
 Person(user, "Usuario", "Registra y consulta su progreso.")
-Container(spa, "Web Dashboard", "React / Next.js", "UI de progreso y reportes.")
-Container(api, "Monitoring API", "NestJS / REST API", "Métricas, rutinas, progreso semanal.")
-ContainerDb(db, "Monitoring DB", "PostgreSQL + Timescale", "Métricas, entrenos y progreso.")
-Container(ml, "AI Image Analyzer", "TensorFlow Service", "Análisis de fotos de progreso.")
+Container(spa, "Web Dashboard", "React/Next.js", "UI de progreso y reportes.")
+Container(ml, "AI Image Analyzer", "TensorFlow", "Analiza fotos de progreso.")
+ContainerDb(dbSql, "Monitoring DB", "PostgreSQL", "Workouts y progreso semanal.")
+ContainerDb(dbTs, "Metrics TS DB", "Timescale/Influx", "Series de métricas.")
+Container(blob, "Blob Storage", "Firebase/S3", "Fotos de progreso.")
+Container(queue, "Message Broker", "Kafka/RabbitMQ", "Eventos de dominio.")
 
-%% Relaciones (direccionales para evitar cruces)
+%% ====== API Boundary ======
+Container_Boundary(api, "Monitoring API (NestJS/REST)") {
+
+  Component(metricsCtrl, "MetricsController", "Controller",
+            "Consultas de series y KPIs.")
+  Component(workoutsCtrl, "WorkoutsController", "Controller",
+            "Registro/consulta de entrenos.")
+  Component(progressCtrl, "ProgressController", "Controller",
+            "Subir foto, progreso semanal.")
+  Component(reportsCtrl, "ReportsController", "Controller",
+            "Exportar PDF/Excel.")
+  Component(webhookCtrl, "ProviderWebhookController", "Controller",
+            "Webhook wearables.")
+
+  Component(cmdRecordWorkout, "RecordWorkoutHandler", "Command Handler", "")
+  Component(cmdIngestMetric, "IngestMetricHandler", "Command Handler", "")
+  Component(cmdSubmitPhoto, "SubmitPhotoHandler", "Command Handler", "")
+  Component(cmdAnalyzePhoto, "AnalyzePhotoHandler", "Command Handler", "")
+  Component(cmdComputeWeek, "ComputeWeeklyHandler", "Command Handler", "")
+  Component(cmdExportReport, "ExportReportHandler", "Command Handler", "")
+
+  Component(evMetricProj, "OnMetricRecorded", "Event Handler", "Proyección dashboard.")
+  Component(evWorkoutProj, "OnWorkoutRecorded", "Event Handler", "Proyección dashboard.")
+  Component(evImgDetected, "OnImageAnalyzed", "Event Handler", "Detecta mejoras.")
+  Component(evAdhUpdate, "OnAdherenceCalculated", "Event Handler", "Actualiza adherencia.")
+
+  Component(progressSvc, "ProgressComputationService", "Domain Service",
+            "IMC, balance, adherencia.")
+  Component(improveSvc, "ImprovementDetectionService", "Domain Service",
+            "Detecta mejoras (reglas/IA).")
+  Component(reportFactory, "ReportFactory", "Factory",
+            "Construye reportes (DTO).")
+  ComponentPort(imgAnalyzer, "ImageAnalyzer", "Port", "Análisis de imagen.")
+
+  Component(metricsRepo, "MetricsRepository", "Repository Port", "")
+  Component(workoutsRepo, "WorkoutsRepository", "Repository Port", "")
+  Component(weeklyRepo, "WeeklyProgressRepository", "Repository Port", "")
+  Component(photoRepo, "PhotoProgressRepository", "Repository Port", "")
+}
+
+%% ====== Relaciones externas ======
 Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, api, "Consume", "HTTPS/JSON")
-Rel_R(api, db, "Lee/Escribe", "SQL")
-Rel_D(spa, ml, "Envía imagen", "HTTPS")
-Rel_R(api, ml, "Solicita análisis", "gRPC/REST")
+Rel_R(spa, metricsCtrl, "Consume", "HTTPS/JSON")
+Rel_R(spa, workoutsCtrl, "Consume", "HTTPS/JSON")
+Rel_R(spa, progressCtrl, "Consume", "HTTPS/JSON")
+Rel_R(spa, reportsCtrl, "Consume", "HTTPS/JSON")
+Rel_R(webhookCtrl, cmdIngestMetric, "Dispara", "Webhook")
+
+%% ====== Flujos principales ======
+Rel_R(metricsCtrl, cmdIngestMetric, "", "")
+Rel_R(workoutsCtrl, cmdRecordWorkout, "", "")
+Rel_R(progressCtrl, cmdSubmitPhoto, "", "")
+Rel_R(progressCtrl, cmdAnalyzePhoto, "", "")
+Rel_R(reportsCtrl, cmdExportReport, "", "")
+Rel_R(cmdComputeWeek, progressSvc, "", "")
+Rel_R(evImgDetected, improveSvc, "", "")
+
+Rel_R(cmdIngestMetric, metricsRepo, "", "")
+Rel_R(cmdRecordWorkout, workoutsRepo, "", "")
+Rel_R(cmdSubmitPhoto, photoRepo, "", "")
+Rel_R(cmdAnalyzePhoto, imgAnalyzer, "", "")
+Rel_R(cmdComputeWeek, weeklyRepo, "", "")
+Rel_R(cmdExportReport, reportFactory, "", "")
+
+Rel_R(metricsRepo, dbTs, "Lee/Escribe", "SQL")
+Rel_R(workoutsRepo, dbSql, "Lee/Escribe", "SQL")
+Rel_R(weeklyRepo, dbSql, "Lee/Escribe", "SQL")
+Rel_R(photoRepo, dbSql, "Lee/Escribe", "SQL")
+Rel_R(imgAnalyzer, ml, "Analiza", "gRPC/REST")
+Rel_R(photoRepo, blob, "Referencia", "URL/ID")
+
+Rel_R(cmdIngestMetric, queue, "Publica eventos", "")
+Rel_R(cmdRecordWorkout, queue, "Publica eventos", "")
+Rel_R(cmdAnalyzePhoto, queue, "Publica eventos", "")
+Rel_R(progressSvc, queue, "Publica progreso", "")
+
+Rel_R(queue, evMetricProj, "Entrega", "")
+Rel_R(queue, evWorkoutProj, "Entrega", "")
+Rel_R(queue, evImgDetected, "Entrega", "")
+Rel_R(queue, evAdhUpdate, "Entrega", "")
 ```
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
@@ -1561,22 +1637,87 @@ La capa de infraestructura implementa las interfaces de repositorios y adaptador
 
 ### 5.5.6. Bounded Context Software Architecture Component Level Diagrams
 ```mermaid
-C4Container
-title FitSense - Security Context - C4
+C4Component
+title FitSense - Security Context (IAM) - Component Diagram
 
 Person(user, "Usuario", "Se autentica en FitSense.")
-Container(spa, "Web/Mobile Client", "React / Flutter", "Pantallas de login/registro.")
-Container(authApi, "Auth API", "NestJS / REST API", "Login, refresh, roles/permisos.")
-ContainerDb(authDb, "Auth DB", "PostgreSQL", "Cuentas, roles, permisos, auditoría.")
+Container(spa, "Web/Mobile Client", "React/Flutter", "Pantallas de login/registro.")
+ContainerDb(authDb, "Auth DB", "PostgreSQL", "Cuentas, roles, auditoría.")
 Container(cache, "Token Cache", "Redis", "Tokens activos / refresh.")
 Container(email, "Email Service", "External", "Verificación y recuperación.")
 
-%% Relaciones (direccionales)
+%% ====== Auth API Boundary ======
+Container_Boundary(authApi, "Auth API (NestJS/REST)") {
+
+  Component(authCtrl, "AuthController", "Controller",
+            "Login, refresh, logout, register.")
+  Component(mfaCtrl, "MfaController", "Controller",
+            "Activar/verificar MFA.")
+  Component(roleCtrl, "RoleController", "Controller",
+            "CRUD roles/permisos.")
+  Component(oauthCtrl, "OAuthCallbackController", "Controller",
+            "Login federado.")
+
+  Component(cmdRegister, "RegisterUserHandler", "Command Handler", "")
+  Component(cmdLogin, "AuthenticateUserHandler", "Command Handler", "")
+  Component(cmdRefresh, "RefreshTokenHandler", "Command Handler", "")
+  Component(cmdChangePwd, "ChangePasswordHandler", "Command Handler", "")
+  Component(cmdAssignRole, "AssignRoleHandler", "Command Handler", "")
+
+  Component(evAccountCreated, "OnAccountCreated", "Event Handler", "")
+  Component(evUserAuth, "OnUserAuthenticated", "Event Handler", "")
+  Component(evRoleAssigned, "OnRoleAssigned", "Event Handler", "")
+
+  Component(authSvc, "AuthService", "Domain Service",
+            "Emite/valida tokens y sesiones.")
+  Component(policy, "AuthPolicy", "Strategy",
+            "Expiración y rotación de tokens.")
+  Component(hasher, "PasswordHasher", "Domain Service",
+            "Hash/verificación (bcrypt/Argon2).")
+
+  Component(accRepo, "AccountRepository", "Repository Port", "")
+  Component(roleRepo, "RoleRepository", "Repository Port", "")
+  Component(tokenRepo, "TokenRepository", "Repository Port", "")
+  Component(auditRepo, "AuditLogRepository", "Repository Port", "")
+
+  Component(jwtProv, "TokenProvider(JWT)", "Adapter", "Firmado/verificación.")
+  Component(oauthProv, "OAuthProvider", "Adapter", "Google/Apple.")
+  Component(emailAdapter, "EmailAdapter", "Adapter", "SMTP/API externa.")
+  Component(tokenCache, "TokenCacheAdapter", "Adapter", "Redis.")
+}
+
+%% ====== Relaciones externas ======
 Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, authApi, "Autentica", "HTTPS/JSON")
-Rel_R(authApi, authDb, "Persistencia", "SQL")
-Rel_D(authApi, cache, "Sesiones", "Redis")
-Rel_D(authApi, email, "OTP/links", "SMTP/API")
+Rel_R(spa, authCtrl, "Autentica", "HTTPS/JSON")
+Rel_R(spa, oauthCtrl, "OAuth", "HTTPS/JSON")
+
+Rel_R(accRepo, authDb, "Lee/Escribe", "SQL")
+Rel_R(roleRepo, authDb, "Lee/Escribe", "SQL")
+Rel_R(auditRepo, authDb, "Append", "SQL")
+Rel_R(tokenCache, cache, "Guarda/Borra", "Redis")
+Rel_R(emailAdapter, email, "Envía", "SMTP/API")
+
+%% ====== Flujos internos ======
+Rel_R(authCtrl, cmdLogin, "", "")
+Rel_R(authCtrl, cmdRefresh, "", "")
+Rel_R(authCtrl, cmdChangePwd, "", "")
+Rel_R(authCtrl, cmdRegister, "", "")
+Rel_R(roleCtrl, cmdAssignRole, "", "")
+Rel_R(oauthCtrl, cmdLogin, "Callback", "")
+
+Rel_R(cmdLogin, authSvc, "", "")
+Rel_R(cmdRefresh, authSvc, "", "")
+Rel_R(cmdChangePwd, hasher, "", "")
+Rel_R(cmdRegister, hasher, "", "")
+
+Rel_R(authSvc, jwtProv, "Firmar/validar", "")
+Rel_R(authSvc, tokenRepo, "Persistir tokens", "")
+Rel_R(authSvc, accRepo, "Buscar cuenta", "")
+Rel_R(cmdAssignRole, roleRepo, "Asignar", "")
+Rel_R(evAccountCreated, auditRepo, "Registrar", "")
+Rel_R(evUserAuth, auditRepo, "Registrar", "")
+Rel_R(evRoleAssigned, auditRepo, "Registrar", "")
+Rel_R(authSvc, tokenCache, "Gestionar sesión", "")
 ```
 
 ### 5.5.7. Bounded Context Software Architecture Code Level Diagrams
