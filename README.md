@@ -232,6 +232,8 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Jarama Peñaloza, Fiorella</strong><br>
         <em>TB1</em><br>
         Realicé el EventStorming para mapear eventos, comandos, políticas, puntos de dolor y momentos clave; identifiqué bounded contexts (Plan, Monitoring, Notification, Security y Social) y modelé sus interacciones mediante context mapping. También generé los artefactos de arquitectura: System Landscape, Context, Container y Deployment Diagrams siguiendo el enfoque C4.<br>
+               <em>TP</em><br>
+        Realicé la Information Architecture considerando los sistemas de labeling, organization y navigation, con el fin de estructurar la experiencia del usuario y el flujo de información. Además, diseñé tanto los wireframes como los mockups de la aplicación móvil y algunos mockups web, que permiten visualizar la interacción, jerarquía de contenidos y navegación del sistema antes de su desarrollo.<br>
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
         Durante el avance de este TB1 pude identificar la falta de soluciones integrales y accesibles en el ámbito del fitness digital y plantear a FitSense como respuesta innovadora, basada en IA, métricas personalizadas y motivación social. A través del análisis competitivo y el Lean UX Canvas, se definieron estrategias, hipótesis y un MVP que facilitarán validar la propuesta. En conjunto, se comunica de forma objetiva un proyecto de ingeniería con impacto positivo en la salud y la constancia de los usuarios.<br>
@@ -240,10 +242,13 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Rubio Calixto, Adrian Gustavo</strong><br>
         <em>TB1</em><br>
         Durante el desarrollo de FitSense, diseñé, registré y analicé entrevistas para identificar necesidades clave de los usuarios. Posteriormente, elaboré el proceso de Needfinding mediante User Personas, User Task Matrix, Empathy Mapping y As-is Scenario Mapping, lo que permitió comprender a fondo su contexto. Además, definí el Ubiquitous Language para unificar la comunicación entre el equipo y realicé el To-Be Scenario Mapping en el Capítulo III, proyectando escenarios futuros alineados con los objetivos del proyecto.<br>
+        <br>
     </td>
     <td>
         <em>TB1</em><br>
         En conclusión, el desarrollo de FitSense permitió comunicar con objetividad y claridad los resultados obtenidos, abarcando desde el análisis de necesidades y la definición de requisitos hasta el diseño de la arquitectura emergente. De esta manera, logramos transmitir a públicos diversos técnicos y no técnicos, el valor, la viabilidad y el impacto positivo de la propuesta en el ámbito del fitness digital.<br>
+        <em>TP</em><br>
+        <br>
     </td>
   </tr>
   <tr>
@@ -258,6 +263,8 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Jarama Peñaloza, Fiorella</strong><br>
         <em>TB1</em><br>
         Realicé el EventStorming para mapear eventos, comandos, políticas, puntos de dolor y momentos clave; identifiqué bounded contexts (Plan, Monitoring, Notification, Security y Social) y modelé sus interacciones mediante context mapping. También generé los artefactos de arquitectura: System Landscape, Context, Container y Deployment Diagrams siguiendo el enfoque C4.<br>
+               <em>TP</em><br>
+        Realicé la Information Architecture considerando los sistemas de labeling, organization y navigation, con el fin de estructurar la experiencia del usuario y el flujo de información. Además, diseñé tanto los wireframes como los mockups de la aplicación móvil y algunos mockups web, que permiten visualizar la interacción, jerarquía de contenidos y navegación del sistema antes de su desarrollo.<br>
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
         El desarrollo de FitSense me permitió analizar de manera objetiva la problemática del mercado fitness digital y proponer una solución innovadora que combina personalización mediante IA, seguimiento de métricas y motivación social. Los resultados obtenidos, plasmados en el Lean UX Canvas y el análisis competitivo, fueron presentados de forma clara y estructurada para que puedan ser comprendidos por públicos de distintas especialidades y niveles jerárquicos, garantizando así una comunicación efectiva en el marco de un proyecto de ingeniería orientado a la mejora del bienestar de los usuarios.<br>
@@ -270,6 +277,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
     <td>
        <em>TB1</em><br>
         En conjunto, el desarrollo de FitSense permitió al equipo plasmar de manera escrita y objetiva los avances del proyecto, desde el análisis de necesidades de los usuarios y la definición de requisitos, hasta el diseño de la arquitectura emergente y la propuesta de solución innovadora. A través de técnicas como entrevistas, Needfinding, Impact Mapping, EventStorming, Lean UX Canvas y el enfoque C4, se generó documentación clara, estructurada y comprensible tanto para públicos técnicos como no técnicos. De esta forma, se aseguró una comunicación efectiva que integra la visión de negocio, la perspectiva del usuario y la solidez técnica en el marco de un proyecto de ingeniería orientado a la salud y el bienestar.<br>
+        <em>TP</em><br><br>
     </td>
   </tr>
 </table>
