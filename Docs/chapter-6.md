@@ -273,6 +273,19 @@ En este apartado, se muestran todos los wireframes necesarios para cumplir las f
 
 
 ### 6.4.2. Applications Wireflow Diagrams
+  Web Wireflow:
+  <p align="center">
+      <img src="../img/chapter-6/web_wireflow.png" alt="Web Wireflow" width="50%">
+  </p>
+  <br> 
+  <br> 
+
+  Mobile Wireflow
+  <p align="center">
+      <img src="../img/chapter-6/mobile_wireflow.png" alt="Mobile Wireflow" width="50%">
+  </p>
+  <br> 
+  <br> 
 
 ### 6.4.2. Applications Mock-ups
 
