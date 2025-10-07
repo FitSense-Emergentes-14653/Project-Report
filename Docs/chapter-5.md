@@ -836,7 +836,6 @@ Rel_R(spa, authApi, "Autentica", "HTTPS/JSON")
 Rel_R(authApi, authDb, "Persistencia", "SQL")
 Rel_D(authApi, cache, "Sesiones", "Redis")
 Rel_D(authApi, email, "OTP/links", "SMTP/API")
-Rel_D(spa, email, "Solicita envío", "HTTPS")
 ```
 
 ### 5.5.7. Bounded Context Software Architecture Code Level Diagrams
