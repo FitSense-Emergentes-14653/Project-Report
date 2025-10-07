@@ -915,103 +915,112 @@ graph LR
 
 ```mermaid
 classDiagram
-  direction LR
+direction LR
 
-  %% ==== Value Objects ====
-  class AccountId { +value: UUID }
-  class RoleName { +value: string }
-  class TokenType { +value: enum /* ACCESS|REFRESH */ }
-  class HashedPassword { +value: string }
+%% ===== Value Objects =====
+class AccountId { 
+  +value: UUID 
+}
+class RoleName { 
+  +value: string 
+}
+class TokenType { 
+  +value: string 
+}
+class HashedPassword { 
+  +value: string 
+}
 
-  %% ==== Entities / Aggregates ====
-  class Account {
-    +id: AccountId
-    +email: string
-    +password: HashedPassword
-    +mfaEnabled: bool
-    +status: string
-    +enableMFA()
-    +disableMFA()
-    +changePassword(newHash: HashedPassword)
-    +details: string
-  }
+%% ===== Entities / Aggregates =====
+class Account {
+  +id: AccountId
+  +email: string
+  +password: HashedPassword
+  +mfaEnabled: bool
+  +status: string
+  +enableMFA()
+  +disableMFA()
+  +changePassword(newHash: HashedPassword)
+}
 
-  class Role {
-    +id: UUID
-    +name: RoleName
-  }
+class Role {
+  +id: UUID
+  +name: RoleName
+}
 
-  class Permission {
-    +id: UUID
-    +code: string
-    +scope: string
-  }
+class Permission {
+  +id: UUID
+  +code: string
+  +scope: string
+}
 
-  class Token {
-    +id: UUID
-    +accountId: AccountId
-    +type: TokenType
-    +valueHash: string
-    +expiresAt: Date
-    +revoked: bool
-  }
+class Token {
+  +id: UUID
+  +accountId: AccountId
+  +type: TokenType
+  +valueHash: string
+  +expiresAt: Date
+  +revoked: bool
+}
 
-  class AuditLog {
-    +id: UUID
-    +accountId: AccountId
-    +action: string
-    +details: label
-    +ip: string
-    +occurredAt: Date
-  }
+class AuditLog {
+  +id: UUID
+  +accountId: AccountId
+  +action: string
+  +details: string
+  +ip: string
+  +occurredAt: Date
+}
 
-  %% ==== Domain Services / Strategy ====
-  class AuthPolicy <<Strategy>> {
-    +accessTtl(): number
-    +refreshTtl(): number
-    +shouldRotate(now: Date, lastUsed: Date): bool
-  }
+%% ===== Domain Services / Policy =====
+class AuthPolicy {
+  +accessTtl(): number
+  +refreshTtl(): number
+  +shouldRotate(now: Date, lastUsed: Date): bool
+}
 
-  class AuthService <<DomainService>> {
-    +issueTokens(account: Account): Token[*]
-    +validateCredentials(email: string, password: string): Account
-    +refreshTokens(refreshToken: string): Token[*]
-  }
+class AuthService {
+  +issueTokens(account: Account): Token
+  +validateCredentials(email: string, password: string): Account
+  +refreshTokens(refreshToken: string): Token
+}
 
-  class PasswordHasher <<DomainService>> {
-    +hash(plain: string): HashedPassword
-    +verify(plain: string, hashed: HashedPassword): bool
-  }
+class PasswordHasher {
+  +hash(plain: string): HashedPassword
+  +verify(plain: string, hashed: HashedPassword): bool
+}
 
-  %% ==== Repositories (Ports) ====
-  class AccountRepository <<Interface>> {
-    +findByEmail(email: string): Account
-    +save(account: Account): void
-  }
+%% ===== Repository Interfaces (Ports) =====
+class AccountRepository {
+  +findByEmail(email: string): Account
+  +save(account: Account): void
+}
 
-  class RoleRepository <<Interface>> {
-    +findRolesByAccount(id: AccountId): Role[*]
-    +assignRole(accountId: AccountId, roleId: UUID): void
-  }
+class RoleRepository {
+  +findRolesByAccount(id: AccountId): Role
+  +assignRole(accountId: AccountId, roleId: UUID): void
+}
 
-  class TokenRepository <<Interface>> {
-    +store(token: Token): void
-    +revoke(tokenId: UUID): void
-    +findValidRefresh(accountId: AccountId): Token
-  }
+class TokenRepository {
+  +store(token: Token): void
+  +revoke(tokenId: UUID): void
+  +findValidRefresh(accountId: AccountId): Token
+}
 
-  class AuditLogRepository <<Interface>> {
-    +append(entry: AuditLog): void
-  }
+class AuditLogRepository {
+  +append(entry: AuditLog): void
+}
 
-  %% ==== Associations ====
-  Account "1" --> "0..*" Role : has
-  Role "1" --> "0..*" Permission : grants
-  AuthService ..> AccountRepository : uses
-  AuthService ..> RoleRepository : uses
-  AuthService ..> TokenRepository : uses
-  AuthService ..> PasswordHasher : uses
-  AccountRepository <.. Account
+%% ===== Associations =====
+Account "1" --> "0..*" Role : has
+Role "1" --> "0..*" Permission : grants
+AuthService ..> AccountRepository : uses
+AuthService ..> RoleRepository : uses
+AuthService ..> TokenRepository : uses
+AuthService ..> PasswordHasher : uses
+AccountRepository <.. Account
+
+
 ```
 
 #### 5.5.7.2. Bounded Context Database Design Diagram
