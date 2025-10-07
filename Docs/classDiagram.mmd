@@ -1,0 +1,105 @@
+classDiagram
+direction LR
+
+%% ==== Value Objects ====
+class UserId {
+  +value: UUID
+}
+class MetricName {
+  +value: enum
+}
+class MetricUnit {
+  +value: enum
+}
+class TimeWindow {
+  +from: Date
+  +to: Date
+  +contains(d: Date): bool
+}
+class Week {
+  +year: int
+  +week: int
+}
+class AdherenceScore {
+  +value: float
+}
+class CalorieBalance {
+  +in: number
+  +out: number
+  +balance(): number
+}
+class PrivacyConsent {
+  +granted: bool
+  +grantedAt: Date
+  +scope: enum[]
+}
+class DataRetentionPolicy {
+  +ttlDays: int
+  +minPrecision: float
+}
+class ImageRef {
+  +storageId: string
+  +mime: string
+}
+
+%% ==== Entities / Aggregates ====
+class MetricSnapshot {
+  +id: UUID
+  +userId: UserId
+  +name: MetricName
+  +unit: MetricUnit
+  +value: number
+  +capturedAt: Date
+}
+
+class WorkoutSummary {
+  +id: UUID
+  +userId: UserId
+  +type: string
+  +startAt: Date
+  +endAt: Date
+  +caloriesOut: number
+  +avgHr: number
+}
+
+class PhotoProgress {
+  +id: UUID
+  +userId: UserId
+  +image: ImageRef
+  +takenAt: Date
+  +consent: PrivacyConsent
+  +canAnalyze(): bool
+}
+
+class ImprovementFinding {
+  +id: UUID
+  +userId: UserId
+  +week: Week
+  +kind: enum
+  +delta: number
+  +confidence: float
+}
+
+class WeeklyProgress {
+  +id: UUID
+  +userId: UserId
+  +week: Week
+  +bmiAvg: number
+  +weightDelta: number
+  +calorieBalance: CalorieBalance
+  +adherence: AdherenceScore
+  +improvements: ImprovementFinding[*]
+  +addMetric(ms: MetricSnapshot)
+  +applyWorkout(ws: WorkoutSummary)
+  +registerImprovement(f: ImprovementFinding)
+  +computeKpis()
+}
+
+WeeklyProgress --> "0..*" ImprovementFinding
+WeeklyProgress --> CalorieBalance
+WeeklyProgress --> AdherenceScore
+WeeklyProgress --> Week
+PhotoProgress --> ImageRef
+PhotoProgress --> PrivacyConsent
+MetricSnapshot --> MetricName
+MetricSnapshot --> MetricUnit

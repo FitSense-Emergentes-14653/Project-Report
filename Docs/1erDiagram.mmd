@@ -1,0 +1,62 @@
+erDiagram
+  USERS ||--o{ WORKOUTS : has
+  USERS ||--o{ METRIC_SNAPSHOTS : has
+  USERS ||--o{ PHOTO_PROGRESS : has
+  USERS ||--o{ WEEKLY_PROGRESS : owns
+  WEEKLY_PROGRESS ||--o{ IMPROVEMENT_FINDINGS : includes
+
+  USERS {
+    uuid id PK
+    text email
+    text name
+  }
+
+  WORKOUTS {
+    uuid id PK
+    uuid user_id FK
+    text type
+    timestamp start_at
+    timestamp end_at
+    numeric calories_out
+    numeric avg_hr
+  }
+
+  METRIC_SNAPSHOTS {
+    uuid id PK
+    uuid user_id FK
+    text metric_name
+    text metric_unit
+    numeric value
+    timestamp captured_at
+  }
+
+  PHOTO_PROGRESS {
+    uuid id PK
+    uuid user_id FK
+    text storage_id
+    text mime
+    boolean consent_granted
+    text consent_scope
+    timestamp consent_at
+    timestamp taken_at
+  }
+
+  WEEKLY_PROGRESS {
+    uuid id PK
+    uuid user_id FK
+    int year
+    int week
+    numeric bmi_avg
+    numeric weight_delta
+    numeric cal_in
+    numeric cal_out
+    numeric adherence
+  }
+
+  IMPROVEMENT_FINDINGS {
+    uuid id PK
+    uuid weekly_progress_id FK
+    text kind
+    numeric delta
+    numeric confidence
+  }

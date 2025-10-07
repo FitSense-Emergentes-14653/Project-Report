@@ -413,6 +413,8 @@ flowchart LR
 
 #### 5.4.7.1. Bounded Context Domain Layer Class Diagrams
 
+#### 5.1.6.1. Bounded Context Domain Layer Class Diagram (UML)
+
 ```mermaid
 classDiagram
   direction LR
@@ -541,9 +543,12 @@ classDiagram
   ImprovementDetectionService ..> ImageAnalyzer : uses
   ReportFactory ..> WeeklyProgress : builds
 
+```
+
 #### 5.4.7.2. Bounded Context Database Design Diagram
 
 ```mermaid
+
 erDiagram
   USERS ||--o{ WORKOUTS : has
   USERS ||--o{ METRIC_SNAPSHOTS : has
@@ -565,7 +570,6 @@ erDiagram
     timestamp end_at
     numeric calories_out
     numeric avg_hr
-    index (user_id, start_at)
   }
 
   METRIC_SNAPSHOTS {
@@ -575,7 +579,6 @@ erDiagram
     text metric_unit
     numeric value
     timestamp captured_at
-    index (user_id, metric_name, captured_at)
   }
 
   PHOTO_PROGRESS {
@@ -587,7 +590,6 @@ erDiagram
     text consent_scope
     timestamp consent_at
     timestamp taken_at
-    index (user_id, taken_at)
   }
 
   WEEKLY_PROGRESS {
@@ -600,7 +602,6 @@ erDiagram
     numeric cal_in
     numeric cal_out
     numeric adherence
-    unique(user_id, year, week)
   }
 
   IMPROVEMENT_FINDINGS {
@@ -610,6 +611,7 @@ erDiagram
     numeric delta
     numeric confidence
   }
+```
 
 ## 5.5. Bounded Context: Security Context
 
