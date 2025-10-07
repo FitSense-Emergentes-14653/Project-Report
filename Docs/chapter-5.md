@@ -4,19 +4,110 @@
 
 ### 5.1.1. Domain Layer
 
+A continuación, se presenta la organización del Domain Layer del Bounded Context: Plan Context, siguiendo la estructura de Aggregate, Value Objects, Domain Services y Repositories, con todos los elementos organizados en tablas independientes.
+
+Aggregate
+<table> <thead> <tr><th>Entidad</th><th>Atributos Clave</th><th>Value Objects Asociados</th><th>Métodos / Reglas</th></tr> </thead> <tbody> <tr> <td>Usuario</td> <td>id, nombre, edad, peso, altura, nivel, objetivo, frecuencia</td> <td>Objetivo, PerfilEntrenamiento</td> <td> crearPlan()<br> actualizarProgreso()<br> consultarRutina()<br> obtenerInsight()<br> definirObjetivo()<br> validarDatosFisicos() </td> </tr> <tr> <td>Plan</td> <td>id, usuarioId, fechaInicio, fechaFin, estado</td> <td>Rutina, Objetivo</td> <td> agregarRutina()<br> finalizarPlan()<br> actualizarPlan()<br> validarFechas()<br> sincronizarConIA() </td> </tr> <tr> <td>Progreso</td> <td>id, planId, fecha, pesoActual, caloriasQuemadas</td> <td>Métricas</td> <td> registrarProgreso()<br> calcularIMC()<br> analizarTendencia()<br> notificarIA() </td> </tr> </tbody> </table>
+
+Value Objects
+<table> <thead> <tr><th>VO</th><th>Atributos</th><th>Descripción</th></tr> </thead> <tbody> <tr><td>Objetivo</td><td>tipo, valorMeta</td><td>Define la meta física del usuario (bajar peso, ganar masa, mantener).</td></tr> <tr><td>Rutina</td><td>nombre, duracion, ejercicios</td><td>Describe un conjunto de ejercicios estructurados dentro de un plan.</td></tr> <tr><td>Métricas</td><td>peso, imc, calorías, consistencia</td><td>Valores medidos y calculados a partir del progreso del usuario.</td></tr> <tr><td>Insight</td><td>descripcion, recomendaciones</td><td>Resultado analítico de la IA con sugerencias personalizadas.</td></tr> </tbody> </table>
+
+Domain Services
+<table> <thead> <tr><th>Servicio</th><th>Métodos</th><th>Responsabilidad</th></tr> </thead> <tbody> <tr> <td>PlanManagementService</td> <td>crearPlan(), actualizarPlan(), finalizarPlan()</td> <td>Orquesta la creación, modificación y cierre de los planes de entrenamiento del usuario.</td> </tr> <tr> <td>ProgressAnalysisService</td> <td>registrarProgreso(), generarInsight(), sincronizarIA()</td> <td>Evalúa métricas de progreso y coordina la comunicación con el modelo de IA para generar recomendaciones.</td> </tr> <tr> <td>RoutineService</td> <td>crearRutina(), actualizarEjercicio(), validarRutina()</td> <td>Administra la estructura de rutinas dentro de cada plan.</td> </tr> </tbody> </table>
+
+Repositories
+<table> <thead> <tr><th>Repositorio</th><th>Métodos</th><th>Entidad</th></tr> </thead> <tbody> <tr><td>PlanRepository</td><td>findById(), findByUsuarioId(), save(), deleteById()</td><td>Plan</td></tr> <tr><td>ProgresoRepository</td><td>findByPlanId(), save(), deleteById()</td><td>Progreso</td></tr> <tr><td>RutinaRepository</td><td>findByPlanId(), save(), deleteById()</td><td>Rutina</td></tr> <tr><td>InsightRepository</td><td>findByProgresoId(), save(), deleteById()</td><td>Insight</td></tr> </tbody> </table>
+
+
 ### 5.1.2. Interface Layer
+
+En esta sección, se presenta la Capa de Interfaz (Interface Layer) de FitSense – Plan Context, que actúa como punto de entrada para las interacciones entre los usuarios (atletas o entrenadores) y el sistema.
+Esta capa está compuesta por una serie de controladores REST que manejan las solicitudes entrantes del cliente (web o móvil), procesan los datos mediante los servicios de aplicación y devuelven las respuestas correspondientes.
+
+Los controladores expuestos en este contexto permiten gestionar planes, rutinas, progreso e insights generados por IA.
+
+El contexto de esta capa incluye cuatro controladores principales: PlanController, RutinaController, ProgresoController e InsightController.
+Estos controladores son responsables de administrar la creación, consulta y actualización de los planes de entrenamiento y los registros asociados al progreso del usuario.
+
+Controladores
+<table> <thead> <tr><th>PlanController</th><th>RutinaController</th></tr> </thead> <tbody> <tr> <td> + createPlan(planDto): ResponseEntity<br> + updatePlan(id, planDto): PlanDto<br> + getPlanByUsuario(usuarioId): List&lt;PlanDto&gt;<br> + deletePlan(id): ResponseEntity </td> <td> + getRutinasByPlan(planId): List&lt;RutinaDto&gt;<br> + addRutina(rutinaDto): ResponseEntity<br> + updateRutina(id, rutinaDto): RutinaDto<br> + deleteRutina(id): ResponseEntity </td> </tr> </tbody> </table> <table> <thead> <tr><th>ProgresoController</th><th>InsightController</th></tr> </thead> <tbody> <tr> <td> + getProgresoByPlan(planId): List&lt;ProgresoDto&gt;<br> + addProgreso(progresoDto): ResponseEntity<br> + updateProgreso(id, progresoDto): ProgresoDto<br> + deleteProgreso(id): ResponseEntity </td> <td> + getInsightsByProgreso(progresoId): List&lt;InsightDto&gt;<br> + generateInsight(progresoId): InsightDto<br> + deleteInsight(id): ResponseEntity </td> </tr> </tbody> </table>
+Descripción de la capa
+
+Responsabilidad:
+La Interface Layer traduce las peticiones HTTP del usuario en comandos o consultas internas, garantizando una comunicación desacoplada entre el cliente y la lógica de negocio.
+Todos los controladores exponen endpoints REST documentados en OpenAPI (Swagger) para facilitar su integración.
+
+Integraciones:
+
+Se conecta con la Application Layer mediante Handlers y Services.
+
+Se comunica con el módulo de IA para la generación de recomendaciones (GPT-4o mini Connector).
+
+Devuelve respuestas estructuradas en formato JSON.
 
 ### 5.1.3. Application Layer
 
+En esta sección, se presenta la Capa de Aplicación (Application Layer) del Plan Context de FitSense. Esta capa actúa como intermediaria entre la lógica de dominio y la infraestructura, orquestando operaciones como creación/actualización de planes, registro de progreso y generación de recomendaciones por IA.
+Se definen Command Handlers y Event Handlers que coordinan los servicios relevantes para ejecutar acciones como crear planes, registrar avances o actualizar rutinas cuando se generan insights.
+
+Handlers
+<table> <thead> <tr> <th>CreatePlanCommandHandler</th> <th>RegisterProgressCommandHandler</th> </tr> </thead> <tbody> <tr> <td> + planService: PlanManagementService<br/> + handle(CreatePlanCommand command): <i>Plan</i> </td> <td> + progressService: ProgressAnalysisService<br/> + handle(RegisterProgressCommand command): <i>Progreso</i> </td> </tr> </tbody> </table> <br/> <table> <thead> <tr> <th>GenerateInsightEventHandler</th> <th>PlanUpdatedEventHandler</th> </tr> </thead> <tbody> <tr> <td> + insightService: InsightService<br/> + handle(InsightGeneratedEvent event): <i>Insight</i> </td> <td> + planService: PlanManagementService<br/> + handle(PlanUpdatedEvent event): <i>void</i> </td> </tr> </tbody> </table> <br/> <table> <thead> <tr> <th>AdaptPlanCommandHandler</th> <th>DeletePlanCommandHandler</th> </tr> </thead> <tbody> <tr> <td> + planService: PlanManagementService<br/> + handle(AdaptPlanCommand command): <i>Plan</i> </td> <td> + planService: PlanManagementService<br/> + handle(DeletePlanCommand command): <i>void</i> </td> </tr> </tbody> </table> <br/> <table> <thead> <tr> <th>ProgressRegisteredEventHandler</th> <th>InsightPersistedEventHandler</th> </tr> </thead> <tbody> <tr> <td> + progressService: ProgressAnalysisService<br/> + handle(ProgressRegisteredEvent event): <i>Insight</i> </td> <td> + insightService: InsightService<br/> + handle(InsightPersistedEvent event): <i>void</i> </td> </tr> </tbody> </table>
+
 ### 5.1.4. Infrastructure Layer
 
+En esta sección se presenta la Capa de Infraestructura (Infrastructure Layer) dentro del contexto de Planificación de FitSense. Esta capa proporciona los componentes técnicos y de soporte que permiten la interacción con la base de datos, los servicios de almacenamiento y el módulo de IA, responsable de generar y adaptar los planes personalizados.
+
+Su función principal es implementar los contratos definidos en el dominio y garantizar la persistencia de los datos relacionados con planes, rutinas, progreso e insights.
+Además, esta capa maneja la comunicación con el motor GPT-4o mini, responsable de las recomendaciones automáticas y del análisis de rendimiento.
+
+Los repositorios definidos en esta capa usan frameworks como Spring Data JPA o Hibernate, representando el puente entre la lógica de negocio y el almacenamiento físico de los datos.
+
+Repositorios
+<table> <thead> <tr> <th>PlanRepository</th> <th>RutinaRepository</th> </tr> </thead> <tbody> <tr> <td> + findById(planId: UUID): <i>Plan</i><br/> + findByUsuarioId(usuarioId: UUID): List&lt;Plan&gt;<br/> + save(plan: Plan): void<br/> + deleteById(planId: UUID): void </td> <td> + findByPlanId(planId: UUID): List&lt;Rutina&gt;<br/> + findByNombre(nombre: String): <i>Rutina</i><br/> + save(rutina: Rutina): void<br/> + deleteById(rutinaId: UUID): void </td> </tr> </tbody> </table> <br/> <table> <thead> <tr> <th>ProgresoRepository</th> <th>InsightRepository</th> </tr> </thead> <tbody> <tr> <td> + findByPlanId(planId: UUID): List&lt;Progreso&gt;<br/> + findByFecha(fecha: Date): <i>Progreso</i><br/> + save(progreso: Progreso): void<br/> + deleteById(progresoId: UUID): void </td> <td> + findByProgresoId(progresoId: UUID): List&lt;Insight&gt;<br/> + findByDescripcionContaining(texto: String): List&lt;Insight&gt;<br/> + save(insight: Insight): void<br/> + deleteById(insightId: UUID): void </td> </tr> </tbody> </table>
+Componentes de soporte
+
+AIConnectorService
+Servicio responsable de la comunicación con el modelo GPT-4o mini para la generación de insights y recomendaciones.
+Expone endpoints REST y controla los tiempos de respuesta y manejo de errores.
+
+DTO Mappers / Converters
+Transforman las entidades del dominio a DTOs usados en la capa de aplicación e interfaz, asegurando un transporte de datos limpio y desacoplado.
+
+PersistenceAdapter
+Implementa el patrón Repository Adapter, traduciendo las entidades del dominio a entidades de persistencia (JPA Entities) y viceversa.
+
+Integraciones tecnológicas
+
+Base de datos: PostgreSQL / MySQL
+
+Framework ORM: Spring Data JPA / Hibernate
+
+Conector de IA: RESTful API → GPT-4o mini
+
+Seguridad y despliegue: GitHub Actions + CI/CD
+
+Formato de almacenamiento: JSON para planes y recomendaciones generadas por IA
+
 ### 5.1.6. Bounded Context Software Architecture Component Level Diagrams
+
+![Plan Context Software Architecture Component Level Diagram](../img/chapter-5/PlanContextSoftwareArchitectureComponentLevelDiagram.png)
 
 ### 5.1.7. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.1.7.1. Bounded Context Domain Layer Class Diagrams
 
+En esta sección se presenta el diagrama de clases del dominio para el Plan Context de FitSense.
+El modelo refleja la estructura de agregados, entidades y objetos de valor y sus relaciones (cardinalidades) usadas por la lógica de negocio para crear, adaptar y evaluar planes de entrenamiento.
+Este diseño asegura consistencia dentro del agregado (Usuario → Plan) y trazabilidad del progreso y de los insights generados por la IA.
+
+![Plan Context Domain Layer Class Diagram](../img/chapter-5/PlanContextDomainLayerClassDiagram.png)
+
 #### 5.1.7.2. Bounded Context Database Design Diagram
+
+En esta sección se presenta el diseño de base de datos correspondiente al Plan Context de FitSense.
+El modelo de datos refleja la estructura de las entidades y sus relaciones mediante claves primarias y foráneas, garantizando la integridad referencial entre los usuarios, sus planes de entrenamiento, rutinas, progreso e insights generados por IA.
+
+![Plan Context Database Design Diagram](../img/chapter-5/PlanContextDatabaseDesignDiagram.png)
 
 ## 5.2. Bounded Context: Social Context
 
