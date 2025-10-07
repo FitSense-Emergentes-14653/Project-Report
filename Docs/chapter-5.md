@@ -400,100 +400,19 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 ### 5.4.6. Bounded Context Software Architecture Component Level Diagrams
 
 ```mermaid
-graph LR
-  %% === Interface / Presentation ===
-  subgraph API["Monitoring API - Interface Layer"]
-    MCtrl["MetricsController"]
-    WCtrl["WorkoutsController"]
-    PCtrl["ProgressController"]
-    RCtrl["ReportsController"]
-    Webhook["ProviderWebhookController"]
-  end
+C4Container
+title FitSense - Monitoring Context
 
-  %% === Application Layer ===
-  subgraph APP["Application Layer (CQRS + Events)"]
-    RWH["RecordWorkoutCommandHandler"]
-    IMH["IngestMetricCommandHandler"]
-    SPPH["SubmitProgressPhotoCommandHandler"]
-    APH["AnalyzePhotoCommandHandler"]
-    CWH["ComputeWeeklyProgressCommandHandler"]
-    EWRH["ExportWeeklyReportCommandHandler"]
-    OMRP["OnMetricRecordedProjector"]
-    OWRP["OnWorkoutRecordedProjector"]
-    OIAD["OnImageAnalyzedDetector"]
-    OACU["OnAdherenceCalculatedUpdater"]
-  end
+Person(user, "Usuario", "Persona que usa FitSense para registrar su progreso físico.")
+Container(api, "Monitoring API", "NestJS / REST API", "Expone endpoints para métricas, rutinas y progreso semanal.")
+ContainerDb(db, "Monitoring DB", "PostgreSQL + Timescale", "Almacena métricas, entrenamientos y progreso semanal.")
+Container(ml, "AI Image Analyzer", "TensorFlow Service", "Detecta mejoras físicas en imágenes de progreso.")
+Container(spa, "Web Dashboard", "React / Next.js", "Visualiza progreso, IMC, calorías y reportes.")
 
-  %% === Domain Layer ===
-  subgraph DOMAIN["Domain Layer"]
-    WP["WeeklyProgress (Aggregate Root)"]
-    MS["MonitoringService <<DomainService>>"]
-    IDS["ImprovementDetectionService <<DomainService>>"]
-    RF["ReportFactory <<Factory>>"]
-    MR["MetricsRepository <<Interface>>"]
-    WR["WorkoutsRepository <<Interface>>"]
-    WPR["WeeklyProgressRepository <<Interface>>"]
-    PPR["PhotoProgressRepository <<Interface>>"]
-    IA["ImageAnalyzer <<Port>>"]
-  end
-
-  %% === Infrastructure Layer ===
-  subgraph INFRA["Infrastructure Layer"]
-    MRSQL["MetricsRepositorySql"]
-    WRSQL["WorkoutsRepositorySql"]
-    WPRSQL["WeeklyProgressRepositorySql"]
-    PPRSQL["PhotoProgressRepositorySql"]
-    TS["Time-Series DB"]
-    SQL["Relational DB"]
-    BLOB["Blob Storage"]
-    MB["Message Broker"]
-    TF["ImageAnalyzerTensorFlow"]
-    SCH["Scheduler"]
-    NOTI["Notification Adapter"]
-  end
-
-  %% Flujos Interface -> App
-  MCtrl --> IMH
-  WCtrl --> RWH
-  PCtrl --> SPPH
-  PCtrl --> APH
-  RCtrl --> EWRH
-  Webhook --> IMH
-
-  %% App -> Domain
-  RWH --> WR
-  IMH --> MR
-  SPPH --> PPR
-  APH --> IA
-  CWH --> MS
-  CWH --> WP
-  EWRH --> RF
-
-  %% Domain -> Infra (impl)
-  MR --> MRSQL
-  WR --> WRSQL
-  WPR --> WPRSQL
-  PPR --> PPRSQL
-  IA --> TF
-
-  %% Infra recursos
-  MRSQL --> TS
-  WRSQL --> SQL
-  WPRSQL --> SQL
-  PPRSQL --> SQL
-  PPRSQL --> BLOB
-
-  %% Eventing / Jobs / Notifs
-  IMH --> MB
-  RWH --> MB
-  APH --> MB
-  CWH --> MB
-  MB --> OMRP
-  MB --> OWRP
-  MB --> OIAD
-  MB --> OACU
-  SCH --> CWH
-  MB --> NOTI
+Rel(user, spa, "Consulta y registra progreso", "HTTPS/JSON")
+Rel(spa, api, "Consume API REST", "HTTPS/JSON")
+Rel(api, db, "Lee y escribe métricas", "SQL")
+Rel(api, ml, "Envía imágenes para análisis", "gRPC / REST")
 ```
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
