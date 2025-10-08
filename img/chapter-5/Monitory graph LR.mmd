@@ -1,0 +1,94 @@
+graph LR
+  %% === Interface / Presentation ===
+  subgraph API["Monitoring API - Interface Layer"]
+    MCtrl["MetricsController"]
+    WCtrl["WorkoutsController"]
+    PCtrl["ProgressController"]
+    RCtrl["ReportsController"]
+    Webhook["ProviderWebhookController"]
+  end
+
+  %% === Application Layer ===
+  subgraph APP["Application Layer (CQRS + Events)"]
+    RWH["RecordWorkoutCommandHandler"]
+    IMH["IngestMetricCommandHandler"]
+    SPPH["SubmitProgressPhotoCommandHandler"]
+    APH["AnalyzePhotoCommandHandler"]
+    CWH["ComputeWeeklyProgressCommandHandler"]
+    EWRH["ExportWeeklyReportCommandHandler"]
+    OMRP["OnMetricRecordedProjector"]
+    OWRP["OnWorkoutRecordedProjector"]
+    OIAD["OnImageAnalyzedDetector"]
+    OACU["OnAdherenceCalculatedUpdater"]
+  end
+
+  %% === Domain Layer ===
+  subgraph DOMAIN["Domain Layer"]
+    WP["WeeklyProgress (Aggregate Root)"]
+    MS["MonitoringService <<DomainService>>"]
+    IDS["ImprovementDetectionService <<DomainService>>"]
+    RF["ReportFactory <<Factory>>"]
+    MR["MetricsRepository <<Interface>>"]
+    WR["WorkoutsRepository <<Interface>>"]
+    WPR["WeeklyProgressRepository <<Interface>>"]
+    PPR["PhotoProgressRepository <<Interface>>"]
+    IA["ImageAnalyzer <<Port>>"]
+  end
+
+  %% === Infrastructure Layer ===
+  subgraph INFRA["Infrastructure Layer"]
+    MRSQL["MetricsRepositorySql"]
+    WRSQL["WorkoutsRepositorySql"]
+    WPRSQL["WeeklyProgressRepositorySql"]
+    PPRSQL["PhotoProgressRepositorySql"]
+    TS["Time-Series DB"]
+    SQL["Relational DB"]
+    BLOB["Blob Storage"]
+    MB["Message Broker"]
+    TF["ImageAnalyzerTensorFlow"]
+    SCH["Scheduler"]
+    NOTI["Notification Adapter"]
+  end
+
+  %% Flujos Interface -> App
+  MCtrl --> IMH
+  WCtrl --> RWH
+  PCtrl --> SPPH
+  PCtrl --> APH
+  RCtrl --> EWRH
+  Webhook --> IMH
+
+  %% App -> Domain
+  RWH --> WR
+  IMH --> MR
+  SPPH --> PPR
+  APH --> IA
+  CWH --> MS
+  CWH --> WP
+  EWRH --> RF
+
+  %% Domain -> Infra (impl)
+  MR --> MRSQL
+  WR --> WRSQL
+  WPR --> WPRSQL
+  PPR --> PPRSQL
+  IA --> TF
+
+  %% Infra recursos
+  MRSQL --> TS
+  WRSQL --> SQL
+  WPRSQL --> SQL
+  PPRSQL --> SQL
+  PPRSQL --> BLOB
+
+  %% Eventing / Jobs / Notifs
+  IMH --> MB
+  RWH --> MB
+  APH --> MB
+  CWH --> MB
+  MB --> OMRP
+  MB --> OWRP
+  MB --> OIAD
+  MB --> OACU
+  SCH --> CWH
+  MB --> NOTI
