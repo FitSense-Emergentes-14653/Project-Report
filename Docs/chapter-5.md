@@ -600,7 +600,7 @@ Implementa el patrón Observer para publicar eventos de dominio (PostCreated, Ac
 
 ### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-![Social Context Software Architecture Component Level Diagram](../img/chapter-5/SocialContextSoftwareArchitectureComponentLevelDiagram.png)
+![Social Context Software Architecture Component Level Diagram](../img/chapter-5/structurizr-SocialComponent.png)
 
 ---
 
@@ -610,13 +610,88 @@ Implementa el patrón Observer para publicar eventos de dominio (PostCreated, Ac
 
 En esta sección se presenta el diagrama de clases del dominio para el Social Context de FitSense. El modelo refleja la estructura de agregados, entidades y objetos de valor y sus relaciones (cardinalidades) usadas por la lógica de negocio para gestionar perfiles sociales, publicaciones, logros, desafíos y reportes. Este diseño asegura consistencia dentro de los agregados y trazabilidad de las interacciones sociales.
 
-![Social Context Domain Layer Class Diagram](../img/chapter-5/SocialContextDomainLayerClassDiagram.png)
+![class diagram social ](../img/chapter-5/class-diagram-social.png)
 
 #### 5.2.6.2. Bounded Context Database Design Diagram
 
 En esta sección se presenta el diseño de base de datos correspondiente al Social Context de FitSense. El modelo de datos refleja la estructura de las entidades y sus relaciones mediante claves primarias y foráneas, garantizando la integridad referencial entre los perfiles sociales, publicaciones, logros, desafíos y participantes.
 
-![Social Context Database Design Diagram](../img/chapter-5/SocialContextDatabaseDesignDiagram.png)
+```mermaid
+erDiagram
+    USERS ||--o{ SOCIAL_PROFILES : has
+    SOCIAL_PROFILES ||--o{ POSTS : creates
+    SOCIAL_PROFILES ||--o{ ACHIEVEMENTS : earns
+    USERS ||--o{ CHALLENGE_PARTICIPANTS : joins
+    CHALLENGES ||--o{ CHALLENGE_PARTICIPANTS : has
+    POSTS ||--o{ POST_REACTIONS : receives
+
+    USERS {
+        uuid id PK
+        varchar email
+        varchar name
+        timestamp created_at
+    }
+
+    SOCIAL_PROFILES {
+        uuid id PK
+        uuid user_id FK
+        int followers_count
+        int following_count
+        int total_reactions
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    POSTS {
+        uuid id PK
+        uuid user_id FK
+        text content_text
+        jsonb content_hashtags
+        jsonb progress_metrics
+        varchar visibility
+        varchar image_url
+        timestamp created_at
+    }
+
+    POST_REACTIONS {
+        uuid id PK
+        uuid post_id FK
+        uuid user_id FK
+        varchar reaction_type
+        timestamp created_at
+    }
+
+    ACHIEVEMENTS {
+        uuid id PK
+        uuid user_id FK
+        varchar type
+        varchar title
+        text description
+        varchar icon_url
+        boolean is_shared
+        timestamp earned_date
+    }
+
+    CHALLENGES {
+        uuid id PK
+        varchar name
+        text description
+        varchar challenge_type
+        jsonb goal
+        date start_date
+        date end_date
+        varchar status
+        timestamp created_at
+    }
+
+    CHALLENGE_PARTICIPANTS {
+        uuid id PK
+        uuid challenge_id FK
+        uuid user_id FK
+        float current_progress
+        timestamp joined_at
+    }
+```
 
 ---
 
@@ -874,17 +949,417 @@ La Interface Layer traduce las peticiones HTTP del usuario en comandos o consult
 
 En esta sección, se presenta la Capa de Aplicación (Application Layer) del Notification Context de FitSense. Esta capa actúa como intermediaria entre la lógica de dominio y la infraestructura, orquestando operaciones como envío de notificaciones, programación de recordatorios, gestión de preferencias y análisis adaptativo. Se definen Command Handlers, Event Handlers y Scheduled Jobs que coordinan los servicios relevantes.
 
-**Command Handlers**
+Command Handlers
+<table>
+<thead>
+<tr>
+<th>SendNotificationCommandHandler</th>
+<th>ScheduleNotificationCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ notificationRepository: NotificationRepository<br>
++ preferencesRepository: NotificationPreferencesRepository<br>
++ pushService: PushNotificationService<br>
++ handle(SendNotificationCommand command): <i>void</i>
+</td>
+<td>
++ notificationRepository: NotificationRepository<br>
++ schedulingService: NotificationSchedulingService<br>
++ handle(ScheduleNotificationCommand command): <i>Notification</i>
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>UpdateNotificationPreferencesCommandHandler</th>
+<th>RegisterDeviceTokenCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ preferencesRepository: NotificationPreferencesRepository<br>
++ handle(UpdatePreferencesCommand command): <i>void</i>
+</td>
+<td>
++ deviceTokenRepository: DeviceTokenRepository<br>
++ handle(RegisterDeviceTokenCommand command): <i>DeviceToken</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>AddScheduleCommandHandler</th>
+<th>UpdateScheduleCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ preferencesRepository: NotificationPreferencesRepository<br>
++ schedulingService: NotificationSchedulingService<br>
++ handle(AddScheduleCommand command): <i>void</i>
+</td>
+<td>
++ preferencesRepository: NotificationPreferencesRepository<br>
++ schedulingService: NotificationSchedulingService<br>
++ handle(UpdateScheduleCommand command): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>MarkAsReadCommandHandler</th>
+<th>BulkSendNotificationCommandHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ notificationRepository: NotificationRepository<br>
++ handle(MarkAsReadCommand command): <i>void</i>
+</td>
+<td>
++ notificationRepository: NotificationRepository<br>
++ pushService: PushNotificationService<br>
++ handle(BulkSendCommand command): <i>List&lt;SendResult&gt;</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+**Event Handlers**
+
+<table>
+<thead>
+<tr>
+<th>OnWorkoutPlannedEventHandler</th>
+<th>OnInactivityDetectedEventHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ schedulingService: NotificationSchedulingService<br>
++ contentService: NotificationContentService<br>
++ handle(WorkoutPlannedEvent event): <i>void</i>
+</td>
+<td>
++ contentService: NotificationContentService<br>
++ pushService: PushNotificationService<br>
++ handle(InactivityDetectedEvent event): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>OnAchievementEarnedEventHandler</th>
+<th>OnHydrationGoalNotMetEventHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ contentService: NotificationContentService<br>
++ pushService: PushNotificationService<br>
++ handle(AchievementEarnedEvent event): <i>void</i>
+</td>
+<td>
++ contentService: NotificationContentService<br>
++ schedulingService: NotificationSchedulingService<br>
++ handle(HydrationGoalNotMetEvent event): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>OnWeeklyProgressComputedEventHandler</th>
+<th>OnPlanAdaptedEventHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ contentService: NotificationContentService<br>
++ pushService: PushNotificationService<br>
++ handle(WeeklyProgressComputedEvent event): <i>void</i>
+</td>
+<td>
++ contentService: NotificationContentService<br>
++ pushService: PushNotificationService<br>
++ handle(PlanAdaptedEvent event): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>NotificationSentEventHandler</th>
+<th>NotificationFailedEventHandler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ notificationRepository: NotificationRepository<br>
++ handle(NotificationSentEvent event): <i>void</i>
+</td>
+<td>
++ notificationRepository: NotificationRepository<br>
++ handle(NotificationFailedEvent event): <i>void</i>
+</td>
+</tr>
+</tbody>
+</table>
+
+**Scheduled Jobs**
+
+<table>
+<thead>
+<tr>
+<th>NotificationDispatcherJob</th>
+<th>PatternAnalysisJob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ notificationRepository: NotificationRepository<br>
++ preferencesRepository: NotificationPreferencesRepository<br>
++ pushService: PushNotificationService<br>
++ execute(): <i>void</i><br>
+<br>
+<b>Frecuencia:</b> Cada minuto<br>
+<b>Responsabilidad:</b> Consulta notificaciones programadas, valida preferencias y horarios "No molestar", envía notificaciones y actualiza estados.
+</td>
+<td>
++ usagePatternRepository: UsagePatternRepository<br>
++ adaptiveService: AdaptiveNotificationService<br>
++ preferencesRepository: NotificationPreferencesRepository<br>
++ execute(): <i>void</i><br>
+<br>
+<b>Frecuencia:</b> Diariamente a las 3:00 AM<br>
+<b>Responsabilidad:</b> Analiza engagement histórico, identifica horarios óptimos y sugiere ajustes automáticos a los schedules.
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>TokenCleanupJob</th>
+<th>NotificationArchiveJob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ deviceTokenRepository: DeviceTokenRepository<br>
++ execute(): <i>void</i><br>
+<br>
+<b>Frecuencia:</b> Semanalmente<br>
+<b>Responsabilidad:</b> Desactiva tokens de dispositivos que no han sido utilizados en más de 90 días para mantener la base de datos limpia.
+</td>
+<td>
++ notificationRepository: NotificationRepository<br>
++ execute(): <i>void</i><br>
+<br>
+<b>Frecuencia:</b> Mensualmente<br>
+<b>Responsabilidad:</b> Archiva notificaciones leídas con más de 6 meses de antigüedad para optimizar rendimiento de consultas.
+</td>
+</tr>
+</tbody>
+</table>
+
+---
 
 ### 5.3.4. Infrastructure Layer
 
-### 5.3.6. Bounded Context Software Architecture Component Level Diagrams
+En esta sección se presenta la Capa de Infraestructura (Infrastructure Layer) dentro del Notification Context de FitSense. Esta capa proporciona los componentes técnicos y de soporte que permiten la interacción con bases de datos, servicios de notificaciones push y análisis de patrones de uso.
 
-### 5.3.7. Bounded Context Software Architecture Code Level Diagrams
+Su función principal es implementar los contratos definidos en el dominio y garantizar la persistencia de los datos relacionados con notificaciones, preferencias, dispositivos y patrones de uso. Además, esta capa maneja la comunicación con servicios externos como Firebase Cloud Messaging y Apple Push Notification Service.
 
-#### 5.3.7.1. Bounded Context Domain Layer Class Diagrams
+**Repositorios**
 
-#### 5.3.7.2. Bounded Context Database Design Diagram
+<table>
+<thead>
+<tr>
+<th>NotificationPreferencesRepositoryImpl</th>
+<th>NotificationRepositoryImpl</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ findByUserId(userId: UUID): <i>NotificationPreferences</i><br>
++ save(preferences: NotificationPreferences): void<br>
++ update(preferences: NotificationPreferences): void<br>
++ findSchedulesByType(userId: UUID, type: NotificationType): List&lt;NotificationSchedule&gt;
+</td>
+<td>
++ findById(notificationId: UUID): <i>Notification</i><br>
++ findByUserId(userId: UUID, status: NotificationStatus?, pagination: Pagination): List&lt;Notification&gt;<br>
++ findScheduledForTimeRange(startTime: DateTime, endTime: DateTime): List&lt;Notification&gt;<br>
++ save(notification: Notification): void<br>
++ update(notification: Notification): void<br>
++ bulkUpdate(notifications: List&lt;Notification&gt;): void
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>DeviceTokenRepositoryImpl</th>
+<th>UsagePatternRepositoryImpl</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
++ findByUserId(userId: UUID): List&lt;DeviceToken&gt;<br>
++ findByToken(token: string): <i>DeviceToken</i><br>
++ save(deviceToken: DeviceToken): void<br>
++ deactivateOldTokens(userId: UUID, currentToken: string): void<br>
++ findInactiveTokens(days: number): List&lt;DeviceToken&gt;
+</td>
+<td>
++ findByUserId(userId: UUID): <i>UsagePattern</i><br>
++ save(pattern: UsagePattern): void<br>
++ update(pattern: UsagePattern): void<br>
++ computePatterns(userId: UUID, timeRange: TimeRange): UsagePattern
+</td>
+</tr>
+</tbody>
+</table>
+
+**Componentes de soporte**
+
+**FirebasePushNotificationService**  
+Implementación concreta de `PushNotificationService` utilizando Firebase Cloud Messaging (FCM). Maneja el envío de notificaciones push a dispositivos Android e iOS, gestión de tópicos y manejo de errores (tokens expirados, dispositivos no registrados).
+
+**DTO Mappers / Converters**  
+Transforman las entidades del dominio (Notification, NotificationPreferences, DeviceToken) a DTOs usados en la capa de aplicación e interfaz, y viceversa.
+
+**EventPublisher**  
+Implementa el patrón Observer para publicar eventos de dominio (NotificationSent, NotificationFailed, UserEngagementChanged) dentro del monolito, permitiendo que otros bounded contexts reaccionen a estos eventos.
+
+**Scheduler Service**  
+Implementación de tareas programadas utilizando librerías como Spring Scheduler o Node-Cron para ejecutar los jobs periódicos (NotificationDispatcherJob, PatternAnalysisJob, etc.).
+
+**Analytics Integration Service**  
+Registra métricas de notificaciones (tasa de apertura, tiempo de interacción, conversión) para análisis de efectividad y optimización de estrategias de comunicación.
+
+**Integraciones tecnológicas**
+
+- **Base de datos:** PostgreSQL / MySQL
+- **Framework ORM:** Spring Data JPA / Prisma / TypeORM
+- **Push Notifications:** Firebase Cloud Messaging (FCM) para Android/iOS
+- **Scheduler:** Spring Scheduler / Node-Cron / Quartz
+- **Event Bus interno:** Spring Events / Domain Events Pattern
+- **Formato de datos:** JSON para intercambio de información
+
+---
+
+### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Social Context Component](../img/chapter-5/structurizr-NotificationComponent.png)
+
+---
+
+### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+#### 5.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+En esta sección se presenta el diagrama de clases del dominio para el Notification Context de FitSense. El modelo refleja la estructura de agregados, entidades y objetos de valor y sus relaciones (cardinalidades) usadas por la lógica de negocio para gestionar notificaciones, preferencias, schedules y dispositivos. Este diseño asegura consistencia dentro de los agregados y trazabilidad de las notificaciones enviadas.
+
+![class diagram social ](../img/chapter-5/class-diagram-notification.png)
+
+
+#### 5.3.6.2. Bounded Context Database Design Diagram
+
+En esta sección se presenta el diseño de base de datos correspondiente al Notification Context de FitSense. El modelo de datos refleja la estructura de las entidades y sus relaciones mediante claves primarias y foráneas, garantizando la integridad referencial entre las preferencias de notificación, schedules, notificaciones enviadas y dispositivos registrados.
+
+```mermaid
+erDiagram
+    USERS ||--o{ NOTIFICATION_PREFERENCES : has
+    NOTIFICATION_PREFERENCES ||--o{ NOTIFICATION_SCHEDULES : contains
+    USERS ||--o{ DEVICE_TOKENS : registers
+    USERS ||--o{ NOTIFICATIONS : receives
+
+    USERS {
+        uuid id PK
+        varchar email
+        varchar name
+        timestamp created_at
+    }
+
+    NOTIFICATION_PREFERENCES {
+        uuid id PK
+        uuid user_id FK
+        time global_dnd_start
+        time global_dnd_end
+        jsonb enabled_types
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    NOTIFICATION_SCHEDULES {
+        uuid id PK
+        uuid preferences_id FK
+        varchar notification_type
+        varchar recurrence_frequency
+        jsonb recurrence_config
+        time preferred_time
+        boolean is_active
+        timestamp created_at
+    }
+
+    DEVICE_TOKENS {
+        uuid id PK
+        uuid user_id FK
+        varchar token
+        varchar platform
+        timestamp registered_at
+        timestamp last_used_at
+        boolean is_active
+    }
+
+    NOTIFICATIONS {
+        uuid id PK
+        uuid user_id FK
+        varchar notification_type
+        varchar title
+        text message
+        jsonb payload
+        timestamp scheduled_at
+        timestamp sent_at
+        timestamp delivered_at
+        timestamp read_at
+        varchar status
+    }
+```
 
 ## 5.4. Bounded Context: Monitoring Context
 
