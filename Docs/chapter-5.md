@@ -1615,79 +1615,8 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 
 ### 5.4.6. Bounded Context Software Architecture Component Level Diagrams
 
-```mermaid
-C4Component
-title FitSense - Monitoring Context (Component, agrupado)
+![Security Context Domain Layer Class Diagram](../img/chapter-5/structurizr-security_component.png)
 
-Person(user, "Usuario", "Registra y consulta su progreso.")
-Container(spa, "Web Dashboard", "React/Next.js", "UI de progreso y reportes.")
-ContainerDb(dbSql, "Monitoring DB", "PostgreSQL", "Workouts y progreso semanal.")
-ContainerDb(dbTs, "Metrics TS DB", "Timescale/Influx", "Series de métricas.")
-Container(blob, "Blob Storage", "Firebase/S3", "Fotos de progreso.")
-Container(ml, "AI Image Analyzer", "TensorFlow", "Analiza fotos de progreso.")
-Container(queue, "Message Broker", "Kafka/RabbitMQ", "Eventos de dominio.")
-
-%% ====== API Boundary ======
-Container_Boundary(api, "Monitoring API (NestJS / REST)") {
-
-  %% --- Controllers
-  Container_Boundary(ctrls, "Controllers") {
-    Component(MetricsController, "MetricsController", "Controller", "")
-    Component(WorkoutsController, "WorkoutsController", "Controller", "")
-    Component(ProgressController, "ProgressController", "Controller", "")
-    Component(ReportsController, "ReportsController", "Controller", "")
-    Component(ProviderWebhookController, "ProviderWebhookController", "Controller", "")
-  }
-
-  %% --- Command Handlers
-  Container_Boundary(cmds, "Command Handlers") {
-    Component(RecordWorkoutHandler, "RecordWorkoutHandler", "Command Handler", "")
-    Component(IngestMetricHandler, "IngestMetricHandler", "Command Handler", "")
-    Component(SubmitPhotoHandler, "SubmitPhotoHandler", "Command Handler", "")
-    Component(AnalyzePhotoHandler, "AnalyzePhotoHandler", "Command Handler", "")
-    Component(ComputeWeeklyHandler, "ComputeWeeklyHandler", "Command Handler", "")
-    Component(ExportReportHandler, "ExportReportHandler", "Command Handler", "")
-  }
-
-  %% --- Event Handlers / Projectors
-  Container_Boundary(evts, "Event Handlers / Projectors") {
-    Component(OnMetricRecorded, "OnMetricRecorded", "Event Handler", "")
-    Component(OnWorkoutRecorded, "OnWorkoutRecorded", "Event Handler", "")
-    Component(OnImageAnalyzed, "OnImageAnalyzed", "Event Handler", "")
-    Component(OnAdherenceCalculated, "OnAdherenceCalculated", "Event Handler", "")
-  }
-
-  %% --- Domain Services & Factory & Ports
-  Container_Boundary(services, "Domain Services / Factory / Ports") {
-    Component(ProgressService, "ProgressComputationService", "Domain Service", "")
-    Component(ImprovementService, "ImprovementDetectionService", "Domain Service", "")
-    Component(ReportFactory, "ReportFactory", "Factory", "")
-    Component(ImageAnalyzerPort, "ImageAnalyzer", "Port", "")
-  }
-
-  %% --- Repository Ports
-  Container_Boundary(repos, "Repositories (Ports)") {
-    Component(MetricsRepository, "MetricsRepository", "Repository Port", "")
-    Component(WorkoutsRepository, "WorkoutsRepository", "Repository Port", "")
-    Component(WeeklyRepository, "WeeklyProgressRepository", "Repository Port", "")
-    Component(PhotoRepository, "PhotoProgressRepository", "Repository Port", "")
-  }
-}
-
-%% ====== Relaciones simplificadas por grupo ======
-Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, ctrls, "Consume", "HTTPS/JSON")
-Rel_R(ctrls, cmds, "Invoca comandos", "")
-Rel_R(cmds, services, "Orquesta lógica", "")
-Rel_R(services, repos, "Persiste/consulta", "")
-Rel_R(repos, dbSql, "Workouts/Progreso", "SQL")
-Rel_R(repos, dbTs, "Métricas", "SQL")
-Rel_R(services, ml, "Analiza imágenes", "gRPC/REST")
-Rel_R(repos, blob, "Referencias a fotos", "URL/ID")
-
-Rel_R(cmds, queue, "Publica eventos", "")
-Rel_R(queue, evts, "Entrega", "")
-```
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
 
@@ -2092,72 +2021,82 @@ La capa de infraestructura implementa las interfaces de repositorios y adaptador
 
 ### 5.5.6. Bounded Context Software Architecture Component Level Diagrams
 ```mermaid
-C4Component
-title FitSense - Security Context - Component (agrupado)
+graph LR
+  %% Externos / UI
+  User[Usuario]
+  subgraph Client["Web Dashboard (React/Next.js)"]
+    UIMetrics[Metrics UI]
+    UIWorkouts[Workouts UI]
+    UIProgress[Progress UI]
+    UIReports[Reports UI]
+  end
 
-Person(user, "Usuario", "Se autentica en FitSense.")
-Container(spa, "Web/Mobile Client", "React/Flutter", "Pantallas de login/registro.")
-ContainerDb(authDb, "Auth DB", "PostgreSQL", "Cuentas, roles, permisos, auditoría.")
-Container(cache, "Token Cache", "Redis", "Tokens activos / refresh.")
-Container(email, "Email Service", "External", "Verificación y recuperación.")
+  %% Monitoring API (agrupado)
+  subgraph API["Monitoring API (NestJS / REST)"]
+    subgraph Ctrls["Controllers"]
+      MetricsCtrl[MetricsController]
+      WorkoutsCtrl[WorkoutsController]
+      ProgressCtrl[ProgressController]
+      ReportsCtrl[ReportsController]
+      WebhookCtrl[ProviderWebhookController]
+    end
+    subgraph Cmds["Command Handlers"]
+      HIngest[IngestMetricHandler]
+      HRecord[RecordWorkoutHandler]
+      HPhoto[SubmitPhotoHandler]
+      HAnalyze[AnalyzePhotoHandler]
+      HWeekly[ComputeWeeklyHandler]
+      HExport[ExportReportHandler]
+    end
+    subgraph Evts["Event Handlers / Projectors"]
+      EMetric[OnMetricRecorded]
+      EWorkout[OnWorkoutRecorded]
+      EImage[OnImageAnalyzed]
+      EAdh[OnAdherenceCalculated]
+    end
+    subgraph Domain["Domain Services / Factory / Ports"]
+      SProgress[ProgressComputationService]
+      SImprove[ImprovementDetectionService]
+      FReport[ReportFactory]
+      PImage[ImageAnalyzer (Port)]
+    end
+    subgraph Repos["Repositories (Ports)"]
+      RMetrics[MetricsRepository]
+      RWorkouts[WorkoutsRepository]
+      RWeekly[WeeklyProgressRepository]
+      RPhoto[PhotoProgressRepository]
+    end
+  end
 
-%% ====== Auth API Boundary ======
-Container_Boundary(authApi, "Auth API (NestJS / REST)") {
+  %% Infra
+  subgraph Infra["Infra / externos"]
+    DBSQL[(Monitoring DB<br/>PostgreSQL)]
+    DBTS[(Metrics TS DB<br/>Timescale)]
+    BLOB[(Blob Storage<br/>Firebase/S3)]
+    MQ[(Message Broker<br/>Kafka/RabbitMQ)]
+    TF[AI Image Analyzer<br/>TensorFlow]
+  end
 
-  %% --- Controllers
-  Container_Boundary(ctrls, "Controllers") {
-    Component(AuthController, "AuthController", "Controller", "Login/Refresh/Logout/Register")
-    Component(MfaController, "MfaController", "Controller", "MFA")
-    Component(RoleController, "RoleController", "Controller", "Roles/Permisos")
-    Component(OAuthCallbackController, "OAuthCallbackController", "Controller", "Login federado")
-  }
+  %% Flujos (grupo→grupo, sin cruces)
+  User --> Client
+  UIMetrics --> MetricsCtrl
+  UIWorkouts --> WorkoutsCtrl
+  UIProgress --> ProgressCtrl
+  UIReports --> ReportsCtrl
 
-  %% --- Command Handlers
-  Container_Boundary(cmds, "Command Handlers") {
-    Component(RegisterUserHandler, "RegisterUserHandler", "Command Handler", "")
-    Component(AuthenticateUserHandler, "AuthenticateUserHandler", "Command Handler", "")
-    Component(RefreshTokenHandler, "RefreshTokenHandler", "Command Handler", "")
-    Component(ChangePasswordHandler, "ChangePasswordHandler", "Command Handler", "")
-    Component(AssignRoleHandler, "AssignRoleHandler", "Command Handler", "")
-  }
+  Ctrls --> Cmds
+  Cmds --> Domain
+  Domain --> Repos
 
-  %% --- Event Handlers
-  Container_Boundary(evts, "Event Handlers") {
-    Component(OnAccountCreated, "OnAccountCreated", "Event Handler", "")
-    Component(OnUserAuthenticated, "OnUserAuthenticated", "Event Handler", "")
-    Component(OnRoleAssigned, "OnRoleAssigned", "Event Handler", "")
-  }
+  RMetrics --> DBTS
+  RWorkouts --> DBSQL
+  RWeekly --> DBSQL
+  RPhoto --> DBSQL
+  RPhoto --> BLOB
+  PImage --> TF
 
-  %% --- Domain Services / Policies
-  Container_Boundary(services, "Domain Services / Policies / Adapters") {
-    Component(AuthService, "AuthService", "Domain Service", "Emite/valida tokens y sesiones")
-    Component(AuthPolicy, "AuthPolicy", "Strategy", "TTL/rotación")
-    Component(PasswordHasher, "PasswordHasher", "Domain Service", "bcrypt/Argon2")
-    Component(JWTProvider, "TokenProvider (JWT)", "Adapter", "Firmado/verificación")
-    Component(OAuthProvider, "OAuthProvider", "Adapter", "Google/Apple")
-    Component(EmailAdapter, "EmailAdapter", "Adapter", "SMTP/API")
-    Component(TokenCacheAdapter, "TokenCacheAdapter", "Adapter", "Redis")
-  }
-
-  %% --- Repository Ports
-  Container_Boundary(repos, "Repositories (Ports)") {
-    Component(AccountRepository, "AccountRepository", "Repository Port", "")
-    Component(RoleRepository, "RoleRepository", "Repository Port", "")
-    Component(TokenRepository, "TokenRepository", "Repository Port", "")
-    Component(AuditLogRepository, "AuditLogRepository", "Repository Port", "")
-  }
-}
-
-%% ====== Relaciones simplificadas por grupo ======
-Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, ctrls, "Autentica/CRUD", "HTTPS/JSON")
-Rel_R(ctrls, cmds, "Invoca comandos", "")
-Rel_R(cmds, services, "Orquesta seguridad", "")
-Rel_R(services, repos, "Persistencia/consulta", "")
-Rel_R(repos, authDb, "Cuentas, roles, auditoría", "SQL")
-Rel_R(services, TokenCacheAdapter, "Sesiones", "Redis")
-Rel_R(services, EmailAdapter, "OTP/Links", "SMTP/API")
-
+  Cmds --> MQ
+  MQ --> Evts
 ```
 
 ### 5.5.7. Bounded Context Software Architecture Code Level Diagrams
