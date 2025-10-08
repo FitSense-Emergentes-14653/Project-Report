@@ -1615,7 +1615,7 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 
 ### 5.4.6. Bounded Context Software Architecture Component Level Diagrams
 
-![Security Context Domain Layer Class Diagram](../img/chapter-5/structurizr-security_component.png)
+![Monitory Context Domain Layer Class Diagram](../img/chapter-5/structurizr-monitoring_component.png)
 
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
@@ -2020,84 +2020,8 @@ La capa de infraestructura implementa las interfaces de repositorios y adaptador
 </li>
 
 ### 5.5.6. Bounded Context Software Architecture Component Level Diagrams
-```mermaid
-graph LR
-  %% Externos / UI
-  User[Usuario]
-  subgraph Client["Web Dashboard (React/Next.js)"]
-    UIMetrics[Metrics UI]
-    UIWorkouts[Workouts UI]
-    UIProgress[Progress UI]
-    UIReports[Reports UI]
-  end
 
-  %% Monitoring API (agrupado)
-  subgraph API["Monitoring API (NestJS / REST)"]
-    subgraph Ctrls["Controllers"]
-      MetricsCtrl[MetricsController]
-      WorkoutsCtrl[WorkoutsController]
-      ProgressCtrl[ProgressController]
-      ReportsCtrl[ReportsController]
-      WebhookCtrl[ProviderWebhookController]
-    end
-    subgraph Cmds["Command Handlers"]
-      HIngest[IngestMetricHandler]
-      HRecord[RecordWorkoutHandler]
-      HPhoto[SubmitPhotoHandler]
-      HAnalyze[AnalyzePhotoHandler]
-      HWeekly[ComputeWeeklyHandler]
-      HExport[ExportReportHandler]
-    end
-    subgraph Evts["Event Handlers / Projectors"]
-      EMetric[OnMetricRecorded]
-      EWorkout[OnWorkoutRecorded]
-      EImage[OnImageAnalyzed]
-      EAdh[OnAdherenceCalculated]
-    end
-    subgraph Domain["Domain Services / Factory / Ports"]
-      SProgress[ProgressComputationService]
-      SImprove[ImprovementDetectionService]
-      FReport[ReportFactory]
-      PImage[ImageAnalyzer (Port)]
-    end
-    subgraph Repos["Repositories (Ports)"]
-      RMetrics[MetricsRepository]
-      RWorkouts[WorkoutsRepository]
-      RWeekly[WeeklyProgressRepository]
-      RPhoto[PhotoProgressRepository]
-    end
-  end
-
-  %% Infra
-  subgraph Infra["Infra / externos"]
-    DBSQL[(Monitoring DB<br/>PostgreSQL)]
-    DBTS[(Metrics TS DB<br/>Timescale)]
-    BLOB[(Blob Storage<br/>Firebase/S3)]
-    MQ[(Message Broker<br/>Kafka/RabbitMQ)]
-    TF[AI Image Analyzer<br/>TensorFlow]
-  end
-
-  %% Flujos (grupo→grupo, sin cruces)
-  User --> Client
-  UIMetrics --> MetricsCtrl
-  UIWorkouts --> WorkoutsCtrl
-  UIProgress --> ProgressCtrl
-  UIReports --> ReportsCtrl
-
-  Ctrls --> Cmds
-  Cmds --> Domain
-  Domain --> Repos
-
-  RMetrics --> DBTS
-  RWorkouts --> DBSQL
-  RWeekly --> DBSQL
-  RPhoto --> DBSQL
-  RPhoto --> BLOB
-  PImage --> TF
-
-  Cmds --> MQ
-  MQ --> Evts
-```
+![Security Context Domain Layer Class Diagram](../img/chapter-5/structurizr-security_component.png)
 
 ### 5.5.7. Bounded Context Software Architecture Code Level Diagrams
 
