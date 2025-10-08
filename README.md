@@ -250,6 +250,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <em>TB1</em><br>
         En conclusión, el desarrollo de FitSense permitió comunicar con objetividad y claridad los resultados obtenidos, abarcando desde el análisis de necesidades y la definición de requisitos hasta el diseño de la arquitectura emergente. De esta manera, logramos transmitir a públicos diversos técnicos y no técnicos, el valor, la viabilidad y el impacto positivo de la propuesta en el ámbito del fitness digital.<br>
         <em>TP</em><br>
+        El trabajo práctico permitió consolidar la propuesta técnica y visual de FitSense, pasando del diseño conceptual a una solución arquitectónica y de experiencia de usuario completa. A través de la aplicación de metodologías como Domain-Driven Design, C4 Model y Lean UX, se logró integrar coherentemente el diseño táctico, la arquitectura de información y los prototipos interactivos, garantizando la alineación entre los objetivos de negocio, las necesidades del usuario y las decisiones de ingeniería.
         <br>
     </td>
   </tr>
@@ -282,6 +283,7 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
        <em>TB1</em><br>
         En conjunto, el desarrollo de FitSense permitió al equipo plasmar de manera escrita y objetiva los avances del proyecto, desde el análisis de necesidades de los usuarios y la definición de requisitos, hasta el diseño de la arquitectura emergente y la propuesta de solución innovadora. A través de técnicas como entrevistas, Needfinding, Impact Mapping, EventStorming, Lean UX Canvas y el enfoque C4, se generó documentación clara, estructurada y comprensible tanto para públicos técnicos como no técnicos. De esta forma, se aseguró una comunicación efectiva que integra la visión de negocio, la perspectiva del usuario y la solidez técnica en el marco de un proyecto de ingeniería orientado a la salud y el bienestar.<br>
         <em>TP</em><br><br>
+        A nivel de comunicación y colaboración, el equipo demostró competencias sólidas en la transmisión oral y escrita de resultados técnicos, presentando documentación clara, diagramas estructurados y diseños visuales comprensibles para públicos técnicos y no técnicos. Este proceso fortaleció la capacidad de expresar ideas con objetividad, evidenciando madurez profesional y un enfoque interdisciplinario en el desarrollo de soluciones de software innovadoras orientadas al bienestar digital.
     </td>
   </tr>
 </table>
