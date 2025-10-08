@@ -1617,83 +1617,76 @@ La capa de infraestructura implementa los repositorios, adaptadores y servicios 
 
 ```mermaid
 C4Component
-title FitSense - Monitoring Context (Component)
+title FitSense - Monitoring Context (Component, agrupado)
 
 Person(user, "Usuario", "Registra y consulta su progreso.")
 Container(spa, "Web Dashboard", "React/Next.js", "UI de progreso y reportes.")
 ContainerDb(dbSql, "Monitoring DB", "PostgreSQL", "Workouts y progreso semanal.")
-ContainerDb(dbTs, "Metrics TS DB", "Timescale", "Series de métricas.")
+ContainerDb(dbTs, "Metrics TS DB", "Timescale/Influx", "Series de métricas.")
 Container(blob, "Blob Storage", "Firebase/S3", "Fotos de progreso.")
 Container(ml, "AI Image Analyzer", "TensorFlow", "Analiza fotos de progreso.")
 Container(queue, "Message Broker", "Kafka/RabbitMQ", "Eventos de dominio.")
 
+%% ====== API Boundary ======
 Container_Boundary(api, "Monitoring API (NestJS / REST)") {
-  Component(MetricsController, "MetricsController", "Controller", "Consultas de series/KPIs")
-  Component(WorkoutsController, "WorkoutsController", "Controller", "Registro de entrenos")
-  Component(ProgressController, "ProgressController", "Controller", "Fotos y progreso semanal")
-  Component(ReportsController, "ReportsController", "Controller", "Exportar reportes")
-  Component(ProviderWebhookController, "ProviderWebhookController", "Controller", "Webhook wearables")
 
-  Component(RecordWorkoutHandler, "RecordWorkoutHandler", "Command Handler", "")
-  Component(IngestMetricHandler, "IngestMetricHandler", "Command Handler", "")
-  Component(SubmitPhotoHandler, "SubmitPhotoHandler", "Command Handler", "")
-  Component(AnalyzePhotoHandler, "AnalyzePhotoHandler", "Command Handler", "")
-  Component(ComputeWeeklyHandler, "ComputeWeeklyHandler", "Command Handler", "")
-  Component(ExportReportHandler, "ExportReportHandler", "Command Handler", "")
+  %% --- Controllers
+  Container_Boundary(ctrls, "Controllers") {
+    Component(MetricsController, "MetricsController", "Controller", "")
+    Component(WorkoutsController, "WorkoutsController", "Controller", "")
+    Component(ProgressController, "ProgressController", "Controller", "")
+    Component(ReportsController, "ReportsController", "Controller", "")
+    Component(ProviderWebhookController, "ProviderWebhookController", "Controller", "")
+  }
 
-  Component(OnMetricRecorded, "OnMetricRecorded", "Event Handler", "Proyección dashboard")
-  Component(OnWorkoutRecorded, "OnWorkoutRecorded", "Event Handler", "Proyección dashboard")
-  Component(OnImageAnalyzed, "OnImageAnalyzed", "Event Handler", "Detecta mejoras")
-  Component(OnAdherenceCalculated, "OnAdherenceCalculated", "Event Handler", "Actualiza adherencia")
+  %% --- Command Handlers
+  Container_Boundary(cmds, "Command Handlers") {
+    Component(RecordWorkoutHandler, "RecordWorkoutHandler", "Command Handler", "")
+    Component(IngestMetricHandler, "IngestMetricHandler", "Command Handler", "")
+    Component(SubmitPhotoHandler, "SubmitPhotoHandler", "Command Handler", "")
+    Component(AnalyzePhotoHandler, "AnalyzePhotoHandler", "Command Handler", "")
+    Component(ComputeWeeklyHandler, "ComputeWeeklyHandler", "Command Handler", "")
+    Component(ExportReportHandler, "ExportReportHandler", "Command Handler", "")
+  }
 
-  Component(ProgressService, "ProgressComputationService", "Domain Service", "IMC, calorías, adherencia")
-  Component(ImprovementService, "ImprovementDetectionService", "Domain Service", "Reglas/IA")
-  Component(ReportFactory, "ReportFactory", "Factory", "Construye reportes")
-  Component(ImageAnalyzerPort, "ImageAnalyzer", "Port", "Análisis de imagen")
+  %% --- Event Handlers / Projectors
+  Container_Boundary(evts, "Event Handlers / Projectors") {
+    Component(OnMetricRecorded, "OnMetricRecorded", "Event Handler", "")
+    Component(OnWorkoutRecorded, "OnWorkoutRecorded", "Event Handler", "")
+    Component(OnImageAnalyzed, "OnImageAnalyzed", "Event Handler", "")
+    Component(OnAdherenceCalculated, "OnAdherenceCalculated", "Event Handler", "")
+  }
 
-  Component(MetricsRepository, "MetricsRepository", "Repository Port", "")
-  Component(WorkoutsRepository, "WorkoutsRepository", "Repository Port", "")
-  Component(WeeklyRepository, "WeeklyProgressRepository", "Repository Port", "")
-  Component(PhotoRepository, "PhotoProgressRepository", "Repository Port", "")
+  %% --- Domain Services & Factory & Ports
+  Container_Boundary(services, "Domain Services / Factory / Ports") {
+    Component(ProgressService, "ProgressComputationService", "Domain Service", "")
+    Component(ImprovementService, "ImprovementDetectionService", "Domain Service", "")
+    Component(ReportFactory, "ReportFactory", "Factory", "")
+    Component(ImageAnalyzerPort, "ImageAnalyzer", "Port", "")
+  }
+
+  %% --- Repository Ports
+  Container_Boundary(repos, "Repositories (Ports)") {
+    Component(MetricsRepository, "MetricsRepository", "Repository Port", "")
+    Component(WorkoutsRepository, "WorkoutsRepository", "Repository Port", "")
+    Component(WeeklyRepository, "WeeklyProgressRepository", "Repository Port", "")
+    Component(PhotoRepository, "PhotoProgressRepository", "Repository Port", "")
+  }
 }
 
+%% ====== Relaciones simplificadas por grupo ======
 Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, MetricsController, "Consume", "HTTPS/JSON")
-Rel_R(spa, WorkoutsController, "Consume", "HTTPS/JSON")
-Rel_R(spa, ProgressController, "Consume", "HTTPS/JSON")
-Rel_R(spa, ReportsController, "Consume", "HTTPS/JSON")
+Rel_R(spa, ctrls, "Consume", "HTTPS/JSON")
+Rel_R(ctrls, cmds, "Invoca comandos", "")
+Rel_R(cmds, services, "Orquesta lógica", "")
+Rel_R(services, repos, "Persiste/consulta", "")
+Rel_R(repos, dbSql, "Workouts/Progreso", "SQL")
+Rel_R(repos, dbTs, "Métricas", "SQL")
+Rel_R(services, ml, "Analiza imágenes", "gRPC/REST")
+Rel_R(repos, blob, "Referencias a fotos", "URL/ID")
 
-Rel_R(MetricsController, IngestMetricHandler, "", "")
-Rel_R(WorkoutsController, RecordWorkoutHandler, "", "")
-Rel_R(ProgressController, SubmitPhotoHandler, "", "")
-Rel_R(ProgressController, AnalyzePhotoHandler, "", "")
-Rel_R(ReportsController, ExportReportHandler, "", "")
-Rel_R(ComputeWeeklyHandler, ProgressService, "", "")
-
-Rel_R(IngestMetricHandler, MetricsRepository, "", "")
-Rel_R(RecordWorkoutHandler, WorkoutsRepository, "", "")
-Rel_R(SubmitPhotoHandler, PhotoRepository, "", "")
-Rel_R(AnalyzePhotoHandler, ImageAnalyzerPort, "", "")
-Rel_R(ComputeWeeklyHandler, WeeklyRepository, "", "")
-Rel_R(ExportReportHandler, ReportFactory, "", "")
-
-Rel_R(MetricsRepository, dbTs, "Lee/Escribe", "SQL")
-Rel_R(WorkoutsRepository, dbSql, "Lee/Escribe", "SQL")
-Rel_R(WeeklyRepository, dbSql, "Lee/Escribe", "SQL")
-Rel_R(PhotoRepository, dbSql, "Lee/Escribe", "SQL")
-Rel_R(PhotoRepository, blob, "Referencia", "URL/ID")
-Rel_R(ImageAnalyzerPort, ml, "Analiza", "gRPC/REST")
-
-Rel_R(IngestMetricHandler, queue, "Publica", "")
-Rel_R(RecordWorkoutHandler, queue, "Publica", "")
-Rel_R(AnalyzePhotoHandler, queue, "Publica", "")
-Rel_R(ProgressService, queue, "Publica", "")
-
-Rel_R(queue, OnMetricRecorded, "Entrega", "")
-Rel_R(queue, OnWorkoutRecorded, "Entrega", "")
-Rel_R(queue, OnImageAnalyzed, "Entrega", "")
-Rel_R(queue, OnAdherenceCalculated, "Entrega", "")
-
+Rel_R(cmds, queue, "Publica eventos", "")
+Rel_R(queue, evts, "Entrega", "")
 ```
 
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
@@ -2100,7 +2093,7 @@ La capa de infraestructura implementa las interfaces de repositorios y adaptador
 ### 5.5.6. Bounded Context Software Architecture Component Level Diagrams
 ```mermaid
 C4Component
-title FitSense - Security Context (IAM) - Component
+title FitSense - Security Context - Component (agrupado)
 
 Person(user, "Usuario", "Se autentica en FitSense.")
 Container(spa, "Web/Mobile Client", "React/Flutter", "Pantallas de login/registro.")
@@ -2108,67 +2101,63 @@ ContainerDb(authDb, "Auth DB", "PostgreSQL", "Cuentas, roles, permisos, auditor�
 Container(cache, "Token Cache", "Redis", "Tokens activos / refresh.")
 Container(email, "Email Service", "External", "Verificación y recuperación.")
 
+%% ====== Auth API Boundary ======
 Container_Boundary(authApi, "Auth API (NestJS / REST)") {
-  Component(AuthController, "AuthController", "Controller", "Login, refresh, logout, register")
-  Component(MfaController, "MfaController", "Controller", "Activar/verificar MFA")
-  Component(RoleController, "RoleController", "Controller", "CRUD roles/permisos")
-  Component(OAuthCallbackController, "OAuthCallbackController", "Controller", "Login federado")
 
-  Component(RegisterUserHandler, "RegisterUserHandler", "Command Handler", "")
-  Component(AuthenticateUserHandler, "AuthenticateUserHandler", "Command Handler", "")
-  Component(RefreshTokenHandler, "RefreshTokenHandler", "Command Handler", "")
-  Component(ChangePasswordHandler, "ChangePasswordHandler", "Command Handler", "")
-  Component(AssignRoleHandler, "AssignRoleHandler", "Command Handler", "")
+  %% --- Controllers
+  Container_Boundary(ctrls, "Controllers") {
+    Component(AuthController, "AuthController", "Controller", "Login/Refresh/Logout/Register")
+    Component(MfaController, "MfaController", "Controller", "MFA")
+    Component(RoleController, "RoleController", "Controller", "Roles/Permisos")
+    Component(OAuthCallbackController, "OAuthCallbackController", "Controller", "Login federado")
+  }
 
-  Component(OnAccountCreated, "OnAccountCreated", "Event Handler", "")
-  Component(OnUserAuthenticated, "OnUserAuthenticated", "Event Handler", "")
-  Component(OnRoleAssigned, "OnRoleAssigned", "Event Handler", "")
+  %% --- Command Handlers
+  Container_Boundary(cmds, "Command Handlers") {
+    Component(RegisterUserHandler, "RegisterUserHandler", "Command Handler", "")
+    Component(AuthenticateUserHandler, "AuthenticateUserHandler", "Command Handler", "")
+    Component(RefreshTokenHandler, "RefreshTokenHandler", "Command Handler", "")
+    Component(ChangePasswordHandler, "ChangePasswordHandler", "Command Handler", "")
+    Component(AssignRoleHandler, "AssignRoleHandler", "Command Handler", "")
+  }
 
-  Component(AuthService, "AuthService", "Domain Service", "Emite/valida tokens y sesiones")
-  Component(AuthPolicy, "AuthPolicy", "Strategy", "Expiración y rotación")
-  Component(PasswordHasher, "PasswordHasher", "Domain Service", "Hash/verify (bcrypt/Argon2)")
+  %% --- Event Handlers
+  Container_Boundary(evts, "Event Handlers") {
+    Component(OnAccountCreated, "OnAccountCreated", "Event Handler", "")
+    Component(OnUserAuthenticated, "OnUserAuthenticated", "Event Handler", "")
+    Component(OnRoleAssigned, "OnRoleAssigned", "Event Handler", "")
+  }
 
-  Component(AccountRepository, "AccountRepository", "Repository Port", "")
-  Component(RoleRepository, "RoleRepository", "Repository Port", "")
-  Component(TokenRepository, "TokenRepository", "Repository Port", "")
-  Component(AuditLogRepository, "AuditLogRepository", "Repository Port", "")
+  %% --- Domain Services / Policies
+  Container_Boundary(services, "Domain Services / Policies / Adapters") {
+    Component(AuthService, "AuthService", "Domain Service", "Emite/valida tokens y sesiones")
+    Component(AuthPolicy, "AuthPolicy", "Strategy", "TTL/rotación")
+    Component(PasswordHasher, "PasswordHasher", "Domain Service", "bcrypt/Argon2")
+    Component(JWTProvider, "TokenProvider (JWT)", "Adapter", "Firmado/verificación")
+    Component(OAuthProvider, "OAuthProvider", "Adapter", "Google/Apple")
+    Component(EmailAdapter, "EmailAdapter", "Adapter", "SMTP/API")
+    Component(TokenCacheAdapter, "TokenCacheAdapter", "Adapter", "Redis")
+  }
 
-  Component(JWTProvider, "TokenProvider (JWT)", "Adapter", "Firmado/verificación")
-  Component(OAuthProvider, "OAuthProvider", "Adapter", "Google/Apple")
-  Component(EmailAdapter, "EmailAdapter", "Adapter", "SMTP/API externa")
-  Component(TokenCacheAdapter, "TokenCacheAdapter", "Adapter", "Redis")
+  %% --- Repository Ports
+  Container_Boundary(repos, "Repositories (Ports)") {
+    Component(AccountRepository, "AccountRepository", "Repository Port", "")
+    Component(RoleRepository, "RoleRepository", "Repository Port", "")
+    Component(TokenRepository, "TokenRepository", "Repository Port", "")
+    Component(AuditLogRepository, "AuditLogRepository", "Repository Port", "")
+  }
 }
 
+%% ====== Relaciones simplificadas por grupo ======
 Rel_R(user, spa, "Usa", "HTTPS/JSON")
-Rel_R(spa, AuthController, "Autentica", "HTTPS/JSON")
-Rel_R(spa, OAuthCallbackController, "OAuth", "HTTPS/JSON")
+Rel_R(spa, ctrls, "Autentica/CRUD", "HTTPS/JSON")
+Rel_R(ctrls, cmds, "Invoca comandos", "")
+Rel_R(cmds, services, "Orquesta seguridad", "")
+Rel_R(services, repos, "Persistencia/consulta", "")
+Rel_R(repos, authDb, "Cuentas, roles, auditoría", "SQL")
+Rel_R(services, TokenCacheAdapter, "Sesiones", "Redis")
+Rel_R(services, EmailAdapter, "OTP/Links", "SMTP/API")
 
-Rel_R(AccountRepository, authDb, "Lee/Escribe", "SQL")
-Rel_R(RoleRepository, authDb, "Lee/Escribe", "SQL")
-Rel_R(AuditLogRepository, authDb, "Append", "SQL")
-Rel_R(TokenCacheAdapter, cache, "Guarda/Borra", "Redis")
-Rel_R(EmailAdapter, email, "Envía", "SMTP/API")
-
-Rel_R(AuthController, AuthenticateUserHandler, "", "")
-Rel_R(AuthController, RefreshTokenHandler, "", "")
-Rel_R(AuthController, ChangePasswordHandler, "", "")
-Rel_R(AuthController, RegisterUserHandler, "", "")
-Rel_R(RoleController, AssignRoleHandler, "", "")
-Rel_R(OAuthCallbackController, AuthenticateUserHandler, "Callback", "")
-
-Rel_R(AuthenticateUserHandler, AuthService, "", "")
-Rel_R(RefreshTokenHandler, AuthService, "", "")
-Rel_R(ChangePasswordHandler, PasswordHasher, "", "")
-Rel_R(RegisterUserHandler, PasswordHasher, "", "")
-
-Rel_R(AuthService, JWTProvider, "Firmar/validar", "")
-Rel_R(AuthService, TokenRepository, "Persistir tokens", "")
-Rel_R(AuthService, AccountRepository, "Buscar cuenta", "")
-Rel_R(AssignRoleHandler, RoleRepository, "Asignar", "")
-Rel_R(OnAccountCreated, AuditLogRepository, "Registrar", "")
-Rel_R(OnUserAuthenticated, AuditLogRepository, "Registrar", "")
-Rel_R(OnRoleAssigned, AuditLogRepository, "Registrar", "")
-Rel_R(AuthService, TokenCacheAdapter, "Gestionar sesión", "")
 ```
 
 ### 5.5.7. Bounded Context Software Architecture Code Level Diagrams
