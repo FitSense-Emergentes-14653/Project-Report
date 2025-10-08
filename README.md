@@ -278,10 +278,10 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <em>TB1</em><br>
         Desarrollé el diseño, registro y análisis de entrevistas para recopilar información relevante sobre las necesidades de los usuarios. A partir de ello, elaboré el proceso de Needfinding, creando User Personas, User Task Matrix, Empathy Mapping y As-is Scenario Mapping, lo que permitió identificar puntos críticos de la experiencia. Además, definí el Ubiquitous Language para unificar la comunicación entre el equipo y los interesados. Finalmente, realicé el To-Be Scenario Mapping en el 
         Capítulo III, proyectando escenarios futuros que orientan el diseño de la solución y alinean los objetivos del proyecto con las expectativas de los usuarios.<br>
-    </td>
-     <em>TP</em><br>
+        <em>TP</em><br>
         Elaboré la documentación técnica completa del Tactical-Level Design para los bounded contexts Monitoring y Security de FitSense, incluyendo diagramas de clases del dominio, diagramas de componentes y modelos de base de datos. La documentación detalla cada capa arquitectónica con tablas estructuradas que describen agregados, entidades, value objects, servicios de dominio y repositorios, facilitando su comprensión tanto para desarrolladores como para arquitectos de software. Además, utilicé diagramas UML y Structurizr DSL para representar visualmente las relaciones entre componentes, asegurando que la documentación sea accesible y comprensible para públicos de diferentes especialidades dentro del marco del proyecto de ingeniería de software.<br>
-    <td>
+        </td>
+
        <em>TB1</em><br>
         En conjunto, el desarrollo de FitSense permitió al equipo plasmar de manera escrita y objetiva los avances del proyecto, desde el análisis de necesidades de los usuarios y la definición de requisitos, hasta el diseño de la arquitectura emergente y la propuesta de solución innovadora. A través de técnicas como entrevistas, Needfinding, Impact Mapping, EventStorming, Lean UX Canvas y el enfoque C4, se generó documentación clara, estructurada y comprensible tanto para públicos técnicos como no técnicos. De esta forma, se aseguró una comunicación efectiva que integra la visión de negocio, la perspectiva del usuario y la solidez técnica en el marco de un proyecto de ingeniería orientado a la salud y el bienestar.<br>
         <em>TP</em><br><br>
