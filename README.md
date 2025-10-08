@@ -244,7 +244,8 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Rubio Calixto, Adrian Gustavo</strong><br>
         <em>TB1</em><br>
         Durante el desarrollo de FitSense, diseñé, registré y analicé entrevistas para identificar necesidades clave de los usuarios. Posteriormente, elaboré el proceso de Needfinding mediante User Personas, User Task Matrix, Empathy Mapping y As-is Scenario Mapping, lo que permitió comprender a fondo su contexto. Además, definí el Ubiquitous Language para unificar la comunicación entre el equipo y realicé el To-Be Scenario Mapping en el Capítulo III, proyectando escenarios futuros alineados con los objetivos del proyecto.<br>
-        <br>
+        <em>TP</em><br>
+        Durante el desarrollo del Tactical-Level Software Design para FitSense, presenté oralmente el diseño detallado de los bounded contexts Monitoring y Security, explicando la estructura de capas (Domain, Application, Interface e Infrastructure) siguiendo principios de Domain-Driven Design. Comuniqué de manera clara cómo los agregados, entidades y value objects encapsulan la lógica de negocio, adaptando mi discurso tanto para stakeholders técnicos como no técnicos. Esta presentación permitió que el equipo comprendiera las decisiones arquitectónicas, las relaciones entre componentes y cómo estos contextos interactúan mediante eventos de dominio para mantener la cohesión del sistema monolítico modular de FitSense. <br>
     </td>
     <td>
         <em>TB1</em><br>
