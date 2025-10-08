@@ -8,7 +8,7 @@
 - Cuadros Rodríguez, Juan Alejandro - u20221a359  
 - Jarama Peñaloza, Fiorella - u202120418   
 - Lucas Coronel, Nadia Alessandra - u202120430  
-- 
+- Rubio Calixto, Adrian Gustavo - U202017622
 
 ---
 
