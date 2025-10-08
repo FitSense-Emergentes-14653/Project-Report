@@ -226,6 +226,9 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Cuadros Rodriguez, Juan Alejandro</strong><br>
         <em>TB1</em><br>
        Durante el desarrollo de FitSense se llevó a cabo el diseño arquitectónico siguiendo el enfoque Attribute-Driven Design (ADD), priorizando las funcionalidades de mayor impacto en la arquitectura y definiendo escenarios representativos junto con sus soluciones, así como los drivers arquitectónicos que guiaron las decisiones clave; tras evaluar distintas alternativas estructurales, se optó por una arquitectura de tipo monolito modular por su adecuación al contexto del proyecto, y finalmente se elaboraron dos escenarios de prueba con sus respectivas soluciones para validar la solidez y el desempeño de la propuesta.<br>
+      <em>TP1</em><br>
+      Durante el desarrollo de FitSense se diseñó el bounded context Plan Context, encargado de estructurar la información que será consumida por la API conectada a la IA GPT-4o mini. Este módulo permite que el usuario interactúe de forma dinámica con el sistema y reciba recomendaciones personalizadas basadas en sus objetivos, preferencias y datos registrados.
+       <br>
         <strong>Calisaya Sánchez, Juan Jesús</strong><br>
         <em>TB1</em><br>
         Durante el proyecto FitSense, presenté los resultados del Impact Mapping, User Stories y requisitos del sistema a diferentes audiencias del proyecto. Comuniqué de forma clara cómo las épicas y features se conectan con los objetivos de negocio, adaptando la explicación para que tanto stakeholders como el equipo técnico entendieran la priorización y el valor de cada funcionalidad. <br>
@@ -261,6 +264,8 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Cuadros Rodriguez, Juan Alejandro</strong><br>
         <em>TB1</em><br>
        El diseño arquitectónico se basó en el enfoque ADD, priorizando funcionalidades clave, definiendo escenarios representativos y alineando decisiones con drivers de negocio como rapidez, evolución y confianza del usuario; se optó por una arquitectura monolítica para una implementación ágil, dejando abierta la posibilidad de migrar a microservicios cuando el sistema crezca, y se aplicó el Reglamento de Protección de Datos para garantizar un entorno seguro y confiable para los usuarios.<br>
+       <em>TP1</em><br>
+       El diseño arquitectónico  está orientado al desarrollo de una API estructurada y coherente, garantizando una organización clara de los componentes, una mejor mantenibilidad del código y una comunicación eficiente con los demás módulos del sistema. Así como el almacenamiento y consumo eficiente de datos desde la base de datos. Esta arquitectura garantiza una organización clara de los componentes, una mejor mantenibilidad del código y una integración fluida entre los distintos módulos del sistema.<br>
         <strong>Calisaya Sánchez, Juan Jesús</strong><br>
         <em>TB1</em><br>
         Elaboré la documentación de requisitos de FitSense (Capítulos III y IV) creando User Stories, Impact Mapping y Product Backlog que comunican las necesidades del usuario y objetivos de negocio. La documentación incluye desde épicas comprensibles para product owners hasta especificaciones técnicas detalladas, permitiendo que diferentes niveles del equipo entiendan los requisitos y su priorización.<br>
