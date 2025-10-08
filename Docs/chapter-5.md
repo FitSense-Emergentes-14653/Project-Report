@@ -1627,45 +1627,16 @@ classDiagram
 direction LR
 
 %% ==== Value Objects ====
-class UserId {
-  +value: UUID
-}
-class MetricName {
-  +value: enum
-}
-class MetricUnit {
-  +value: enum
-}
-class TimeWindow {
-  +from: Date
-  +to: Date
-  +contains(d: Date): bool
-}
-class Week {
-  +year: int
-  +week: int
-}
-class AdherenceScore {
-  +value: float
-}
-class CalorieBalance {
-  +in: number
-  +out: number
-  +balance(): number
-}
-class PrivacyConsent {
-  +granted: bool
-  +grantedAt: Date
-  +scope: enum[]
-}
-class DataRetentionPolicy {
-  +ttlDays: int
-  +minPrecision: float
-}
-class ImageRef {
-  +storageId: string
-  +mime: string
-}
+class UserId { +value: UUID }
+class MetricName { +value: enum }
+class MetricUnit { +value: enum }
+class TimeWindow { +from: Date +to: Date +contains(d: Date): bool }
+class Week { +year: int +week: int }
+class AdherenceScore { +value: float }
+class CalorieBalance { +in: number +out: number +balance(): number }
+class PrivacyConsent { +granted: bool +grantedAt: Date +scope: enum[] }
+class DataRetentionPolicy { +ttlDays: int +minPrecision: float }
+class ImageRef { +storageId: string +mime: string }
 
 %% ==== Entities / Aggregates ====
 class MetricSnapshot {
@@ -1720,14 +1691,37 @@ class WeeklyProgress {
   +computeKpis()
 }
 
-WeeklyProgress --> "0..*" ImprovementFinding
-WeeklyProgress --> CalorieBalance
-WeeklyProgress --> AdherenceScore
-WeeklyProgress --> Week
-PhotoProgress --> ImageRef
-PhotoProgress --> PrivacyConsent
+%% ==== Associations / Aggregations ====
+%% VOs usados por entidades
+MetricSnapshot --> UserId
+WorkoutSummary --> UserId
+PhotoProgress --> UserId
+ImprovementFinding --> UserId
+WeeklyProgress --> UserId
+
 MetricSnapshot --> MetricName
 MetricSnapshot --> MetricUnit
+PhotoProgress --> ImageRef
+PhotoProgress --> PrivacyConsent
+
+%% Semana y scores
+WeeklyProgress --> Week
+ImprovementFinding --> Week
+WeeklyProgress --> CalorieBalance
+WeeklyProgress --> AdherenceScore
+
+%% Agregación/uso desde WeeklyProgress
+WeeklyProgress ..> MetricSnapshot : usa para KPIs
+WeeklyProgress ..> WorkoutSummary : usa para KPIs
+WeeklyProgress ..> PhotoProgress : usa para detección/registro
+WeeklyProgress --> "0..*" ImprovementFinding
+WeeklyProgress o-- "0..*" MetricSnapshot
+WeeklyProgress o-- "0..*" WorkoutSummary
+
+%% (opcional) políticas auxiliares no referenciales
+TimeWindow ..> MetricSnapshot : filtra
+DataRetentionPolicy ..> MetricSnapshot : retención
+
 ```
 
 #### 5.4.7.2. Bounded Context Database Design Diagram
