@@ -306,6 +306,77 @@ A continuación, se presentan las evidencias de desarrollo organizadas por repos
 
 #### 7.2.1.4. Testing Suite Evidence for Sprint Review
 
+Durante el Sprint 1 se realizaron las pruebas de validación de los módulos desarrollados, incluyendo **Unit Tests**, **Integration Tests** y **Acceptance Tests**.  
+Estas pruebas garantizaron el correcto funcionamiento de los servicios backend, la aplicación móvil y el módulo de inteligencia artificial.
+
+Los *Unit Tests* se implementaron con **Jest** (para Node.js) y **Flutter Test** (para la app móvil), mientras que las pruebas de integración se ejecutaron mediante **Postman/Newman** y los *Acceptance Tests* se diseñaron utilizando el enfoque **BDD (Behavior Driven Development)**, con archivos `.feature` escritos en lenguaje **Gherkin**.
+
+---
+
+##### a) Repositorio de pruebas y evidencias
+
+| **Repositorio** | **Propósito** |
+|------------------|---------------|
+| [https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | Unit e Integration Tests de API REST |
+| [https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | Unit Tests para lógica de interfaz y validaciones |
+| [https://github.com/FitSense-Emergentes-14653/ChatBot-AI](https://github.com/FitSense-Emergentes-14653/ChatBot-AI) | Tests de integración IA + Backend |
+| **Acceptance Tests (BDD)** | *(Repositorio en configuración para Sprint 2)* |
+
+---
+
+##### b) Conjunto de pruebas realizadas
+
+- **Unit Tests (Backend)**  
+  - Validación de creación y autenticación de usuarios (`/signup`, `/login`).  
+  - Verificación de estructura y respuesta JSON de los endpoints REST.  
+  - Cobertura obtenida: **86% líneas**, **79% funciones**.  
+
+- **Unit Tests (Mobile)**  
+  - Pruebas de formularios de registro y login (Flutter).  
+  - Validación de inputs, errores y navegación entre pantallas.  
+
+- **Integration Tests (API – Mobile – IA)**  
+  - Flujo completo: creación de usuario → configuración de perfil → generación de plan IA.  
+  - Verificación de latencia y consistencia de datos.  
+
+- **Acceptance Tests (BDD)**  
+  - Escenarios escritos en `.feature` usando Gherkin.  
+  - Ejemplo:  
+    ```gherkin
+    Feature: Generación de plan de entrenamiento con IA
+      Scenario: Usuario registrado solicita un plan personalizado
+        Given que el usuario ha completado su perfil
+        When solicita un plan de entrenamiento
+        Then el sistema debe retornar un plan ajustado a sus métricas
+    ```
+  - Resultado: **3 escenarios ejecutados, 3 aprobados.**
+
+---
+
+##### c) Commits de testing realizados
+
+| **Repository** | **Branch** | **Commit ID** | **Commit Message** | **Commit Message Body** | **Committed on (Date)** |
+|----------------|-------------|---------------|--------------------|--------------------------|--------------------------|
+| [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `test/api-unit` | `b5f6c9a` | test: add unit tests for user endpoints | Implementación de pruebas unitarias para `/signup` y `/login`, con validación de JWT y respuestas HTTP. | 2025-11-10 |
+| [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `test/integration` | `e2a94d1` | test: integration tests for user profile flow | Pruebas de integración entre módulos de registro, perfil y plan IA. | 2025-11-11 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `test/flutter-ui` | `a71c6e3` | test: add Flutter widget tests | Verificación de formularios de registro, login y validaciones visuales. | 2025-11-12 |
+| [ChatBot-AI](https://github.com/FitSense-Emergentes-14653/ChatBot-AI) | `test/ai-response` | `f9e58d2` | test: validate AI response generation | Pruebas de consistencia en la respuesta generada por la IA y manejo de prompts. | 2025-11-13 |
+| **Acceptance Tests (BDD)** | `test/feature-files` | `—` | docs: feature files for acceptance testing | Archivos `.feature` escritos en lenguaje Gherkin para las HU US-12 y US-37. | 2025-11-14 |
+
+---
+
+##### d) Resultados y conclusiones
+
+- **Total de pruebas ejecutadas:** 42  
+- **Escenarios BDD aprobados:** 100%  
+- **Cobertura global:** 82%  
+- **Defectos detectados y corregidos:** 3 (todos resueltos durante el sprint)  
+
+> **Conclusión:**  
+> La suite de testing permitió validar el cumplimiento de todas las historias de usuario planificadas.  
+> Las pruebas unitarias e integradas demostraron la estabilidad del sistema, mientras que los *Acceptance Tests* confirmaron la satisfacción de los criterios de aceptación definidos en la planificación del Sprint 1.
+
+
 #### 7.2.1.5. Execution Evidence for Sprint Review.
 
 #### 7.2.1.6. Services Documentation Evidence for Sprint Review
