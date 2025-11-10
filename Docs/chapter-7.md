@@ -434,14 +434,17 @@ Las ejecuciones fueron documentadas mediante capturas, registros de consola y ve
         <img align = middle src = "../img/chapter-7/1.15 Mobil APP.png">
     </center><br>
     <b>Web app:</b><br>
-    <center>
-        <img align = middle src = "../images/Web1.png">
+</center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.0 WEB APP.png">
     </center><br>
-    <center>
-        <img align = middle src = "../images/Web2.png">
+</center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.1 WEB APP.png">
     </center><br>
-    <center>
-        <img align = middle src = "../images/Web3.png">
+</center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.2 WEB APP.png">
     </center><br>
 </div>
 
