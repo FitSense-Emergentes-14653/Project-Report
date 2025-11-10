@@ -368,7 +368,7 @@ Los *Unit Tests* se implementaron con **Jest** (para Node.js) y **Flutter Test**
 #### 7.2.1.5. Execution Evidence for Sprint Review
 
 Durante el Sprint 1 se realizaron los procesos de **ejecución, integración y despliegue** de los módulos completados.  
-El objetivo principal fue validar la funcionalidad de cada componente en un entorno de ejecución real, garantizando la correcta comunicación entre **Frontend (Landing Page y App Móvil)**, **Backend (API REST con MySQL)** y el **módulo de Inteligencia Artificial (ChatBox AI)**.
+El objetivo principal fue validar la funcionalidad de cada componente en un entorno de ejecución real, garantizando la correcta comunicación entre **Frontend (App Web y App Móvil)**, **Backend (API REST con MySQL)** y el **módulo de Inteligencia Artificial (ChatBox AI)**.
 
 Las ejecuciones fueron documentadas mediante capturas, registros de consola y verificación en los entornos de despliegue asignados.
 
@@ -378,14 +378,11 @@ Las ejecuciones fueron documentadas mediante capturas, registros de consola y ve
         <img align = middle src = "../img/chapter-7/1.2 Execution Evidence for Sprint Review.png">
     </center><br>
     <b>Backend (API REST):</b><br>
-    <center>
-        <img align = middle src = "../images/SM1.png">
+   <center>
+        <img align = middle src = "../img/chapter-7/1.0 Execution Evidence for Sprint Review.png">
     </center><br>
-    <center>
-        <img align = middle src = "../images/SM2.png">
-    </center><br>
-    <center>
-        <img align = middle src = "../images/SM3.png">
+       <center>
+        <img align = middle src = "../img/chapter-7/1.1 Execution Evidence for Sprint Review.png">
     </center><br>
     <b>Mobile app:</b><br>
     <center>
