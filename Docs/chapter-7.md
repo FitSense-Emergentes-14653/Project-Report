@@ -232,7 +232,11 @@ El sprint fue ejecutado con una duración de **dos semanas (04–18 de noviembre
 
 A continuación, se muestra la tabla de control de estado de los *Work Items* gestionados en el tablero de Trello:
 
-🔗 **Trello Board:** [https://trello.com/b/fitsense-sprint1](https://trello.com/b/fitsense-sprint1)  
+<p align="center">
+  <img src="../img/chapter-7/Sprint1 - FitSense.png" alt="Trello Sprint 1 - FitSense" width="600">
+</p>
+
+🔗 **Trello Board:** [https://trello.com/b/fitsense-sprint1](https://trello.com/invite/b/69116af5e9faa3422cb867d6/ATTIede21f935e76a32aea83720e6d5490026C6D75CF/fitsense)  
 📸 *Ver Figura 7.2.1.2.1 — Tablero Kanban del Sprint 1 (To-Do / In-Progress / Done)*
 
 ---
@@ -240,7 +244,7 @@ A continuación, se muestra la tabla de control de estado de los *Work Items* ge
 | **User Story** |  | **Work-Item / Task** | **Descripción** | **Estimación (Horas)** | **Asignado a** | **Estado** |
 |----------------|--|----------------------|-----------------|------------------------|----------------|-------------|
 | **US-33**<br>Crear Usuario (Sign-Up) a través de API | | T-01<br>Diseñar modelo de datos `User` | Estructurar entidad y esquema de validación en backend | 3 | Juan Cuadros | ✅ Done |
-| | | T-02<br>Implementar endpoint `/api/users/signup` | Registro de usuarios en la base de datos | 5 | Juan Cuadros | ✅ Done |
+| **US-33**<br>Crear Usuario (Sign-Up) a través de API | | T-02<br>Implementar endpoint `/api/users/signup` | Registro de usuarios en la base de datos | 5 | Juan Cuadros | ✅ Done |
 | **US-34**<br>Autenticar Usuario (Sign-In) a través de API | | T-03<br>Endpoint `/api/users/login` | Validar credenciales, generar token JWT | 4 | Adrián Rubio | ✅ Done |
 | **US-35**<br>Crear/Actualizar Perfil de Usuario | | T-04<br>Endpoint `/api/users/profile` | CRUD de información del perfil de usuario | 4 | Juan Calisaya | ✅ Done |
 | **US-36**<br>Obtener Perfil de Usuario | | T-05<br>GET `/api/users/profile/:id` | Devolver información del usuario autenticado | 2 | Fiorella Jarama | ✅ Done |
