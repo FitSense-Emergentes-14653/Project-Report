@@ -241,8 +241,8 @@ A continuación, se presenta un extracto del tablero de trabajo utilizado durant
 
 | **User Story** |  | **Work-Item / Task** | **Descripción** | **Estimación (Horas)** | **Asignado a** | **Estado** |
 |----------------|--|----------------------|-----------------|------------------------|----------------|-------------|
-| **US-33**<br>Crear Usuario (Sign-Up) a través de API | | T-01<br>Diseñar modelo de datos `User` en backend | Estructurar entidad `User` con validaciones | 3 | Juan Cuadros | Done |
-| **US-38** | T-02<br>Implementar endpoint `/api/users/signup` | Endpoint REST para registro de usuarios | 5 | Juan Cuadros | Done |
+| **US-33**Crear Usuario (Sign-Up)  | | T-01<br>Diseñar modelo de datos `User` en backend | Estructurar entidad `User` con validaciones | 3 | Juan Cuadros | Done |
+| **US-38**<br>Registro de Usuario | | T-02<br>Implementar endpoint `/api/users/signup` | Endpoint REST para registro de usuarios | 5 | Juan Cuadros | Done |
 | **US-34**<br>Autenticar Usuario (Sign-In) a través de API | | T-03<br>Crear endpoint `/api/users/login` | Validar credenciales y emitir token JWT | 4 | Adrian Rubio | In-Process |
 | **US-35**<br>Crear/Actualizar Perfil de Usuario | | T-04<br>Endpoint `/api/users/profile` | CRUD de información de perfil | 4 | Juan Calisaya | In-Process |
 | **US-36**<br>Obtener Perfil de Usuario | | T-05<br>GET `/api/users/profile/:id` | Devolver perfil de usuario autenticado | 2 | Fiorella Jarama | To-Review |
