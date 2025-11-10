@@ -204,63 +204,63 @@ Así es como con este, que cada miembro podrá trabajar de forma remota desde su
 
 #### 7.2.1.1. Sprint Planning 1
 
-La planificación del primer sprint se llevó a cabo mediante una reunión virtual a través de Google Meet. Durante esta sesión, el equipo acordó los objetivos del sprint, estimó las historias de usuario y definió la capacidad de trabajo (*velocity*) para el periodo. La siguiente tabla resume la información discutida y registrada durante dicha sesión.
+La planificación del primer sprint se llevó a cabo mediante una reunión virtual a través de Google Meet. Durante esta sesión, el equipo acordó los objetivos del sprint, seleccionó las historias de usuario priorizadas y definió la capacidad de trabajo (*velocity*) para el periodo. 
+
+El Sprint 1 fue posteriormente **ejecutado en su totalidad**, cumpliendo con las metas establecidas durante esta sesión de planificación. La siguiente tabla resume la información discutida y registrada.
 
 | **Elemento** | **Detalle** |
 |--------------|-------------|
 | **Sprint #** | Sprint 1 |
 | **Sprint Planning Background** | Planificación inicial del proyecto FitSense, enfocada en el desarrollo del **backend de usuarios**, la **autenticación e inicio de sesión en la app móvil**, y la **implementación del módulo de Inteligencia Artificial** para la generación de planes personalizados de entrenamiento. |
-| **Fecha** | 2025-11-03 |
-| **Hora** | 10:00 PM |
-| **Lugar** | Virtual (Google Meet) |
+| **Fecha de planificación** | 2025-11-03 |
+| **Ejecución del Sprint** | 2025-11-04 al 2025-11-18 |
+| **Lugar** | Virtual (Google Meet / GitHub / Trello) |
 | **Preparado por** | Cuadros Rodríguez, Juan Alejandro |
-| **Participantes de la reunión de planificación** | - Cuadros Rodríguez, Juan Alejandro<br> - Jarama Peñaloza, Fiorella<br> - Lucas Coronel, Nadia Alessandra<br> - Calisaya Sánchez, Juan Jesús<br> - Rubio Calixto, Adrian Gustavo |
+| **Participantes** | - Cuadros Rodríguez, Juan Alejandro<br> - Jarama Peñaloza, Fiorella<br> - Lucas Coronel, Nadia Alessandra<br> - Calisaya Sánchez, Juan Jesús<br> - Rubio Calixto, Adrian Gustavo |
 | **Resumen del Sprint n–1 (Review)** | No aplica — este es el primer sprint del proyecto. |
 | **Resumen del Sprint n–1 (Retrospectiva)** | No aplica — este es el primer sprint del proyecto. |
-| **Sprint Goal & User Stories** | El objetivo de este Sprint 1 es implementar la **base funcional del sistema FitSense**, desarrollando los servicios de **gestión y autenticación de usuarios (API REST)**, el **flujo de registro y configuración de perfil en la aplicación móvil**, y el **módulo inicial de IA** para la generación automatizada de planes de entrenamiento personalizados. <br><br>Las historias de usuario asociadas son: **US-33, US-38, US-34, US-35, US-36, US-05, US-06, US-07, US-08, US-09, US-10, US-11, US-37 y US-12.** |
+| **Sprint Goal & User Stories** | El objetivo de este Sprint 1 fue implementar la **base funcional del sistema FitSense**, desarrollando los servicios de **gestión y autenticación de usuarios (API REST)**, el **flujo de registro y configuración de perfil en la aplicación móvil**, y el **módulo inicial de IA** para la **generación automatizada de planes de entrenamiento personalizados**. <br><br>Las historias de usuario incluidas fueron: **US-33, US-34, US-35, US-36, US-05, US-06, US-07, US-08, US-09, US-10, US-11, US-37 y US-12.** |
 | **Velocidad del Sprint (Story Points esperados)** | 46 |
-| **Suma total de Story Points asignados** | 46 |
+| **Suma total de Story Points completados** | 46 |
+| **Estado del Sprint** | ✅ Completado con éxito |
 
 
 #### 7.2.1.2. Sprint Backlog 1
-#### 7.2.1.2. Sprint Backlog 1
 
-El Sprint Backlog fue elaborado a partir de las historias de usuario priorizadas para el Sprint 1, enfocadas principalmente en la construcción de los servicios del backend y el flujo de onboarding en la aplicación móvil. A continuación, se detallan las historias seleccionadas junto con su epic asociado y la estimación de esfuerzo en *Story Points*.
+El Sprint Backlog fue elaborado durante la planificación del Sprint 1, centrado en el desarrollo del **backend de usuarios**, la **autenticación móvil**, el **flujo de configuración de perfil** y la **integración inicial de IA** para generación de planes personalizados.  
+El sprint fue ejecutado con una duración de **dos semanas (04–18 de noviembre de 2025)**, completando todas las historias planificadas.  
 
-#### 7.2.1.2. Sprint Backlog 1
+A continuación, se muestra la tabla de control de estado de los *Work Items* gestionados en el tablero de Trello:
 
-El Sprint Backlog fue elaborado a partir de las historias de usuario priorizadas para el Sprint 1, enfocadas en la implementación del backend de usuarios, el flujo de onboarding móvil y la integración inicial del módulo de IA para generación de planes de entrenamiento personalizados.
-
-A continuación, se presenta un extracto del tablero de trabajo utilizado durante el Sprint 1, gestionado mediante **Trello**, donde se reflejó el avance de las tareas (To-do / In-Process / To-Review / Done).
-
-🔗 **Board público de Trello:** [https://trello.com/b/fitsense-sprint1](https://trello.com/b/fitsense-sprint1)
+🔗 **Trello Board:** [https://trello.com/b/fitsense-sprint1](https://trello.com/b/fitsense-sprint1)  
+📸 *Ver Figura 7.2.1.2.1 — Tablero Kanban del Sprint 1 (To-Do / In-Progress / Done)*
 
 ---
-
-##### Tabla de Control de Estado — Sprint 1
 
 | **User Story** |  | **Work-Item / Task** | **Descripción** | **Estimación (Horas)** | **Asignado a** | **Estado** |
 |----------------|--|----------------------|-----------------|------------------------|----------------|-------------|
-| **US-33**Crear Usuario (Sign-Up)  | | T-01<br>Diseñar modelo de datos `User` en backend | Estructurar entidad `User` con validaciones | 3 | Juan Cuadros | Done |
-| **US-38**<br>Registro de Usuario | | T-02<br>Implementar endpoint `/api/users/signup` | Endpoint REST para registro de usuarios | 5 | Juan Cuadros | Done |
-| **US-34**<br>Autenticar Usuario (Sign-In) a través de API | | T-03<br>Crear endpoint `/api/users/login` | Validar credenciales y emitir token JWT | 4 | Adrian Rubio | In-Process |
-| **US-35**<br>Crear/Actualizar Perfil de Usuario | | T-04<br>Endpoint `/api/users/profile` | CRUD de información de perfil | 4 | Juan Calisaya | In-Process |
-| **US-36**<br>Obtener Perfil de Usuario | | T-05<br>GET `/api/users/profile/:id` | Devolver perfil de usuario autenticado | 2 | Fiorella Jarama | To-Review |
-| **US-05**<br>Registro rápido en aplicación móvil | | T-06<br>Diseñar interfaz de registro (Flutter) | Maquetado e integración con backend | 5 | Nadia Lucas | Done |
-| **US-06**<br>Inicio de sesión en aplicación móvil | | T-07<br>Implementar formulario de login | Conexión con API de autenticación | 3 | Adrian Rubio | Done |
-| **US-07**<br>Recuperación de contraseña | | T-08<br>Diseñar pantalla de recuperación | Flujo para envío de correo de restablecimiento | 3 | Fiorella Jarama | In-Process |
-| **US-08**<br>Configuración del perfil personal | | T-09<br>Diseñar formulario de perfil | Campos básicos (edad, peso, altura, sexo) | 3 | Juan Calisaya | In-Process |
-| **US-09**<br>Definición de objetivos fitness | | T-10<br>Implementar selector de objetivos | UI y validaciones de objetivos del usuario | 2 | Nadia Lucas | Done |
-| **US-10**<br>Evaluación del nivel de experiencia | | T-11<br>Diseñar test de experiencia | Determinar nivel según respuestas | 2 | Fiorella Jarama | To-Do |
-| **US-11**<br>Configuración de equipamiento disponible | | T-12<br>Crear interfaz de equipamiento | Permitir al usuario marcar equipos disponibles | 3 | Adrian Rubio | To-Do |
-| **US-37**<br>Generar Plan de Entrenamiento con IA | | T-13<br>Integrar API de recomendación | Llamadas al modelo IA con datos de usuario | 6 | Juan Cuadros | In-Process |
-| **US-12**<br>Generación inicial de plan personalizado con IA | | T-14<br>Desarrollar lógica de plan base | Generar rutina inicial según perfil | 5 | Juan Calisaya | In-Process |
-|  |  | **Total estimado:** |  | **50 horas** |  |  |
+| **US-33**<br>Crear Usuario (Sign-Up) a través de API | | T-01<br>Diseñar modelo de datos `User` | Estructurar entidad y esquema de validación en backend | 3 | Juan Cuadros | ✅ Done |
+| | | T-02<br>Implementar endpoint `/api/users/signup` | Registro de usuarios en la base de datos | 5 | Juan Cuadros | ✅ Done |
+| **US-34**<br>Autenticar Usuario (Sign-In) a través de API | | T-03<br>Endpoint `/api/users/login` | Validar credenciales, generar token JWT | 4 | Adrián Rubio | ✅ Done |
+| **US-35**<br>Crear/Actualizar Perfil de Usuario | | T-04<br>Endpoint `/api/users/profile` | CRUD de información del perfil de usuario | 4 | Juan Calisaya | ✅ Done |
+| **US-36**<br>Obtener Perfil de Usuario | | T-05<br>GET `/api/users/profile/:id` | Devolver información del usuario autenticado | 2 | Fiorella Jarama | ✅ Done |
+| **US-05**<br>Registro rápido en aplicación móvil | | T-06<br>Diseñar interfaz de registro (Flutter) | Maquetado e integración con backend | 5 | Nadia Lucas | ✅ Done |
+| **US-06**<br>Inicio de sesión en aplicación móvil | | T-07<br>Implementar formulario de login | Conexión con API y validación de errores | 3 | Adrián Rubio | ✅ Done |
+| **US-07**<br>Recuperación de contraseña | | T-08<br>Diseñar flujo de recuperación | Implementación de solicitud y validación de token | 3 | Fiorella Jarama | ✅ Done |
+| **US-08**<br>Configuración del perfil personal | | T-09<br>Diseñar formulario de perfil | Campos: edad, peso, altura, sexo, nivel | 3 | Juan Calisaya | ✅ Done |
+| **US-09**<br>Definición de objetivos fitness | | T-10<br>Implementar selector de objetivos | Selección y almacenamiento de metas del usuario | 2 | Nadia Lucas | ✅ Done |
+| **US-10**<br>Evaluación del nivel de experiencia | | T-11<br>Diseñar test de experiencia | Determinar nivel del usuario según respuestas | 2 | Fiorella Jarama | ✅ Done |
+| **US-11**<br>Configuración de equipamiento disponible | | T-12<br>Diseñar interfaz de equipamiento | Selección de material disponible para entrenar | 3 | Adrián Rubio | ✅ Done |
+| **US-37**<br>Generar Plan de Entrenamiento con IA | | T-13<br>Integrar API de recomendación | Consumo del modelo IA y parseo de respuesta | 6 | Juan Cuadros | ✅ Done |
+| **US-12**<br>Generación inicial de plan personalizado con IA | | T-14<br>Desarrollar lógica de plan base | Generación de rutina inicial según perfil | 5 | Juan Calisaya | ✅ Done |
+| | | **Total estimado:** |  | **50 horas** |  | ✅ 100% completado |
 
 ---
 
-Las tareas descritas fueron gestionadas de manera colaborativa mediante **Trello** y **GitHub Projects**, con actualizaciones diarias en las reuniones de *daily stand-up*.  
-El avance se midió en función del estado de las tareas y los *commits* asociados en las ramas de desarrollo (`backend/sprint1`, `mobile/onboarding`, `ai/module`).
+> **Conclusión del Sprint Backlog 1:**  
+> El Sprint 1 se completó en su totalidad con un **cumplimiento del 100% de las historias de usuario planificadas (46 Story Points)**.  
+> Todos los *Work Items* alcanzaron el estado **Done**, validándose a través de *pull requests* y pruebas funcionales en entorno de integración.  
+> El equipo logró mantener una comunicación efectiva y una velocidad constante durante el ciclo de desarrollo.
 
 
 
