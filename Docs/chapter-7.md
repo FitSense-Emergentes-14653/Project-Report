@@ -450,13 +450,165 @@ Las ejecuciones fueron documentadas mediante capturas, registros de consola y ve
 
 #### 7.2.1.6. Services Documentation Evidence for Sprint Review
 
-#### 7.2.1.7. Software Deployment Evidence for Sprint Review
+Durante el Sprint 1 se documentaron los servicios desarrollados en el backend y el módulo de inteligencia artificial mediante especificaciones OpenAPI (Swagger), ejemplos de uso y colecciones Postman. Esta documentación permitió validar los contratos entre los equipos (mobile, web y backend) y facilitar las pruebas de integración.
 
-### 7.1.8.Team Collaboration Insights during Sprint
+---
 
-## 7.3. Validation Interviews
+##### a) Repositorios y ubicación de la documentación técnica
 
-### 7.3.1. Diseño de Entrevistas
+| **Componente** | **Repositorio** | **Ubicación de OpenAPI / Docs** |
+|----------------|------------------|----------------------------------|
+| Backend Services (API REST) | [https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `/docs/openapi.yaml`, `/docs/swagger.json`, Swagger UI en `/api-docs` |
+| ChatBox AI (API IA) | [https://github.com/FitSense-Emergentes-14653/ChatBox-AI](https://github.com/FitSense-Emergentes-14653/ChatBox-AI) | `/docs/openapi.yaml`, `/examples/requests/*.json` |
+| Project Report | [https://github.com/FitSense-Emergentes-14653/Project-Report](https://github.com/FitSense-Emergentes-14653/Project-Report) | `/Docs/chapter-7/` (esta sección) |
+| Colecciones Postman | — | `/docs/postman/FitSense.postman_collection.json` |
+
+**Entornos de documentación:**
+- Backend (Swagger UI): https://fitsense-backend.onrender.com/api-docs  
+- ChatBox AI (Swagger UI): https://fitsense-ai.onrender.com/api-docs
+
+---
+
+##### b) Endpoints principales (Backend REST, versión v1)
+
+| **Método** | **Path** | **Descripción** | **Auth** | **Request (body/query)** | **Response (códigos)** |
+|-------------|-----------|-----------------|-----------|--------------------------|------------------------|
+| POST | `/api/v1/authentication/sign-up` | Registro de usuario | No | JSON: `email, password, role` | 201 Created, 400, 409 |
+| POST | `/api/v1/authentication/sign-in` | Login y emisión de JWT | No | JSON: `email, password` | 200 OK, 401 |
+| GET | `/api/v1/athletes` | Listado de atletas (paginado) | Bearer JWT | Query: `page, size` | 200 OK, 401, 403 |
+| GET | `/api/v1/users/profile/:id` | Obtener perfil de usuario | Bearer JWT | — | 200 OK, 404, 401 |
+| PUT | `/api/v1/users/profile` | Crear/actualizar perfil | Bearer JWT | JSON: `name, age, height, weight, gender, level, equipment[]` | 200 OK, 400, 401 |
+| POST | `/api/v1/training-plan` | Solicitar plan a IA (proxy) | Bearer JWT | JSON: métricas y objetivos | 200 OK, 400, 401, 502 |
+
+**Autorización:** `Authorization: Bearer <token>`  
+**Formato:** `Content-Type: application/json`
+
+**Ejemplo de uso:**
+
+```bash
+# Iniciar sesión
+curl -X POST https://fitsense-backend.onrender.com/api/v1/authentication/sign-in \
+  -H "Content-Type: application/json" \
+  -d '{"email":"adrianrc@upc.pe","password":"adrian"}'
+
+# Consultar atletas (requiere token)
+curl -X GET https://fitsense-backend.onrender.com/api/v1/athletes \
+  -H "Authorization: Bearer <JWT>"
+
+##### c) Endpoints principales (ChatBox AI)
+
+| **Método** | **Path** | **Descripción** | **Auth** | **Request (body)** | **Response** |
+|-------------|-----------|-----------------|-----------|--------------------|--------------|
+| POST | `/api/v1/ai/training-plan` | Genera plan personalizado con IA | Bearer JWT / API Key | `age, gender, height, weight, level, goal, equipment[]` | `200 OK`: `plan{ days[], exercises[], notes }` |
+| POST | `/api/v1/ai/chat` | Respuesta contextual del asistente | Bearer JWT | `messages[]` estilo chat | `200 OK`: `reply` |
+
+> En este sprint, el backend expone `/api/v1/training-plan` como **proxy** hacia ChatBox AI.
+
+---
+
+##### d) Esquema de base de datos (MySQL)
+
+**Tablas principales**
+- `users(id, email, password_hash, role, created_at)`
+- `profiles(id, user_id, name, age, height_cm, weight_kg, gender, level, created_at, updated_at)`
+- `equipment(id, user_id, name)`
+- `plans(id, user_id, goal, payload_json, created_at)`
+
+**Relaciones**
+- `users (1) — (1) profiles`
+- `users (1) — (n) equipment`
+- `users (1) — (n) plans`
+
+
+###### 7.2.2.7. Software Deployment Evidence for Sprint Review.
+
+<p align = justify>Para el despliegue se utilizó una máquina virtual para su persistencia considerando una arquitectura modular. También se ha desarrollado el frotend del web y móvil.
+
+###### 7.2.2.8. Team Collaboration Insights during Sprint.
+
+## Networking del backend:
+
+<p>
+    <center>
+        <img align = middle src = "../images/ Network graph backend.png">
+    </center>
+</p>
+
+## Networking del chatbox IA:
+
+<p>
+    <center>
+        <img align = middle src = "../images/ Network graph chatbox.png">
+    </center>
+</p>
+
+## Networking del frontend móvil:
+
+<p>
+    <center>
+        <img align = middle src = "../images/ Network graph mobile.png">
+    </center>
+</p>
+
+#### 7.3. Validation Interviews
+
+##### 7.3.1. Diseño de Entrevistas
+
+Las entrevistas de validación se realizaron con usuarios potenciales de la aplicación **FitSense**, con el propósito de evaluar la **usabilidad**, **claridad de la propuesta de valor**, y la **funcionalidad percibida** de los módulos desarrollados durante el Sprint 1 (Landing Page, App móvil y ChatBot AI).
+
+Durante las sesiones, se presentó el prototipo funcional y se permitió a los entrevistados navegar libremente por la aplicación, observando su comportamiento e impresiones. Posteriormente, se formularon preguntas estructuradas para recoger información cualitativa sobre su experiencia de uso.
+
+Las entrevistas se clasificaron en dos grupos:
+- **Usuarios finales (atletas o interesados en fitness)**
+- **Stakeholders / expertos en tecnología o entrenamiento físico**
+
+---
+
+##### 🎯 Objetivo de las entrevistas
+
+Validar la propuesta de valor de FitSense y determinar el grado de aceptación, utilidad y facilidad de uso percibida por los usuarios en las primeras versiones funcionales.
+
+---
+
+##### 🧩 Preguntas generales a los stakeholders / expertos:
+
+1. ¿Cómo percibe la propuesta de FitSense como asistente integral de salud y fitness con IA?  
+2. ¿Considera que la aplicación cubre adecuadamente las necesidades de personalización de los usuarios?  
+3. ¿Qué opinión le merece la integración entre el ChatBot AI, el backend y la aplicación móvil?  
+4. ¿Qué aspectos mejoraría para que FitSense pueda escalar a nivel comercial o institucional?  
+5. ¿Qué recomendaciones haría respecto a la gestión de datos personales y métricas de salud?
+
+---
+
+##### 💬 Preguntas generales al usuario final (atleta o interesado):
+
+1. ¿Qué impresión general te genera la interfaz de FitSense al primer uso?  
+2. ¿La navegación dentro de la app te resultó intuitiva?  
+3. ¿El proceso de registro y autenticación fue claro y rápido?  
+4. ¿Te pareció útil la sección de creación de perfil y configuración de objetivos?  
+5. ¿Qué tan comprensible y útil te pareció la generación de planes con inteligencia artificial?  
+6. ¿Qué funcionalidades consideras más relevantes para tu experiencia como usuario?  
+7. ¿El chatbot te brindó respuestas claras y personalizadas durante tu interacción?  
+8. ¿Qué mejoras o nuevas características agregarías al sistema?  
+9. ¿Recomendarías esta aplicación a otras personas interesadas en fitness?  
+10. ¿Te sentiste seguro respecto al manejo de tus datos personales dentro de la plataforma?
+
+---
+
+##### 📋 Preguntas específicas sobre la experiencia de uso
+
+1. ¿El flujo de creación de cuenta y login fue satisfactorio (sign-up / sign-in)?  
+2. ¿Percibiste buena velocidad y tiempo de respuesta al interactuar con el backend?  
+3. ¿Qué opinas del diseño visual general (colores, tipografía, íconos, disposición)?  
+4. ¿Las secciones del plan de entrenamiento generado se entienden con facilidad?  
+5. ¿Consideras que la app podría adaptarse bien a distintos dispositivos móviles?  
+6. ¿Crees que las recomendaciones del chatbot son coherentes con tus objetivos?  
+7. ¿Te gustaría poder conectar dispositivos externos (smartwatch, balanza, etc.)?  
+8. ¿Qué tan útil consideras el seguimiento del progreso por semanas o rutinas?  
+9. ¿Qué nivel de confianza te genera una app que usa IA para recomendar planes?  
+10. ¿Qué tan probable sería que continuaras usando FitSense en el futuro?
+
+---
 
 ### 7.3.2. Registro de Entrevistas
 
