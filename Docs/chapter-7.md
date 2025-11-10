@@ -217,7 +217,7 @@ La planificación del primer sprint se llevó a cabo mediante una reunión virtu
 | **Participantes de la reunión de planificación** | - Cuadros Rodríguez, Juan Alejandro<br> - Jarama Peñaloza, Fiorella<br> - Lucas Coronel, Nadia Alessandra<br> - Calisaya Sánchez, Juan Jesús<br> - Rubio Calixto, Adrian Gustavo |
 | **Resumen del Sprint n–1 (Review)** | No aplica — este es el primer sprint del proyecto. |
 | **Resumen del Sprint n–1 (Retrospectiva)** | No aplica — este es el primer sprint del proyecto. |
-| **Sprint Goal & User Stories** | El objetivo de este Sprint 1 es implementar la **base funcional del sistema FitSense**, desarrollando los servicios de **gestión y autenticación de usuarios (API REST)**, el **flujo de registro y configuración de perfil en la aplicación móvil**, y el **módulo inicial de IA** para la generación automatizada de planes de entrenamiento personalizados. <br><br>Las historias de usuario asociadas son: **US-33, US-34, US-35, US-36, US-05, US-06, US-07, US-08, US-09, US-10, US-11, US-37 y US-12.** |
+| **Sprint Goal & User Stories** | El objetivo de este Sprint 1 es implementar la **base funcional del sistema FitSense**, desarrollando los servicios de **gestión y autenticación de usuarios (API REST)**, el **flujo de registro y configuración de perfil en la aplicación móvil**, y el **módulo inicial de IA** para la generación automatizada de planes de entrenamiento personalizados. <br><br>Las historias de usuario asociadas son: **US-33, US-38, US-34, US-35, US-36, US-05, US-06, US-07, US-08, US-09, US-10, US-11,  y US-12.** |
 | **Velocidad del Sprint (Story Points esperados)** | 46 |
 | **Suma total de Story Points asignados** | 46 |
 
@@ -242,7 +242,7 @@ A continuación, se presenta un extracto del tablero de trabajo utilizado durant
 | **User Story** |  | **Work-Item / Task** | **Descripción** | **Estimación (Horas)** | **Asignado a** | **Estado** |
 |----------------|--|----------------------|-----------------|------------------------|----------------|-------------|
 | **US-33**<br>Crear Usuario (Sign-Up) a través de API | | T-01<br>Diseñar modelo de datos `User` en backend | Estructurar entidad `User` con validaciones | 3 | Juan Cuadros | Done |
-| | | T-02<br>Implementar endpoint `/api/users/signup` | Endpoint REST para registro de usuarios | 5 | Juan Cuadros | Done |
+| **US-38**<br>Implementar endpoint `/api/users/signup` | |  Endpoint REST para registro de usuarios | 5 | Juan Cuadros | Done |
 | **US-34**<br>Autenticar Usuario (Sign-In) a través de API | | T-03<br>Crear endpoint `/api/users/login` | Validar credenciales y emitir token JWT | 4 | Adrian Rubio | In-Process |
 | **US-35**<br>Crear/Actualizar Perfil de Usuario | | T-04<br>Endpoint `/api/users/profile` | CRUD de información de perfil | 4 | Juan Calisaya | In-Process |
 | **US-36**<br>Obtener Perfil de Usuario | | T-05<br>GET `/api/users/profile/:id` | Devolver perfil de usuario autenticado | 2 | Fiorella Jarama | To-Review |
