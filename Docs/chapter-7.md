@@ -209,17 +209,18 @@ La planificación del primer sprint se llevó a cabo mediante una reunión virtu
 | **Elemento** | **Detalle** |
 |--------------|-------------|
 | **Sprint #** | Sprint 1 |
-| **Sprint Planning Background** | Planificación inicial del proyecto FitSense, priorizando la entrega de interfaces clave tanto en la landing page como en la primera versión funcional del mobile app y chatbot AI. |
-| Fecha | 2025-11-03 |
-| Hora | 10:00 PM |
-| Lugar | Virtual (Google Meet) |
-| Preparado por | Cuadros Rodríguez, Juan Alejandro |
-| Participantes de la reunión de planificación | - Cuadros Rodríguez, Juan Alejandro<br> - Jarama Peñaloza, Fiorella<br> - Lucas Coronel, Nadia Alessandra<br> - Calisaya Sánchez, Juan Jesús	<br> - Rubio Calixto, Adrian Gustavo |
-| Resumen del Sprint n–1 (Review) | No aplica — este es el primer sprint del proyecto. |
-| Resumen del Sprint n–1 (Retrospectiva) | No aplica — este es el primer sprint del proyecto. |
-| **Sprint Goal & User Stories** | Nuestro objetivo para este Sprint 1 es entregar una **primera versión de la Landing Page**,  **Mobile app de FitSense** y **ChatBot AI**, que permitan comunicar de manera clara la propuesta de valor de la plataforma, la creacion de planes de rutina basados en las caracteristicas del usuario, e implementar las funcionalidades base del sistema. Esto incluirá componentes clave como Navbar, Footer, secciones informativas (Inicio, Acerca de, Características, Contacto), así como los primeros módulos de gestiones de rutinas, peso y altura. El éxito del sprint se evaluará mediante la validación visual, funcional y la ejecución de pruebas de aceptación automatizadas. |
-| Velocidad del Sprint (Story Points esperados) | 72 |
-| Suma total de Story Points asignados | 72 |
+| **Sprint Planning Background** | Planificación inicial del proyecto FitSense, enfocada en el desarrollo del **backend de usuarios**, la **autenticación e inicio de sesión en la app móvil**, y la **implementación del módulo de Inteligencia Artificial** para la generación de planes personalizados de entrenamiento. |
+| **Fecha** | 2025-11-03 |
+| **Hora** | 10:00 PM |
+| **Lugar** | Virtual (Google Meet) |
+| **Preparado por** | Cuadros Rodríguez, Juan Alejandro |
+| **Participantes de la reunión de planificación** | - Cuadros Rodríguez, Juan Alejandro<br> - Jarama Peñaloza, Fiorella<br> - Lucas Coronel, Nadia Alessandra<br> - Calisaya Sánchez, Juan Jesús<br> - Rubio Calixto, Adrian Gustavo |
+| **Resumen del Sprint n–1 (Review)** | No aplica — este es el primer sprint del proyecto. |
+| **Resumen del Sprint n–1 (Retrospectiva)** | No aplica — este es el primer sprint del proyecto. |
+| **Sprint Goal & User Stories** | El objetivo de este Sprint 1 es implementar la **base funcional del sistema FitSense**, desarrollando los servicios de **gestión y autenticación de usuarios (API REST)**, el **flujo de registro y configuración de perfil en la aplicación móvil**, y el **módulo inicial de IA** para la generación automatizada de planes de entrenamiento personalizados. <br><br>Las historias de usuario asociadas son: **US-33, US-34, US-35, US-36, US-05, US-06, US-07, US-08, US-09, US-10, US-11, US-37 y US-12.** |
+| **Velocidad del Sprint (Story Points esperados)** | 46 |
+| **Suma total de Story Points asignados** | 46 |
+
 
 #### 7.2.1.2. Sprint Backlog 1
 #### 7.2.1.2. Sprint Backlog 1
