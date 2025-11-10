@@ -347,8 +347,8 @@ Los *Unit Tests* se implementaron con **Jest** (para Node.js) y **Flutter Test**
 |----------------|-------------|---------------|--------------------|--------------------------|--------------------------|
 | [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `test/api-unit` | `b5f6c9a` | test: add unit tests for user endpoints | Implementación de pruebas unitarias para `/signup` y `/login`, con validación de JWT y respuestas HTTP. | 2025-11-10 |
 | [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `test/integration` | `e2a94d1` | test: integration tests for user profile flow | Pruebas de integración entre módulos de registro, perfil y plan IA. | 2025-11-11 |
-| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `test/flutter-ui` | `a71c6e3` | test: add Flutter widget tests | Verificación de formularios de registro, login y validaciones visuales. | 2025-11-12 |
-| [ChatBox-AI](https://github.com/FitSense-Emergentes-14653/ChatBox-AI) | `test/ai-response` | `f9e58d2` | test: validate AI response generation | Pruebas de consistencia en la respuesta generada por la IA y manejo de prompts. | 2025-11-13 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `test/flutter-ui` | `a71c6e3` | test: add Flutter widget tests | Verificación de formularios de registro, login y validaciones visuales. | 2025-11-11 |
+| [ChatBox-AI](https://github.com/FitSense-Emergentes-14653/ChatBox-AI) | `test/ai-response` | `f9e58d2` | test: validate AI response generation | Pruebas de consistencia en la respuesta generada por la IA y manejo de prompts. | 2025-11-11 |
 
 ---
 
@@ -365,7 +365,49 @@ Los *Unit Tests* se implementaron con **Jest** (para Node.js) y **Flutter Test**
 
 
 
-#### 7.2.1.5. Execution Evidence for Sprint Review.
+#### 7.2.1.5. Execution Evidence for Sprint Review
+
+Durante el Sprint 1 se realizaron los procesos de **ejecución, integración y despliegue** de los módulos completados.  
+El objetivo principal fue validar la funcionalidad de cada componente en un entorno de ejecución real, garantizando la correcta comunicación entre **Frontend (Landing Page y App Móvil)**, **Backend (API REST con MySQL)** y el **módulo de Inteligencia Artificial (ChatBox AI)**.
+
+Las ejecuciones fueron documentadas mediante capturas, registros de consola y verificación en los entornos de despliegue asignados.
+
+<div style="text-align: justify; align-items: center">
+    <b>ChatBox-AI:</b><br>
+    <center>
+        <img align = middle src = "../img/chapter-7/1.2 Execution Evidence for Sprint Review.png">
+    </center><br>
+    <b>Backend (API REST):</b><br>
+    <center>
+        <img align = middle src = "../images/SM1.png">
+    </center><br>
+    <center>
+        <img align = middle src = "../images/SM2.png">
+    </center><br>
+    <center>
+        <img align = middle src = "../images/SM3.png">
+    </center><br>
+    <b>Mobile app:</b><br>
+    <center>
+        <img align = middle src = "../images/Movil1.jpeg">
+    </center><br>
+    <center>
+        <img align = middle src = "../images/Movil2.jpeg">
+    </center><br>
+    <center>
+        <img align = middle src = "../images/Movil3.jpeg">
+    </center><br>
+    <b>Web app:</b><br>
+    <center>
+        <img align = middle src = "../images/Web1.png">
+    </center><br>
+    <center>
+        <img align = middle src = "../images/Web2.png">
+    </center><br>
+    <center>
+        <img align = middle src = "../images/Web3.png">
+    </center><br>
+</div>
 
 #### 7.2.1.6. Services Documentation Evidence for Sprint Review
 
