@@ -222,6 +222,46 @@ La planificación del primer sprint se llevó a cabo mediante una reunión virtu
 | Suma total de Story Points asignados | 72 |
 
 #### 7.2.1.2. Sprint Backlog 1
+#### 7.2.1.2. Sprint Backlog 1
+
+El Sprint Backlog fue elaborado a partir de las historias de usuario priorizadas para el Sprint 1, enfocadas principalmente en la construcción de los servicios del backend y el flujo de onboarding en la aplicación móvil. A continuación, se detallan las historias seleccionadas junto con su epic asociado y la estimación de esfuerzo en *Story Points*.
+
+#### 7.2.1.2. Sprint Backlog 1
+
+El Sprint Backlog fue elaborado a partir de las historias de usuario priorizadas para el Sprint 1, enfocadas en la implementación del backend de usuarios, el flujo de onboarding móvil y la integración inicial del módulo de IA para generación de planes de entrenamiento personalizados.
+
+A continuación, se presenta un extracto del tablero de trabajo utilizado durante el Sprint 1, gestionado mediante **Trello**, donde se reflejó el avance de las tareas (To-do / In-Process / To-Review / Done).
+
+🔗 **Board público de Trello:** [https://trello.com/b/fitsense-sprint1](https://trello.com/b/fitsense-sprint1)
+
+---
+
+##### Tabla de Control de Estado — Sprint 1
+
+| **User Story** |  | **Work-Item / Task** | **Descripción** | **Estimación (Horas)** | **Asignado a** | **Estado** |
+|----------------|--|----------------------|-----------------|------------------------|----------------|-------------|
+| **US-33**<br>Crear Usuario (Sign-Up) a través de API | | T-01<br>Diseñar modelo de datos `User` en backend | Estructurar entidad `User` con validaciones | 3 | Juan Cuadros | Done |
+| | | T-02<br>Implementar endpoint `/api/users/signup` | Endpoint REST para registro de usuarios | 5 | Juan Cuadros | Done |
+| **US-34**<br>Autenticar Usuario (Sign-In) a través de API | | T-03<br>Crear endpoint `/api/users/login` | Validar credenciales y emitir token JWT | 4 | Adrian Rubio | In-Process |
+| **US-35**<br>Crear/Actualizar Perfil de Usuario | | T-04<br>Endpoint `/api/users/profile` | CRUD de información de perfil | 4 | Juan Calisaya | In-Process |
+| **US-36**<br>Obtener Perfil de Usuario | | T-05<br>GET `/api/users/profile/:id` | Devolver perfil de usuario autenticado | 2 | Fiorella Jarama | To-Review |
+| **US-05**<br>Registro rápido en aplicación móvil | | T-06<br>Diseñar interfaz de registro (Flutter) | Maquetado e integración con backend | 5 | Nadia Lucas | Done |
+| **US-06**<br>Inicio de sesión en aplicación móvil | | T-07<br>Implementar formulario de login | Conexión con API de autenticación | 3 | Adrian Rubio | Done |
+| **US-07**<br>Recuperación de contraseña | | T-08<br>Diseñar pantalla de recuperación | Flujo para envío de correo de restablecimiento | 3 | Fiorella Jarama | In-Process |
+| **US-08**<br>Configuración del perfil personal | | T-09<br>Diseñar formulario de perfil | Campos básicos (edad, peso, altura, sexo) | 3 | Juan Calisaya | In-Process |
+| **US-09**<br>Definición de objetivos fitness | | T-10<br>Implementar selector de objetivos | UI y validaciones de objetivos del usuario | 2 | Nadia Lucas | Done |
+| **US-10**<br>Evaluación del nivel de experiencia | | T-11<br>Diseñar test de experiencia | Determinar nivel según respuestas | 2 | Fiorella Jarama | To-Do |
+| **US-11**<br>Configuración de equipamiento disponible | | T-12<br>Crear interfaz de equipamiento | Permitir al usuario marcar equipos disponibles | 3 | Adrian Rubio | To-Do |
+| **US-37**<br>Generar Plan de Entrenamiento con IA | | T-13<br>Integrar API de recomendación | Llamadas al modelo IA con datos de usuario | 6 | Juan Cuadros | In-Process |
+| **US-12**<br>Generación inicial de plan personalizado con IA | | T-14<br>Desarrollar lógica de plan base | Generar rutina inicial según perfil | 5 | Juan Calisaya | In-Process |
+|  |  | **Total estimado:** |  | **50 horas** |  |  |
+
+---
+
+Las tareas descritas fueron gestionadas de manera colaborativa mediante **Trello** y **GitHub Projects**, con actualizaciones diarias en las reuniones de *daily stand-up*.  
+El avance se midió en función del estado de las tareas y los *commits* asociados en las ramas de desarrollo (`backend/sprint1`, `mobile/onboarding`, `ai/module`).
+
+
 
 #### 7.2.1.3. Development Evidence for Sprint Review
 
