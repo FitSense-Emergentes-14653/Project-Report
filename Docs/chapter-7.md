@@ -319,8 +319,8 @@ Los *Unit Tests* se implementaron con **Jest** (para Node.js) y **Flutter Test**
 |------------------|---------------|
 | [https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | Unit e Integration Tests de API REST |
 | [https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | Unit Tests para lógica de interfaz y validaciones |
-| [https://github.com/FitSense-Emergentes-14653/ChatBot-AI](https://github.com/FitSense-Emergentes-14653/ChatBot-AI) | Tests de integración IA + Backend |
-| **Acceptance Tests (BDD)** | *(Repositorio en configuración para Sprint 2)* |
+| [https://github.com/FitSense-Emergentes-14653/ChatBox-AI](https://github.com/FitSense-Emergentes-14653/ChatBox-AI) | Tests de integración IA + Backend |
+
 
 ---
 
@@ -339,18 +339,6 @@ Los *Unit Tests* se implementaron con **Jest** (para Node.js) y **Flutter Test**
   - Flujo completo: creación de usuario → configuración de perfil → generación de plan IA.  
   - Verificación de latencia y consistencia de datos.  
 
-- **Acceptance Tests (BDD)**  
-  - Escenarios escritos en `.feature` usando Gherkin.  
-  - Ejemplo:  
-    ```gherkin
-    Feature: Generación de plan de entrenamiento con IA
-      Scenario: Usuario registrado solicita un plan personalizado
-        Given que el usuario ha completado su perfil
-        When solicita un plan de entrenamiento
-        Then el sistema debe retornar un plan ajustado a sus métricas
-    ```
-  - Resultado: **3 escenarios ejecutados, 3 aprobados.**
-
 ---
 
 ##### c) Commits de testing realizados
@@ -360,8 +348,7 @@ Los *Unit Tests* se implementaron con **Jest** (para Node.js) y **Flutter Test**
 | [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `test/api-unit` | `b5f6c9a` | test: add unit tests for user endpoints | Implementación de pruebas unitarias para `/signup` y `/login`, con validación de JWT y respuestas HTTP. | 2025-11-10 |
 | [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `test/integration` | `e2a94d1` | test: integration tests for user profile flow | Pruebas de integración entre módulos de registro, perfil y plan IA. | 2025-11-11 |
 | [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `test/flutter-ui` | `a71c6e3` | test: add Flutter widget tests | Verificación de formularios de registro, login y validaciones visuales. | 2025-11-12 |
-| [ChatBot-AI](https://github.com/FitSense-Emergentes-14653/ChatBot-AI) | `test/ai-response` | `f9e58d2` | test: validate AI response generation | Pruebas de consistencia en la respuesta generada por la IA y manejo de prompts. | 2025-11-13 |
-| **Acceptance Tests (BDD)** | `test/feature-files` | `—` | docs: feature files for acceptance testing | Archivos `.feature` escritos en lenguaje Gherkin para las HU US-12 y US-37. | 2025-11-14 |
+| [ChatBox-AI](https://github.com/FitSense-Emergentes-14653/ChatBox-AI) | `test/ai-response` | `f9e58d2` | test: validate AI response generation | Pruebas de consistencia en la respuesta generada por la IA y manejo de prompts. | 2025-11-13 |
 
 ---
 
@@ -375,6 +362,7 @@ Los *Unit Tests* se implementaron con **Jest** (para Node.js) y **Flutter Test**
 > **Conclusión:**  
 > La suite de testing permitió validar el cumplimiento de todas las historias de usuario planificadas.  
 > Las pruebas unitarias e integradas demostraron la estabilidad del sistema, mientras que los *Acceptance Tests* confirmaron la satisfacción de los criterios de aceptación definidos en la planificación del Sprint 1.
+
 
 
 #### 7.2.1.5. Execution Evidence for Sprint Review.
