@@ -386,13 +386,52 @@ Las ejecuciones fueron documentadas mediante capturas, registros de consola y ve
     </center><br>
     <b>Mobile app:</b><br>
     <center>
-        <img align = middle src = "../images/Movil1.jpeg">
+        <img align = middle src = "../img/chapter-7/1.0 Mobil APP.png">
     </center><br>
-    <center>
-        <img align = middle src = "../images/Movil2.jpeg">
+        <center>
+        <img align = middle src = "../img/chapter-7/1.1 Mobil APP.png">
     </center><br>
-    <center>
-        <img align = middle src = "../images/Movil3.jpeg">
+        <center>
+        <img align = middle src = "../img/chapter-7/1.2 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.3 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.4 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.5 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.6 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.7 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.8 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.9 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.10 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.11 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.12 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.13 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.14 Mobil APP.png">
+    </center><br>
+        <center>
+        <img align = middle src = "../img/chapter-7/1.15 Mobil APP.png">
     </center><br>
     <b>Web app:</b><br>
     <center>
