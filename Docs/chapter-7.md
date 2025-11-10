@@ -490,7 +490,7 @@ Durante el Sprint 1 se documentaron los servicios desarrollados en el backend y 
 
 <p>
     <center>
-        <img align = middle src = "../images/ Network graph backend.png">
+        <img align = middle src = "../images/Network graph backend.png">
     </center>
 </p>
 
@@ -498,7 +498,7 @@ Durante el Sprint 1 se documentaron los servicios desarrollados en el backend y 
 
 <p>
     <center>
-        <img align = middle src = "../images/ Network graph chatbox.png">
+        <img align = middle src = "../images/Network graph chatbox.png">
     </center>
 </p>
 
@@ -506,7 +506,7 @@ Durante el Sprint 1 se documentaron los servicios desarrollados en el backend y 
 
 <p>
     <center>
-        <img align = middle src = "../images/ Network graph mobile.png">
+        <img align = middle src = "../images/Network graph mobile.png">
     </center>
 </p>
 
