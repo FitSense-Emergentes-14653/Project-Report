@@ -480,47 +480,7 @@ Durante el Sprint 1 se documentaron los servicios desarrollados en el backend y 
 | PUT | `/api/v1/users/profile` | Crear/actualizar perfil | Bearer JWT | JSON: `name, age, height, weight, gender, level, equipment[]` | 200 OK, 400, 401 |
 | POST | `/api/v1/training-plan` | Solicitar plan a IA (proxy) | Bearer JWT | JSON: métricas y objetivos | 200 OK, 400, 401, 502 |
 
-**Autorización:** `Authorization: Bearer <token>`  
-**Formato:** `Content-Type: application/json`
-
-**Ejemplo de uso:**
-
-```bash
-# Iniciar sesión
-curl -X POST https://fitsense-backend.onrender.com/api/v1/authentication/sign-in \
-  -H "Content-Type: application/json" \
-  -d '{"email":"adrianrc@upc.pe","password":"adrian"}'
-
-# Consultar atletas (requiere token)
-curl -X GET https://fitsense-backend.onrender.com/api/v1/athletes \
-  -H "Authorization: Bearer <JWT>"
-
-##### c) Endpoints principales (ChatBox AI)
-
-| **Método** | **Path** | **Descripción** | **Auth** | **Request (body)** | **Response** |
-|-------------|-----------|-----------------|-----------|--------------------|--------------|
-| POST | `/api/v1/ai/training-plan` | Genera plan personalizado con IA | Bearer JWT / API Key | `age, gender, height, weight, level, goal, equipment[]` | `200 OK`: `plan{ days[], exercises[], notes }` |
-| POST | `/api/v1/ai/chat` | Respuesta contextual del asistente | Bearer JWT | `messages[]` estilo chat | `200 OK`: `reply` |
-
-> En este sprint, el backend expone `/api/v1/training-plan` como **proxy** hacia ChatBox AI.
-
----
-
-##### d) Esquema de base de datos (MySQL)
-
-**Tablas principales**
-- `users(id, email, password_hash, role, created_at)`
-- `profiles(id, user_id, name, age, height_cm, weight_kg, gender, level, created_at, updated_at)`
-- `equipment(id, user_id, name)`
-- `plans(id, user_id, goal, payload_json, created_at)`
-
-**Relaciones**
-- `users (1) — (1) profiles`
-- `users (1) — (n) equipment`
-- `users (1) — (n) plans`
-
-
-###### 7.2.2.7. Software Deployment Evidence for Sprint Review.
+##### 7.2.2.7. Software Deployment Evidence for Sprint Review.
 
 <p align = justify>Para el despliegue se utilizó una máquina virtual para su persistencia considerando una arquitectura modular. También se ha desarrollado el frotend del web y móvil.
 
@@ -615,3 +575,5 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
 ### 7.3.3. Evaluaciones según heurísticas
 
 ## 7.4. Video About-the-Product
+
+
