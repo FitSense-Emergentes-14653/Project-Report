@@ -237,7 +237,6 @@ A continuación, se muestra la tabla de control de estado de los *Work Items* ge
 </p>
 
 🔗 **Trello Board:** [https://trello.com/b/fitsense-sprint1](https://trello.com/invite/b/69116af5e9faa3422cb867d6/ATTIede21f935e76a32aea83720e6d5490026C6D75CF/fitsense)  
-📸 *Ver Figura 7.2.1.2.1 — Tablero Kanban del Sprint 1 (To-Do / In-Progress / Done)*
 
 ---
 
@@ -269,6 +268,41 @@ A continuación, se muestra la tabla de control de estado de los *Work Items* ge
 
 
 #### 7.2.1.3. Development Evidence for Sprint Review
+
+Durante el Sprint 1 se completó el desarrollo de todos los componentes planificados, cumpliendo los objetivos técnicos definidos en la fase de planificación.  
+El equipo implementó los módulos principales del **backend**, la **aplicación móvil (onboarding)**, la **Landing Page**, y el **ChatBot AI**.  
+A continuación, se presentan las evidencias de desarrollo organizadas por repositorio y commit.
+
+---
+
+##### Tabla 7.2.1.3.1 — Commits Relevantes del Sprint 1
+
+| **Repository** | **Branch** | **Commit ID** | **Commit Message** | **Commit Message Body** | **Committed on (Date)** |
+|----------------|-------------|---------------|--------------------|--------------------------|--------------------------|
+| [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `feature/api-users` | `7f3ac12` | feat: add user signup & login endpoints | Implementación de endpoints `/signup` y `/login` con validaciones y JWT para autenticación. | 2025-11-06 |
+| [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `feature/profile` | `98cde41` | feat: update and get user profile | CRUD de perfil de usuario y conexión con ChatBot-AI. | 2025-11-07 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/onboarding-ui` | `a5b90c3` | feat: create registration and login screens | Creación de pantallas de registro, login y flujo de configuración de perfil. | 2025-11-08 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/profile-settings` | `d8b12f9` | feat: profile configuration UI | Interfaz para definición de objetivos fitness y selección de equipamiento. | 2025-11-09 |
+| [ChatBot-AI](https://github.com/FitSense-Emergentes-14653/ChatBot-AI) | `feature/ai-training-plan` | `cc4d2a5` | feat: AI training plan generator | Integración con modelo IA para generar planes personalizados según métricas de usuario. | 2025-11-10 |
+| [Landing-Page](https://github.com/FitSense-Emergentes-14653/Landing-Page) | `feature/main-sections` | `fb72a19` | feat: implement main sections and navbar | Creación de secciones Inicio, Características y Contacto con diseño responsivo. | 2025-11-11 |
+| [Landing-Page](https://github.com/FitSense-Emergentes-14653/Landing-Page) | `feature/footer` | `e4a9d88` | fix: update footer links and styles | Actualización de estilos y enlaces en el footer de la página. | 2025-11-12 |
+| [ChatBot-AI](https://github.com/FitSense-Emergentes-14653/ChatBot-AI) | `feature/api-connection` | `b0f2d34` | fix: optimize API call latency | Optimización del consumo de la API de OpenAI y formato de respuestas. | 2025-11-13 |
+| [Project-Report](https://github.com/FitSense-Emergentes-14653/Project-Report) | `chapter-7` | `9a3f64b` | docs: add sprint 1 execution report | Registro de evidencias de planificación, backlog y desarrollo en capítulo 7. | 2025-11-15 |
+
+---
+
+##### Resumen de avances
+
+- **Total de commits registrados:** 9  
+- **Repositorios involucrados:** 5  
+- **Porcentaje de historias completadas:** 100% (46 Story Points)  
+- **Velocidad alcanzada:** 46/46 puntos (100%)  
+- **Estado general del Sprint:** ✅ Completado con éxito  
+
+> **Conclusión:**  
+> Los commits registrados evidencian el progreso sostenido y la colaboración entre los subequipos de backend, mobile y IA.  
+> Cada módulo fue integrado, probado y versionado de acuerdo con el flujo de desarrollo definido en la metodología Scrum utilizada por el equipo FitSense.
+
 
 #### 7.2.1.4. Testing Suite Evidence for Sprint Review
 
