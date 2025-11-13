@@ -578,8 +578,8 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
 ![Entrevista a Eduardo](../img/chapter-7/interview1_fiorella.png)  
 *Entrevista a Eduardo
 
-**Resumen:**  
-Eduardo de 60 años y principiante en el ejercicio, tuvo una experiencia positiva con FitSense. Destacó su interfaz limpia, navegación sencilla y registro rápido. Encontró útiles el perfil, los objetivos y el plan generado por inteligencia artificial, adecuado a su nivel. Valoró el plan semanal, el registro de progreso y el diseño visual, aunque comentó que el chatbot a veces daba respuestas generales. Sugirió agregar videos y conexión con smartwatch. Se sintió seguro con sus datos y afirmó que seguiría usando y recomendando la app por su practicidad y enfoque para principiantes.
+**Resumen:**  Eduardo de 60 años y principiante en el ejercicio, tuvo una experiencia positiva con FitSense. Destacó su interfaz limpia, navegación sencilla y registro rápido. Encontró útiles el perfil, los objetivos y el plan generado por inteligencia artificial, adecuado a su nivel. Valoró el plan semanal, el registro de progreso y el diseño visual, aunque comentó que el chatbot a veces daba respuestas generales. Sugirió agregar videos y conexión con smartwatch. Se sintió seguro con sus datos y afirmó que seguiría usando y recomendando la app por su practicidad y enfoque para principiantes.
+
 ---
 
 ####  **Entrevista N.º 2**
