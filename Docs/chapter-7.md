@@ -518,9 +518,7 @@ Las entrevistas de validación se realizaron con usuarios potenciales de la apli
 
 Durante las sesiones, se presentó el prototipo funcional y se permitió a los entrevistados navegar libremente por la aplicación, observando su comportamiento e impresiones. Posteriormente, se formularon preguntas estructuradas para recoger información cualitativa sobre su experiencia de uso.
 
-Las entrevistas se clasificaron en dos grupos:
-- **Usuarios finales (atletas o interesados en fitness)**
-- **Stakeholders / expertos en tecnología o entrenamiento físico**
+Las entrevistas se haran para los **Usuarios finales (atletas o interesados en fitness)**
 
 ---
 
@@ -530,17 +528,7 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
 
 ---
 
-##### 🧩 Preguntas generales a los stakeholders / expertos:
-
-1. ¿Cómo percibe la propuesta de FitSense como asistente integral de salud y fitness con IA?  
-2. ¿Considera que la aplicación cubre adecuadamente las necesidades de personalización de los usuarios?  
-3. ¿Qué opinión le merece la integración entre el ChatBot AI, el backend y la aplicación móvil?  
-4. ¿Qué aspectos mejoraría para que FitSense pueda escalar a nivel comercial o institucional?  
-5. ¿Qué recomendaciones haría respecto a la gestión de datos personales y métricas de salud?
-
----
-
-##### 💬 Preguntas generales al usuario final (atleta o interesado):
+##### 💬 Preguntas al usuario final (atleta o interesado):
 
 1. ¿Qué impresión general te genera la interfaz de FitSense al primer uso?  
 2. ¿La navegación dentro de la app te resultó intuitiva?  
@@ -571,6 +559,71 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
 ---
 
 ### 7.3.2. Registro de Entrevistas
+
+####  **Entrevista N.º 1**
+
+- **Entrevistador:** Fiorella Jarama
+- **Entrevistado:** Eduardo 
+- **Duración:** [00:00:00 – 00:00:00] (****)  
+
+- **Datos demográficos:**
+  - Nombre: Eduardo
+  - Edad: 60 años
+  - Ubicación: Lima, Perú
+  - Ocupación: Contador jubilado (asesor independiente)
+  - Nivel educativo: - 
+  - Nivel de actividad física: Principiante (recién iniciando rutinas de ejercicio)
+  - Dispositivos tecnológicos utilizados: Smartphone Android, smartwatch básico, laptop personal
+
+![Entrevista a Eduardo](../img/chapter-7/interview1_fiorella.png)  
+*Entrevista a Eduardo
+
+**Resumen:**  
+Eduardo de 60 años y principiante en el ejercicio, tuvo una experiencia positiva con FitSense. Destacó su interfaz limpia, navegación sencilla y registro rápido. Encontró útiles el perfil, los objetivos y el plan generado por inteligencia artificial, adecuado a su nivel. Valoró el plan semanal, el registro de progreso y el diseño visual, aunque comentó que el chatbot a veces daba respuestas generales. Sugirió agregar videos y conexión con smartwatch. Se sintió seguro con sus datos y afirmó que seguiría usando y recomendando la app por su practicidad y enfoque para principiantes.
+---
+
+####  **Entrevista N.º 2**
+
+- **Entrevistador:** 
+- **Entrevistado:** 
+- **Duración:** [00:00:00 – 00:00:00] (****)  
+
+- **Datos demográficos:**
+  - Nombre: 
+  - Edad: 
+  - Ubicación:
+  - Ocupación: 
+  - Nivel educativo: 
+  - Nivel de actividad física: 
+  - Dispositivos tecnológicos utilizados: 
+
+![Entrevista a ------](..PNG)  
+*Entrevista a --------*
+
+**Resumen:**  
+.
+---
+
+####  **Entrevista N.º 3**
+
+- **Entrevistador:** 
+- **Entrevistado:** 
+- **Duración:** [00:00:00 – 00:00:00] (****)  
+
+- **Datos demográficos:**
+  - Nombre: 
+  - Edad: 
+  - Ubicación:
+  - Ocupación: 
+  - Nivel educativo: 
+  - Nivel de actividad física: 
+  - Dispositivos tecnológicos utilizados: 
+
+![Entrevista a ------]()  
+*Entrevista a --------*
+
+**Resumen:**  
+.
 
 ### 7.3.3. Evaluaciones según heurísticas
 
