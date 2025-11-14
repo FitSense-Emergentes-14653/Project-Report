@@ -84,10 +84,6 @@ Gracias a este proceso de pruebas, se asegura que FitSense mantenga altos están
   <a href="https://github.com/FitSense-Emergentes-14653/Project-Report" target="_blank">https://github.com/FitSense-Emergentes-14653/Project-Report</a>
 </p>
 
-<p><em><strong>URL de repositorio de Acceptance Tests:</strong></em> 
-  <a href="" target="_blank"></a>
-</p>
-
 <p><em><strong>URL de repositorio del Backend:</strong></em> 
   <a href="https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services" target="_blank">https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services</a>
 </p>
