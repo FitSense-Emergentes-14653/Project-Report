@@ -602,24 +602,31 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
 
 ####  **Entrevista N.º 3**
 
-- **Entrevistador:** 
-- **Entrevistado:** 
-- **Duración:** [00:00:00 – 00:00:00] 
+- **Entrevistador: Juan Calisaya ** 
+- **Entrevistado: Tyrone Sotil ** 
+- **Duración:** [00:00:00 – 00:04:01] 
 
 - **Datos demográficos:**
-  - Nombre: 
-  - Edad: 
-  - Ubicación:
-  - Ocupación: 
-  - Nivel educativo: 
-  - Nivel de actividad física: 
-  - Dispositivos tecnológicos utilizados: 
+  - Nombre: Tyrone Sotil
+  - Edad: 22 años
+  - Ubicación: Zárate - San Juan de Lurigancho
+  - Ocupación: Trabaja en una empresa inmobiliaria
+  - Nivel educativo: Superior
+  - Nivel de actividad física: Principiante
+  - Dispositivos tecnológicos utilizados: Smartphone IOs, smartwatch, equipo personal (PC)
 
-![Entrevista a ------]()  
-*Entrevista a --------*
+![Entrevista a Tyrone](../img/chapter-7/ENTREVISTA_TYRONE.jpg)
+*Entrevista a Tyrone Sotil*
 
-**Resumen:**  hola
-.
+**Resumen:**  Vasquez Tyrone, estudiante de la UPC y trabajador en una empresa inmobiliaria, residente en Zárate – San Juan de Lurigancho, compartió una experiencia mayormente positiva tras probar FitSense.
+
+Tyrone comentó que la aplicación ofrece una interfaz moderna, limpia y fácil de entender, lo que facilitó su uso desde el primer momento. La navegación le pareció intuitiva y el proceso de registro fue rápido y claro. Además, consideró útil la sección para crear el perfil y definir objetivos, ya que le permitió personalizar su experiencia.
+
+Destacó que los planes generados con inteligencia artificial fueron comprensibles y se ajustaron bien a sus metas. El chatbot también cumplió con sus expectativas al brindar respuestas claras y coherentes. Sobre las funcionalidades, valoró especialmente los planes personalizados y el seguimiento de progreso semanal.
+
+En cuanto al rendimiento, señaló que la app respondió con buena velocidad y que el diseño visual es agradable, organizado y adaptable a diferentes dispositivos. Expresó sentirse seguro respecto al manejo de sus datos personales.
+
+Como sugerencia, Tyrone propuso añadir la integración con dispositivos externos como smartwatches. En general, recomienda FitSense a otras personas interesadas en fitness y mencionó que es muy probable que continúe usándola en el futuro.
 
 ### 7.3.3. Evaluaciones según heurísticas
 
