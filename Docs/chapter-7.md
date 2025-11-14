@@ -460,8 +460,8 @@ Durante el Sprint 1 se documentaron los servicios desarrollados en el backend y 
 | Colecciones Postman | — | `/docs/postman/FitSense.postman_collection.json` |
 
 **Entornos de documentación:**
-- Backend (Swagger UI): https://fitsense-backend.onrender.com/api-docs  
-- ChatBox AI (Swagger UI): https://fitsense-ai.onrender.com/api-docs
+- Backend (Swagger UI): https://fitsense-backend-services-production.up.railway.app/swagger-ui/index.html 
+- ChatBox AI (Swagger UI): https://chatbox-ai-production-6ead.up.railway.app/docs/#/
 
 ---
 
