@@ -564,7 +564,7 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
 
 - **Entrevistador:** Fiorella Jarama
 - **Entrevistado:** Eduardo 
-- **Duración:** [00:00:00 – 00:00:00] (****)  
+- **Duración:** [00:00:00 – 00:00:00]   
 
 - **Datos demográficos:**
   - Nombre: Eduardo
@@ -576,7 +576,7 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
   - Dispositivos tecnológicos utilizados: Smartphone Android, smartwatch básico, laptop personal
 
 ![Entrevista a Eduardo](../img/chapter-7/interview1_fiorella.png)  
-*Entrevista a Eduardo
+*Entrevista a Eduardo*
 
 **Resumen:**  Eduardo de 60 años y principiante en el ejercicio, tuvo una experiencia positiva con FitSense. Destacó su interfaz limpia, navegación sencilla y registro rápido. Encontró útiles el perfil, los objetivos y el plan generado por inteligencia artificial, adecuado a su nivel. Valoró el plan semanal, el registro de progreso y el diseño visual, aunque comentó que el chatbot a veces daba respuestas generales. Sugirió agregar videos y conexión con smartwatch. Se sintió seguro con sus datos y afirmó que seguiría usando y recomendando la app por su practicidad y enfoque para principiantes.
 
@@ -584,31 +584,31 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
 
 ####  **Entrevista N.º 2**
 
-- **Entrevistador:** 
-- **Entrevistado:** 
-- **Duración:** [00:00:00 – 00:00:00] (****)  
+- **Entrevistador:** Juan Cuadros
+- **Entrevistado:** Diego Bazan 
+- **Duración:** [00:00:00 – 08:05:00] 
 
 - **Datos demográficos:**
-  - Nombre: 
-  - Edad: 
-  - Ubicación:
-  - Ocupación: 
-  - Nivel educativo: 
-  - Nivel de actividad física: 
-  - Dispositivos tecnológicos utilizados: 
+  - Nombre: Diego Bazán
+  - Edad: 23 años
+  - Ubicación: Lince
+  - Ocupación: Practicante de Comercio Exterior
+  - Nivel educativo: Universitario
+  - Nivel de actividad física: Avanzado
+  - Dispositivos tecnológicos utilizados: Smartphone IOs, smartwatch, laptop personal 
 
-![Entrevista a ------](..PNG)  
-*Entrevista a --------*
+![Entrevista a Diego Bazán](../img/chapter-7/diegobazanfitsense.png)  
+*Entrevista a Diego Bazán*
 
-**Resumen:**  
-.
+**Resumen:** Diego destacó la importancia de contar con un chatbot capaz de adaptarse a las necesidades del usuario en cada momento, resaltando el uso de la inteligencia artificial como una herramienta sumamente valiosa. Consideró especialmente útil que la IA pueda generar objetivos y planes personalizados, ajustados a lo que el usuario requiere. Además, valoró positivamente los planes mensuales, el registro de progreso y la paleta de colores, la cual describió como llamativa y con un estilo futurista. Finalmente, mencionó que sería muy interesante integrar dispositivos externos para medir calorías y pulsaciones directamente desde la aplicación.
+
 ---
 
 ####  **Entrevista N.º 3**
 
 - **Entrevistador:** 
 - **Entrevistado:** 
-- **Duración:** [00:00:00 – 00:00:00] (****)  
+- **Duración:** [00:00:00 – 00:00:00] 
 
 - **Datos demográficos:**
   - Nombre: 
@@ -622,7 +622,7 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
 ![Entrevista a ------]()  
 *Entrevista a --------*
 
-**Resumen:**  
+**Resumen:**  hola
 .
 
 ### 7.3.3. Evaluaciones según heurísticas
