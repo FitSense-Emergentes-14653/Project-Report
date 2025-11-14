@@ -631,6 +631,31 @@ Como sugerencia, Tyrone propuso añadir la integración con dispositivos externo
 
 ### 7.3.3. Evaluaciones según heurísticas
 
+Para evaluar la usabilidad de la versión actual de FitSense (Sprint 1), se realizó un análisis basado en las **10 Heurísticas de Usabilidad de Jakob Nielsen**. Se inspeccionaron las interfaces de la aplicación móvil (Onboarding, Perfil, ChatBot) y la Web desplegadas en este sprint.
+
+**Escala de Severidad Utilizada:**
+* **0:** Sin problema de usabilidad.
+* **1:** Problema cosmético (no urge arreglar).
+* **2:** Problema menor (baja prioridad).
+* **3:** Problema mayor (alta prioridad).
+* **4:** Catástrofe de usabilidad (imprescindible arreglar antes del lanzamiento).
+
+### Tabla de Resultados de la Evaluación
+
+| ID | Heurística | Observación en FitSense (Sprint 1) | Severidad (0-4) | Recomendación |
+| :--- | :--- | :--- | :---: | :--- |
+| **H1** | **Visibilidad del estado del sistema** | En la interacción con el **FitBot**, al enviar un mensaje, no hay un indicador visual claro de "escribiendo" mientras la IA procesa la respuesta. | 2 | Implementar una animación de *typing* (tres puntos) mientras se espera la respuesta del endpoint `/api/chat`. |
+| **H2** | **Coincidencia entre sistema y mundo real** | El lenguaje en el flujo de configuración ("Mancuernas", "Perder Peso", "Principiante") coincide con el vocabulario natural de los atletas. | 0 | Mantener la terminología actual. |
+| **H3** | **Control y libertad del usuario** | El botón "Atrás" (<) está presente y funcional en todas las pantallas del Onboarding, permitiendo corregir selecciones previas. | 0 | Correcta implementación de navegación reversible. |
+| **H4** | **Consistencia y estándares** | Se mantiene la consistencia en la paleta de colores (Púrpura `#7E57C2`) y la ubicación de los botones de acción ("Siguiente") en la parte inferior de la pantalla. | 0 | El UI Kit se respeta consistentemente en Mobile y Web. |
+| **H5** | **Prevención de errores** | En el formulario web de *Reset Password*, no se valida en tiempo real si las contraseñas coinciden antes de dar clic en el botón de enviar. | 2 | Agregar validación *inline* con mensaje de error en rojo si los campos no coinciden. |
+| **H6** | **Reconocer en lugar de recordar** | La pantalla de "Configuración" muestra un resumen claro de los datos ingresados (Peso, Altura, Meta), evitando que el usuario tenga que memorizar su perfil. | 0 | Buen diseño de la ficha de resumen del atleta. |
+| **H7** | **Estética y diseño minimalista** | Las pantallas de selección de datos (Edad, Peso) son limpias y no presentan información irrelevante que distraiga de la tarea principal. | 0 | Diseño adecuado para reducir la carga cognitiva en móviles. |
+| **H8** | **Ayuda y documentación** | El ChatBot ofrece botones de sugerencia rápida ("Ver mi rutina", "Ideas de nutrición") para guiar al usuario en la interacción inicial. | 1 | Agregar un pequeño mensaje de bienvenida tipo *tooltip* en el primer uso explicando el alcance de la IA. |
+
+### Conclusión de la Evaluación
+La evaluación del Sprint 1 arroja un resultado positivo en cuanto a la arquitectura de información y diseño visual (**H7**, **H4**). Las principales oportunidades de mejora detectadas (**H1**, **H5**) son de severidad baja/media y están relacionadas con la retroalimentación visual durante los tiempos de espera y validaciones de formularios, las cuales serán priorizadas en el *Backlog* del siguiente Sprint.
+
 ## 7.4. Video About-the-Product
 
 En el vídeo se proporciona información sobre el producto FitSense. Se mencionan las diferentes funcionalidades de la aplicación como son el uso del chatbot potenciado con IA.
