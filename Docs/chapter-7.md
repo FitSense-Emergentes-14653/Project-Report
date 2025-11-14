@@ -616,6 +616,7 @@ Validar la propuesta de valor de FitSense y determinar el grado de aceptación, 
   - Dispositivos tecnológicos utilizados: Smartphone IOs, smartwatch, equipo personal (PC)
 
 ![Entrevista a Tyrone](../img/chapter-7/ENTREVISTA_TYRONE.jpg)
+
 *Entrevista a Tyrone Sotil*
 
 **Resumen:**  Vasquez Tyrone, estudiante de la UPC y trabajador en una empresa inmobiliaria, residente en Zárate – San Juan de Lurigancho, compartió una experiencia mayormente positiva tras probar FitSense.
