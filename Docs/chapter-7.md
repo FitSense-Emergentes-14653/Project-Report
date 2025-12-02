@@ -476,11 +476,11 @@ Durante el Sprint 1 se documentaron los servicios desarrollados en el backend y 
 | PUT | `/api/v1/users/profile` | Crear/actualizar perfil | Bearer JWT | JSON: `name, age, height, weight, gender, level, equipment[]` | 200 OK, 400, 401 |
 | POST | `/api/v1/training-plan` | Solicitar plan a IA (proxy) | Bearer JWT | JSON: métricas y objetivos | 200 OK, 400, 401, 502 |
 
-##### 7.2.2.7. Software Deployment Evidence for Sprint Review.
+##### 7.2.1.7. Software Deployment Evidence for Sprint Review.
 
 <p align = justify>Para el despliegue se utilizó una máquina virtual para su persistencia considerando una arquitectura modular. También se ha desarrollado el frotend del web y móvil.
 
-###### 7.2.2.8. Team Collaboration Insights during Sprint.
+###### 7.2.1.8. Team Collaboration Insights during Sprint.
 
 ## Networking del backend:
 
@@ -505,6 +505,429 @@ Durante el Sprint 1 se documentaron los servicios desarrollados en el backend y 
         <img align = middle src = "../img/chapter-7/Network graph mobile.png">
     </center>
 </p>
+
+### 7.2.2. Sprint 2
+
+#### 7.2.2.1. Sprint Planning 2
+
+La planificación del segundo sprint se llevó a cabo mediante una reunión virtual a través de Google Meet. Durante esta sesión, el equipo acordó los objetivos del sprint, seleccionó las historias de usuario priorizadas y definió la capacidad de trabajo (*velocity*) para el periodo. 
+
+El Sprint 2 fue posteriormente **ejecutado en su totalidad**, cumpliendo con las metas establecidas durante esta sesión de planificación. La siguiente tabla resume la información discutida y registrada.
+
+#### 7.2.2.1. Sprint Planning 2
+
+La planificación del segundo sprint se llevó a cabo mediante una reunión virtual a través de Google Meet. Durante esta sesión, el equipo acordó los objetivos del sprint, seleccionó las historias de usuario priorizadas y definió la capacidad de trabajo (*velocity*) para el periodo. 
+
+El Sprint 2 fue posteriormente **ejecutado en su totalidad**, cumpliendo con las metas establecidas durante esta sesión de planificación. La siguiente tabla resume la información discutida y registrada.
+
+| **Elemento** | **Detalle** |
+|--------------|-------------|
+| **Sprint #** | Sprint 2 |
+| **Sprint Planning Background** | Planificación final del proyecto FitSense, enfocada en el desarrollo del **servicio de notificaciones**, la **gamificación y seguimiento de rutinas**, y el **seguimiento de la hidratación y las calorías quemadas por el usuario**. |
+| **Fecha de planificación** | 2025-11-24 |
+| **Ejecución del Sprint** | 2025-11-24 al 2025-12-01 |
+| **Lugar** | Virtual (Google Meet / GitHub / Trello) |
+| **Preparado por** | Cuadros Rodríguez, Juan Alejandro |
+| **Participantes** | - Cuadros Rodríguez, Juan Alejandro<br> - Jarama Peñaloza, Fiorella<br> - Lucas Coronel, Nadia Alessandra<br> - Calisaya Sánchez, Juan Jesús<br> - Rubio Calixto, Adrian Gustavo |
+| **Resumen del Sprint n–1 (Review)** | El anterior sprint se centró en integrar al agente planificador de rutinas, permitiendo generar recomendaciones personalizadas de entrenamiento en base al perfil inicial del usuario. |
+| **Resumen del Sprint n–1 (Retrospectiva)** | El anterior sprint dejó como principales hallazgos la necesidad de **mejorar la estimación de esfuerzo** para las integraciones con servicios externos y de **formalizar criterios de definición de terminado (DoD)** para las funcionalidades de IA. Asimismo, se identificó la importancia de **documentar mejor los acuerdos técnicos** en GitHub para reducir retrabajos en futuros sprints. |
+| **Sprint Goal & User Stories** | **Sprint Goal:** Desarrollar y consolidar las funcionalidades de **notificaciones inteligentes**, **gamificación** y **seguimiento diario (rutinas, hidratación y calorías)** para incrementar la constancia, el engagement y la visibilidad del progreso del usuario en FitSense.<br><br>Las historias de usuario incluidas fueron: **US-15, US-16, US-17, US-18, US-19, US-20, US-21, US-22, US-23, US-24, US-28, US-29, US-30, US-31, US-32, US-39, US-40.** |
+| **Velocidad del Sprint (Story Points esperados)** | 46 |
+| **Suma total de Story Points completados** | 46 |
+| **Estado del Sprint** | ✅ Completado con éxito |
+
+#### 7.2.2.2. Sprint Backlog 2
+
+#### 7.2.2.2. Sprint Backlog 2
+
+El Sprint Backlog correspondiente al **Sprint 2** fue elaborado durante la planificación realizada el **24 de noviembre de 2025**.  
+Este sprint se centró en el desarrollo de los módulos de **notificaciones inteligentes**, **gamificación**, **seguimiento diario del usuario (entrenamientos, comidas, hidratación)** y la **visualización del progreso mediante dashboards y métricas gráficas**.
+
+La duración del Sprint 2 fue de **una semana (24 de noviembre – 1 de diciembre de 2025)**, y todas las historias de usuario fueron completadas según lo programado.
+
+A continuación se detalla la tabla de *Work Items* gestionados en el tablero de Trello:
+
+<p align="center">
+  <img src="../img/chapter-7/sprint_backlog_2.JPG" alt="Trello Sprint 2 - FitSense" width="600">
+</p>
+
+🔗 **Trello Board:**
+https://trello.com/b/UXVKOFEL/fitsense
+
+---
+
+| **User Story** |  | **Work-Item / Task** | **Descripción** | **Estimación (Horas)** | **Asignado a** | **Estado** |
+|----------------|--|----------------------|-----------------|------------------------|----------------|-------------|
+| **US-15**<br>Registro rápido de entrenamientos | | T-01<br>Implementar registro de entrenamientos | Registrar sesión con fecha, hora y duración | 3 | Juan Calisaya | ✅ Done |
+| **US-15** | | T-02<br>Notas de entrenamiento | Agregar campo opcional para notas del usuario | 2 | Juan Calisaya | ✅ Done |
+| **US-16**<br>Registro de comidas y calorías | | T-03<br>Búsqueda rápida de alimentos | Integración con base nutricional | 4 | Fiorella Jarama | ✅ Done |
+| **US-16** | | T-04<br>Escaneo de códigos de barras | Implementar lector y parseo de datos | 4 | Adrián Rubio | ✅ Done |
+| **US-17**<br>Editar/eliminar comidas | | T-05<br>CRUD de comidas registradas | Modificar/eliminar registros y recalcular calorías | 3 | Fiorella Jarama | ✅ Done |
+| **US-18**<br>Seguimiento de hidratación | | T-06<br>Registro rápido de agua | Botón de registro inmediato | 2 | Juan Calisaya | ✅ Done |
+| **US-18** | | T-07<br>Porciones personalizadas | Configurar tamaños de recipientes | 2 | Nadia Lucas | ✅ Done |
+| **US-19**<br>Dashboard general | | T-08<br>Diseño UI del dashboard | Maquetación en Flutter y estructura de tarjetas | 4 | Nadia Lucas | ✅ Done |
+| **US-20**<br>Gráficos de peso | | T-09<br>Implementar gráfico de línea | Evolución del peso registrado | 3 | Juan Cuadros | ✅ Done |
+| **US-21**<br>IMC visual | | T-10<br>Cálculo automático de IMC | Recalcular IMC al actualizar peso | 2 | Juan Cuadros | ✅ Done |
+| **US-22**<br>Balance calórico visual | | T-11<br>Gráfico de calorías consumidas vs. quemadas | Tendencia semanal y diaria | 4 | Fiorella Jarama | ✅ Done |
+| **US-23**<br>Insignias y logros | | T-12<br>Sistema de logros | Reglas, detección de hitos y almacenamiento | 5 | Adrián Rubio | ✅ Done |
+| **US-23** | | T-13<br>UI de insignias | Diseño visual y estados de progreso | 3 | Nadia Lucas | ✅ Done |
+| **US-24**<br>Desafíos y competencias | | T-14<br>Desafíos grupales | Implementar ranking y progreso individual | 5 | Juan Cuadros | ✅ Done |
+| **US-24** | | T-15<br>Desafíos personalizados | Configuración de metas automáticas | 3 | Fiorella Jarama | ✅ Done |
+| **US-28**<br>Recordatorios de entrenamiento | | T-16<br>Scheduler de notificaciones | Enviar alertas basadas en horario | 4 | Adrián Rubio | ✅ Done |
+| **US-29**<br>Alertas de hidratación | | T-17<br>Notificaciones inteligentes | Ajuste según actividad y horarios de sueño | 3 | Juan Calisaya | ✅ Done |
+| **US-30**<br>Notificaciones de progreso | | T-18<br>Resúmenes semanales | Generar notificación resumen automática | 3 | Juan Cuadros | ✅ Done |
+| **US-31**<br>Personalización de notificaciones | | T-19<br>Módulo de preferencias | Control granular de notificaciones | 3 | Fiorella Jarama | ✅ Done |
+| **US-32**<br>Backend: recordatorios | | T-20<br>API de programación | Endpoints para administrar horarios de recordatorio | 4 | Juan Cuadros | ✅ Done |
+| **US-39**<br>Backend: dashboard | | T-21<br>Endpoint `/progress` | Devolver peso, IMC, calorías y tendencias | 4 | Juan Calisaya | ✅ Done |
+| **US-40**<br>Registrar token push | | T-22<br>API para registrar token del dispositivo | Asociar token a usuario para FCM | 2 | Adrián Rubio | ✅ Done |
+| | | **Total estimado:** |  | **73 horas** |  | ✅ 100% completado |
+
+---
+
+> **Conclusión del Sprint Backlog 2:**  
+> El Sprint 2 logró completarse en su totalidad, implementando las funcionalidades centrales para el **seguimiento del progreso**, **sistema de gamificación**, y **notificaciones inteligentes**, consolidando la experiencia del usuario en FitSense.  
+> Todas las tareas alcanzaron el estado **Done**, manteniendo la velocidad planificada de **46 Story Points**.  
+> Se integraron servicios de backend, UI móvil en Flutter y lógica de notificaciones, fortaleciendo la cohesión del ecosistema de FitSense.
+
+#### 7.2.2.3. Development Evidence for Sprint Review
+
+Durante el Sprint 2 se completaron todas las funcionalidades planificadas, relacionadas con el **sistema de notificaciones inteligentes**, el **módulo de gamificación**, el **seguimiento diario del usuario** (entrenamientos, comidas, hidratación) y la **visualización de progreso mediante dashboards**.  
+El equipo trabajó de forma colaborativa sobre los repositorios de **backend**, **aplicación móvil**, **notificaciones** y **gamificación**, realizando integraciones continuas y asegurando el cumplimiento de los objetivos definidos en la planificación del sprint.
+
+A continuación, se presentan las evidencias de desarrollo organizadas por repositorio y commit.
+
+---
+
+##### Tabla 7.2.2.3.1 — Commits Relevantes del Sprint 2
+
+| **Repository** | **Branch** | **Commit ID** | **Commit Message** | **Commit Message Body** | **Committed on (Date)** |
+|----------------|-----------|---------------|---------------------|---------------------------|--------------------------|
+| [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `feature/notifications` | `c129fe8` | feat: add notifications scheduler & hydration alerts | Implementación del programador de notificaciones, manejo de horarios y alertas de hidratación según actividad. | 2025-11-26 |
+| [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `feature/progress-endpoints` | `df43aa1` | feat: progress dashboard endpoint | Endpoint `/progress/{userId}` para devolver peso, IMC, calorías y tendencias de 7/30 días. | 2025-11-27 |
+| [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `feature/push-token` | `ab93c52` | feat: register push notification token | Registro de tokens de FCM por usuario para envío de notificaciones personalizadas. | 2025-11-27 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/dashboard-ui` | `0f42bc9` | feat: implement main dashboard UI | Implementación del dashboard principal con tarjetas de progreso semanal, calorías y peso. | 2025-11-28 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/hydration-module` | `5ea12d7` | feat: hydration tracker feature | Registro de hidratación con porciones personalizables y feedback visual. | 2025-11-28 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/meals-tracking` | `e3b7a10` | feat: meal tracking & barcode scanner | CRUD de comidas diarias, cálculo de calorías y escaneo de productos. | 2025-11-29 |
+| [Fitsense-Gamification](https://github.com/FitSense-Emergentes-14653/Fitsense-Gamification) | `feature/achievements` | `b8812f0` | feat: achievements and badges system | Lógica de insignias, hitos automáticos y almacenamiento de progreso gamificado. | 2025-11-29 |
+| [Fitsense-Gamification](https://github.com/FitSense-Emergentes-14653/Fitsense-Gamification) | `feature/challenges` | `d78192a` | feat: group & personal challenges | Implementación de desafíos semanales, retos personalizados y cálculo de ranking. | 2025-11-30 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/notifications-ui` | `6e3a59c` | feat: notification preferences UI | Interfaz para configurar recordatorios de entrenamiento, hidratación y periodo “no molestar”. | 2025-11-30 |
+| [Project-Report](https://github.com/FitSense-Emergentes-14653/Project-Report) | `chapter-7` | `c9f51db` | docs: add sprint 2 execution report | Documentación de planificación, backlog, evidencias y conclusiones del Sprint 2. | 2025-12-01 |
+
+---
+
+##### Resumen de avances
+
+- **Total de commits registrados:** 10  
+- **Repositorios involucrados:** 4  
+- **Porcentaje de historias completadas:** 100% (46 Story Points)  
+- **Velocidad alcanzada:** 46/46 puntos (100%)  
+- **Estado general del Sprint:** ✅ Completado con éxito  
+
+> **Conclusión:**  
+> Las evidencias de desarrollo reflejan una ejecución sólida y organizada del Sprint 2, con avances significativos en funcionalidades orientadas al engagement del usuario: gamificación, notificaciones inteligentes y visualización de progreso.  
+> El equipo mantuvo un flujo continuo de commits y *pull requests*, fortaleciendo la calidad del producto mediante validaciones, pruebas y coordinación entre los subequipos de backend, mobile y gamificación.  
+> El cumplimiento del 100% de los Story Points planificados confirma la consistencia de la velocidad del equipo y la correcta estimación del trabajo realizado.
+
+
+#### 7.2.2.4. Testing Suite Evidence for Sprint Review
+
+#### 7.2.2.4. Testing Suite Evidence for Sprint Review
+
+Durante el Sprint 2 se ejecutó el conjunto de pruebas correspondiente a las funcionalidades desarrolladas, incluyendo el **sistema de notificaciones inteligentes**, el **seguimiento diario del usuario** (entrenamientos, comidas, hidratación), los **módulos de gamificación**, y el **dashboard de progreso**.  
+Se aplicaron pruebas de **Unit Tests**, **Integration Tests** y **Acceptance Tests**, garantizando la calidad y correcto funcionamiento del backend, la aplicación móvil y los módulos de gamificación y notificaciones.
+
+Los *Unit Tests* se implementaron utilizando **Jest** para el backend Node.js y **Flutter Test** para la aplicación móvil.  
+Las pruebas de integración se ejecutaron con **Postman/Newman**, mientras que los *Acceptance Tests* siguieron el enfoque **BDD**, con escenarios escritos en **Gherkin** que validaron los criterios de aceptación de las historias del Sprint 2.
+
+---
+
+##### a) Repositorio de pruebas y evidencias
+
+| **Repositorio** | **Propósito** |
+|------------------|---------------|
+| https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services | Unit e Integration Tests de endpoints de notificaciones, actividades y progreso |
+| https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App | Unit Tests para módulos de hidratación, comida, entrenamientos y dashboard |
+| https://github.com/FitSense-Emergentes-14653/Fitsense-Gamification | Tests funcionales del sistema de insignias y desafíos |
+
+---
+
+##### b) Conjunto de pruebas realizadas
+
+- **Unit Tests (Backend)**  
+  - Validación del scheduler de notificaciones de entrenamiento.  
+  - Pruebas de alertas de hidratación y restricciones de horario (“no molestar”).  
+  - Verificación del endpoint `/progress/{userId}` para datos de peso, IMC y calorías.  
+  - Registro del token de notificaciones push (FCM).  
+  - Cobertura obtenida: **84% líneas**, **76% funciones**.
+
+- **Unit Tests (Mobile)**  
+  - Pruebas del módulo de hidratación (registro y porciones personalizadas).  
+  - Widgets de dashboard y visualización de métricas (peso, IMC, calorías).  
+  - Validación de CRUD de comidas y escaneo de código de barras.  
+  - Pruebas de interfaz del sistema de logros e insignias.
+
+- **Unit Tests (Gamificación)**  
+  - Detección automática de hitos e insignias.  
+  - Validación de progreso en desafíos grupales y personales.  
+
+- **Integration Tests (API – Mobile – Notificaciones – Gamificación)**  
+  - Flujo completo: registro de hidratación → actualización del progreso → envío de notificación adaptativa.  
+  - Flujo de gamificación: completar entrenamientos → asignación de insignia correspondiente.  
+  - Flujo dashboard: registrar comidas/entrenamientos → visualización inmediata en gráficas.  
+  - Verificación de consistencia y latencia entre backend, móviles y módulo de gamificación.
+
+---
+
+##### c) Commits de testing realizados
+
+| **Repository** | **Branch** | **Commit ID** | **Commit Message** | **Commit Message Body** | **Committed on (Date)** |
+|----------------|-----------|---------------|--------------------|--------------------------|--------------------------|
+| FitSense-Backend-Services | `test/notifications` | `c4a71be` | test: add unit tests for notifications & hydration alerts | Pruebas unitarias para recordatorios de entrenamiento, hidratación y lógica de “no molestar”. | 2025-11-27 |
+| FitSense-Backend-Services | `test/progress-endpoints` | `f1d93e2` | test: progress endpoint integration tests | Validación de datos del dashboard (peso, IMC, calorías, balance y tendencias). | 2025-11-28 |
+| Fitsense-Mobile-App | `test/hydration-dashboard` | `a9c7e4d` | test: add Flutter tests for hydration & dashboard widgets | Pruebas de widgets: hidratación, progreso semanal, gráficos de peso y calorías. | 2025-11-29 |
+| Fitsense-Mobile-App | `test/meals-tracking` | `7c112af` | test: meal tracking & barcode scanner tests | Validación de registro, edición, eliminación de comidas y lectura de códigos de barras. | 2025-11-29 |
+| Fitsense-Gamification | `test/achievements` | `de52b01` | test: achievements logic & challenge flow | Pruebas de insignias automáticas, progreso en desafíos y ranking grupal. | 2025-11-30 |
+
+---
+
+##### d) Resultados y conclusiones
+
+- **Total de pruebas ejecutadas:** 57  
+- **Escenarios BDD aprobados:** 100%  
+- **Cobertura global:** 85%  
+- **Defectos detectados y corregidos:** 4 (todos resueltos dentro del sprint)  
+
+> **Conclusión:**  
+> La suite de testing del Sprint 2 permitió validar integralmente las funcionalidades implementadas, asegurando la correcta operación del sistema de notificaciones, los módulos de gamificación y las vistas del dashboard.  
+> Las pruebas unitarias proporcionaron robustez a los servicios críticos, mientras que las pruebas de integración confirmaron la sincronización adecuada entre backend, móviles y gamificación.  
+> Los *Acceptance Tests* respaldaron el cumplimiento de los criterios de aceptación de todas las historias incluidas en el Sprint 2, garantizando así la calidad del incremento entregado.
+
+#### 7.2.2.5. Execution Evidence for Sprint Review
+
+Durante el Sprint 2 se ejecutaron los procesos de **ejecución, integración y validación** de los módulos desarrollados, asegurando la correcta interacción entre el **Backend (API REST)**, la **aplicación móvil**, y los nuevos componentes de **notificaciones inteligentes**, **gamificación** y **dashboard de progreso**.
+
+El objetivo principal fue verificar el funcionamiento real del sistema completo después de integrar las nuevas funcionalidades del sprint, garantizando la coherencia de datos, la correcta entrega de notificaciones y la visualización actualizada de métricas en la aplicación móvil.
+
+Las ejecuciones fueron documentadas mediante capturas, registros de consola y validaciones en los entornos de desarrollo y pruebas establecidos.
+
+---
+
+### **a) Backend – API REST (Notificaciones, Actividades y Progreso)**
+
+<div style="text-align: justify; align-items: center">
+    <b>Programador de Notificaciones (Scheduler):</b><br>
+    <center>
+        <img src="../img/chapter-7/sprint-2-notifications.JPG">
+    </center><br>
+
+   <b>Registro de hidratación e impacto en el Dashboard:</b><br>
+    <center>
+        <img src="../img/chapter-7/sprint-2-hydratation.JPG">
+    </center><br>
+
+   <b>Endpoint de progreso:</b><br>
+    <center>
+        <img src="../img/chapter-7/sprint-2-progress.JPG">
+    </center><br>
+
+   <b>Endpoints de rutinas y challenges:</b><br>
+    <center>
+        <img src="../img/chapter-7/sprint-2-rutines.JPG">
+    </center><br>
+    <center>
+        <img src="../img/chapter-7/sprint-2-rutines-2.JPG">
+    </center><br>
+    <center>
+        <img src="../img/chapter-7/sprint-2-rutines-3.JPG">
+    </center><br>
+</div>
+
+---
+
+### **b) Mobile App – Ejecución e Integración de Nuevas Funcionalidades**
+
+<div style="text-align: justify; align-items: center">
+
+<b>Dashboard principal (peso, calorías, IMC y progreso semanal):</b><br>
+<center>
+    <img src="../img/chapter-7/sprint-2-home.JPG">
+</center><br>
+
+<b>Módulo de hidratación – registro rápido y porciones personalizadas:</b><br>
+<center>
+  <img src="../img/chapter-7/sprint-2-hydratation.JPG">
+</center><br>
+
+<b>Desafíos diarios y logros</b><br>
+<center>
+  <img src="../img/chapter-7/sprint-2-rutines.JPG">
+</center><br>
+<center>
+  <img src="../img/chapter-7/sprint-2-rutines-2.JPG">
+</center><br>
+<center>
+  <img src="../img/chapter-7/sprint-2-rutines-3.JPG">
+</center><br>
+
+<b>Sección de progreso:</b><br>
+<center>
+    <img src="../img/chapter-7/sprint-2-progress.JPG">
+</center><br>
+
+<b>Sección de notificaciones:</b><br>
+<center>
+    <img src="../img/chapter-7/sprint-2-notifications.JPG">
+</center><br>
+</div>
+
+---
+
+### **Conclusión de la Evidencia de Ejecución (Sprint 2)**
+
+Las imágenes y registros demuestran:
+
+- El correcto funcionamiento de los servicios REST vinculados a **notificaciones, progreso y actividades**.  
+- La integración fluida de la aplicación móvil con el backend y el motor de gamificación.  
+- La actualización en tiempo real del dashboard frente a acciones del usuario.  
+- El envío y recepción efectiva de notificaciones adaptativas según patrones de uso.  
+- La asignación automática de insignias y actualización de desafíos grupales.  
+
+El Sprint 2 culminó con un incremento totalmente funcional, estable y validado en condiciones reales de uso, cumpliendo los objetivos definidos en la planificación.
+
+#### 7.2.2.6. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 2 se documentaron los nuevos servicios desarrollados en el backend, correspondientes a los módulos de **seguimiento de hidratación**, **notificaciones inteligentes**, **gamificación (insignias y desafíos)** y **resumen de progreso del usuario**.  
+La documentación se realizó utilizando especificaciones **OpenAPI (Swagger)**, respaldadas con ejemplos de uso y colecciones Postman, lo que permitió validar los contratos entre los equipos mobile, backend y gamificación, facilitando las pruebas de integración realizadas este sprint.
+
+---
+
+### a) Repositorios y ubicación de la documentación técnica
+
+| **Componente** | **Repositorio** | **Ubicación de OpenAPI / Docs** |
+|----------------|------------------|----------------------------------|
+| Backend Services (API REST) | https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services | `/docs/openapi.yaml`, `/docs/swagger.json`, Swagger UI en `/api-docs` |
+| Gamification Module | https://github.com/FitSense-Emergentes-14653/Fitsense-Gamification | `/docs/openapi.yaml`, `/swagger-ui` |
+| Mobile App | https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App | `/docs/flows/`, `/integration-tests/postman/` |
+| Project Report | https://github.com/FitSense-Emergentes-14653/Project-Report | `/Docs/chapter-7/` (esta sección) |
+| Colecciones Postman | — | `/docs/postman/FitSense-Sprint2.postman_collection.json` |
+
+**Entornos de documentación (Swagger UI):**
+- Backend: `https://fitsense-backend-services-production.up.railway.app/swagger-ui/index.html`
+- Gamification: `https://fitsense-gamification-production.up.railway.app/swagger-ui`
+- Notificaciones / Scheduler: integrado en el backend v1 `/api-docs`
+
+---
+
+### b) Endpoints principales desarrollados en Sprint 2 (Backend REST v1)
+
+A continuación se listan los endpoints asociados a las funcionalidades construidas durante el Sprint 2, junto con evidencia visual de Swagger.
+
+---
+
+## **1. Hydration — Seguimiento de hidratación**
+
+<img src="../img/chapter-7/hydration-endpoints.JPG">
+
+| **Método** | **Path** | **Descripción** | **Auth** |
+|-----------|-----------|-----------------|----------|
+| **PUT** | `/api/v1/hydration/goal/{athleteId}` | Actualiza la meta diaria de agua del usuario | Bearer JWT |
+| **GET** | `/api/v1/hydration/{athleteId}` | Obtiene el consumo diario de hidratación | Bearer JWT |
+| **POST** | `/api/v1/hydration/{athleteId}` | Registra una nueva ingesta de agua | Bearer JWT |
+
+---
+
+## **2. Notification Controller — Notificaciones inteligentes**
+
+<img src="../img/chapter-7/notification-endpoints.png">
+
+| **Método** | **Path** | **Descripción** | **Auth** |
+|-----------|-----------|-----------------|----------|
+| **GET** | `/api/notifications` | Lista de notificaciones generadas para el usuario | Bearer JWT |
+| **POST** | `/api/notifications` | Crea una nueva notificación personalizada | Bearer JWT |
+| **GET** | `/api/notifications/{id}` | Obtiene detalles de una notificación | Bearer JWT |
+
+---
+
+## **3. Challenges — Desafíos generados por IA**
+
+<img src="../img/chapter-7/challenges-endpoints.JPG">
+
+| **Método** | **Path** | **Descripción** | **Auth** |
+|-----------|-----------|-----------------|----------|
+| **POST** | `/api/v1/challenges/complete` | Marca un desafío como completado | Bearer JWT |
+| **GET** | `/api/v1/challenges/{id}` | Obtiene un desafío específico | Bearer JWT |
+| **GET** | `/api/v1/challenges/user/{userId}` | Lista de desafíos asignados al usuario | Bearer JWT |
+| **GET** | `/api/v1/challenges/user/{userId}/routine/{routineId}/summary` | Resumen de retos asociados a la rutina actual | Bearer JWT |
+| **GET** | `/api/v1/challenges/user/{userId}/latest` | Último desafío generado para el usuario | Bearer JWT |
+
+---
+
+## **4. Achievements — Insignias y logros**
+
+<img src="../img/chapter-7/gamification-endpoints.JPG">
+
+| **Método** | **Path** | **Descripción** | **Auth** |
+|-----------|-----------|-----------------|----------|
+| **POST** | `/api/v1/achievements/check/{userId}` | Verifica si el usuario ha alcanzado un nuevo logro | Bearer JWT |
+| **GET** | `/api/v1/achievements/{userId}` | Devuelve todas las insignias obtenidas | Bearer JWT |
+
+---
+
+### c) Ejemplos de uso (Postman Collection)
+
+Se desarrollaron ejemplos oficiales para:
+
+- Registro de hidratación incremental.  
+- Obtención y visualización del progreso de hidratación en el dashboard.  
+- Disparo de notificaciones personalizadas y verificación en app móvil.  
+- Ciclo de gamificación: completar desafío → verificar logro → actualizar badges.  
+
+Los ejemplos se encuentran en:  
+`/docs/postman/FitSense-Sprint2.postman_collection.json`
+
+---
+
+### d) Validación del contrato mediante Swagger
+
+La documentación Swagger se utilizó para:
+
+- Validar los parámetros requeridos y opcionales.  
+- Confirmar los códigos de respuesta HTTP esperados.  
+- Verificar los modelos (`DTOs`) de request/response.  
+- Asegurar la compatibilidad entre **Mobile App**, **Gamification Service** y **Backend**.
+
+Cada endpoint fue ejecutado durante la fase de pruebas de integración del Sprint 2.
+
+---
+
+### **Conclusión**
+
+La documentación técnica generada durante el Sprint 2 permitió garantizar la correcta integración entre los módulos críticos desarrollados: hidratación, notificaciones, logros e insignias y desafíos.  
+El uso de **Swagger + Postman** fortaleció la comunicación entre equipos y redujo la fricción durante las pruebas de integración, logrando un incremento totalmente documentado, trazable y alineado a los criterios de aceptación del sprint.
+
+
+
+##### 7.2.2.7. Software Deployment Evidence for Sprint Review
+
+En este sprint se mantiene el despliegue realizado en el sprint 1.
+
+###### 7.2.2.8. Team Collaboration Insights during Sprint
+
+###### 7.2.2.8. Team Collaboration Insights during Sprint
+
+Las evidencias del trabajo colaborativo del equipo durante el Sprint 2 se reflejan claramente en los gráficos de contribución y flujo de commits de los repositorios principales.  
+
+En el **backend**, se observa una participación activa y distribuida entre los integrantes, con commits orientados al desarrollo de los módulos de hidratación, notificaciones, progreso y gamificación.
+
+<center>
+    <img src="../img/chapter-7/Network graph backend S2.png">
+</center>
+
+En el **frontend móvil**, el equipo colaboró de manera constante en la integración de vistas, consumo de endpoints, dashboard, registro de hábitos y sistema de logros, mostrando un flujo continuo de versiones y mejoras.
+
+<center>
+    <img src="../img/chapter-7/Network graph mobile S2.png">
+</center>
 
 #### 7.3. Validation Interviews
 

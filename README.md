@@ -226,11 +226,12 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <strong>Cuadros Rodriguez, Juan Alejandro</strong><br>
         <em>TB1</em><br>
        Durante el desarrollo de FitSense se llevó a cabo el diseño arquitectónico siguiendo el enfoque Attribute-Driven Design (ADD), priorizando las funcionalidades de mayor impacto en la arquitectura y definiendo escenarios representativos junto con sus soluciones, así como los drivers arquitectónicos que guiaron las decisiones clave; tras evaluar distintas alternativas estructurales, se optó por una arquitectura de tipo monolito modular por su adecuación al contexto del proyecto, y finalmente se elaboraron dos escenarios de prueba con sus respectivas soluciones para validar la solidez y el desempeño de la propuesta.<br>
-      <em>TP1</em><br>
-      Durante el desarrollo de FitSense se diseñó el bounded context Plan Context, encargado de estructurar la información que será consumida por la API conectada a la IA GPT-4o mini. Este módulo permite que el usuario interactúe de forma dinámica con el sistema y reciba recomendaciones personalizadas basadas en sus objetivos, preferencias y datos registrados.
-       <br>
-      <em>TP2</em><br>
-      Redacté el Capítulo VII referente a la Gestión de Configuración del Software, documentando la configuración del entorno, el control de versiones y las guías de estilo. Además, documenté detalladamente la sección de Implementación del Sprint 1, incluyendo la planificación (Sprint Planning), el Backlog, la documentación de servicios y las evidencias de despliegue y colaboración del equipo.
+      <em>TP</em><br>
+      Durante el desarrollo de FitSense se diseñó el bounded context Plan Context, encargado de estructurar la información que será consumida por la API conectada a la IA GPT-4o mini. Este módulo permite que el usuario interactúe de forma dinámica con el sistema y reciba recomendaciones personalizadas basadas en sus objetivos, preferencias y datos registrados.<br>
+      <em>TB2</em><br>
+      Redacté el Capítulo VII referente a la Gestión de Configuración del Software, documentando la configuración del entorno, el control de versiones y las guías de estilo. Además, documenté detalladamente la sección de Implementación del Sprint 1, incluyendo la planificación (Sprint Planning), el Backlog, la documentación de servicios y las evidencias de despliegue y colaboración del equipo.<br>
+      <em>TF</em><br>
+      Demostré una comunicación oral clara y técnica al presentar la evolución arquitectónica final de FitSense, explicando decisiones de diseño, métricas de desempeño y la validación del sistema. Logré transmitir de forma objetiva la solidez de la solución a audiencias tanto técnicas como de negocio.
       <br>
         <strong>Calisaya Sánchez, Juan Jesús</strong><br>
         <em>TB1</em><br>
@@ -239,13 +240,19 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         Durante el desarrollo del Tactical-Level Software Design para FitSense, presenté oralmente el diseño detallado de los bounded contexts Social y Notification, explicando la estructura de capas (Domain, Application, Interface e Infrastructure) siguiendo principios de Domain-Driven Design. Comuniqué de manera clara cómo los agregados, entidades y value objects encapsulan la lógica de negocio, adaptando mi discurso tanto para stakeholders técnicos como no técnicos. Esta presentación permitió que el equipo comprendiera las decisiones arquitectónicas, las relaciones entre componentes y cómo estos contextos interactúan mediante eventos de dominio para mantener la cohesión del sistema monolítico modular de FitSense. <br>
         <em>TB2</em><br>
         Contribuí a la documentación del Capítulo VII, registrando las evidencias de desarrollo y ejecución del Sprint 1. Mi redacción se enfocó en reportar técnicamente cómo se implementaron las soluciones y en presentar la suite de pruebas (Testing Suite Evidence) que garantiza la calidad del software entregado.<br>
+        <em>TF</em><br>
+        Expuse de manera estructurada los resultados del diseño táctico y la integración de eventos de dominio, comunicando con precisión cómo estos contribuyen a la funcionalidad final del sistema. Mi presentación permitió que diversas audiencias comprendieran el impacto técnico del proyecto.
+        <br>
         <strong>Jarama Peñaloza, Fiorella</strong><br>
         <em>TB1</em><br>
         Realicé el EventStorming para mapear eventos, comandos, políticas, puntos de dolor y momentos clave; identifiqué bounded contexts (Plan, Monitoring, Notification, Security y Social) y modelé sus interacciones mediante context mapping. También generé los artefactos de arquitectura: System Landscape, Context, Container y Deployment Diagrams siguiendo el enfoque C4.<br>
-               <em>TP</em><br>
+        <em>TP</em><br>
         Realicé la Information Architecture considerando los sistemas de labeling, organization y navigation, con el fin de estructurar la experiencia del usuario y el flujo de información. Además, diseñé tanto los wireframes como los mockups de la aplicación móvil y algunos mockups web, que permiten visualizar la interacción, jerarquía de contenidos y navegación del sistema antes de su desarrollo.<br>
         <em>TB2</em><br>
         Documenté el diseño de interfaces en el Capítulo VI, especificando los Mock-ups y flujos de usuario. Asimismo, redacté la sección 7.3 sobre Entrevistas de Validación, detallando el diseño de las preguntas, el registro de las respuestas de los usuarios y el análisis de heurísticas, proporcionando evidencia escrita de la aceptación del producto.
+        <br>
+        <em>TF</em><br>
+        Expuse la consolidación del diseño UX/UI y los resultados de las validaciones, comunicando con claridad cómo la experiencia de usuario se integró con la arquitectura del sistema. Logré transmitir el valor del diseño y su aporte a la usabilidad del producto final.
         <br>
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
@@ -254,13 +261,18 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
        He comunicado de manera clara y objetiva las ideas y resultados del proyecto FitSense, incluyendo los wireframes y mockups de la landing page y la aplicación web. La documentación y presentación del diseño, flujos de interacción y estilo visual permiten que tanto especialistas en ingeniería como stakeholders no técnicos comprendan fácilmente la propuesta y su valor, cumpliendo así con el objetivo de transmitir resultados de forma profesional y efectiva.<br>
        <em>TB2</em><br>
        Documenté la sección de Diseño UI/UX (Capítulo VI), detallando los Mock-ups y el prototipado de la aplicación. Además, colaboré en la redacción de las evidencias de implementación del Sprint 1, integrando los aspectos visuales con la funcionalidad técnica en el informe final.<br>
+      <em>TF</em><br>
+      Comuniqué de manera clara los avances visuales y funcionales del sistema, mostrando cómo el diseño de interfaces evolucionó hasta la versión final validada. Pude explicar de forma objetiva el impacto del proyecto en la experiencia del usuario y su aporte al bienestar digital.
+      <br>
         <strong>Rubio Calixto, Adrian Gustavo</strong><br>
         <em>TB1</em><br>
         Durante el desarrollo de FitSense, diseñé, registré y analicé entrevistas para identificar necesidades clave de los usuarios. Posteriormente, elaboré el proceso de Needfinding mediante User Personas, User Task Matrix, Empathy Mapping y As-is Scenario Mapping, lo que permitió comprender a fondo su contexto. Además, definí el Ubiquitous Language para unificar la comunicación entre el equipo y realicé el To-Be Scenario Mapping en el Capítulo III, proyectando escenarios futuros alineados con los objetivos del proyecto.<br>
         <em>TP</em><br>
         Durante el desarrollo del Tactical-Level Software Design para FitSense, presenté oralmente el diseño detallado de los bounded contexts Monitoring y Security, explicando la estructura de capas (Domain, Application, Interface e Infrastructure) siguiendo principios de Domain-Driven Design. Comuniqué de manera clara cómo los agregados, entidades y value objects encapsulan la lógica de negocio, adaptando mi discurso tanto para stakeholders técnicos como no técnicos. Esta presentación permitió que el equipo comprendiera las decisiones arquitectónicas, las relaciones entre componentes y cómo estos contextos interactúan mediante eventos de dominio para mantener la cohesión del sistema monolítico modular de FitSense. <br>
         <em>TB2</em><br>
-        Participé en la elaboración del reporte técnico del Sprint 1 en el Capítulo VII. Documenté las evidencias de ejecución y despliegue, asegurando que los resultados de la implementación estuvieran descritos con claridad y objetividad para validar el cumplimiento de los items del Sprint Backlog.
+        Participé en la elaboración del reporte técnico del Sprint 1 en el Capítulo VII. Documenté las evidencias de ejecución y despliegue, asegurando que los resultados de la implementación estuvieran descritos con claridad y objetividad para validar el cumplimiento de los items del Sprint Backlog.<br>
+        <em>TF</em><br>
+        Expuse la consolidación del diseño del dominio y la validación funcional del sistema, comunicando con precisión los resultados obtenidos y la coherencia entre los modelos diseñados y la implementación final. Mi exposición facilitó la comprensión técnica del funcionamiento del sistema.
         <br> 
     </td>
     <td>
@@ -271,6 +283,9 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <br>
         <em>TB2</em><br>
         En esta etapa, la comunicación oral se centró en demostrar la viabilidad técnica del producto a través de la implementación del Sprint 1. El equipo logró exponer cómo la configuración del entorno y la gestión del código (GitHub) facilitaron la integración continua. Además, la presentación de los resultados de las entrevistas de validación y los prototipos funcionales permitió comunicar eficazmente a los stakeholders que la solución FitSense cumple con los estándares de calidad y las expectativas de los usuarios finales.
+        <br>
+        <em><strong>TF</strong></em><br>
+        En el Trabajo Final, la comunicación oral se orientó a presentar de manera integral la solución final de FitSense, articulando los resultados de ingeniería, las mejoras funcionales y el desempeño del sistema tras sus validaciones. El equipo logró transmitir con claridad la madurez técnica alcanzada, evidenciando la evolución desde el diseño conceptual hasta un producto sólido, sustentado en métricas, arquitectura refinada y retroalimentación real. Esto permitió que audiencias de diferentes perfiles comprendieran el impacto tecnológico y social de la plataforma.
     </td>
   </tr>
   <tr>
@@ -282,7 +297,9 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
        <em>TP1</em><br>
        El diseño arquitectónico  está orientado al desarrollo de una API estructurada y coherente, garantizando una organización clara de los componentes, una mejor mantenibilidad del código y una comunicación eficiente con los demás módulos del sistema. Así como el almacenamiento y consumo eficiente de datos desde la base de datos. Esta arquitectura garantiza una organización clara de los componentes, una mejor mantenibilidad del código y una integración fluida entre los distintos módulos del sistema.<br>
        <em>TB2</em><br>
-       Redacté el Capítulo VII referente a la Gestión de Configuración del Software, documentando la configuración del entorno, el control de versiones y las guías de estilo. Además, documenté detalladamente la sección de Implementación del Sprint 1, incluyendo la planificación (Sprint Planning), el Backlog, la documentación de servicios y las evidencias de despliegue y colaboración del equipo.
+       Redacté el Capítulo VII referente a la Gestión de Configuración del Software, documentando la configuración del entorno, el control de versiones y las guías de estilo. Además, documenté detalladamente la sección de Implementación del Sprint 1, incluyendo la planificación (Sprint Planning), el Backlog, la documentación de servicios y las evidencias de despliegue y colaboración del equipo.<br>
+      <em>TF</em><br>
+      consolidé la documentación arquitectónica final, describiendo con claridad las decisiones de diseño, métricas y validaciones. La redacción permitió comunicar de forma objetiva la evolución técnica del sistema y su sostenibilidad futura.
       <br> 
         <strong>Calisaya Sánchez, Juan Jesús</strong><br>
         <em>TB1</em><br>
@@ -290,15 +307,19 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <em>TP</em><br>
         Elaboré la documentación técnica completa del Tactical-Level Design para los bounded contexts Social y Notification de FitSense, incluyendo diagramas de clases del dominio, diagramas de componentes y modelos de base de datos. La documentación detalla cada capa arquitectónica con tablas estructuradas que describen agregados, entidades, value objects, servicios de dominio y repositorios, facilitando su comprensión tanto para desarrolladores como para arquitectos de software. Además, utilicé diagramas UML y Structurizr DSL para representar visualmente las relaciones entre componentes, asegurando que la documentación sea accesible y comprensible para públicos de diferentes especialidades dentro del marco del proyecto de ingeniería de software.<br>
         <em>TB2</em><br>
-        Contribuí a la documentación del Capítulo VII, registrando las evidencias de desarrollo y ejecución del Sprint 1. Mi redacción se enfocó en reportar técnicamente cómo se implementaron las soluciones y en presentar la suite de pruebas (Testing Suite Evidence) que garantiza la calidad del software entregado.
+        Contribuí a la documentación del Capítulo VII, registrando las evidencias de desarrollo y ejecución del Sprint 1. Mi redacción se enfocó en reportar técnicamente cómo se implementaron las soluciones y en presentar la suite de pruebas (Testing Suite Evidence) que garantiza la calidad del software entregado.<br>
+        <em>TF</em><br>
+        Profundicé en la documentación del diseño táctico y su integración en la solución completa. La claridad y estructura del texto facilitaron que públicos técnicos comprendieran la lógica interna y el aporte del modelo al sistema.
         <br>
         <strong>Jarama Peñaloza, Fiorella</strong><br>
         <em>TB1</em><br>
         Realicé el EventStorming para mapear eventos, comandos, políticas, puntos de dolor y momentos clave; identifiqué bounded contexts (Plan, Monitoring, Notification, Security y Social) y modelé sus interacciones mediante context mapping. También generé los artefactos de arquitectura: System Landscape, Context, Container y Deployment Diagrams siguiendo el enfoque C4.<br>
-               <em>TP</em><br>
+        <em>TP</em><br>
         Realicé la Information Architecture considerando los sistemas de labeling, organization y navigation, con el fin de estructurar la experiencia del usuario y el flujo de información. Además, diseñé tanto los wireframes como los mockups de la aplicación móvil y algunos mockups web, que permiten visualizar la interacción, jerarquía de contenidos y navegación del sistema antes de su desarrollo.<br>
         <em>TB2</em><br>
-        Documenté el diseño de interfaces en el Capítulo VI, especificando los Mock-ups y flujos de usuario. Asimismo, redacté la sección 7.3 sobre Entrevistas de Validación, detallando el diseño de las preguntas, el registro de las respuestas de los usuarios y el análisis de heurísticas, proporcionando evidencia escrita de la aceptación del producto.
+        Documenté el diseño de interfaces en el Capítulo VI, especificando los Mock-ups y flujos de usuario. Asimismo, redacté la sección 7.3 sobre Entrevistas de Validación, detallando el diseño de las preguntas, el registro de las respuestas de los usuarios y el análisis de heurísticas, proporcionando evidencia escrita de la aceptación del producto.<br>
+        <em>TF</em><br>
+        Estructuré de manera clara los resultados de UX/UI, validaciones y flujos de interacción, integrando diseño y usabilidad en un informe accesible a públicos de distintas especialidades.
         <br>
         <strong>Lucas Coronel, Nadia Alessandra</strong><br>
         <em>TB1</em><br>
@@ -306,7 +327,9 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
       <em>TP</em><br>
         El proyecto FitSense ha sido documentado y presentado de manera escrita con claridad y objetividad, integrando los wireframes y mockups de la landing page y la aplicación web. La información se estructuró de forma que pueda ser comprendida tanto por especialistas en ingeniería como por stakeholders de otras áreas, destacando los aspectos clave del diseño, la experiencia de usuario y la propuesta de valor de la plataforma, cumpliendo así con el objetivo de comunicar resultados de manera profesional y accesible a públicos de distintos niveles jerárquicos y especializaciones.<br>
               <em>TB2</em><br>
-        Documenté la sección de Diseño UI/UX (Capítulo VI), detallando los Mock-ups y el prototipado de la aplicación. Además, colaboré en la redacción de las evidencias de implementación del Sprint 1, integrando los aspectos visuales con la funcionalidad técnica en el informe final.
+        Documenté la sección de Diseño UI/UX (Capítulo VI), detallando los Mock-ups y el prototipado de la aplicación. Además, colaboré en la redacción de las evidencias de implementación del Sprint 1, integrando los aspectos visuales con la funcionalidad técnica en el informe final.<br>
+        <em>TF</em><br>
+        Presenté de manera objetiva el diseño visual, la experiencia de usuario y las mejoras implementadas tras la validación. La documentación integra de forma clara la propuesta estética y funcional del sistema.
         <br>
         <strong>Rubio Calixto, Adrian Gustavo</strong><br>
         <em>TB1</em><br>
@@ -317,6 +340,9 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         <em>TB2</em><br>
         Participé en la elaboración del reporte técnico del Sprint 1 en el Capítulo VII. Documenté las evidencias de ejecución y despliegue, asegurando que los resultados de la implementación estuvieran descritos con claridad y objetividad para validar el cumplimiento de los items del Sprint Backlog.
         <br>
+        <em>TF</em><br>
+        Documenté la consolidación del dominio, la integración de bounded contexts y los resultados de las pruebas. La redacción permitió evidenciar la coherencia entre la arquitectura diseñada y el comportamiento final del sistema.
+        <br>
         </td>
       <td>
        <em>TB1</em><br>
@@ -325,6 +351,9 @@ URL Project Report (Github): https://github.com/FitSense-Emergentes-14653/Projec
         A nivel de comunicación y colaboración, el equipo demostró competencias sólidas en la transmisión oral y escrita de resultados técnicos, presentando documentación clara, diagramas estructurados y diseños visuales comprensibles para públicos técnicos y no técnicos. Este proceso fortaleció la capacidad de expresar ideas con objetividad, evidenciando madurez profesional y un enfoque interdisciplinario en el desarrollo de soluciones de software innovadoras orientadas al bienestar digital.<br>
         <em>TB2</em><br>
         El informe del TB2 consolida la documentación técnica de la fase de construcción y validación. A través de la redacción detallada de la configuración del software, la evidencia de pruebas y los reportes de entrevistas, se logró un documento objetivo que demuestra el progreso tangible del proyecto. La estructura del reporte permite a cualquier lector técnico o de negocio verificar la trazabilidad entre los requisitos iniciales, el código implementado y la validación con usuarios reales.
+                <br>
+        <em><strong>TF</strong></em><br>
+        En el Trabajo Final, la comunicación escrita permitió consolidar todo el ciclo de vida del proyecto FitSense, integrando análisis, diseño, construcción, validación y evaluación final en un documento coherente y profesional. Se detallaron métricas de desempeño, resultados de pruebas, mejoras aplicadas, reflexiones técnicas y la sostenibilidad futura del sistema. La claridad y objetividad del informe final garantizan que cualquier lector —técnico, académico o de negocio— pueda comprender la evolución del proyecto y su aporte al bienestar digital, demostrando un dominio avanzado en la redacción de documentación de ingeniería.
     </td>
   </tr>
 </table>

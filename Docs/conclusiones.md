@@ -17,3 +17,11 @@
 8. La estabilidad del sistema fue garantizada a través de una suite de pruebas completa que incluyó pruebas unitarias, de integración y de aceptación basadas en el comportamiento (BDD con Gherkin). Se ejecutaron un total de 42 pruebas con una tasa de aprobación del 100%, lo que validó la correcta comunicación entre el Backend (API REST), la aplicación móvil (Flutter) y el servicio de Inteligencia Artificial, asegurando que el software cumpla con los criterios de aceptación del negocio.
 
 9. Las entrevistas de validación con usuarios finales confirmaron la utilidad y usabilidad de la aplicación en su etapa actual. Los usuarios destacaron la interfaz limpia e intuitiva y valoraron positivamente la capacidad de la IA para generar planes de entrenamiento personalizados adecuados a su nivel de experiencia. Esto demuestra que la solución tecnológica está alineada con las necesidades y frustraciones del segmento objetivo.
+
+10.
+
+La implementación de los módulos desarrollados en el Sprint 2 —incluyendo hidratación, seguimiento calórico, dashboard de progreso, notificaciones inteligentes y gamificación— demostró la madurez técnica alcanzada por la solución. La integración fluida entre backend, aplicación móvil y servicios externos permitió validar una experiencia fitness completa y continua, donde el usuario puede registrar hábitos, recibir recordatorios personalizados y visualizar su evolución en tiempo real. Este ecosistema cohesionado confirma que FitSense es capaz de sostener funcionalidades avanzadas que normalmente requieren múltiples aplicaciones, consolidándolas en una propuesta única, intuitiva y eficiente.
+
+11.
+
+La gamificación implementada en FitSense, basada en insignias, hitos y desafíos dinámicos, evidenció su impacto potencial en la retención y motivación de los usuarios. El diseño de estos mecanismos no solo promueve la constancia en los entrenamientos, sino que también introduce un componente social y competitivo que incrementa el engagement de manera medible. Este enfoque, sustentado por patrones comprobados en aplicaciones de alto rendimiento, posiciona a FitSense como una plataforma que no solo guía entrenamientos, sino que también fomenta hábitos sostenibles y experiencias gratificantes a largo plazo, reforzando así su valor diferencial en el mercado del fitness digital.
