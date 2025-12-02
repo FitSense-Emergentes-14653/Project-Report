@@ -913,8 +913,6 @@ En este sprint se mantiene el despliegue realizado en el sprint 1.
 
 ###### 7.2.2.8. Team Collaboration Insights during Sprint
 
-###### 7.2.2.8. Team Collaboration Insights during Sprint
-
 Las evidencias del trabajo colaborativo del equipo durante el Sprint 2 se reflejan claramente en los gráficos de contribución y flujo de commits de los repositorios principales.  
 
 En el **backend**, se observa una participación activa y distribuida entre los integrantes, con commits orientados al desarrollo de los módulos de hidratación, notificaciones, progreso y gamificación.
