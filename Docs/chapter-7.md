@@ -561,13 +561,9 @@ https://trello.com/b/UXVKOFEL/fitsense
 | **US-15**<br>Registro rápido de entrenamientos | | T-01<br>Implementar registro de entrenamientos | Registrar sesión con fecha, hora y duración | 3 | Juan Calisaya | ✅ Done |
 | **US-15** | | T-02<br>Notas de entrenamiento | Agregar campo opcional para notas del usuario | 2 | Juan Calisaya | ✅ Done |
 | **US-16**<br>Registro de comidas y calorías | | T-03<br>Búsqueda rápida de alimentos | Integración con base nutricional | 4 | Fiorella Jarama | ✅ Done |
-| **US-16** | | T-04<br>Escaneo de códigos de barras | Implementar lector y parseo de datos | 4 | Adrián Rubio | ✅ Done |
-| **US-17**<br>Editar/eliminar comidas | | T-05<br>CRUD de comidas registradas | Modificar/eliminar registros y recalcular calorías | 3 | Fiorella Jarama | ✅ Done |
 | **US-18**<br>Seguimiento de hidratación | | T-06<br>Registro rápido de agua | Botón de registro inmediato | 2 | Juan Calisaya | ✅ Done |
-| **US-18** | | T-07<br>Porciones personalizadas | Configurar tamaños de recipientes | 2 | Nadia Lucas | ✅ Done |
 | **US-19**<br>Dashboard general | | T-08<br>Diseño UI del dashboard | Maquetación en Flutter y estructura de tarjetas | 4 | Nadia Lucas | ✅ Done |
 | **US-20**<br>Gráficos de peso | | T-09<br>Implementar gráfico de línea | Evolución del peso registrado | 3 | Juan Cuadros | ✅ Done |
-| **US-21**<br>IMC visual | | T-10<br>Cálculo automático de IMC | Recalcular IMC al actualizar peso | 2 | Juan Cuadros | ✅ Done |
 | **US-22**<br>Balance calórico visual | | T-11<br>Gráfico de calorías consumidas vs. quemadas | Tendencia semanal y diaria | 4 | Fiorella Jarama | ✅ Done |
 | **US-23**<br>Insignias y logros | | T-12<br>Sistema de logros | Reglas, detección de hitos y almacenamiento | 5 | Adrián Rubio | ✅ Done |
 | **US-23** | | T-13<br>UI de insignias | Diseño visual y estados de progreso | 3 | Nadia Lucas | ✅ Done |
