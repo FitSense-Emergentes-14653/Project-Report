@@ -805,7 +805,7 @@ La documentación se realizó utilizando especificaciones **OpenAPI (Swagger)**,
 
 **Entornos de documentación (Swagger UI):**
 - Backend: `https://fitsense-backend-services-production.up.railway.app/swagger-ui/index.html`
-- Gamification: `https://fitsense-gamification-production.up.railway.app/swagger-ui`
+- ChatBox AI (Swagger UI): https://chatbox-ai-production-6ead.up.railway.app/docs/#/
 - Notificaciones / Scheduler: integrado en el backend v1 `/api-docs`
 
 ---
@@ -910,13 +910,13 @@ Las evidencias del trabajo colaborativo del equipo durante el Sprint 2 se reflej
 En el **backend**, se observa una participación activa y distribuida entre los integrantes, con commits orientados al desarrollo de los módulos de hidratación, notificaciones, progreso y gamificación.
 
 <center>
-    <img src="../img/chapter-7/Network graph backend S2.png">
+    <img src="../img/chapter-7/backend_insight.png">
 </center>
 
 En el **frontend móvil**, el equipo colaboró de manera constante en la integración de vistas, consumo de endpoints, dashboard, registro de hábitos y sistema de logros, mostrando un flujo continuo de versiones y mejoras.
 
 <center>
-    <img src="../img/chapter-7/Network graph mobile S2.png">
+    <img src="../img/chapter-7/mobile_insight.png">
 </center>
 
 #### 7.3. Validation Interviews
