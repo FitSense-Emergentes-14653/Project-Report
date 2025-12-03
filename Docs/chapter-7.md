@@ -541,7 +541,7 @@ El Sprint 2 fue posteriormente **ejecutado en su totalidad**, cumpliendo con las
 #### 7.2.2.2. Sprint Backlog 2
 
 El Sprint Backlog correspondiente al **Sprint 2** fue elaborado durante la planificación realizada el **24 de noviembre de 2025**.  
-Este sprint se centró en el desarrollo de los módulos de **notificaciones inteligentes**, **gamificación**, **seguimiento diario del usuario (entrenamientos, comidas, hidratación)** y la **visualización del progreso mediante dashboards y métricas gráficas**.
+Este sprint se centró en el desarrollo de los módulos de **notificaciones inteligentes**, **gamificación**, **seguimiento diario del usuario (entrenamientos, calorias, hidratación)** y la **visualización del progreso mediante dashboards y métricas gráficas**.
 
 La duración del Sprint 2 fue de **una semana (24 de noviembre – 1 de diciembre de 2025)**, y todas las historias de usuario fueron completadas según lo programado.
 
@@ -560,7 +560,6 @@ https://trello.com/b/UXVKOFEL/fitsense
 |----------------|--|----------------------|-----------------|------------------------|----------------|-------------|
 | **US-15**<br>Registro rápido de entrenamientos | | T-01<br>Implementar registro de entrenamientos | Registrar sesión con fecha, hora y duración | 3 | Juan Calisaya | ✅ Done |
 | **US-15** | | T-02<br>Notas de entrenamiento | Agregar campo opcional para notas del usuario | 2 | Juan Calisaya | ✅ Done |
-| **US-16**<br>Registro de comidas y calorías | | T-03<br>Búsqueda rápida de alimentos | Integración con base nutricional | 4 | Fiorella Jarama | ✅ Done |
 | **US-18**<br>Seguimiento de hidratación | | T-06<br>Registro rápido de agua | Botón de registro inmediato | 2 | Juan Calisaya | ✅ Done |
 | **US-19**<br>Dashboard general | | T-08<br>Diseño UI del dashboard | Maquetación en Flutter y estructura de tarjetas | 4 | Nadia Lucas | ✅ Done |
 | **US-20**<br>Gráficos de peso | | T-09<br>Implementar gráfico de línea | Evolución del peso registrado | 3 | Juan Cuadros | ✅ Done |
@@ -587,7 +586,7 @@ https://trello.com/b/UXVKOFEL/fitsense
 
 #### 7.2.2.3. Development Evidence for Sprint Review
 
-Durante el Sprint 2 se completaron todas las funcionalidades planificadas, relacionadas con el **sistema de notificaciones inteligentes**, el **módulo de gamificación**, el **seguimiento diario del usuario** (entrenamientos, comidas, hidratación) y la **visualización de progreso mediante dashboards**.  
+Durante el Sprint 2 se completaron todas las funcionalidades planificadas, relacionadas con el **sistema de notificaciones inteligentes**, el **módulo de gamificación**, el **seguimiento diario del usuario** (entrenamientos, hidratación) y la **visualización de progreso mediante dashboards**.  
 El equipo trabajó de forma colaborativa sobre los repositorios de **backend**, **aplicación móvil**, **notificaciones** y **gamificación**, realizando integraciones continuas y asegurando el cumplimiento de los objetivos definidos en la planificación del sprint.
 
 A continuación, se presentan las evidencias de desarrollo organizadas por repositorio y commit.
@@ -603,10 +602,9 @@ A continuación, se presentan las evidencias de desarrollo organizadas por repos
 | [FitSense-Backend-Services](https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services) | `feature/push-token` | `ab93c52` | feat: register push notification token | Registro de tokens de FCM por usuario para envío de notificaciones personalizadas. | 2025-11-27 |
 | [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/dashboard-ui` | `0f42bc9` | feat: implement main dashboard UI | Implementación del dashboard principal con tarjetas de progreso semanal, calorías y peso. | 2025-11-28 |
 | [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/hydration-module` | `5ea12d7` | feat: hydration tracker feature | Registro de hidratación con porciones personalizables y feedback visual. | 2025-11-28 |
-| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/meals-tracking` | `e3b7a10` | feat: meal tracking & barcode scanner | CRUD de comidas diarias, cálculo de calorías y escaneo de productos. | 2025-11-29 |
 | [Fitsense-Gamification](https://github.com/FitSense-Emergentes-14653/Fitsense-Gamification) | `feature/achievements` | `b8812f0` | feat: achievements and badges system | Lógica de insignias, hitos automáticos y almacenamiento de progreso gamificado. | 2025-11-29 |
 | [Fitsense-Gamification](https://github.com/FitSense-Emergentes-14653/Fitsense-Gamification) | `feature/challenges` | `d78192a` | feat: group & personal challenges | Implementación de desafíos semanales, retos personalizados y cálculo de ranking. | 2025-11-30 |
-| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/notifications-ui` | `6e3a59c` | feat: notification preferences UI | Interfaz para configurar recordatorios de entrenamiento, hidratación y periodo “no molestar”. | 2025-11-30 |
+| [Fitsense-Mobile-App](https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App) | `feature/notifications-ui` | `6e3a59c` | feat: notification preferences UI | Interfaz para configurar recordatorios de entrenamiento, hidratación. | 2025-11-30 |
 | [Project-Report](https://github.com/FitSense-Emergentes-14653/Project-Report) | `chapter-7` | `c9f51db` | docs: add sprint 2 execution report | Documentación de planificación, backlog, evidencias y conclusiones del Sprint 2. | 2025-12-01 |
 
 ---
@@ -629,7 +627,7 @@ A continuación, se presentan las evidencias de desarrollo organizadas por repos
 
 #### 7.2.2.4. Testing Suite Evidence for Sprint Review
 
-Durante el Sprint 2 se ejecutó el conjunto de pruebas correspondiente a las funcionalidades desarrolladas, incluyendo el **sistema de notificaciones inteligentes**, el **seguimiento diario del usuario** (entrenamientos, comidas, hidratación), los **módulos de gamificación**, y el **dashboard de progreso**.  
+Durante el Sprint 2 se ejecutó el conjunto de pruebas correspondiente a las funcionalidades desarrolladas, incluyendo el **sistema de notificaciones inteligentes**, el **seguimiento diario del usuario** (entrenamientos, hidratación), los **módulos de gamificación**, y el **dashboard de progreso**.  
 Se aplicaron pruebas de **Unit Tests**, **Integration Tests** y **Acceptance Tests**, garantizando la calidad y correcto funcionamiento del backend, la aplicación móvil y los módulos de gamificación y notificaciones.
 
 Los *Unit Tests* se implementaron utilizando **Jest** para el backend Node.js y **Flutter Test** para la aplicación móvil.  
@@ -642,7 +640,7 @@ Las pruebas de integración se ejecutaron con **Postman/Newman**, mientras que l
 | **Repositorio** | **Propósito** |
 |------------------|---------------|
 | https://github.com/FitSense-Emergentes-14653/FitSense-Backend-Services | Unit e Integration Tests de endpoints de notificaciones, actividades y progreso |
-| https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App | Unit Tests para módulos de hidratación, comida, entrenamientos y dashboard |
+| https://github.com/FitSense-Emergentes-14653/Fitsense-Mobile-App | Unit Tests para módulos de hidratación, entrenamientos y dashboard |
 | https://github.com/FitSense-Emergentes-14653/Fitsense-Gamification | Tests funcionales del sistema de insignias y desafíos |
 
 ---
@@ -659,7 +657,6 @@ Las pruebas de integración se ejecutaron con **Postman/Newman**, mientras que l
 - **Unit Tests (Mobile)**  
   - Pruebas del módulo de hidratación (registro y porciones personalizadas).  
   - Widgets de dashboard y visualización de métricas (peso, IMC, calorías).  
-  - Validación de CRUD de comidas y escaneo de código de barras.  
   - Pruebas de interfaz del sistema de logros e insignias.
 
 - **Unit Tests (Gamificación)**  
@@ -669,7 +666,7 @@ Las pruebas de integración se ejecutaron con **Postman/Newman**, mientras que l
 - **Integration Tests (API – Mobile – Notificaciones – Gamificación)**  
   - Flujo completo: registro de hidratación → actualización del progreso → envío de notificación adaptativa.  
   - Flujo de gamificación: completar entrenamientos → asignación de insignia correspondiente.  
-  - Flujo dashboard: registrar comidas/entrenamientos → visualización inmediata en gráficas.  
+  - Flujo dashboard: registrar entrenamientos → visualización inmediata en gráficas.  
   - Verificación de consistencia y latencia entre backend, móviles y módulo de gamificación.
 
 ---
@@ -681,7 +678,6 @@ Las pruebas de integración se ejecutaron con **Postman/Newman**, mientras que l
 | FitSense-Backend-Services | `test/notifications` | `c4a71be` | test: add unit tests for notifications & hydration alerts | Pruebas unitarias para recordatorios de entrenamiento, hidratación y lógica de “no molestar”. | 2025-11-27 |
 | FitSense-Backend-Services | `test/progress-endpoints` | `f1d93e2` | test: progress endpoint integration tests | Validación de datos del dashboard (peso, IMC, calorías, balance y tendencias). | 2025-11-28 |
 | Fitsense-Mobile-App | `test/hydration-dashboard` | `a9c7e4d` | test: add Flutter tests for hydration & dashboard widgets | Pruebas de widgets: hidratación, progreso semanal, gráficos de peso y calorías. | 2025-11-29 |
-| Fitsense-Mobile-App | `test/meals-tracking` | `7c112af` | test: meal tracking & barcode scanner tests | Validación de registro, edición, eliminación de comidas y lectura de códigos de barras. | 2025-11-29 |
 | Fitsense-Gamification | `test/achievements` | `de52b01` | test: achievements logic & challenge flow | Pruebas de insignias automáticas, progreso en desafíos y ranking grupal. | 2025-11-30 |
 
 ---
